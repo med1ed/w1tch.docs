@@ -26,9 +26,10 @@ script.unregister_script("register_script")
 ```
 
 ## script.execute_as_script
-Can execute script in dx layer\
-**Do not abuse this function! Use only in extreme cases!**
-
+Can execute script in dx layer.
+!!!danger
+Don't use `script.execute_as_script` in a loop and don't abuse it!
+!!!
 `script.execute_as_script(function fn)`
 * `fn`: Function to be executed by this script.
 ```lua

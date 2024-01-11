@@ -4,7 +4,7 @@ order: -2
 
 # Events
 
-## EventType.PlayerJoin
++++ PlayerJoin
 Event triggered when a player joins the lobby.
 
 ```lua
@@ -19,10 +19,10 @@ events.register(
     log.info("Player Name: " .. player_name)
 end)
 ```
-![](https://i.imgur.com/OEsHJaH.png)
+-![](https://i.imgur.com/OEsHJaH.png)-
 
 
-## EventType.PlayerLeave
++++ PlayerLeave
 Event triggered when a player leaves the lobby.
 
 ```lua
@@ -36,13 +36,13 @@ events.register(EventType.PlayerLeave,  -- type
     log.info("Player Name: " .. player_name)
 end)
 ```
-![](https://i.imgur.com/MaoFvPh.png)
+-![](https://i.imgur.com/MaoFvPh.png)-
 
-## EventType.ChatMessageReceived
++++ ChatMessageReceived
 Event triggered when a chat message is received.
 
 ```lua
-events.register(EventType.ChatMessageReceived, -- type
+events.register(ChatMessageReceived, -- type
     "main_ChatMessageReceived_handler", -- hash
     function (player_id, player_name, message) -- func
 
@@ -53,12 +53,13 @@ events.register(EventType.ChatMessageReceived, -- type
     log.info("Message: " .. message)
 end)
 ```
-![](https://i.imgur.com/cOpcpRq.png)
-## EventType.ScriptedEventReceived
+-![](https://i.imgur.com/cOpcpRq.png)-
+
++++ ScriptedEventReceived
 Event triggered when a scripted event is received.
 
 ```lua
-events.register(EventType.ScriptedEventReceived, -- type
+events.register(ScriptedEventReceived, -- type
     "main_se_handler", -- hash
     function(player_id, player_name, event_id, event_args) -- func
 
@@ -87,4 +88,5 @@ events.register(EventType.ScriptedEventReceived, -- type
     end
 end)
 ```
-![](https://i.imgur.com/iicE6XK.png)
+-![](https://i.imgur.com/iicE6XK.png)-
++++

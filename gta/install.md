@@ -20,6 +20,7 @@ If you have forgotten your password, use the [Forgot your password?](https://w1t
 -![]()-
 -![]()-
 -![]()-
+-![]()-
 
 ### Download
 Download [WLauncher](https://w1tch.net/files/file/103-w1tch-launcher-re-edition/).

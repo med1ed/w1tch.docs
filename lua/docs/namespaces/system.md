@@ -18,4 +18,4 @@ Example:
 ```lua
 log.info("Your user group: " .. system.get_user_group())
 ```
-![](https://i.imgur.com/8dvLpHr.png)
+-![](https://i.imgur.com/8dvLpHr.png)

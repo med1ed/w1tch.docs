@@ -1,4 +1,4 @@
 ---
-order: -1
+order: -3
 label: Function list
 ---

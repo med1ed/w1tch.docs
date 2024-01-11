@@ -7,9 +7,9 @@ order: -6
 ## gui.add_dx_layer
 
 `gui.add_dx_layer(string hash, function fn)`\
-Initialize ImGui DirectX layer.\
-Within the DX layer you can call any functions (ImGui or Lua) that do not interact directly with the GTAV game engine (natives, globals, locals and pointers).
-
+-![](https://i.imgur.com/1vCn2pZ.png)
+Initialize ImGui DirectX layer.
+Within the DX layer you can call any functions (ImGui or Lua) that do not interact directly with the GTAV game engine (natives, globals, locals and pointers).\
 Example:
 ```lua
 gui.add_dx_layer("hash_ui_function", function()
@@ -20,7 +20,7 @@ gui.add_dx_layer("hash_ui_function", function()
     end
 end)
 ```
-![](https://i.imgur.com/1vCn2pZ.png)
+
 
 ## gui.remove_dx_layer
 
@@ -83,42 +83,44 @@ log.info(tostring(_IsActive))
 ```
 
 ## gui.get_scale
-Finds out what scale is set in the menu. Returns a `float` value.
-
+-![](https://i.imgur.com/IQa5IYn.png)
 `gui.get_scale()`
 
+Finds out what scale is set in the menu. Returns a `float` value.
 ```lua
 local _scale = gui.get_scale()
 log.info(tostring(_scale))
 ```
-![](https://i.imgur.com/IQa5IYn.png)
 
 ## gui.elements.text_separator
-Adds a text separator to your UI.
-
-`gui.elements.text_separator(sting text)`
+![](https://i.imgur.com/Z6ZiBr4.png)-
+`gui.elements.text_separator(sting text)`\
 * `text`: Text to be displayed.
+
+Adds a text separator to your UI.
 
 ```lua
 gui.elements.text_separator("Text Separator")
 ```
-![](https://i.imgur.com/Z6ZiBr4.png)
 
 ## gui.elements.button
+`gui.elements.button(string text, ImVec2 size_arg, float speed = 5.f)`\
+-![](https://i.imgur.com/vSZV348.png)
+    `text`: Text to be displayed.\
+    `size_arg`: Button size.\
+    `speed`: The speed at which the button will light up when you put the mouse cursor over it.
+
 Adds a button to your UI.
 
-`gui.elements.button(string text, ImVec2 size_arg, float speed = 5.f)`
-* `text`: Text to be displayed.
-* `size_arg`: Button size.
-* `speed`: The speed at which the button will light up when you put the mouse cursor over it.
 
 ```lua
 local _size = ImVec2.new(130, 40)
 gui.elements.button("Button Name", _size, 5)
 ```
-![](https://i.imgur.com/vSZV348.png)
 
 ## gui.elements.collapsing_header
+![](https://i.imgur.com/51mK1AK.png)-
+
 Adds a collapsible header to your UI.
 
 `gui.elements.collapsing_header(string text, float speed = 5.f)`
@@ -128,20 +130,20 @@ Adds a collapsible header to your UI.
 ```lua
 gui.elements.collapsing_header("Header Name", 5)
 ```
-![](https://i.imgur.com/51mK1AK.png)
 
 ## gui.elements.begin_combo
 
 `gui.elements.begin_combo(string text, string preview_value, ImGuiComboFlags flags = 0, float speed = 5.f)`
+![](https://i.imgur.com/85HAcGv.png)-
+
 * `text`: Text to be displayed.
 * `preview_value`: Displays the preview value
-* `flags`: Are responsible for configuring begin_combo. [ImGuiComboFlags](http://localhost:3000/docs/lua-info/docs/ImGui/flags/ImGuiComboFlags)
+* `flags`: Are responsible for configuring begin_combo. [ImGuiComboFlags](https://docbox.w1tch.net/lua/docs/imgui/flags/imguicomboflags/)
 * `speed`: The speed at which the begin combo will light up when you put the mouse cursor over it.
 
 ```lua
 gui.elements.begin_combo("Begin Combo", "Preview Value", 0, 5)
 ```
-![](https://i.imgur.com/85HAcGv.png)
 
 ## gui.themes.apply
 To apply your theme
