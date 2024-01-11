@@ -1,0 +1,21 @@
+input: .
+output: .retype
+url: https://w1tch.net/
+logo: image/favicon.png
+
+branding:
+  title: w1tch
+  label: Docs
+  logo: image/favicon.png
+links:
+- text: Main Site
+  link: https://w1tch.net/
+- text: Discord
+  link: https://w1tch.net/settings/?area=DiscordBot
+- text: Telegram
+  link: https://t.me/w1tch_announcements
+- text: VK Group
+  link: https://vk.com/projectw1tch
+
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."
