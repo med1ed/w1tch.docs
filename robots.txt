@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://med1ed.github.io/w1tchTestDocs/sitemap.xml.gz
