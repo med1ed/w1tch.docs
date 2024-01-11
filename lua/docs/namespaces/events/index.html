@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-root" content="/w1tchTestDocs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758307854177">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758317361629">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -15,30 +14,30 @@
     <meta name="description" content="Event triggered when a player joins the lobby.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/events/">
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/namespaces/events/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/events/">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/namespaces/events/">
     <meta property="og:title" content="Events">
     <meta property="og:description" content="Event triggered when a player joins the lobby.">
     <meta property="og:image" content="https://i.imgur.com/OEsHJaH.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/events/">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/namespaces/events/">
     <meta property="twitter:title" content="Events">
     <meta property="twitter:description" content="Event triggered when a player joins the lobby.">
     <meta property="twitter:image" content="https://i.imgur.com/OEsHJaH.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../../resources/css/retype.css?v=3.5.0.758307854177" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.758317361629" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758307854177" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758307854177" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758307854177" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758317361629" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -195,12 +194,9 @@
         <span>Events</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="eventtypeplayerjoin">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eventtypeplayerjoin">#</doc-anchor-trigger>
-        <span>EventType.PlayerJoin</span>
-    </h2>
-</doc-anchor-target>
+<doc-tabs>
+<doc-tab v-cloak id="playerjoin">
+<template #title>PlayerJoin</template>
 <p>Event triggered when a player joins the lobby.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">events.register(
@@ -215,16 +211,13 @@
 end)</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
-    <img src="https://i.imgur.com/OEsHJaH.png" alt="">
+    <img src="https://i.imgur.com/OEsHJaH.png" alt="" class="w-full">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<doc-anchor-target id="eventtypeplayerleave">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eventtypeplayerleave">#</doc-anchor-trigger>
-        <span>EventType.PlayerLeave</span>
-    </h2>
-</doc-anchor-target>
+</doc-tab>
+<doc-tab v-cloak id="playerleave">
+<template #title>PlayerLeave</template>
 <p>Event triggered when a player leaves the lobby.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">events.register(EventType.PlayerLeave,  -- type
@@ -238,19 +231,16 @@ end)</code></pre>
 end)</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
-    <img src="https://i.imgur.com/MaoFvPh.png" alt="">
+    <img src="https://i.imgur.com/MaoFvPh.png" alt="" class="w-full">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<doc-anchor-target id="eventtypechatmessagereceived">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eventtypechatmessagereceived">#</doc-anchor-trigger>
-        <span>EventType.ChatMessageReceived</span>
-    </h2>
-</doc-anchor-target>
+</doc-tab>
+<doc-tab v-cloak id="chatmessagereceived">
+<template #title>ChatMessageReceived</template>
 <p>Event triggered when a chat message is received.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-lua"><code v-pre class="language-lua">events.register(EventType.ChatMessageReceived, -- type
+<pre class="language-lua"><code v-pre class="language-lua">events.register(ChatMessageReceived, -- type
     &quot;main_ChatMessageReceived_handler&quot;, -- hash
     function (player_id, player_name, message) -- func
 
@@ -262,19 +252,16 @@ end)</code></pre>
 end)</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
-    <img src="https://i.imgur.com/cOpcpRq.png" alt="">
+    <img src="https://i.imgur.com/cOpcpRq.png" alt="" class="w-full">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<doc-anchor-target id="eventtypescriptedeventreceived">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eventtypescriptedeventreceived">#</doc-anchor-trigger>
-        <span>EventType.ScriptedEventReceived</span>
-    </h2>
-</doc-anchor-target>
+</doc-tab>
+<doc-tab v-cloak id="scriptedeventreceived">
+<template #title>ScriptedEventReceived</template>
 <p>Event triggered when a scripted event is received.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-lua"><code v-pre class="language-lua">events.register(EventType.ScriptedEventReceived, -- type
+<pre class="language-lua"><code v-pre class="language-lua">events.register(ScriptedEventReceived, -- type
     &quot;main_se_handler&quot;, -- hash
     function(player_id, player_name, event_id, event_args) -- func
 
@@ -304,10 +291,12 @@ end)</code></pre>
 end)</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
-    <img src="https://i.imgur.com/iicE6XK.png" alt="">
+    <img src="https://i.imgur.com/iicE6XK.png" alt="" class="w-full">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
+</doc-tab>
+</doc-tabs>
 
                                 
                                 <!-- Required only on API pages -->

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-root" content="/w1tchTestDocs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758307854177">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758317361629">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -15,30 +14,30 @@
     <meta name="description" content="Displays the information you need in the form of a notification in the game">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/notifications/">
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/namespaces/notifications/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/notifications/">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/namespaces/notifications/">
     <meta property="og:title" content="Notifications">
     <meta property="og:description" content="Displays the information you need in the form of a notification in the game">
     <meta property="og:image" content="https://i.imgur.com/h4sU1uy.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/notifications/">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/namespaces/notifications/">
     <meta property="twitter:title" content="Notifications">
     <meta property="twitter:description" content="Displays the information you need in the form of a notification in the game">
     <meta property="twitter:image" content="https://i.imgur.com/h4sU1uy.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../../resources/css/retype.css?v=3.5.0.758307854177" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.758317361629" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758307854177" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758307854177" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758307854177" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758317361629" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -196,36 +195,29 @@
     </h1>
 </doc-anchor-target>
 <p>Displays the information you need in the form of a notification in the game</p>
-<doc-anchor-target id="notificationsinfo">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#notificationsinfo">#</doc-anchor-trigger>
-        <span>notifications.info</span>
-    </h3>
-</doc-anchor-target>
+<doc-tabs>
+<doc-tab v-cloak id="notifications-info">
+<template #title>notifications.info</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">notifications.info(&quot;Title: info&quot;, &quot;Some Text&quot;)</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="notificationssuccess">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#notificationssuccess">#</doc-anchor-trigger>
-        <span>notifications.success</span>
-    </h2>
-</doc-anchor-target>
+</doc-tab>
+<doc-tab v-cloak id="notifications-success">
+<template #title>notifications.success</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">notifications.success(&quot;Title: success&quot;, &quot;Some Text&quot;)</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="notificationswarning">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#notificationswarning">#</doc-anchor-trigger>
-        <span>notifications.warning</span>
-    </h2>
-</doc-anchor-target>
+</doc-tab>
+<doc-tab v-cloak id="notifications-warning">
+<template #title>notifications.warning</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">notifications.warning(&quot;Title: warning&quot;, &quot;Some Text&quot;)</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
+</doc-tab>
+</doc-tabs>
+<p><figure class="content-left">
     <img src="https://i.imgur.com/h4sU1uy.png" alt="">
-    <figcaption class="caption"></figcaption>
+    <figcaption class="caption caption-float"></figcaption>
 </figure>
 </p>
 

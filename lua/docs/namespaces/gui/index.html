@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-root" content="/w1tchTestDocs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758307854177">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758317361629">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -15,30 +14,30 @@
     <meta name="description" content="gui.add_dx_layer(string hash, function fn) Initialize ImGui DirectX layer. Within the DX layer you can call any functions (ImGui or Lua) that do not...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/gui/">
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/namespaces/gui/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/gui/">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/namespaces/gui/">
     <meta property="og:title" content="GUI">
     <meta property="og:description" content="gui.add_dx_layer(string hash, function fn) Initialize ImGui DirectX layer. Within the DX layer you can call any functions (ImGui or Lua) that do not...">
     <meta property="og:image" content="https://i.imgur.com/1vCn2pZ.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://med1ed.github.io/w1tchTestDocs/lua/docs/namespaces/gui/">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/namespaces/gui/">
     <meta property="twitter:title" content="GUI">
     <meta property="twitter:description" content="gui.add_dx_layer(string hash, function fn) Initialize ImGui DirectX layer. Within the DX layer you can call any functions (ImGui or Lua) that do not...">
     <meta property="twitter:image" content="https://i.imgur.com/1vCn2pZ.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../../resources/css/retype.css?v=3.5.0.758307854177" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.758317361629" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758307854177" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758307854177" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758307854177" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758317361629" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -202,9 +201,13 @@
     </h2>
 </doc-anchor-target>
 <p><code v-pre>gui.add_dx_layer(string hash, function fn)</code><br />
-Initialize ImGui DirectX layer.<br />
-Within the DX layer you can call any functions (ImGui or Lua) that do not interact directly with the GTAV game engine (natives, globals, locals and pointers).</p>
-<p>Example:</p>
+<figure class="content-left">
+    <img src="https://i.imgur.com/1vCn2pZ.png" alt="">
+    <figcaption class="caption caption-float"></figcaption>
+</figure>
+Initialize ImGui DirectX layer.
+Within the DX layer you can call any functions (ImGui or Lua) that do not interact directly with the GTAV game engine (natives, globals, locals and pointers).<br />
+Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.add_dx_layer(&quot;hash_ui_function&quot;, function()
     -- your UI code
@@ -214,11 +217,6 @@ Within the DX layer you can call any functions (ImGui or Lua) that do not intera
     end
 end)</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="https://i.imgur.com/1vCn2pZ.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 <doc-anchor-target id="guiremove_dx_layer">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#guiremove_dx_layer">#</doc-anchor-trigger>
@@ -296,64 +294,64 @@ log.info(tostring(_IsActive))</code></pre>
         <span>gui.get_scale</span>
     </h2>
 </doc-anchor-target>
+<p><figure class="content-left">
+    <img src="https://i.imgur.com/IQa5IYn.png" alt="">
+    <figcaption class="caption caption-float"></figcaption>
+</figure>
+<code v-pre>gui.get_scale()</code></p>
 <p>Finds out what scale is set in the menu. Returns a <code v-pre>float</code> value.</p>
-<p><code v-pre>gui.get_scale()</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">local _scale = gui.get_scale()
 log.info(tostring(_scale))</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="https://i.imgur.com/IQa5IYn.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 <doc-anchor-target id="guielementstext_separator">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#guielementstext_separator">#</doc-anchor-trigger>
         <span>gui.elements.text_separator</span>
     </h2>
 </doc-anchor-target>
-<p>Adds a text separator to your UI.</p>
-<p><code v-pre>gui.elements.text_separator(sting text)</code></p>
+<p><figure class="content-right">
+    <img src="https://i.imgur.com/Z6ZiBr4.png" alt="">
+    <figcaption class="caption caption-float"></figcaption>
+</figure>
+<code v-pre>gui.elements.text_separator(sting text)</code>\</p>
 <ul>
 <li><code v-pre>text</code>: Text to be displayed.</li>
 </ul>
+<p>Adds a text separator to your UI.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.text_separator(&quot;Text Separator&quot;)</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="https://i.imgur.com/Z6ZiBr4.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 <doc-anchor-target id="guielementsbutton">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#guielementsbutton">#</doc-anchor-trigger>
         <span>gui.elements.button</span>
     </h2>
 </doc-anchor-target>
+<p><code v-pre>gui.elements.button(string text, ImVec2 size_arg, float speed = 5.f)</code><br />
+<figure class="content-left">
+    <img src="https://i.imgur.com/vSZV348.png" alt="">
+    <figcaption class="caption caption-float"></figcaption>
+</figure>
+<code v-pre>text</code>: Text to be displayed.<br />
+<code v-pre>size_arg</code>: Button size.<br />
+<code v-pre>speed</code>: The speed at which the button will light up when you put the mouse cursor over it.</p>
 <p>Adds a button to your UI.</p>
-<p><code v-pre>gui.elements.button(string text, ImVec2 size_arg, float speed = 5.f)</code></p>
-<ul>
-<li><code v-pre>text</code>: Text to be displayed.</li>
-<li><code v-pre>size_arg</code>: Button size.</li>
-<li><code v-pre>speed</code>: The speed at which the button will light up when you put the mouse cursor over it.</li>
-</ul>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">local _size = ImVec2.new(130, 40)
 gui.elements.button(&quot;Button Name&quot;, _size, 5)</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="https://i.imgur.com/vSZV348.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 <doc-anchor-target id="guielementscollapsing_header">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#guielementscollapsing_header">#</doc-anchor-trigger>
         <span>gui.elements.collapsing_header</span>
     </h2>
 </doc-anchor-target>
+<p><figure class="content-right">
+    <img src="https://i.imgur.com/51mK1AK.png" alt="">
+    <figcaption class="caption caption-float"></figcaption>
+</figure>
+</p>
 <p>Adds a collapsible header to your UI.</p>
 <p><code v-pre>gui.elements.collapsing_header(string text, float speed = 5.f)</code></p>
 <ul>
@@ -363,32 +361,27 @@ gui.elements.button(&quot;Button Name&quot;, _size, 5)</code></pre>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.collapsing_header(&quot;Header Name&quot;, 5)</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="https://i.imgur.com/51mK1AK.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 <doc-anchor-target id="guielementsbegin_combo">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#guielementsbegin_combo">#</doc-anchor-trigger>
         <span>gui.elements.begin_combo</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.elements.begin_combo(string text, string preview_value, ImGuiComboFlags flags = 0, float speed = 5.f)</code></p>
+<p><code v-pre>gui.elements.begin_combo(string text, string preview_value, ImGuiComboFlags flags = 0, float speed = 5.f)</code>
+<figure class="content-right">
+    <img src="https://i.imgur.com/85HAcGv.png" alt="">
+    <figcaption class="caption caption-float"></figcaption>
+</figure>
+</p>
 <ul>
 <li><code v-pre>text</code>: Text to be displayed.</li>
 <li><code v-pre>preview_value</code>: Displays the preview value</li>
-<li><code v-pre>flags</code>: Are responsible for configuring begin_combo. <a href="http://localhost:3000/docs/lua-info/docs/ImGui/flags/ImGuiComboFlags">ImGuiComboFlags</a></li>
+<li><code v-pre>flags</code>: Are responsible for configuring begin_combo. <a href="https://docbox.w1tch.net/lua/docs/imgui/flags/imguicomboflags/">ImGuiComboFlags</a></li>
 <li><code v-pre>speed</code>: The speed at which the begin combo will light up when you put the mouse cursor over it.</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.begin_combo(&quot;Begin Combo&quot;, &quot;Preview Value&quot;, 0, 5)</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="https://i.imgur.com/85HAcGv.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 <doc-anchor-target id="guithemesapply">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#guithemesapply">#</doc-anchor-trigger>
