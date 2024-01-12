@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758390395495">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758401308419">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>ImGui.BeginChild</title>
-    <meta name="title" content="ImGui.BeginChild">
-    <meta name="description" content="ImGui.BeginChild(name, sizeX, sizeY, border, flags)">
+    <title>Main</title>
+    <meta name="title" content="Main">
+    <meta name="description" content="ImGui.Text(string text)">
 
     <!-- Canonical -->
-    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/imgui/window/begin_child/">
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/imgui/widgets/main/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/imgui/window/begin_child/">
-    <meta property="og:title" content="ImGui.BeginChild">
-    <meta property="og:description" content="ImGui.BeginChild(name, sizeX, sizeY, border, flags)">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/imgui/widgets/main/">
+    <meta property="og:title" content="Main">
+    <meta property="og:description" content="ImGui.Text(string text)">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/imgui/window/begin_child/">
-    <meta property="twitter:title" content="ImGui.BeginChild">
-    <meta property="twitter:description" content="ImGui.BeginChild(name, sizeX, sizeY, border, flags)">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/imgui/widgets/main/">
+    <meta property="twitter:title" content="Main">
+    <meta property="twitter:description" content="ImGui.Text(string text)">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=3.5.0.758390395495" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=3.5.0.758401308419" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.758390395495" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.758401308419" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.758390395495" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.758390395495" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.758401308419" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.758401308419" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -186,29 +186,121 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="imguibeginchild" class="break-words">
+<doc-anchor-target id="main" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#imguibeginchild">#</doc-anchor-trigger>
-        <span>ImGui.BeginChild</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#main">#</doc-anchor-trigger>
+        <span>Main</span>
     </h1>
 </doc-anchor-target>
-<p><code v-pre>ImGui.BeginChild(name, sizeX, sizeY, border, flags)</code></p>
+<doc-anchor-target id="text">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#text">#</doc-anchor-trigger>
+        <span>Text</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><p><code v-pre>ImGui.Text(string text)</code></p>
+</li>
+<li><p><code v-pre>ImGui.TextUnformatted(string text)</code></p>
+</li>
+<li><p><code v-pre>ImGui.TextColored(float colR, float colG, float colB, float colA, string text)</code></p>
+</li>
+<li><p><code v-pre>ImGui.TextDisabled(string text)</code></p>
+</li>
+<li><p><code v-pre>ImGui.TextWrapped(string text)</code></p>
+</li>
+<li><p><code v-pre>ImGui.LabelText(string label, string text)</code></p>
+</li>
+<li><p><code v-pre>ImGui.BulletText(string text)</code></p>
+</li>
+<li><p><code v-pre>ImGui.SeparatorText(string text)</code></p>
+</li>
+</ul>
+<doc-anchor-target id="button">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#button">#</doc-anchor-trigger>
+        <span>Button</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.Button(string label, float sizeX, float sizeY)</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.Button(&quot;Button 1&quot;)
+-- or 
+ImGui.Button(&quot;Button 2&quot;, 130, 30)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><p><code v-pre>ImGui.SmallButton(string label)</code></p>
+</li>
+<li><p><code v-pre>ImGui.InvisibleButton(string stringID, float sizeX, float sizeY)</code></p>
+</li>
+<li><p><code v-pre>ImGui.ArrowButton(string stringID, ImGuiDir flags)</code> <br />
+<code v-pre>flags</code>: <a href="../../flags/imguidir/">ImGuiDir</a></p>
+</li>
+<li><p><code v-pre>ImGui.RadioButton(string label, bool is_active)</code></p>
+</li>
+<li><p><code v-pre>ImGui.RadioButton(string label, int v, int vButton)</code></p>
+</li>
+</ul>
+<doc-anchor-target id="checkbox">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#checkbox">#</doc-anchor-trigger>
+        <span>Checkbox</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.Checkbox(string label, bool state)</code></li>
+</ul>
+<doc-anchor-target id="progressbar">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#progressbar">#</doc-anchor-trigger>
+        <span>ProgressBar</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.ProgressBar(float fraction, float sizeX, float sizeY, string overlay)</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.ProgressBar(0.1)
+-- or
+ImGui.ProgressBar(0.1, 200, 30)
+-- or
+ImGui.ProgressBar(0.1, 200, 30, &quot;installed...&quot;)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="bullet">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bullet">#</doc-anchor-trigger>
+        <span>Bullet</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.Bullet()</code></li>
+</ul>
+<doc-anchor-target id="combo-box">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#combo-box">#</doc-anchor-trigger>
+        <span>Combo Box</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.BeginCombo(string label, string previewValue, int flags)</code>
+<code v-pre>flags</code>: <a href="../../flags/imguicomboflags/">ImGuiComboFlags</a></li>
+</ul>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-lua" data-line="7-12"><code v-pre class="language-lua">local _flags = ImGuiWindowFlags.Tooltip;
-gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
-    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
-    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+<pre class="language-lua"><code v-pre class="language-lua">local _list = { &quot;AAAA&quot;, &quot;BBBB&quot;, &quot;CCCC&quot;, &quot;DDDD&quot;, &quot;EEEE&quot;, &quot;FFFF&quot;}
+local _currentSelectedID = 1
 
-    if (ImGui.Begin(&quot;ImGui Window&quot;)) then
-        -- Start drawing your child window
-        if (ImGui.BeginChild(&quot;ImGui Child Window&quot;, 100, 200, true, _flags)) then
-            -- Your code
-            -- Ending the ImGui Child Window rendering process
-            ImGui.EndChild() 
+if (ImGui.BeginCombo(&quot;Label&quot;, _list[_currentSelectedID], ImGuiComboFlags.PopupAlignLeft)) then
+    for k, v in pairs(_list) do
+        local _isSelected = (_currentSelectedID == k) 
+        if ImGui.Selectable(_list[k], _isSelected) then
+            log.info(tostring(_list[k]))
+            _currentSelectedID = k
         end
-        ImGui.End() 
     end
-end)</code></pre>
+    ImGui.EndCombo()
+end</code></pre>
 </doc-codeblock></div>
 
                                 
@@ -219,20 +311,20 @@ end)</code></pre>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../../lua/docs/imgui/window/begin/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../../lua/docs/imgui/widgets/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Im​Gui.​Begin</span>
+                                                <span class="block mt-1">Widgets</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../../lua/docs/imgui/window/windows_utilities/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../../lua/docs/imgui/flags/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Windows utilities</span>
+                                                <span class="block mt-1">Flags</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -276,6 +368,6 @@ end)</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "ImGui.BeginChild", level: 5, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Main", level: 5, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
