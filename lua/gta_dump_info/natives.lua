@@ -14,25 +14,25 @@ end
 -- int START_NEW_SCRIPT(const char* scriptName, int stackSize) // 0xE81651AD79516E48
 --[[
 Examples:
-g_384A = SYSTEM::START_NEW_SCRIPT("cellphone_flashhand", 1424);
-l_10D = SYSTEM::START_NEW_SCRIPT("taxiService", 1828);
-SYSTEM::START_NEW_SCRIPT("AM_MP_YACHT", 5000);
-SYSTEM::START_NEW_SCRIPT("emergencycall", 512);
-SYSTEM::START_NEW_SCRIPT("emergencycall", 512); 
-SYSTEM::START_NEW_SCRIPT("FM_maintain_cloud_header_data", 1424);
-SYSTEM::START_NEW_SCRIPT("FM_Mission_Controller", 31000);
-SYSTEM::START_NEW_SCRIPT("tennis_family", 3650);
-SYSTEM::START_NEW_SCRIPT("Celebrations", 3650);
+ g_384A = SYSTEM::START_NEW_SCRIPT("cellphone_flashhand", 1424);
+ l_10D = SYSTEM::START_NEW_SCRIPT("taxiService", 1828);
+ SYSTEM::START_NEW_SCRIPT("AM_MP_YACHT", 5000);
+ SYSTEM::START_NEW_SCRIPT("emergencycall", 512);
+ SYSTEM::START_NEW_SCRIPT("emergencycall", 512); 
+ SYSTEM::START_NEW_SCRIPT("FM_maintain_cloud_header_data", 1424);
+ SYSTEM::START_NEW_SCRIPT("FM_Mission_Controller", 31000);
+ SYSTEM::START_NEW_SCRIPT("tennis_family", 3650);
+ SYSTEM::START_NEW_SCRIPT("Celebrations", 3650);
 
 Decompiled examples of usage when starting a script:
-
+ 
     SCRIPT::REQUEST_SCRIPT(a_0);
     if (SCRIPT::HAS_SCRIPT_LOADED(a_0)) {
         SYSTEM::START_NEW_SCRIPT(a_0, v_3);
         SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED(a_0);
         return 1;
     }
-
+ 
 or:
 
     v_2 = "MrsPhilips2";
@@ -48,7 +48,7 @@ or:
 function SYSTEM.START_NEW_SCRIPT(scriptName, stackSize)
   return native.invoke(
     Type.Int, 1, false,
-    ref(Type.String, scriptName),
+    arg(Type.String, scriptName),
     arg(Type.Int, stackSize)
   )
 end
@@ -61,8 +61,8 @@ Pass pointer to struct of args in p1, size of struct goes into p2
 function SYSTEM.START_NEW_SCRIPT_WITH_ARGS(scriptName, args, argCount, stackSize)
   return native.invoke(
     Type.Int, 2, false,
-    ref(Type.String, scriptName),
-    ref(Type.Any, args),
+    arg(Type.String, scriptName),
+    arg(Type.Any, args),
     arg(Type.Int, argCount),
     arg(Type.Int, stackSize)
   )
@@ -82,7 +82,7 @@ function SYSTEM.START_NEW_SCRIPT_WITH_NAME_HASH_AND_ARGS(scriptHash, args, argCo
   return native.invoke(
     Type.Int, 4, false,
     arg(Type.Hash, scriptHash),
-    ref(Type.Any, args),
+    arg(Type.Any, args),
     arg(Type.Int, argCount),
     arg(Type.Int, stackSize)
   )
@@ -311,7 +311,7 @@ end
 function APP.APP_GET_INT(property)
   return native.invoke(
     Type.Int, 27, false,
-    ref(Type.String, property)
+    arg(Type.String, property)
   )
 end
 
@@ -319,15 +319,15 @@ end
 function APP.APP_GET_FLOAT(property)
   return native.invoke(
     Type.Float, 28, false,
-    ref(Type.String, property)
+    arg(Type.String, property)
   )
 end
 
 -- const char* APP_GET_STRING(const char* property) // 0x749B023950D2311C
 function APP.APP_GET_STRING(property)
   return native.invoke(
-    Type.String, 29, false,
-    ref(Type.String, property)
+    Type.Const char, 29, false,
+    arg(Type.String, property)
   )
 end
 
@@ -335,7 +335,7 @@ end
 function APP.APP_SET_INT(property, value)
   native.invoke(
     Type.Void, 30, false,
-    ref(Type.String, property),
+    arg(Type.String, property),
     arg(Type.Int, value)
   )
 end
@@ -344,7 +344,7 @@ end
 function APP.APP_SET_FLOAT(property, value)
   native.invoke(
     Type.Void, 31, false,
-    ref(Type.String, property),
+    arg(Type.String, property),
     arg(Type.Float, value)
   )
 end
@@ -353,8 +353,8 @@ end
 function APP.APP_SET_STRING(property, value)
   native.invoke(
     Type.Void, 32, false,
-    ref(Type.String, property),
-    ref(Type.String, value)
+    arg(Type.String, property),
+    arg(Type.String, value)
   )
 end
 
@@ -367,7 +367,7 @@ APP::APP_SET_APP("dog");
 function APP.APP_SET_APP(appName)
   native.invoke(
     Type.Void, 33, false,
-    ref(Type.String, appName)
+    arg(Type.String, appName)
   )
 end
 
@@ -375,7 +375,7 @@ end
 function APP.APP_SET_BLOCK(blockName)
   native.invoke(
     Type.Void, 34, false,
-    ref(Type.String, blockName)
+    arg(Type.String, blockName)
   )
 end
 
@@ -411,7 +411,7 @@ end
 function APP.APP_HAS_SYNCED_DATA(appName)
   return native.invoke(
     Type.Bool, 39, false,
-    ref(Type.String, appName)
+    arg(Type.String, appName)
   )
 end
 
@@ -433,7 +433,7 @@ end
 function APP.APP_DELETE_APP_DATA(appName)
   return native.invoke(
     Type.Bool, 42, false,
-    ref(Type.String, appName)
+    arg(Type.String, appName)
   )
 end
 
@@ -451,7 +451,7 @@ AUDIO::PLAY_PED_RINGTONE("Dial_and_Remote_Ring", PLAYER::PLAYER_PED_ID(), 1);
 function AUDIO.PLAY_PED_RINGTONE(ringtoneName, ped, p2)
   native.invoke(
     Type.Void, 43, false,
-    ref(Type.String, ringtoneName),
+    arg(Type.String, ringtoneName),
     arg(Type.Ped, ped),
     arg(Type.Bool, p2)
   )
@@ -524,8 +524,8 @@ function AUDIO.ADD_LINE_TO_CONVERSATION(index, p1, p2, p3, p4, p5, p6, p7, p8, p
   native.invoke(
     Type.Void, 50, false,
     arg(Type.Int, index),
-    ref(Type.String, p1),
-    ref(Type.String, p2),
+    arg(Type.String, p1),
+    arg(Type.String, p2),
     arg(Type.Int, p3),
     arg(Type.Int, p4),
     arg(Type.Bool, p5),
@@ -553,7 +553,7 @@ function AUDIO.ADD_PED_TO_CONVERSATION(index, ped, p2)
     Type.Void, 51, false,
     arg(Type.Int, index),
     arg(Type.Ped, ped),
-    ref(Type.String, p2)
+    arg(Type.String, p2)
   )
 end
 
@@ -731,8 +731,8 @@ function AUDIO.INTERRUPT_CONVERSATION(ped, voiceline, speaker)
   native.invoke(
     Type.Void, 70, false,
     arg(Type.Ped, ped),
-    ref(Type.String, voiceline),
-    ref(Type.String, speaker)
+    arg(Type.String, voiceline),
+    arg(Type.String, speaker)
   )
 end
 
@@ -746,8 +746,8 @@ function AUDIO.INTERRUPT_CONVERSATION_AND_PAUSE(ped, p1, speaker)
   native.invoke(
     Type.Void, 71, false,
     arg(Type.Ped, ped),
-    ref(Type.String, p1),
-    ref(Type.String, speaker)
+    arg(Type.String, p1),
+    arg(Type.String, speaker)
   )
 end
 
@@ -755,7 +755,7 @@ end
 function AUDIO.GET_VARIATION_CHOSEN_FOR_SCRIPTED_LINE(p0)
   return native.invoke(
     Type.Int, 72, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -797,7 +797,7 @@ p2 is always -1
 function AUDIO.REQUEST_MISSION_AUDIO_BANK(audioBank, p1, p2)
   return native.invoke(
     Type.Bool, 76, false,
-    ref(Type.String, audioBank),
+    arg(Type.String, audioBank),
     arg(Type.Bool, p1),
     arg(Type.Any, p2)
   )
@@ -812,7 +812,7 @@ p2 is always -1
 function AUDIO.REQUEST_AMBIENT_AUDIO_BANK(audioBank, p1, p2)
   return native.invoke(
     Type.Bool, 77, false,
-    ref(Type.String, audioBank),
+    arg(Type.String, audioBank),
     arg(Type.Bool, p1),
     arg(Type.Any, p2)
   )
@@ -827,7 +827,7 @@ p2 is always -1
 function AUDIO.REQUEST_SCRIPT_AUDIO_BANK(audioBank, p1, p2)
   return native.invoke(
     Type.Bool, 78, false,
-    ref(Type.String, audioBank),
+    arg(Type.String, audioBank),
     arg(Type.Bool, p1),
     arg(Type.Any, p2)
   )
@@ -840,7 +840,7 @@ p2 is always -1
 function AUDIO.HINT_MISSION_AUDIO_BANK(audioBank, p1, p2)
   return native.invoke(
     Type.Bool, 79, false,
-    ref(Type.String, audioBank),
+    arg(Type.String, audioBank),
     arg(Type.Bool, p1),
     arg(Type.Any, p2)
   )
@@ -853,7 +853,7 @@ p2 is always -1
 function AUDIO.HINT_AMBIENT_AUDIO_BANK(audioBank, p1, p2)
   return native.invoke(
     Type.Bool, 80, false,
-    ref(Type.String, audioBank),
+    arg(Type.String, audioBank),
     arg(Type.Bool, p1),
     arg(Type.Any, p2)
   )
@@ -866,7 +866,7 @@ p2 is always -1
 function AUDIO.HINT_SCRIPT_AUDIO_BANK(audioBank, p1, p2)
   return native.invoke(
     Type.Bool, 81, false,
-    ref(Type.String, audioBank),
+    arg(Type.String, audioBank),
     arg(Type.Bool, p1),
     arg(Type.Any, p2)
   )
@@ -893,7 +893,7 @@ Full list of script audio bank names by DurtyFree https://github.com/DurtyFree/g
 function AUDIO.RELEASE_NAMED_SCRIPT_AUDIO_BANK(audioBank)
   native.invoke(
     Type.Void, 84, false,
-    ref(Type.String, audioBank)
+    arg(Type.String, audioBank)
   )
 end
 
@@ -922,7 +922,7 @@ end
 function AUDIO.UNHINT_NAMED_SCRIPT_AUDIO_BANK(audioBank)
   native.invoke(
     Type.Void, 88, false,
-    ref(Type.String, audioBank)
+    arg(Type.String, audioBank)
   )
 end
 
@@ -951,8 +951,8 @@ function AUDIO.PLAY_SOUND(soundId, audioName, audioRef, p3, p4, p5)
   native.invoke(
     Type.Void, 91, false,
     arg(Type.Int, soundId),
-    ref(Type.String, audioName),
-    ref(Type.String, audioRef),
+    arg(Type.String, audioName),
+    arg(Type.String, audioRef),
     arg(Type.Bool, p3),
     arg(Type.Any, p4),
     arg(Type.Bool, p5)
@@ -971,8 +971,8 @@ function AUDIO.PLAY_SOUND_FRONTEND(soundId, audioName, audioRef, p3)
   native.invoke(
     Type.Void, 92, false,
     arg(Type.Int, soundId),
-    ref(Type.String, audioName),
-    ref(Type.String, audioRef),
+    arg(Type.String, audioName),
+    arg(Type.String, audioRef),
     arg(Type.Bool, p3)
   )
 end
@@ -988,8 +988,8 @@ Full list of audio / sound names by DurtyFree: https://github.com/DurtyFree/gta-
 function AUDIO.PLAY_DEFERRED_SOUND_FRONTEND(soundName, soundsetName)
   native.invoke(
     Type.Void, 93, false,
-    ref(Type.String, soundName),
-    ref(Type.String, soundsetName)
+    arg(Type.String, soundName),
+    arg(Type.String, soundsetName)
   )
 end
 
@@ -1006,9 +1006,9 @@ function AUDIO.PLAY_SOUND_FROM_ENTITY(soundId, audioName, entity, audioRef, isNe
   native.invoke(
     Type.Void, 94, false,
     arg(Type.Int, soundId),
-    ref(Type.String, audioName),
+    arg(Type.String, audioName),
     arg(Type.Entity, entity),
-    ref(Type.String, audioRef),
+    arg(Type.String, audioRef),
     arg(Type.Bool, isNetwork),
     arg(Type.Any, p5)
   )
@@ -1043,11 +1043,11 @@ function AUDIO.PLAY_SOUND_FROM_COORD(soundId, audioName, x, y, z, audioRef, isNe
   native.invoke(
     Type.Void, 96, false,
     arg(Type.Int, soundId),
-    ref(Type.String, audioName),
+    arg(Type.String, audioName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.String, audioRef),
+    arg(Type.String, audioRef),
     arg(Type.Bool, isNetwork),
     arg(Type.Int, range),
     arg(Type.Bool, p8)
@@ -1098,7 +1098,7 @@ function AUDIO.SET_VARIABLE_ON_SOUND(soundId, variable, p2)
   native.invoke(
     Type.Void, 101, false,
     arg(Type.Int, soundId),
-    ref(Type.String, variable),
+    arg(Type.String, variable),
     arg(Type.Float, p2)
   )
 end
@@ -1115,7 +1115,7 @@ From the scripts, p0:
 function AUDIO.SET_VARIABLE_ON_STREAM(variable, p1)
   native.invoke(
     Type.Void, 102, false,
-    ref(Type.String, variable),
+    arg(Type.String, variable),
     arg(Type.Float, p1)
   )
 end
@@ -1124,7 +1124,7 @@ end
 function AUDIO.OVERRIDE_UNDERWATER_STREAM(p0, p1)
   native.invoke(
     Type.Void, 103, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Bool, p1)
   )
 end
@@ -1137,7 +1137,7 @@ AUDIO::SET_VARIABLE_ON_UNDER_WATER_STREAM("inTunnel", 0.0);
 function AUDIO.SET_VARIABLE_ON_UNDER_WATER_STREAM(variableName, value)
   native.invoke(
     Type.Void, 104, false,
-    ref(Type.String, variableName),
+    arg(Type.String, variableName),
     arg(Type.Float, value)
   )
 end
@@ -1203,8 +1203,8 @@ function AUDIO.PLAY_PED_AMBIENT_SPEECH_NATIVE(ped, speechName, speechParam, p3)
   native.invoke(
     Type.Void, 106, false,
     arg(Type.Ped, ped),
-    ref(Type.String, speechName),
-    ref(Type.String, speechParam),
+    arg(Type.String, speechName),
+    arg(Type.String, speechParam),
     arg(Type.Any, p3)
   )
 end
@@ -1221,8 +1221,8 @@ function AUDIO.PLAY_PED_AMBIENT_SPEECH_AND_CLONE_NATIVE(ped, speechName, speechP
   native.invoke(
     Type.Void, 107, false,
     arg(Type.Ped, ped),
-    ref(Type.String, speechName),
-    ref(Type.String, speechParam),
+    arg(Type.String, speechName),
+    arg(Type.String, speechParam),
     arg(Type.Any, p3)
   )
 end
@@ -1242,9 +1242,9 @@ function AUDIO.PLAY_PED_AMBIENT_SPEECH_WITH_VOICE_NATIVE(ped, speechName, voiceN
   native.invoke(
     Type.Void, 108, false,
     arg(Type.Ped, ped),
-    ref(Type.String, speechName),
-    ref(Type.String, voiceName),
-    ref(Type.String, speechParam),
+    arg(Type.String, speechName),
+    arg(Type.String, voiceName),
+    arg(Type.String, speechParam),
     arg(Type.Bool, p4)
   )
 end
@@ -1256,12 +1256,12 @@ Full list of speeches and voices names by DurtyFree: https://github.com/DurtyFre
 function AUDIO.PLAY_AMBIENT_SPEECH_FROM_POSITION_NATIVE(speechName, voiceName, x, y, z, speechParam)
   native.invoke(
     Type.Void, 109, false,
-    ref(Type.String, speechName),
-    ref(Type.String, voiceName),
+    arg(Type.String, speechName),
+    arg(Type.String, voiceName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.String, speechParam)
+    arg(Type.String, speechParam)
   )
 end
 
@@ -1272,7 +1272,7 @@ This native enables the audio flag "TrevorRageIsOverridden" and sets the voice e
 function AUDIO.OVERRIDE_TREVOR_RAGE(voiceEffect)
   native.invoke(
     Type.Void, 110, false,
-    ref(Type.String, voiceEffect)
+    arg(Type.String, voiceEffect)
   )
 end
 
@@ -1344,7 +1344,7 @@ BARRY_01_SLOWMO
 function AUDIO.ACTIVATE_AUDIO_SLOWMO_MODE(mode)
   native.invoke(
     Type.Void, 115, false,
-    ref(Type.String, mode)
+    arg(Type.String, mode)
   )
 end
 
@@ -1355,7 +1355,7 @@ see ACTIVATE_AUDIO_SLOWMO_MODE for modes
 function AUDIO.DEACTIVATE_AUDIO_SLOWMO_MODE(mode)
   native.invoke(
     Type.Void, 116, false,
-    ref(Type.String, mode)
+    arg(Type.String, mode)
   )
 end
 
@@ -1370,7 +1370,7 @@ function AUDIO.SET_AMBIENT_VOICE_NAME(ped, name)
   native.invoke(
     Type.Void, 117, false,
     arg(Type.Ped, ped),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -1508,7 +1508,7 @@ function AUDIO.DOES_CONTEXT_EXIST_FOR_THIS_PED(ped, speechName, p2)
   return native.invoke(
     Type.Bool, 131, false,
     arg(Type.Ped, ped),
-    ref(Type.String, speechName),
+    arg(Type.String, speechName),
     arg(Type.Bool, p2)
   )
 end
@@ -1563,7 +1563,7 @@ function AUDIO.PLAY_ANIMAL_VOCALIZATION(pedHandle, p1, speechName)
     Type.Void, 134, false,
     arg(Type.Ped, pedHandle),
     arg(Type.Int, p1),
-    ref(Type.String, speechName)
+    arg(Type.String, speechName)
   )
 end
 
@@ -1618,7 +1618,7 @@ Returns active radio station name
 --]]
 function AUDIO.GET_PLAYER_RADIO_STATION_NAME()
   return native.invoke(
-    Type.String, 140, false
+    Type.Const char, 140, false
   )
 end
 
@@ -1628,7 +1628,7 @@ Converts radio station index to string. Use HUD::GET_FILENAME_FOR_AUDIO_CONVERSA
 --]]
 function AUDIO.GET_RADIO_STATION_NAME(radioStation)
   return native.invoke(
-    Type.String, 141, false,
+    Type.Const char, 141, false,
     arg(Type.Int, radioStation)
   )
 end
@@ -1682,7 +1682,7 @@ An older list including hidden radio stations: https://pastebin.com/Kj9t38KF
 function AUDIO.SET_RADIO_TO_STATION_NAME(stationName)
   native.invoke(
     Type.Void, 147, false,
-    ref(Type.String, stationName)
+    arg(Type.String, stationName)
   )
 end
 
@@ -1695,7 +1695,7 @@ function AUDIO.SET_VEH_RADIO_STATION(vehicle, radioStation)
   native.invoke(
     Type.Void, 148, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, radioStation)
+    arg(Type.String, radioStation)
   )
 end
 
@@ -1730,8 +1730,8 @@ Full list of static emitters by DurtyFree: https://github.com/DurtyFree/gta-v-da
 function AUDIO.SET_EMITTER_RADIO_STATION(emitterName, radioStation, p2)
   native.invoke(
     Type.Void, 152, false,
-    ref(Type.String, emitterName),
-    ref(Type.String, radioStation),
+    arg(Type.String, emitterName),
+    arg(Type.String, radioStation),
     arg(Type.Any, p2)
   )
 end
@@ -1748,7 +1748,7 @@ Full list of static emitters by DurtyFree: https://github.com/DurtyFree/gta-v-da
 function AUDIO.SET_STATIC_EMITTER_ENABLED(emitterName, toggle)
   native.invoke(
     Type.Void, 153, false,
-    ref(Type.String, emitterName),
+    arg(Type.String, emitterName),
     arg(Type.Bool, toggle)
   )
 end
@@ -1760,7 +1760,7 @@ Full list of static emitters by DurtyFree: https://github.com/DurtyFree/gta-v-da
 function AUDIO.LINK_STATIC_EMITTER_TO_ENTITY(emitterName, entity)
   native.invoke(
     Type.Void, 154, false,
-    ref(Type.String, emitterName),
+    arg(Type.String, emitterName),
     arg(Type.Entity, entity)
   )
 end
@@ -1829,7 +1829,7 @@ end
 function AUDIO.FREEZE_RADIO_STATION(radioStation)
   native.invoke(
     Type.Void, 162, false,
-    ref(Type.String, radioStation)
+    arg(Type.String, radioStation)
   )
 end
 
@@ -1837,7 +1837,7 @@ end
 function AUDIO.UNFREEZE_RADIO_STATION(radioStation)
   native.invoke(
     Type.Void, 163, false,
-    ref(Type.String, radioStation)
+    arg(Type.String, radioStation)
   )
 end
 
@@ -1853,7 +1853,7 @@ end
 function AUDIO.SET_INITIAL_PLAYER_STATION(radioStation)
   native.invoke(
     Type.Void, 165, false,
-    ref(Type.String, radioStation)
+    arg(Type.String, radioStation)
   )
 end
 
@@ -1875,8 +1875,8 @@ AUDIO::SET_RADIO_TRACK("RADIO_03_HIPHOP_NEW", "ARM1_RADIO_STARTS");
 function AUDIO.SET_RADIO_TRACK(radioStation, radioTrack)
   native.invoke(
     Type.Void, 167, false,
-    ref(Type.String, radioStation),
-    ref(Type.String, radioTrack)
+    arg(Type.String, radioStation),
+    arg(Type.String, radioTrack)
   )
 end
 
@@ -1884,8 +1884,8 @@ end
 function AUDIO.SET_RADIO_TRACK_WITH_START_OFFSET(radioStationName, mixName, p2)
   native.invoke(
     Type.Void, 168, false,
-    ref(Type.String, radioStationName),
-    ref(Type.String, mixName),
+    arg(Type.String, radioStationName),
+    arg(Type.String, mixName),
     arg(Type.Int, p2)
   )
 end
@@ -1894,10 +1894,10 @@ end
 function AUDIO.SET_NEXT_RADIO_TRACK(radioName, radioTrack, p2, p3)
   native.invoke(
     Type.Void, 169, false,
-    ref(Type.String, radioName),
-    ref(Type.String, radioTrack),
-    ref(Type.String, p2),
-    ref(Type.String, p3)
+    arg(Type.String, radioName),
+    arg(Type.String, radioTrack),
+    arg(Type.String, p2),
+    arg(Type.String, p3)
   )
 end
 
@@ -1976,8 +1976,8 @@ AUDIO::SET_CUSTOM_RADIO_TRACK_LIST("RADIO_01_CLASS_ROCK", "OFF_ROAD_RADIO_ROCK_L
 function AUDIO.SET_CUSTOM_RADIO_TRACK_LIST(radioStation, trackListName, p2)
   native.invoke(
     Type.Void, 177, false,
-    ref(Type.String, radioStation),
-    ref(Type.String, trackListName),
+    arg(Type.String, radioStation),
+    arg(Type.String, trackListName),
     arg(Type.Bool, p2)
   )
 end
@@ -1992,7 +1992,7 @@ AUDIO::CLEAR_CUSTOM_RADIO_TRACK_LIST("RADIO_01_CLASS_ROCK");
 function AUDIO.CLEAR_CUSTOM_RADIO_TRACK_LIST(radioStation)
   native.invoke(
     Type.Void, 178, false,
-    ref(Type.String, radioStation)
+    arg(Type.String, radioStation)
   )
 end
 
@@ -2022,7 +2022,7 @@ AUDIO::SET_RADIO_STATION_MUSIC_ONLY(AUDIO::GET_RADIO_STATION_NAME(10), 1);
 function AUDIO.SET_RADIO_STATION_MUSIC_ONLY(radioStation, toggle)
   native.invoke(
     Type.Void, 181, false,
-    ref(Type.String, radioStation),
+    arg(Type.String, radioStation),
     arg(Type.Bool, toggle)
   )
 end
@@ -2042,8 +2042,8 @@ AUDIO::UNLOCK_RADIO_STATION_TRACK_LIST("RADIO_16_SILVERLAKE", "MIRRORPARK_LOCKED
 function AUDIO.UNLOCK_RADIO_STATION_TRACK_LIST(radioStation, trackListName)
   native.invoke(
     Type.Void, 183, false,
-    ref(Type.String, radioStation),
-    ref(Type.String, trackListName)
+    arg(Type.String, radioStation),
+    arg(Type.String, trackListName)
   )
 end
 
@@ -2051,8 +2051,8 @@ end
 function AUDIO.LOCK_RADIO_STATION_TRACK_LIST(radioStation, trackListName)
   native.invoke(
     Type.Void, 184, false,
-    ref(Type.String, radioStation),
-    ref(Type.String, trackListName)
+    arg(Type.String, radioStation),
+    arg(Type.String, trackListName)
   )
 end
 
@@ -2074,7 +2074,7 @@ Disables the radio station (hides it from the radio wheel).
 function AUDIO.LOCK_RADIO_STATION(radioStationName, toggle)
   native.invoke(
     Type.Void, 186, false,
-    ref(Type.String, radioStationName),
+    arg(Type.String, radioStationName),
     arg(Type.Bool, toggle)
   )
 end
@@ -2086,7 +2086,7 @@ Doesn't have an effect in Story Mode.
 function AUDIO.SET_RADIO_STATION_AS_FAVOURITE(radioStation, toggle)
   native.invoke(
     Type.Void, 187, false,
-    ref(Type.String, radioStation),
+    arg(Type.String, radioStation),
     arg(Type.Bool, toggle)
   )
 end
@@ -2095,7 +2095,7 @@ end
 function AUDIO.IS_RADIO_STATION_FAVOURITED(radioStation)
   return native.invoke(
     Type.Bool, 188, false,
-    ref(Type.String, radioStation)
+    arg(Type.String, radioStation)
   )
 end
 
@@ -2103,9 +2103,9 @@ end
 function AUDIO.GET_NEXT_AUDIBLE_BEAT(out1, out2, out3)
   return native.invoke(
     Type.Bool, 189, false,
-    ref(Type.Float, out1),
-    ref(Type.Float, out2),
-    ref(Type.Int, out3)
+    arg(Type.Float, out1),
+    arg(Type.Float, out2),
+    arg(Type.Int, out3)
   )
 end
 
@@ -2117,8 +2117,8 @@ R* uses a random int: MISC::GET_RANDOM_INT_IN_RANGE(0, 13) * 60000)
 function AUDIO.FORCE_MUSIC_TRACK_LIST(radioStation, trackListName, milliseconds)
   native.invoke(
     Type.Void, 190, false,
-    ref(Type.String, radioStation),
-    ref(Type.String, trackListName),
+    arg(Type.String, radioStation),
+    arg(Type.String, trackListName),
     arg(Type.Int, milliseconds)
   )
 end
@@ -2127,7 +2127,7 @@ end
 function AUDIO.GET_CURRENT_TRACK_PLAY_TIME(radioStationName)
   return native.invoke(
     Type.Int, 191, false,
-    ref(Type.String, radioStationName)
+    arg(Type.String, radioStationName)
   )
 end
 
@@ -2135,7 +2135,7 @@ end
 function AUDIO.GET_CURRENT_TRACK_SOUND_NAME(radioStationName)
   return native.invoke(
     Type.Hash, 192, false,
-    ref(Type.String, radioStationName)
+    arg(Type.String, radioStationName)
   )
 end
 
@@ -2155,7 +2155,7 @@ Full list of ambient zones by DurtyFree: https://github.com/DurtyFree/gta-v-data
 function AUDIO.SET_AMBIENT_ZONE_STATE(zoneName, p1, p2)
   native.invoke(
     Type.Void, 194, false,
-    ref(Type.String, zoneName),
+    arg(Type.String, zoneName),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2)
   )
@@ -2172,7 +2172,7 @@ Full list of ambient zones by DurtyFree: https://github.com/DurtyFree/gta-v-data
 function AUDIO.CLEAR_AMBIENT_ZONE_STATE(zoneName, p1)
   native.invoke(
     Type.Void, 195, false,
-    ref(Type.String, zoneName),
+    arg(Type.String, zoneName),
     arg(Type.Bool, p1)
   )
 end
@@ -2181,7 +2181,7 @@ end
 function AUDIO.SET_AMBIENT_ZONE_LIST_STATE(ambientZone, p1, p2)
   native.invoke(
     Type.Void, 196, false,
-    ref(Type.String, ambientZone),
+    arg(Type.String, ambientZone),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2)
   )
@@ -2191,7 +2191,7 @@ end
 function AUDIO.CLEAR_AMBIENT_ZONE_LIST_STATE(ambientZone, p1)
   native.invoke(
     Type.Void, 197, false,
-    ref(Type.String, ambientZone),
+    arg(Type.String, ambientZone),
     arg(Type.Bool, p1)
   )
 end
@@ -2203,7 +2203,7 @@ Full list of ambient zones by DurtyFree: https://github.com/DurtyFree/gta-v-data
 function AUDIO.SET_AMBIENT_ZONE_STATE_PERSISTENT(ambientZone, p1, p2)
   native.invoke(
     Type.Void, 198, false,
-    ref(Type.String, ambientZone),
+    arg(Type.String, ambientZone),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2)
   )
@@ -2216,7 +2216,7 @@ Full list of ambient zones by DurtyFree: https://github.com/DurtyFree/gta-v-data
 function AUDIO.SET_AMBIENT_ZONE_LIST_STATE_PERSISTENT(ambientZone, p1, p2)
   native.invoke(
     Type.Void, 199, false,
-    ref(Type.String, ambientZone),
+    arg(Type.String, ambientZone),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2)
   )
@@ -2229,7 +2229,7 @@ Full list of ambient zones by DurtyFree: https://github.com/DurtyFree/gta-v-data
 function AUDIO.IS_AMBIENT_ZONE_ENABLED(ambientZone)
   return native.invoke(
     Type.Bool, 200, false,
-    ref(Type.String, ambientZone)
+    arg(Type.String, ambientZone)
   )
 end
 
@@ -2252,7 +2252,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function AUDIO.SET_CUTSCENE_AUDIO_OVERRIDE(name)
   native.invoke(
     Type.Void, 202, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -2260,7 +2260,7 @@ end
 function AUDIO.SET_VARIABLE_ON_SYNCH_SCENE_AUDIO(variableName, value)
   native.invoke(
     Type.Void, 203, false,
-    ref(Type.String, variableName),
+    arg(Type.String, variableName),
     arg(Type.Float, value)
   )
 end
@@ -2275,7 +2275,7 @@ Full list of police report names by DurtyFree https://github.com/DurtyFree/gta-v
 function AUDIO.PLAY_POLICE_REPORT(name, p1)
   return native.invoke(
     Type.Int, 204, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Float, p1)
   )
 end
@@ -2402,8 +2402,8 @@ Full list of audio / sound names by DurtyFree: https://github.com/DurtyFree/gta-
 function AUDIO.LOAD_STREAM(streamName, soundSet)
   return native.invoke(
     Type.Bool, 215, false,
-    ref(Type.String, streamName),
-    ref(Type.String, soundSet)
+    arg(Type.String, streamName),
+    arg(Type.String, soundSet)
   )
 end
 
@@ -2419,9 +2419,9 @@ Full list of audio / sound names by DurtyFree: https://github.com/DurtyFree/gta-
 function AUDIO.LOAD_STREAM_WITH_START_OFFSET(streamName, startOffset, soundSet)
   return native.invoke(
     Type.Bool, 216, false,
-    ref(Type.String, streamName),
+    arg(Type.String, streamName),
     arg(Type.Int, startOffset),
-    ref(Type.String, soundSet)
+    arg(Type.String, soundSet)
   )
 end
 
@@ -2539,7 +2539,7 @@ end
 function AUDIO.BLOCK_SPEECH_CONTEXT_GROUP(p0, p1)
   native.invoke(
     Type.Void, 228, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Int, p1)
   )
 end
@@ -2548,7 +2548,7 @@ end
 function AUDIO.UNBLOCK_SPEECH_CONTEXT_GROUP(p0)
   native.invoke(
     Type.Void, 229, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -2636,7 +2636,7 @@ function AUDIO.FORCE_USE_AUDIO_GAME_OBJECT(vehicle, audioName)
   native.invoke(
     Type.Void, 238, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, audioName)
+    arg(Type.String, audioName)
   )
 end
 
@@ -2653,8 +2653,8 @@ function AUDIO.SET_VEHICLE_STARTUP_REV_SOUND(vehicle, p1, p2)
   native.invoke(
     Type.Void, 240, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, p1),
-    ref(Type.String, p2)
+    arg(Type.String, p1),
+    arg(Type.String, p2)
   )
 end
 
@@ -2822,7 +2822,7 @@ end
 -- void PLAY_MISSION_COMPLETE_AUDIO(const char* audioName) // 0xB138AAB8A70D3C69
 --[[
 Called 38 times in the scripts. There are 5 different audioNames used.
-One unknown removed below.
+ One unknown removed below.
 
 AUDIO::PLAY_MISSION_COMPLETE_AUDIO("DEAD");
 AUDIO::PLAY_MISSION_COMPLETE_AUDIO("FRANKLIN_BIG_01");
@@ -2832,7 +2832,7 @@ AUDIO::PLAY_MISSION_COMPLETE_AUDIO("TREVOR_SMALL_01");
 function AUDIO.PLAY_MISSION_COMPLETE_AUDIO(audioName)
   native.invoke(
     Type.Void, 257, false,
-    ref(Type.String, audioName)
+    arg(Type.String, audioName)
   )
 end
 
@@ -2868,7 +2868,7 @@ Full list of audio scene names by DurtyFree https://github.com/DurtyFree/gta-v-d
 function AUDIO.START_AUDIO_SCENE(scene)
   return native.invoke(
     Type.Bool, 261, false,
-    ref(Type.String, scene)
+    arg(Type.String, scene)
   )
 end
 
@@ -2879,7 +2879,7 @@ Full list of audio scene names by DurtyFree https://github.com/DurtyFree/gta-v-d
 function AUDIO.STOP_AUDIO_SCENE(scene)
   native.invoke(
     Type.Void, 262, false,
-    ref(Type.String, scene)
+    arg(Type.String, scene)
   )
 end
 
@@ -2900,7 +2900,7 @@ Full list of audio scene names by DurtyFree https://github.com/DurtyFree/gta-v-d
 function AUDIO.IS_AUDIO_SCENE_ACTIVE(scene)
   return native.invoke(
     Type.Bool, 264, false,
-    ref(Type.String, scene)
+    arg(Type.String, scene)
   )
 end
 
@@ -2911,8 +2911,8 @@ Full list of audio scene names by DurtyFree https://github.com/DurtyFree/gta-v-d
 function AUDIO.SET_AUDIO_SCENE_VARIABLE(scene, variable, value)
   native.invoke(
     Type.Void, 265, false,
-    ref(Type.String, scene),
-    ref(Type.String, variable),
+    arg(Type.String, scene),
+    arg(Type.String, variable),
     arg(Type.Float, value)
   )
 end
@@ -2934,7 +2934,7 @@ function AUDIO.ADD_ENTITY_TO_AUDIO_MIX_GROUP(entity, groupName, p2)
   native.invoke(
     Type.Void, 267, false,
     arg(Type.Entity, entity),
-    ref(Type.String, groupName),
+    arg(Type.String, groupName),
     arg(Type.Float, p2)
   )
 end
@@ -2973,7 +2973,7 @@ Full list of music event names by DurtyFree https://github.com/DurtyFree/gta-v-d
 function AUDIO.PREPARE_MUSIC_EVENT(eventName)
   return native.invoke(
     Type.Bool, 271, false,
-    ref(Type.String, eventName)
+    arg(Type.String, eventName)
   )
 end
 
@@ -2985,7 +2985,7 @@ Full list of music event names by DurtyFree https://github.com/DurtyFree/gta-v-d
 function AUDIO.CANCEL_MUSIC_EVENT(eventName)
   return native.invoke(
     Type.Bool, 272, false,
-    ref(Type.String, eventName)
+    arg(Type.String, eventName)
   )
 end
 
@@ -2999,7 +2999,7 @@ Full list of music event names by DurtyFree https://github.com/DurtyFree/gta-v-d
 function AUDIO.TRIGGER_MUSIC_EVENT(eventName)
   return native.invoke(
     Type.Bool, 273, false,
-    ref(Type.String, eventName)
+    arg(Type.String, eventName)
   )
 end
 
@@ -3087,7 +3087,7 @@ Full list of alarm names by DurtyFree https://github.com/DurtyFree/gta-v-data-du
 function AUDIO.PREPARE_ALARM(alarmName)
   return native.invoke(
     Type.Bool, 283, false,
-    ref(Type.String, alarmName)
+    arg(Type.String, alarmName)
   )
 end
 
@@ -3108,27 +3108,27 @@ It DOES make a difference but it has to do with the duration or something I dunn
 
 ----------
 
-Found in the b617d scripts:
+ Found in the b617d scripts:
 
-AUDIO::START_ALARM("AGENCY_HEIST_FIB_TOWER_ALARMS", 0);
-AUDIO::START_ALARM("AGENCY_HEIST_FIB_TOWER_ALARMS_UPPER", 1);
-AUDIO::START_ALARM("AGENCY_HEIST_FIB_TOWER_ALARMS_UPPER_B", 0);
-AUDIO::START_ALARM("BIG_SCORE_HEIST_VAULT_ALARMS", a_0);
-AUDIO::START_ALARM("FBI_01_MORGUE_ALARMS", 1);
-AUDIO::START_ALARM("FIB_05_BIOTECH_LAB_ALARMS", 0);
-AUDIO::START_ALARM("JEWEL_STORE_HEIST_ALARMS", 0);
-AUDIO::START_ALARM("PALETO_BAY_SCORE_ALARM", 1);
-AUDIO::START_ALARM("PALETO_BAY_SCORE_CHICKEN_FACTORY_ALARM", 0);
-AUDIO::START_ALARM("PORT_OF_LS_HEIST_FORT_ZANCUDO_ALARMS", 1);
-AUDIO::START_ALARM("PORT_OF_LS_HEIST_SHIP_ALARMS", 0);
-AUDIO::START_ALARM("PRISON_ALARMS", 0);
-AUDIO::START_ALARM("PROLOGUE_VAULT_ALARMS", 0);
+ AUDIO::START_ALARM("AGENCY_HEIST_FIB_TOWER_ALARMS", 0);
+ AUDIO::START_ALARM("AGENCY_HEIST_FIB_TOWER_ALARMS_UPPER", 1);
+ AUDIO::START_ALARM("AGENCY_HEIST_FIB_TOWER_ALARMS_UPPER_B", 0);
+ AUDIO::START_ALARM("BIG_SCORE_HEIST_VAULT_ALARMS", a_0);
+ AUDIO::START_ALARM("FBI_01_MORGUE_ALARMS", 1);
+ AUDIO::START_ALARM("FIB_05_BIOTECH_LAB_ALARMS", 0);
+ AUDIO::START_ALARM("JEWEL_STORE_HEIST_ALARMS", 0);
+ AUDIO::START_ALARM("PALETO_BAY_SCORE_ALARM", 1);
+ AUDIO::START_ALARM("PALETO_BAY_SCORE_CHICKEN_FACTORY_ALARM", 0);
+ AUDIO::START_ALARM("PORT_OF_LS_HEIST_FORT_ZANCUDO_ALARMS", 1);
+ AUDIO::START_ALARM("PORT_OF_LS_HEIST_SHIP_ALARMS", 0);
+ AUDIO::START_ALARM("PRISON_ALARMS", 0);
+ AUDIO::START_ALARM("PROLOGUE_VAULT_ALARMS", 0);
 Full list of alarm names by DurtyFree https://github.com/DurtyFree/gta-v-data-dumps/blob/master/alarmSounds.json
 --]]
 function AUDIO.START_ALARM(alarmName, p2)
   native.invoke(
     Type.Void, 284, false,
-    ref(Type.String, alarmName),
+    arg(Type.String, alarmName),
     arg(Type.Bool, p2)
   )
 end
@@ -3148,7 +3148,7 @@ Full list of alarm names by DurtyFree https://github.com/DurtyFree/gta-v-data-du
 function AUDIO.STOP_ALARM(alarmName, toggle)
   native.invoke(
     Type.Void, 285, false,
-    ref(Type.String, alarmName),
+    arg(Type.String, alarmName),
     arg(Type.Bool, toggle)
   )
 end
@@ -3171,7 +3171,7 @@ Full list of alarm names by DurtyFree https://github.com/DurtyFree/gta-v-data-du
 function AUDIO.IS_ALARM_PLAYING(alarmName)
   return native.invoke(
     Type.Bool, 287, false,
-    ref(Type.String, alarmName)
+    arg(Type.String, alarmName)
   )
 end
 
@@ -3416,7 +3416,7 @@ ID: 63 | Hash: 0xBFFDD2B7
 function AUDIO.SET_AUDIO_FLAG(flagName, toggle)
   native.invoke(
     Type.Void, 300, false,
-    ref(Type.String, flagName),
+    arg(Type.String, flagName),
     arg(Type.Bool, toggle)
   )
 end
@@ -3428,7 +3428,7 @@ p1 is always 0 in the scripts
 function AUDIO.PREPARE_SYNCHRONIZED_AUDIO_EVENT(audioEvent, p1)
   return native.invoke(
     Type.Bool, 301, false,
-    ref(Type.String, audioEvent),
+    arg(Type.String, audioEvent),
     arg(Type.Any, p1)
   )
 end
@@ -3438,7 +3438,7 @@ function AUDIO.PREPARE_SYNCHRONIZED_AUDIO_EVENT_FOR_SCENE(sceneID, audioEvent)
   return native.invoke(
     Type.Bool, 302, false,
     arg(Type.Int, sceneID),
-    ref(Type.String, audioEvent)
+    arg(Type.String, audioEvent)
   )
 end
 
@@ -3462,7 +3462,7 @@ end
 function AUDIO.INIT_SYNCH_SCENE_AUDIO_WITH_POSITION(audioEvent, x, y, z)
   native.invoke(
     Type.Void, 305, false,
-    ref(Type.String, audioEvent),
+    arg(Type.String, audioEvent),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z)
@@ -3473,7 +3473,7 @@ end
 function AUDIO.INIT_SYNCH_SCENE_AUDIO_WITH_ENTITY(audioEvent, entity)
   native.invoke(
     Type.Void, 306, false,
-    ref(Type.String, audioEvent),
+    arg(Type.String, audioEvent),
     arg(Type.Entity, entity)
   )
 end
@@ -3496,36 +3496,36 @@ Found in the b617d scripts, duplicates removed:
 
 AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_CARSHOWROOM_PS_WINDOW_UNBROKEN", "V_CARSHOWROOM_PS_WINDOW_BROKEN");
 
-AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_CIA_PS_WINDOW_UNBROKEN", "V_CIA_PS_WINDOW_BROKEN");
+ AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_CIA_PS_WINDOW_UNBROKEN", "V_CIA_PS_WINDOW_BROKEN");
 
-AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_DLC_HEIST_APARTMENT_DOOR_CLOSED", "V_DLC_HEIST_APARTMENT_DOOR_OPEN");
+ AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_DLC_HEIST_APARTMENT_DOOR_CLOSED", "V_DLC_HEIST_APARTMENT_DOOR_OPEN");
 
-AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_FINALEBANK_PS_VAULT_INTACT", "V_FINALEBANK_PS_VAULT_BLOWN");
+ AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_FINALEBANK_PS_VAULT_INTACT", "V_FINALEBANK_PS_VAULT_BLOWN");
 
-AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_MICHAEL_PS_BATHROOM_WITH_WINDOW", "V_MICHAEL_PS_BATHROOM_WITHOUT_WINDOW");
+ AUDIO::SET_PORTAL_SETTINGS_OVERRIDE("V_MICHAEL_PS_BATHROOM_WITH_WINDOW", "V_MICHAEL_PS_BATHROOM_WITHOUT_WINDOW");
 --]]
 function AUDIO.SET_PORTAL_SETTINGS_OVERRIDE(p0, p1)
   native.invoke(
     Type.Void, 308, false,
-    ref(Type.String, p0),
-    ref(Type.String, p1)
+    arg(Type.String, p0),
+    arg(Type.String, p1)
   )
 end
 
 -- void REMOVE_PORTAL_SETTINGS_OVERRIDE(const char* p0) // 0xB4BBFD9CD8B3922B
 --[[
-Found in the b617d scripts, duplicates removed: 
+ Found in the b617d scripts, duplicates removed: 
 
-AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_CARSHOWROOM_PS_WINDOW_UNBROKEN");
-AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_CIA_PS_WINDOW_UNBROKEN");
-AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_DLC_HEIST_APARTMENT_DOOR_CLOSED");
-AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_FINALEBANK_PS_VAULT_INTACT");
-AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_MICHAEL_PS_BATHROOM_WITH_WINDOW");
+ AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_CARSHOWROOM_PS_WINDOW_UNBROKEN");
+ AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_CIA_PS_WINDOW_UNBROKEN");
+ AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_DLC_HEIST_APARTMENT_DOOR_CLOSED");
+ AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_FINALEBANK_PS_VAULT_INTACT");
+ AUDIO::REMOVE_PORTAL_SETTINGS_OVERRIDE("V_MICHAEL_PS_BATHROOM_WITH_WINDOW");
 --]]
 function AUDIO.REMOVE_PORTAL_SETTINGS_OVERRIDE(p0)
   native.invoke(
     Type.Void, 309, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -3623,7 +3623,7 @@ Hardcoded to not work in Multiplayer.
 function BRAIN.ADD_SCRIPT_TO_RANDOM_PED(name, model, p2, p3)
   native.invoke(
     Type.Void, 320, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Hash, model),
     arg(Type.Float, p2),
     arg(Type.Float, p3)
@@ -3641,7 +3641,7 @@ BRAIN::REGISTER_OBJECT_SCRIPT_BRAIN("ob_telescope", ${prop_telescope_01}, 100, 4
 function BRAIN.REGISTER_OBJECT_SCRIPT_BRAIN(scriptName, modelHash, p2, activationRange, p4, p5)
   native.invoke(
     Type.Void, 321, false,
-    ref(Type.String, scriptName),
+    arg(Type.String, scriptName),
     arg(Type.Hash, modelHash),
     arg(Type.Int, p2),
     arg(Type.Float, activationRange),
@@ -3662,7 +3662,7 @@ end
 function BRAIN.REGISTER_WORLD_POINT_SCRIPT_BRAIN(scriptName, activationRange, p2)
   native.invoke(
     Type.Void, 323, false,
-    ref(Type.String, scriptName),
+    arg(Type.String, scriptName),
     arg(Type.Float, activationRange),
     arg(Type.Int, p2)
   )
@@ -3742,7 +3742,7 @@ ob_mp_bed_med
 function BRAIN.REACTIVATE_NAMED_WORLD_BRAINS_WAITING_TILL_OUT_OF_RANGE(scriptName)
   native.invoke(
     Type.Void, 329, false,
-    ref(Type.String, scriptName)
+    arg(Type.String, scriptName)
   )
 end
 
@@ -3758,7 +3758,7 @@ Here are possible values of argument -
 function BRAIN.REACTIVATE_NAMED_OBJECT_BRAINS_WAITING_TILL_OUT_OF_RANGE(scriptName)
   native.invoke(
     Type.Void, 330, false,
-    ref(Type.String, scriptName)
+    arg(Type.String, scriptName)
   )
 end
 
@@ -3811,7 +3811,7 @@ end
 function CAM.CREATE_CAM(camName, p1)
   return native.invoke(
     Type.Cam, 333, false,
-    ref(Type.String, camName),
+    arg(Type.String, camName),
     arg(Type.Bool, p1)
   )
 end
@@ -3831,7 +3831,7 @@ Side Note: It seems p8 is basically to represent what would be the bool p1 withi
 function CAM.CREATE_CAM_WITH_PARAMS(camName, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9)
   return native.invoke(
     Type.Cam, 334, false,
-    ref(Type.String, camName),
+    arg(Type.String, camName),
     arg(Type.Float, posX),
     arg(Type.Float, posY),
     arg(Type.Float, posZ),
@@ -4490,7 +4490,7 @@ function CAM.SET_CAM_DEBUG_NAME(camera, name)
   native.invoke(
     Type.Void, 390, false,
     arg(Type.Cam, camera),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -4744,7 +4744,7 @@ function CAM.SHAKE_CAM(cam, type, amplitude)
   native.invoke(
     Type.Void, 410, false,
     arg(Type.Cam, cam),
-    ref(Type.String, type),
+    arg(Type.String, type),
     arg(Type.Float, amplitude)
   )
 end
@@ -4759,9 +4759,9 @@ function CAM.ANIMATED_SHAKE_CAM(cam, p1, p2, p3, amplitude)
   native.invoke(
     Type.Void, 411, false,
     arg(Type.Cam, cam),
-    ref(Type.String, p1),
-    ref(Type.String, p2),
-    ref(Type.String, p3),
+    arg(Type.String, p1),
+    arg(Type.String, p2),
+    arg(Type.String, p3),
     arg(Type.Float, amplitude)
   )
 end
@@ -4801,7 +4801,7 @@ Full list of cam shake types by DurtyFree: https://github.com/DurtyFree/gta-v-da
 function CAM.SHAKE_SCRIPT_GLOBAL(p0, p1)
   native.invoke(
     Type.Void, 415, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Float, p1)
   )
 end
@@ -4815,9 +4815,9 @@ Full list of cam shake types by DurtyFree: https://github.com/DurtyFree/gta-v-da
 function CAM.ANIMATED_SHAKE_SCRIPT_GLOBAL(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 416, false,
-    ref(Type.String, p0),
-    ref(Type.String, p1),
-    ref(Type.String, p2),
+    arg(Type.String, p0),
+    arg(Type.String, p1),
+    arg(Type.String, p2),
     arg(Type.Float, p3)
   )
 end
@@ -4875,8 +4875,8 @@ function CAM.PLAY_CAM_ANIM(cam, animName, animDictionary, x, y, z, xRot, yRot, z
   return native.invoke(
     Type.Bool, 420, false,
     arg(Type.Cam, cam),
-    ref(Type.String, animName),
-    ref(Type.String, animDictionary),
+    arg(Type.String, animName),
+    arg(Type.String, animDictionary),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -4893,8 +4893,8 @@ function CAM.IS_CAM_PLAYING_ANIM(cam, animName, animDictionary)
   return native.invoke(
     Type.Bool, 421, false,
     arg(Type.Cam, cam),
-    ref(Type.String, animName),
-    ref(Type.String, animDictionary)
+    arg(Type.String, animName),
+    arg(Type.String, animDictionary)
   )
 end
 
@@ -4928,8 +4928,8 @@ function CAM.PLAY_SYNCHRONIZED_CAM_ANIM(p0, p1, animName, animDictionary)
     Type.Bool, 424, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.String, animName),
-    ref(Type.String, animDictionary)
+    arg(Type.String, animName),
+    arg(Type.String, animDictionary)
   )
 end
 
@@ -5230,7 +5230,7 @@ Full list of cam shake types by DurtyFree: https://github.com/DurtyFree/gta-v-da
 function CAM.SHAKE_GAMEPLAY_CAM(shakeName, intensity)
   native.invoke(
     Type.Void, 454, false,
-    ref(Type.String, shakeName),
+    arg(Type.String, shakeName),
     arg(Type.Float, intensity)
   )
 end
@@ -5405,7 +5405,7 @@ CAM::SET_FOLLOW_PED_CAM_THIS_UPDATE("FOLLOW_PED_SKY_DIVING_CAMERA", 0);
 function CAM.SET_FOLLOW_PED_CAM_THIS_UPDATE(camName, p1)
   return native.invoke(
     Type.Bool, 473, false,
-    ref(Type.String, camName),
+    arg(Type.String, camName),
     arg(Type.Int, p1)
   )
 end
@@ -5626,11 +5626,11 @@ Returns the type of camera:
 
 enum _viewmode //0xA11D7CA8
 {
-  THIRD_PERSON_NEAR = 0,
-  THIRD_PERSON_MEDIUM = 1,
-  THIRD_PERSON_FAR = 2,
-  CINEMATIC = 3,
-  FIRST_PERSON = 4
+	THIRD_PERSON_NEAR = 0,
+	THIRD_PERSON_MEDIUM = 1,
+	THIRD_PERSON_FAR = 2,
+	CINEMATIC = 3,
+	FIRST_PERSON = 4
 };
 --]]
 function CAM.GET_FOLLOW_VEHICLE_CAM_VIEW_MODE()
@@ -5678,14 +5678,14 @@ end
 --[[
 enum Context
 {
-  ON_FOOT,
-  IN_VEHICLE,
-  ON_BIKE,
-  IN_BOAT,
-  IN_AIRCRAFT,
-  IN_SUBMARINE,
-  IN_HELI,
-  IN_TURRET
+	ON_FOOT,
+	IN_VEHICLE,
+	ON_BIKE,
+	IN_BOAT,
+	IN_AIRCRAFT,
+	IN_SUBMARINE,
+	IN_HELI,
+	IN_TURRET
 };
 --]]
 function CAM.GET_CAM_ACTIVE_VIEW_MODE_CONTEXT()
@@ -5708,7 +5708,7 @@ Sets gameplay camera to hash
 function CAM.USE_DEDICATED_STUNT_CAMERA_THIS_UPDATE(camName)
   native.invoke(
     Type.Void, 500, false,
-    ref(Type.String, camName)
+    arg(Type.String, camName)
   )
 end
 
@@ -6108,7 +6108,7 @@ Full list of cam shake types by DurtyFree: https://github.com/DurtyFree/gta-v-da
 function CAM.SHAKE_CINEMATIC_CAM(shakeType, amount)
   native.invoke(
     Type.Void, 544, false,
-    ref(Type.String, shakeType),
+    arg(Type.String, shakeType),
     arg(Type.Float, amount)
   )
 end
@@ -6367,7 +6367,7 @@ CAM::SET_FIRST_PERSON_FLASH_EFFECT_VEHICLE_MODEL_NAME("SPEEDO");
 function CAM.SET_FIRST_PERSON_FLASH_EFFECT_VEHICLE_MODEL_NAME(vehicleName)
   native.invoke(
     Type.Void, 572, false,
-    ref(Type.String, vehicleName)
+    arg(Type.String, vehicleName)
   )
 end
 
@@ -6537,24 +6537,24 @@ Gets system time as year, month, day, hour, minute and second.
 Example usage:
 
     int year;
-int month;
+ int month;
     int day;
   int hour;
-int minute;
-  int second;
+ int minute;
+   int second;
 
-TIME::GET_POSIX_TIME(&year, &month, &day, &hour, &minute, &second);
+ TIME::GET_POSIX_TIME(&year, &month, &day, &hour, &minute, &second);
 
 --]]
 function CLOCK.GET_POSIX_TIME(year, month, day, hour, minute, second)
   native.invoke(
     Type.Void, 590, false,
-    ref(Type.Int, year),
-    ref(Type.Int, month),
-    ref(Type.Int, day),
-    ref(Type.Int, hour),
-    ref(Type.Int, minute),
-    ref(Type.Int, second)
+    arg(Type.Int, year),
+    arg(Type.Int, month),
+    arg(Type.Int, day),
+    arg(Type.Int, hour),
+    arg(Type.Int, minute),
+    arg(Type.Int, second)
   )
 end
 
@@ -6565,12 +6565,12 @@ Gets current UTC time
 function CLOCK.GET_UTC_TIME(year, month, day, hour, minute, second)
   native.invoke(
     Type.Void, 591, false,
-    ref(Type.Int, year),
-    ref(Type.Int, month),
-    ref(Type.Int, day),
-    ref(Type.Int, hour),
-    ref(Type.Int, minute),
-    ref(Type.Int, second)
+    arg(Type.Int, year),
+    arg(Type.Int, month),
+    arg(Type.Int, day),
+    arg(Type.Int, hour),
+    arg(Type.Int, minute),
+    arg(Type.Int, second)
   )
 end
 
@@ -6594,12 +6594,12 @@ TIME::GET_LOCAL_TIME(&year, &month, &day, &hour, &minute, &second);
 function CLOCK.GET_LOCAL_TIME(year, month, day, hour, minute, second)
   native.invoke(
     Type.Void, 592, false,
-    ref(Type.Int, year),
-    ref(Type.Int, month),
-    ref(Type.Int, day),
-    ref(Type.Int, hour),
-    ref(Type.Int, minute),
-    ref(Type.Int, second)
+    arg(Type.Int, year),
+    arg(Type.Int, month),
+    arg(Type.Int, day),
+    arg(Type.Int, hour),
+    arg(Type.Int, minute),
+    arg(Type.Int, second)
   )
 end
 
@@ -6614,7 +6614,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function CUTSCENE.REQUEST_CUTSCENE(cutsceneName, flags)
   native.invoke(
     Type.Void, 593, false,
-    ref(Type.String, cutsceneName),
+    arg(Type.String, cutsceneName),
     arg(Type.Int, flags)
   )
 end
@@ -6630,7 +6630,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function CUTSCENE.REQUEST_CUTSCENE_WITH_PLAYBACK_LIST(cutsceneName, playbackFlags, flags)
   native.invoke(
     Type.Void, 594, false,
-    ref(Type.String, cutsceneName),
+    arg(Type.String, cutsceneName),
     arg(Type.Int, playbackFlags),
     arg(Type.Int, flags)
   )
@@ -6657,7 +6657,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function CUTSCENE.HAS_THIS_CUTSCENE_LOADED(cutsceneName)
   return native.invoke(
     Type.Bool, 597, false,
-    ref(Type.String, cutsceneName)
+    arg(Type.String, cutsceneName)
   )
 end
 
@@ -6691,7 +6691,7 @@ end
 function CUTSCENE.SET_CUTSCENE_ENTITY_STREAMING_FLAGS(cutsceneEntName, p1, p2)
   native.invoke(
     Type.Void, 601, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Int, p1),
     arg(Type.Int, p2)
   )
@@ -6705,7 +6705,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function CUTSCENE.REQUEST_CUT_FILE(cutsceneName)
   native.invoke(
     Type.Void, 602, false,
-    ref(Type.String, cutsceneName)
+    arg(Type.String, cutsceneName)
   )
 end
 
@@ -6717,7 +6717,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function CUTSCENE.HAS_CUT_FILE_LOADED(cutsceneName)
   return native.invoke(
     Type.Bool, 603, false,
-    ref(Type.String, cutsceneName)
+    arg(Type.String, cutsceneName)
   )
 end
 
@@ -6729,7 +6729,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function CUTSCENE.REMOVE_CUT_FILE(cutsceneName)
   native.invoke(
     Type.Void, 604, false,
-    ref(Type.String, cutsceneName)
+    arg(Type.String, cutsceneName)
   )
 end
 
@@ -6740,7 +6740,7 @@ Full list of cutscene names by DurtyFree https://github.com/DurtyFree/gta-v-data
 function CUTSCENE.GET_CUT_FILE_CONCAT_COUNT(cutsceneName)
   return native.invoke(
     Type.Int, 605, false,
-    ref(Type.String, cutsceneName)
+    arg(Type.String, cutsceneName)
   )
 end
 
@@ -6880,7 +6880,7 @@ end
 function CUTSCENE.GET_ENTITY_INDEX_OF_CUTSCENE_ENTITY(cutsceneEntName, modelHash)
   return native.invoke(
     Type.Entity, 621, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Hash, modelHash)
   )
 end
@@ -6899,7 +6899,7 @@ This function is hard-coded to always return 1.
 function CUTSCENE.IS_CUTSCENE_AUTHORIZED(cutsceneName)
   return native.invoke(
     Type.Bool, 623, false,
-    ref(Type.String, cutsceneName)
+    arg(Type.String, cutsceneName)
   )
 end
 
@@ -6916,7 +6916,7 @@ function CUTSCENE.REGISTER_ENTITY_FOR_CUTSCENE(cutscenePed, cutsceneEntName, p2,
   native.invoke(
     Type.Void, 625, false,
     arg(Type.Ped, cutscenePed),
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Int, p2),
     arg(Type.Hash, modelHash),
     arg(Type.Int, p4)
@@ -6927,7 +6927,7 @@ end
 function CUTSCENE.GET_ENTITY_INDEX_OF_REGISTERED_ENTITY(cutsceneEntName, modelHash)
   return native.invoke(
     Type.Entity, 626, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Hash, modelHash)
   )
 end
@@ -6966,7 +6966,7 @@ modelHash (p1) was always 0 in R* scripts
 function CUTSCENE.CAN_SET_ENTER_STATE_FOR_REGISTERED_ENTITY(cutsceneEntName, modelHash)
   return native.invoke(
     Type.Bool, 629, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Hash, modelHash)
   )
 end
@@ -6975,7 +6975,7 @@ end
 function CUTSCENE.CAN_SET_EXIT_STATE_FOR_REGISTERED_ENTITY(cutsceneEntName, modelHash)
   return native.invoke(
     Type.Bool, 630, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Hash, modelHash)
   )
 end
@@ -7087,7 +7087,7 @@ Full list of ped components by DurtyFree: https://github.com/DurtyFree/gta-v-dat
 function CUTSCENE.SET_CUTSCENE_PED_COMPONENT_VARIATION(cutsceneEntName, componentId, drawableId, textureId, modelHash)
   native.invoke(
     Type.Void, 642, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Int, componentId),
     arg(Type.Int, drawableId),
     arg(Type.Int, textureId),
@@ -7099,7 +7099,7 @@ end
 function CUTSCENE.SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED(cutsceneEntName, ped, modelHash)
   native.invoke(
     Type.Void, 643, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Ped, ped),
     arg(Type.Hash, modelHash)
   )
@@ -7109,7 +7109,7 @@ end
 function CUTSCENE.DOES_CUTSCENE_ENTITY_EXIST(cutsceneEntName, modelHash)
   return native.invoke(
     Type.Bool, 644, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Hash, modelHash)
   )
 end
@@ -7128,7 +7128,7 @@ Full list of ped components by DurtyFree: https://github.com/DurtyFree/gta-v-dat
 function CUTSCENE.SET_CUTSCENE_PED_PROP_VARIATION(cutsceneEntName, componentId, drawableId, textureId, modelHash)
   native.invoke(
     Type.Void, 645, false,
-    ref(Type.String, cutsceneEntName),
+    arg(Type.String, cutsceneEntName),
     arg(Type.Int, componentId),
     arg(Type.Int, drawableId),
     arg(Type.Int, textureId),
@@ -7212,12 +7212,12 @@ end
 function DATAFILE.UGC_CREATE_CONTENT(data, dataCount, contentName, description, tagsCsv, contentTypeName, publish, p7)
   return native.invoke(
     Type.Bool, 654, false,
-    ref(Type.Any, data),
+    arg(Type.Any, data),
     arg(Type.Int, dataCount),
-    ref(Type.String, contentName),
-    ref(Type.String, description),
-    ref(Type.String, tagsCsv),
-    ref(Type.String, contentTypeName),
+    arg(Type.String, contentName),
+    arg(Type.String, description),
+    arg(Type.String, tagsCsv),
+    arg(Type.String, contentTypeName),
     arg(Type.Bool, publish),
     arg(Type.Any, p7)
   )
@@ -7227,10 +7227,10 @@ end
 function DATAFILE.UGC_CREATE_MISSION(contentName, description, tagsCsv, contentTypeName, publish, p5)
   return native.invoke(
     Type.Bool, 655, false,
-    ref(Type.String, contentName),
-    ref(Type.String, description),
-    ref(Type.String, tagsCsv),
-    ref(Type.String, contentTypeName),
+    arg(Type.String, contentName),
+    arg(Type.String, description),
+    arg(Type.String, tagsCsv),
+    arg(Type.String, contentTypeName),
     arg(Type.Bool, publish),
     arg(Type.Any, p5)
   )
@@ -7240,13 +7240,13 @@ end
 function DATAFILE.UGC_UPDATE_CONTENT(contentId, data, dataCount, contentName, description, tagsCsv, contentTypeName, p7)
   return native.invoke(
     Type.Bool, 656, false,
-    ref(Type.String, contentId),
-    ref(Type.Any, data),
+    arg(Type.String, contentId),
+    arg(Type.Any, data),
     arg(Type.Int, dataCount),
-    ref(Type.String, contentName),
-    ref(Type.String, description),
-    ref(Type.String, tagsCsv),
-    ref(Type.String, contentTypeName),
+    arg(Type.String, contentName),
+    arg(Type.String, description),
+    arg(Type.String, tagsCsv),
+    arg(Type.String, contentTypeName),
     arg(Type.Any, p7)
   )
 end
@@ -7255,11 +7255,11 @@ end
 function DATAFILE.UGC_UPDATE_MISSION(contentId, contentName, description, tagsCsv, contentTypeName, p5)
   return native.invoke(
     Type.Bool, 657, false,
-    ref(Type.String, contentId),
-    ref(Type.String, contentName),
-    ref(Type.String, description),
-    ref(Type.String, tagsCsv),
-    ref(Type.String, contentTypeName),
+    arg(Type.String, contentId),
+    arg(Type.String, contentName),
+    arg(Type.String, description),
+    arg(Type.String, tagsCsv),
+    arg(Type.String, contentTypeName),
     arg(Type.Any, p5)
   )
 end
@@ -7268,9 +7268,9 @@ end
 function DATAFILE.UGC_SET_PLAYER_DATA(contentId, rating, contentTypeName, p3)
   return native.invoke(
     Type.Bool, 658, false,
-    ref(Type.String, contentId),
+    arg(Type.String, contentId),
     arg(Type.Float, rating),
-    ref(Type.String, contentTypeName),
+    arg(Type.String, contentTypeName),
     arg(Type.Any, p3)
   )
 end
@@ -7324,7 +7324,7 @@ DATAFILE::DATAFILE_LOAD_OFFLINE_UGC("RockstarPlaylists") // loads "rockstarplayl
 function DATAFILE.DATAFILE_LOAD_OFFLINE_UGC(filename, p1)
   return native.invoke(
     Type.Bool, 663, false,
-    ref(Type.String, filename),
+    arg(Type.String, filename),
     arg(Type.Any, p1)
   )
 end
@@ -7372,7 +7372,7 @@ end
 function DATAFILE.DATAFILE_START_SAVE_TO_CLOUD(filename, p1)
   return native.invoke(
     Type.Bool, 669, false,
-    ref(Type.String, filename),
+    arg(Type.String, filename),
     arg(Type.Any, p1)
   )
 end
@@ -7381,7 +7381,7 @@ end
 function DATAFILE.DATAFILE_UPDATE_SAVE_TO_CLOUD(p0)
   return native.invoke(
     Type.Bool, 670, false,
-    ref(Type.Bool, p0)
+    arg(Type.Bool, p0)
   )
 end
 
@@ -7421,8 +7421,8 @@ end
 function DATAFILE.DATADICT_SET_BOOL(objectData, key, value)
   native.invoke(
     Type.Void, 675, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key),
+    arg(Type.Any, objectData),
+    arg(Type.String, key),
     arg(Type.Bool, value)
   )
 end
@@ -7431,8 +7431,8 @@ end
 function DATAFILE.DATADICT_SET_INT(objectData, key, value)
   native.invoke(
     Type.Void, 676, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key),
+    arg(Type.Any, objectData),
+    arg(Type.String, key),
     arg(Type.Int, value)
   )
 end
@@ -7441,8 +7441,8 @@ end
 function DATAFILE.DATADICT_SET_FLOAT(objectData, key, value)
   native.invoke(
     Type.Void, 677, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key),
+    arg(Type.Any, objectData),
+    arg(Type.String, key),
     arg(Type.Float, value)
   )
 end
@@ -7451,9 +7451,9 @@ end
 function DATAFILE.DATADICT_SET_STRING(objectData, key, value)
   native.invoke(
     Type.Void, 678, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key),
-    ref(Type.String, value)
+    arg(Type.Any, objectData),
+    arg(Type.String, key),
+    arg(Type.String, value)
   )
 end
 
@@ -7461,8 +7461,8 @@ end
 function DATAFILE.DATADICT_SET_VECTOR(objectData, key, valueX, valueY, valueZ)
   native.invoke(
     Type.Void, 679, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key),
+    arg(Type.Any, objectData),
+    arg(Type.String, key),
     arg(Type.Float, valueX),
     arg(Type.Float, valueY),
     arg(Type.Float, valueZ)
@@ -7473,8 +7473,8 @@ end
 function DATAFILE.DATADICT_CREATE_DICT(objectData, key)
   return native.invoke(
     Type.Any, 680, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7482,8 +7482,8 @@ end
 function DATAFILE.DATADICT_CREATE_ARRAY(objectData, key)
   return native.invoke(
     Type.Any, 681, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7491,8 +7491,8 @@ end
 function DATAFILE.DATADICT_GET_BOOL(objectData, key)
   return native.invoke(
     Type.Bool, 682, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7500,8 +7500,8 @@ end
 function DATAFILE.DATADICT_GET_INT(objectData, key)
   return native.invoke(
     Type.Int, 683, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7509,17 +7509,17 @@ end
 function DATAFILE.DATADICT_GET_FLOAT(objectData, key)
   return native.invoke(
     Type.Float, 684, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
 -- const char* DATADICT_GET_STRING(Any* objectData, const char* key) // 0x3D2FD9E763B24472
 function DATAFILE.DATADICT_GET_STRING(objectData, key)
   return native.invoke(
-    Type.String, 685, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    Type.Const char, 685, false,
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7527,8 +7527,8 @@ end
 function DATAFILE.DATADICT_GET_VECTOR(objectData, key)
   return native.invoke(
     Type.Vector3, 686, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7536,8 +7536,8 @@ end
 function DATAFILE.DATADICT_GET_DICT(objectData, key)
   return native.invoke(
     Type.Any, 687, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7545,8 +7545,8 @@ end
 function DATAFILE.DATADICT_GET_ARRAY(objectData, key)
   return native.invoke(
     Type.Any, 688, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7564,8 +7564,8 @@ Types:
 function DATAFILE.DATADICT_GET_TYPE(objectData, key)
   return native.invoke(
     Type.Int, 689, false,
-    ref(Type.Any, objectData),
-    ref(Type.String, key)
+    arg(Type.Any, objectData),
+    arg(Type.String, key)
   )
 end
 
@@ -7573,7 +7573,7 @@ end
 function DATAFILE.DATAARRAY_ADD_BOOL(arrayData, value)
   native.invoke(
     Type.Void, 690, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Bool, value)
   )
 end
@@ -7582,7 +7582,7 @@ end
 function DATAFILE.DATAARRAY_ADD_INT(arrayData, value)
   native.invoke(
     Type.Void, 691, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Int, value)
   )
 end
@@ -7591,7 +7591,7 @@ end
 function DATAFILE.DATAARRAY_ADD_FLOAT(arrayData, value)
   native.invoke(
     Type.Void, 692, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Float, value)
   )
 end
@@ -7600,8 +7600,8 @@ end
 function DATAFILE.DATAARRAY_ADD_STRING(arrayData, value)
   native.invoke(
     Type.Void, 693, false,
-    ref(Type.Any, arrayData),
-    ref(Type.String, value)
+    arg(Type.Any, arrayData),
+    arg(Type.String, value)
   )
 end
 
@@ -7609,7 +7609,7 @@ end
 function DATAFILE.DATAARRAY_ADD_VECTOR(arrayData, valueX, valueY, valueZ)
   native.invoke(
     Type.Void, 694, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Float, valueX),
     arg(Type.Float, valueY),
     arg(Type.Float, valueZ)
@@ -7620,7 +7620,7 @@ end
 function DATAFILE.DATAARRAY_ADD_DICT(arrayData)
   return native.invoke(
     Type.Any, 695, false,
-    ref(Type.Any, arrayData)
+    arg(Type.Any, arrayData)
   )
 end
 
@@ -7628,7 +7628,7 @@ end
 function DATAFILE.DATAARRAY_GET_BOOL(arrayData, arrayIndex)
   return native.invoke(
     Type.Bool, 696, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
 end
@@ -7637,7 +7637,7 @@ end
 function DATAFILE.DATAARRAY_GET_INT(arrayData, arrayIndex)
   return native.invoke(
     Type.Int, 697, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
 end
@@ -7646,7 +7646,7 @@ end
 function DATAFILE.DATAARRAY_GET_FLOAT(arrayData, arrayIndex)
   return native.invoke(
     Type.Float, 698, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
 end
@@ -7654,8 +7654,8 @@ end
 -- const char* DATAARRAY_GET_STRING(Any* arrayData, int arrayIndex) // 0xD3F2FFEB8D836F52
 function DATAFILE.DATAARRAY_GET_STRING(arrayData, arrayIndex)
   return native.invoke(
-    Type.String, 699, false,
-    ref(Type.Any, arrayData),
+    Type.Const char, 699, false,
+    arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
 end
@@ -7664,7 +7664,7 @@ end
 function DATAFILE.DATAARRAY_GET_VECTOR(arrayData, arrayIndex)
   return native.invoke(
     Type.Vector3, 700, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
 end
@@ -7673,7 +7673,7 @@ end
 function DATAFILE.DATAARRAY_GET_DICT(arrayData, arrayIndex)
   return native.invoke(
     Type.Any, 701, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
 end
@@ -7682,7 +7682,7 @@ end
 function DATAFILE.DATAARRAY_GET_COUNT(arrayData)
   return native.invoke(
     Type.Int, 702, false,
-    ref(Type.Any, arrayData)
+    arg(Type.Any, arrayData)
   )
 end
 
@@ -7700,7 +7700,7 @@ Types:
 function DATAFILE.DATAARRAY_GET_TYPE(arrayData, arrayIndex)
   return native.invoke(
     Type.Int, 703, false,
-    ref(Type.Any, arrayData),
+    arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
 end
@@ -7713,7 +7713,7 @@ function DECORATOR.DECOR_SET_TIME(entity, propertyName, timestamp)
   return native.invoke(
     Type.Bool, 704, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName),
+    arg(Type.String, propertyName),
     arg(Type.Int, timestamp)
   )
 end
@@ -7727,7 +7727,7 @@ function DECORATOR.DECOR_SET_BOOL(entity, propertyName, value)
   return native.invoke(
     Type.Bool, 705, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName),
+    arg(Type.String, propertyName),
     arg(Type.Bool, value)
   )
 end
@@ -7737,7 +7737,7 @@ function DECORATOR.DECOR_SET_FLOAT(entity, propertyName, value)
   return native.invoke(
     Type.Bool, 706, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName),
+    arg(Type.String, propertyName),
     arg(Type.Float, value)
   )
 end
@@ -7750,7 +7750,7 @@ function DECORATOR.DECOR_SET_INT(entity, propertyName, value)
   return native.invoke(
     Type.Bool, 707, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName),
+    arg(Type.String, propertyName),
     arg(Type.Int, value)
   )
 end
@@ -7760,7 +7760,7 @@ function DECORATOR.DECOR_GET_BOOL(entity, propertyName)
   return native.invoke(
     Type.Bool, 708, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName)
+    arg(Type.String, propertyName)
   )
 end
 
@@ -7769,7 +7769,7 @@ function DECORATOR.DECOR_GET_FLOAT(entity, propertyName)
   return native.invoke(
     Type.Float, 709, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName)
+    arg(Type.String, propertyName)
   )
 end
 
@@ -7778,7 +7778,7 @@ function DECORATOR.DECOR_GET_INT(entity, propertyName)
   return native.invoke(
     Type.Int, 710, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName)
+    arg(Type.String, propertyName)
   )
 end
 
@@ -7790,7 +7790,7 @@ function DECORATOR.DECOR_EXIST_ON(entity, propertyName)
   return native.invoke(
     Type.Bool, 711, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName)
+    arg(Type.String, propertyName)
   )
 end
 
@@ -7799,7 +7799,7 @@ function DECORATOR.DECOR_REMOVE(entity, propertyName)
   return native.invoke(
     Type.Bool, 712, false,
     arg(Type.Entity, entity),
-    ref(Type.String, propertyName)
+    arg(Type.String, propertyName)
   )
 end
 
@@ -7810,7 +7810,7 @@ https://alloc8or.re/gta5/doc/enums/eDecorType.txt
 function DECORATOR.DECOR_REGISTER(propertyName, type)
   native.invoke(
     Type.Void, 713, false,
-    ref(Type.String, propertyName),
+    arg(Type.String, propertyName),
     arg(Type.Int, type)
   )
 end
@@ -7822,7 +7822,7 @@ type: see DECOR_REGISTER
 function DECORATOR.DECOR_IS_REGISTERED_AS_TYPE(propertyName, type)
   return native.invoke(
     Type.Bool, 714, false,
-    ref(Type.String, propertyName),
+    arg(Type.String, propertyName),
     arg(Type.Int, type)
   )
 end
@@ -7917,7 +7917,7 @@ Always returns true.
 function DLC.HAS_CLOUD_REQUESTS_FINISHED(p0, unused)
   return native.invoke(
     Type.Bool, 724, false,
-    ref(Type.Bool, p0),
+    arg(Type.Bool, p0),
     arg(Type.Int, unused)
   )
 end
@@ -8010,8 +8010,8 @@ function ENTITY.HAS_ENTITY_ANIM_FINISHED(entity, animDict, animName, p3)
   return native.invoke(
     Type.Bool, 733, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Int, p3)
   )
 end
@@ -8161,8 +8161,8 @@ function ENTITY.GET_ENTITY_ANIM_CURRENT_TIME(entity, animDict, animName)
   return native.invoke(
     Type.Float, 746, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animDict),
-    ref(Type.String, animName)
+    arg(Type.String, animDict),
+    arg(Type.String, animName)
   )
 end
 
@@ -8180,8 +8180,8 @@ function ENTITY.GET_ENTITY_ANIM_TOTAL_TIME(entity, animDict, animName)
   return native.invoke(
     Type.Float, 747, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animDict),
-    ref(Type.String, animName)
+    arg(Type.String, animDict),
+    arg(Type.String, animName)
   )
 end
 
@@ -8192,8 +8192,8 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function ENTITY.GET_ANIM_DURATION(animDict, animName)
   return native.invoke(
     Type.Float, 748, false,
-    ref(Type.String, animDict),
-    ref(Type.String, animName)
+    arg(Type.String, animDict),
+    arg(Type.String, animName)
   )
 end
 
@@ -8357,10 +8357,10 @@ function ENTITY.GET_ENTITY_MATRIX(entity, forwardVector, rightVector, upVector, 
   native.invoke(
     Type.Void, 761, true,
     arg(Type.Entity, entity),
-    ref(Type.Vector3, forwardVector),
-    ref(Type.Vector3, rightVector),
-    ref(Type.Vector3, upVector),
-    ref(Type.Vector3, position)
+    arg(Type.Vector3, forwardVector),
+    arg(Type.Vector3, rightVector),
+    arg(Type.Vector3, upVector),
+    arg(Type.Vector3, position)
   )
 end
 
@@ -8428,10 +8428,10 @@ function ENTITY.GET_ENTITY_QUATERNION(entity, x, y, z, w)
   native.invoke(
     Type.Void, 766, false,
     arg(Type.Entity, entity),
-    ref(Type.Float, x),
-    ref(Type.Float, y),
-    ref(Type.Float, z),
-    ref(Type.Float, w)
+    arg(Type.Float, x),
+    arg(Type.Float, y),
+    arg(Type.Float, z),
+    arg(Type.Float, w)
   )
 end
 
@@ -8486,9 +8486,9 @@ Returns the name of the script that owns/created the entity or nullptr. Second p
 --]]
 function ENTITY.GET_ENTITY_SCRIPT(entity, script)
   return native.invoke(
-    Type.String, 770, false,
+    Type.Const char, 770, false,
     arg(Type.Entity, entity),
-    ref(Type.Scrhandle, script)
+    arg(Type.Scrhandle, script)
   )
 end
 
@@ -8826,7 +8826,7 @@ function ENTITY.IS_ENTITY_IN_ZONE(entity, zone)
   return native.invoke(
     Type.Bool, 800, false,
     arg(Type.Entity, entity),
-    ref(Type.String, zone)
+    arg(Type.String, zone)
   )
 end
 
@@ -8885,8 +8885,8 @@ function ENTITY.IS_ENTITY_PLAYING_ANIM(entity, animDict, animName, taskFlag)
   return native.invoke(
     Type.Bool, 805, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Int, taskFlag)
   )
 end
@@ -9210,44 +9210,44 @@ https://pastebin.com/D7JMnX1g
 BoneNames:
   chassis,
   windscreen,
-  seat_pside_r,
-seat_dside_r,
-bodyshell,
+   seat_pside_r,
+ seat_dside_r,
+ bodyshell,
     suspension_lm,
     suspension_lr,
     platelight,
-  attach_female,
+   attach_female,
     attach_male,
   bonnet,
-  boot,
-chassis_dummy,  //Center of the dummy
-chassis_Control,    //Not found yet
-  door_dside_f,   //Door left, front
+   boot,
+ chassis_dummy,  //Center of the dummy
+ chassis_Control,    //Not found yet
+   door_dside_f,   //Door left, front
     door_dside_r,   //Door left, back
-door_pside_f,   //Door right, front
-  door_pside_r,   //Door right, back
+ door_pside_f,   //Door right, front
+   door_pside_r,   //Door right, back
     Gun_GripR,
     windscreen_f,
-platelight, //Position where the light above the numberplate is located
-  VFX_Emitter,
+ platelight, //Position where the light above the numberplate is located
+   VFX_Emitter,
   window_lf,  //Window left, front
   window_lr,  //Window left, back
-  window_rf,  //Window right, front
-window_rr,  //Window right, back
+   window_rf,  //Window right, front
+ window_rr,  //Window right, back
   engine, //Position of the engine
   gun_ammo,
-ROPE_ATTATCH,   //Not misspelled. In script "finale_heist2b.c4".
+ ROPE_ATTATCH,   //Not misspelled. In script "finale_heist2b.c4".
     wheel_lf,   //Wheel left, front
-  wheel_lr,   //Wheel left, back
+   wheel_lr,   //Wheel left, back
     wheel_rf,   //Wheel right, front
   wheel_rr,   //Wheel right, back
-  exhaust,    //Exhaust. shows only the position of the stock-exhaust
-  overheat,   //A position on the engine(not exactly sure, how to name it)
+   exhaust,    //Exhaust. shows only the position of the stock-exhaust
+   overheat,   //A position on the engine(not exactly sure, how to name it)
   misc_e, //Not a car-bone.
-seat_dside_f,   //Driver-seat
-seat_pside_f,   //Seat next to driver
-Gun_Nuzzle,
-  seat_r
+ seat_dside_f,   //Driver-seat
+ seat_pside_f,   //Seat next to driver
+ Gun_Nuzzle,
+   seat_r
 
 I doubt that the function is case-sensitive, since I found a "Chassis" and a "chassis". - Just tested: Definitely not case-sensitive.
 
@@ -9257,7 +9257,7 @@ function ENTITY.GET_ENTITY_BONE_INDEX_BY_NAME(entity, boneName)
   return native.invoke(
     Type.Int, 824, false,
     arg(Type.Entity, entity),
-    ref(Type.String, boneName)
+    arg(Type.String, boneName)
   )
 end
 
@@ -9276,7 +9276,7 @@ Deletes the specified entity, then sets the handle pointed to by the pointer to 
 function ENTITY.DELETE_ENTITY(entity)
   native.invoke(
     Type.Void, 826, false,
-    ref(Type.Entity, entity)
+    arg(Type.Entity, entity)
   )
 end
 
@@ -9332,8 +9332,8 @@ function ENTITY.PLAY_ENTITY_ANIM(entity, animName, animDict, p3, loop, stayInAni
   return native.invoke(
     Type.Bool, 830, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animName),
-    ref(Type.String, animDict),
+    arg(Type.String, animName),
+    arg(Type.String, animDict),
     arg(Type.Float, p3),
     arg(Type.Bool, loop),
     arg(Type.Bool, stayInAnim),
@@ -9354,8 +9354,8 @@ function ENTITY.PLAY_SYNCHRONIZED_ENTITY_ANIM(entity, syncedScene, animation, pr
     Type.Bool, 831, false,
     arg(Type.Entity, entity),
     arg(Type.Int, syncedScene),
-    ref(Type.String, animation),
-    ref(Type.String, propName),
+    arg(Type.String, animation),
+    arg(Type.String, propName),
     arg(Type.Float, p4),
     arg(Type.Float, p5),
     arg(Type.Any, p6),
@@ -9378,8 +9378,8 @@ function ENTITY.PLAY_SYNCHRONIZED_MAP_ENTITY_ANIM(x1, y1, z1, x2, y2, z2, p6, p7
     arg(Type.Float, x2),
     arg(Type.Any, y2),
     arg(Type.Float, z2),
-    ref(Type.String, p6),
-    ref(Type.String, p7),
+    arg(Type.String, p6),
+    arg(Type.String, p7),
     arg(Type.Float, p8),
     arg(Type.Float, p9),
     arg(Type.Any, p10),
@@ -9410,8 +9410,8 @@ function ENTITY.STOP_ENTITY_ANIM(entity, animation, animGroup, p3)
   return native.invoke(
     Type.Bool, 834, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animation),
-    ref(Type.String, animGroup),
+    arg(Type.String, animation),
+    arg(Type.String, animGroup),
     arg(Type.Float, p3)
   )
 end
@@ -9457,11 +9457,11 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function ENTITY.FIND_ANIM_EVENT_PHASE(animDictionary, animName, p2, p3, p4)
   return native.invoke(
     Type.Bool, 837, false,
-    ref(Type.String, animDictionary),
-    ref(Type.String, animName),
-    ref(Type.String, p2),
-    ref(Type.Any, p3),
-    ref(Type.Any, p4)
+    arg(Type.String, animDictionary),
+    arg(Type.String, animName),
+    arg(Type.String, p2),
+    arg(Type.Any, p3),
+    arg(Type.Any, p4)
   )
 end
 
@@ -9473,8 +9473,8 @@ function ENTITY.SET_ENTITY_ANIM_CURRENT_TIME(entity, animDictionary, animName, t
   native.invoke(
     Type.Void, 838, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animDictionary),
-    ref(Type.String, animName),
+    arg(Type.String, animDictionary),
+    arg(Type.String, animName),
     arg(Type.Float, time)
   )
 end
@@ -9487,8 +9487,8 @@ function ENTITY.SET_ENTITY_ANIM_SPEED(entity, animDictionary, animName, speedMul
   native.invoke(
     Type.Void, 839, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animDictionary),
-    ref(Type.String, animName),
+    arg(Type.String, animDictionary),
+    arg(Type.String, animName),
     arg(Type.Float, speedMultiplier)
   )
 end
@@ -9533,7 +9533,7 @@ void MarkPedAsAmbientPed(Ped ped) {
 function ENTITY.SET_ENTITY_AS_NO_LONGER_NEEDED(entity)
   native.invoke(
     Type.Void, 841, false,
-    ref(Type.Entity, entity)
+    arg(Type.Entity, entity)
   )
 end
 
@@ -9544,7 +9544,7 @@ This is an alias of SET_ENTITY_AS_NO_LONGER_NEEDED.
 function ENTITY.SET_PED_AS_NO_LONGER_NEEDED(ped)
   native.invoke(
     Type.Void, 842, false,
-    ref(Type.Ped, ped)
+    arg(Type.Ped, ped)
   )
 end
 
@@ -9555,7 +9555,7 @@ This is an alias of SET_ENTITY_AS_NO_LONGER_NEEDED.
 function ENTITY.SET_VEHICLE_AS_NO_LONGER_NEEDED(vehicle)
   native.invoke(
     Type.Void, 843, false,
-    ref(Type.Vehicle, vehicle)
+    arg(Type.Vehicle, vehicle)
   )
 end
 
@@ -9566,7 +9566,7 @@ This is an alias of SET_ENTITY_AS_NO_LONGER_NEEDED.
 function ENTITY.SET_OBJECT_AS_NO_LONGER_NEEDED(object)
   native.invoke(
     Type.Void, 844, false,
-    ref(Type.Object, object)
+    arg(Type.Object, object)
   )
 end
 
@@ -9649,7 +9649,7 @@ end
 -- void SET_ENTITY_COORDS(Entity entity, float xPos, float yPos, float zPos, BOOL xAxis, BOOL yAxis, BOOL zAxis, BOOL clearArea) // 0x06843DA7060A026B
 --[[
 p7 is always 1 in the scripts. Set to 1, an area around the destination coords for the moved entity is cleared from other entities. 
-
+ 
 Often ends with 1, 0, 0, 1); in the scripts. It works. 
 
 Axis - Invert Axis Flags
@@ -9746,17 +9746,17 @@ If you use this for a ped and you want Ragdoll to stay enabled, then do:
 
 Use this if you want to get the invincibility status:
   bool IsPedInvincible(Ped ped)
-{
-    auto addr = getScriptHandleBaseAddress(ped);    
+ {
+     auto addr = getScriptHandleBaseAddress(ped);    
 
         if (addr)
-    {
-        DWORD flag = *(DWORD *)(addr + 0x188);
+     {
+         DWORD flag = *(DWORD *)(addr + 0x188);
             return ((flag & (1 << 8)) != 0) || ((flag & (1 << 9)) != 0);
       }
 
-      return false;
-}
+       return false;
+ }
 --]]
 function ENTITY.SET_ENTITY_INVINCIBLE(entity, toggle)
   native.invoke(
@@ -9864,14 +9864,14 @@ function ENTITY.GET_ENTITY_PROOFS(entity, bulletProof, fireProof, explosionProof
   return native.invoke(
     Type.Bool, 868, false,
     arg(Type.Entity, entity),
-    ref(Type.Bool, bulletProof),
-    ref(Type.Bool, fireProof),
-    ref(Type.Bool, explosionProof),
-    ref(Type.Bool, collisionProof),
-    ref(Type.Bool, meleeProof),
-    ref(Type.Bool, steamProof),
-    ref(Type.Bool, p7),
-    ref(Type.Bool, drownProof)
+    arg(Type.Bool, bulletProof),
+    arg(Type.Bool, fireProof),
+    arg(Type.Bool, explosionProof),
+    arg(Type.Bool, collisionProof),
+    arg(Type.Bool, meleeProof),
+    arg(Type.Bool, steamProof),
+    arg(Type.Bool, p7),
+    arg(Type.Bool, drownProof)
   )
 end
 
@@ -10398,7 +10398,7 @@ end
 -- Entity GET_ENTITY_OF_TYPE_ATTACHED_TO_ENTITY(Entity entity, Hash modelHash) // 0x1F922734E259BD26
 --[[
 Gets the handle of an entity with a specific model hash attached to another entity, such as an object attached to a ped.
-This native does not appear to have anything to do with pickups as in scripts it is used with objects.
+ This native does not appear to have anything to do with pickups as in scripts it is used with objects.
 
 Example from fm_mission_controller_2020.c:
 
@@ -10621,7 +10621,7 @@ function FILES.GET_TATTOO_SHOP_DLC_ITEM_DATA(characterType, decorationIndex, out
     Type.Bool, 929, false,
     arg(Type.Int, characterType),
     arg(Type.Int, decorationIndex),
-    ref(Type.Any, outComponent)
+    arg(Type.Any, outComponent)
   )
 end
 
@@ -10649,7 +10649,7 @@ end
 function FILES.INIT_SHOP_PED_COMPONENT(outComponent)
   native.invoke(
     Type.Void, 931, false,
-    ref(Type.Any, outComponent)
+    arg(Type.Any, outComponent)
   )
 end
 
@@ -10657,7 +10657,7 @@ end
 function FILES.INIT_SHOP_PED_PROP(outProp)
   native.invoke(
     Type.Void, 932, false,
-    ref(Type.Any, outProp)
+    arg(Type.Any, outProp)
   )
 end
 
@@ -10708,7 +10708,7 @@ function FILES.GET_SHOP_PED_QUERY_COMPONENT(componentId, outComponent)
   native.invoke(
     Type.Void, 935, false,
     arg(Type.Int, componentId),
-    ref(Type.Any, outComponent)
+    arg(Type.Any, outComponent)
   )
 end
 
@@ -10732,7 +10732,7 @@ function FILES.GET_SHOP_PED_COMPONENT(componentHash, outComponent)
   native.invoke(
     Type.Void, 937, false,
     arg(Type.Hash, componentHash),
-    ref(Type.Any, outComponent)
+    arg(Type.Any, outComponent)
   )
 end
 
@@ -10744,7 +10744,7 @@ function FILES.GET_SHOP_PED_QUERY_PROP(componentId, outProp)
   native.invoke(
     Type.Void, 938, false,
     arg(Type.Int, componentId),
-    ref(Type.Any, outProp)
+    arg(Type.Any, outProp)
   )
 end
 
@@ -10768,7 +10768,7 @@ function FILES.GET_SHOP_PED_PROP(componentHash, outProp)
   native.invoke(
     Type.Void, 940, false,
     arg(Type.Hash, componentHash),
-    ref(Type.Any, outProp)
+    arg(Type.Any, outProp)
   )
 end
 
@@ -10820,9 +10820,9 @@ function FILES.GET_VARIANT_COMPONENT(componentHash, variantComponentIndex, nameH
     Type.Void, 945, false,
     arg(Type.Hash, componentHash),
     arg(Type.Int, variantComponentIndex),
-    ref(Type.Hash, nameHash),
-    ref(Type.Int, enumValue),
-    ref(Type.Int, componentType)
+    arg(Type.Hash, nameHash),
+    arg(Type.Int, enumValue),
+    arg(Type.Int, componentType)
   )
 end
 
@@ -10832,9 +10832,9 @@ function FILES.GET_VARIANT_PROP(componentHash, variantPropIndex, nameHash, enumV
     Type.Void, 946, false,
     arg(Type.Hash, componentHash),
     arg(Type.Int, variantPropIndex),
-    ref(Type.Hash, nameHash),
-    ref(Type.Int, enumValue),
-    ref(Type.Int, anchorPoint)
+    arg(Type.Hash, nameHash),
+    arg(Type.Int, enumValue),
+    arg(Type.Int, anchorPoint)
   )
 end
 
@@ -10866,9 +10866,9 @@ function FILES.GET_FORCED_COMPONENT(componentHash, forcedComponentIndex, nameHas
     Type.Void, 949, false,
     arg(Type.Hash, componentHash),
     arg(Type.Int, forcedComponentIndex),
-    ref(Type.Hash, nameHash),
-    ref(Type.Int, enumValue),
-    ref(Type.Int, componentType)
+    arg(Type.Hash, nameHash),
+    arg(Type.Int, enumValue),
+    arg(Type.Int, componentType)
   )
 end
 
@@ -10878,9 +10878,9 @@ function FILES.GET_FORCED_PROP(componentHash, forcedPropIndex, nameHash, enumVal
     Type.Void, 950, false,
     arg(Type.Hash, componentHash),
     arg(Type.Int, forcedPropIndex),
-    ref(Type.Hash, nameHash),
-    ref(Type.Int, enumValue),
-    ref(Type.Int, anchorPoint)
+    arg(Type.Hash, nameHash),
+    arg(Type.Int, enumValue),
+    arg(Type.Int, anchorPoint)
   )
 end
 
@@ -10946,7 +10946,7 @@ function FILES.GET_SHOP_PED_QUERY_OUTFIT(outfitIndex, outfit)
   native.invoke(
     Type.Void, 955, false,
     arg(Type.Int, outfitIndex),
-    ref(Type.Any, outfit)
+    arg(Type.Any, outfit)
   )
 end
 
@@ -10955,7 +10955,7 @@ function FILES.GET_SHOP_PED_OUTFIT(p0, p1)
   native.invoke(
     Type.Void, 956, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -10976,7 +10976,7 @@ function FILES.GET_SHOP_PED_OUTFIT_PROP_VARIANT(outfitHash, variantIndex, outPro
     Type.Bool, 958, false,
     arg(Type.Hash, outfitHash),
     arg(Type.Int, variantIndex),
-    ref(Type.Any, outPropVariant)
+    arg(Type.Any, outPropVariant)
   )
 end
 
@@ -10989,7 +10989,7 @@ function FILES.GET_SHOP_PED_OUTFIT_COMPONENT_VARIANT(outfitHash, variantIndex, o
     Type.Bool, 959, false,
     arg(Type.Hash, outfitHash),
     arg(Type.Int, variantIndex),
-    ref(Type.Any, outComponentVariant)
+    arg(Type.Any, outComponentVariant)
   )
 end
 
@@ -11021,7 +11021,7 @@ function FILES.GET_DLC_VEHICLE_DATA(dlcVehicleIndex, outData)
   return native.invoke(
     Type.Bool, 962, false,
     arg(Type.Int, dlcVehicleIndex),
-    ref(Type.Any, outData)
+    arg(Type.Any, outData)
   )
 end
 
@@ -11083,7 +11083,7 @@ function FILES.GET_DLC_WEAPON_DATA(dlcWeaponIndex, outData)
   return native.invoke(
     Type.Bool, 966, false,
     arg(Type.Int, dlcWeaponIndex),
-    ref(Type.Any, outData)
+    arg(Type.Any, outData)
   )
 end
 
@@ -11095,7 +11095,7 @@ function FILES.GET_DLC_WEAPON_DATA_SP(dlcWeaponIndex, outData)
   return native.invoke(
     Type.Bool, 967, false,
     arg(Type.Int, dlcWeaponIndex),
-    ref(Type.Any, outData)
+    arg(Type.Any, outData)
   )
 end
 
@@ -11148,7 +11148,7 @@ function FILES.GET_DLC_WEAPON_COMPONENT_DATA(dlcWeaponIndex, dlcWeapCompIndex, C
     Type.Bool, 970, false,
     arg(Type.Int, dlcWeaponIndex),
     arg(Type.Int, dlcWeapCompIndex),
-    ref(Type.Any, ComponentDataPtr)
+    arg(Type.Any, ComponentDataPtr)
   )
 end
 
@@ -11161,7 +11161,7 @@ function FILES.GET_DLC_WEAPON_COMPONENT_DATA_SP(dlcWeaponIndex, dlcWeapCompIndex
     Type.Bool, 971, false,
     arg(Type.Int, dlcWeaponIndex),
     arg(Type.Int, dlcWeapCompIndex),
-    ref(Type.Any, ComponentDataPtr)
+    arg(Type.Any, ComponentDataPtr)
   )
 end
 
@@ -11308,7 +11308,7 @@ Returns TRUE if it found something. FALSE if not.
 function FIRE.GET_CLOSEST_FIRE_POS(outPosition, x, y, z)
   return native.invoke(
     Type.Bool, 985, true,
-    ref(Type.Vector3, outPosition),
+    arg(Type.Vector3, outPosition),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z)
@@ -11597,7 +11597,7 @@ NOTE: Debugging functions are not present in the retail version of the game.
 function GRAPHICS.DRAW_DEBUG_TEXT(text, x, y, z, red, green, blue, alpha)
   native.invoke(
     Type.Void, 1001, false,
-    ref(Type.String, text),
+    arg(Type.String, text),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -11615,7 +11615,7 @@ NOTE: Debugging functions are not present in the retail version of the game.
 function GRAPHICS.DRAW_DEBUG_TEXT_2D(text, x, y, z, red, green, blue, alpha)
   native.invoke(
     Type.Void, 1002, false,
-    ref(Type.String, text),
+    arg(Type.String, text),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -11727,8 +11727,8 @@ function GRAPHICS.DRAW_TEXTURED_POLY(x1, y1, z1, x2, y2, z2, x3, y3, z3, red, gr
     arg(Type.Int, green),
     arg(Type.Int, blue),
     arg(Type.Int, alpha),
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Float, u1),
     arg(Type.Float, v1),
     arg(Type.Float, w1),
@@ -11772,8 +11772,8 @@ function GRAPHICS.DRAW_TEXTURED_POLY_WITH_THREE_COLOURS(x1, y1, z1, x2, y2, z2, 
     arg(Type.Float, green3),
     arg(Type.Float, blue3),
     arg(Type.Int, alpha3),
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Float, u1),
     arg(Type.Float, v1),
     arg(Type.Float, w1),
@@ -11863,7 +11863,7 @@ end
 function GRAPHICS.LOAD_MISSION_CREATOR_PHOTO(p0, p1, p2, p3)
   return native.invoke(
     Type.Bool, 1013, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Any, p3)
@@ -11874,7 +11874,7 @@ end
 function GRAPHICS.GET_STATUS_OF_LOAD_MISSION_CREATOR_PHOTO(p0)
   return native.invoke(
     Type.Int, 1014, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -12215,35 +12215,35 @@ end
 enum MarkerTypes
 {
     MarkerTypeUpsideDownCone = 0,
-MarkerTypeVerticalCylinder = 1,
-  MarkerTypeThickChevronUp = 2,
-MarkerTypeThinChevronUp = 3,
+ MarkerTypeVerticalCylinder = 1,
+   MarkerTypeThickChevronUp = 2,
+ MarkerTypeThinChevronUp = 3,
   MarkerTypeCheckeredFlagRect = 4,
   MarkerTypeCheckeredFlagCircle = 5,
     MarkerTypeVerticleCircle = 6,
-MarkerTypePlaneModel = 7,
-MarkerTypeLostMCDark = 8,
-MarkerTypeLostMCLight = 9,
+ MarkerTypePlaneModel = 7,
+ MarkerTypeLostMCDark = 8,
+ MarkerTypeLostMCLight = 9,
     MarkerTypeNumber0 = 10,
-  MarkerTypeNumber1 = 11,
-  MarkerTypeNumber2 = 12,
-  MarkerTypeNumber3 = 13,
-  MarkerTypeNumber4 = 14,
-  MarkerTypeNumber5 = 15,
-  MarkerTypeNumber6 = 16,
-  MarkerTypeNumber7 = 17,
-  MarkerTypeNumber8 = 18,
-  MarkerTypeNumber9 = 19,
-  MarkerTypeChevronUpx1 = 20,
-  MarkerTypeChevronUpx2 = 21,
-  MarkerTypeChevronUpx3 = 22,
-  MarkerTypeHorizontalCircleFat = 23,
-  MarkerTypeReplayIcon = 24,
+   MarkerTypeNumber1 = 11,
+   MarkerTypeNumber2 = 12,
+   MarkerTypeNumber3 = 13,
+   MarkerTypeNumber4 = 14,
+   MarkerTypeNumber5 = 15,
+   MarkerTypeNumber6 = 16,
+   MarkerTypeNumber7 = 17,
+   MarkerTypeNumber8 = 18,
+   MarkerTypeNumber9 = 19,
+   MarkerTypeChevronUpx1 = 20,
+   MarkerTypeChevronUpx2 = 21,
+   MarkerTypeChevronUpx3 = 22,
+   MarkerTypeHorizontalCircleFat = 23,
+   MarkerTypeReplayIcon = 24,
     MarkerTypeHorizontalCircleSkinny = 25,
     MarkerTypeHorizontalCircleSkinny_Arrow = 26,
   MarkerTypeHorizontalSplitArrowCircle = 27,
     MarkerTypeDebugSphere = 28,
-  MarkerTypeDallorSign = 29,
+   MarkerTypeDallorSign = 29,
     MarkerTypeHorizontalBars = 30,
     MarkerTypeWolfHead = 31
 };
@@ -12296,8 +12296,8 @@ function GRAPHICS.DRAW_MARKER(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, ro
     arg(Type.Bool, faceCamera),
     arg(Type.Int, p19),
     arg(Type.Bool, rotate),
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Bool, drawOnEnts)
   )
 end
@@ -12327,8 +12327,8 @@ function GRAPHICS.DRAW_MARKER_EX(type, posX, posY, posZ, dirX, dirY, dirZ, rotX,
     arg(Type.Bool, faceCamera),
     arg(Type.Any, p19),
     arg(Type.Bool, rotate),
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Bool, drawOnEnts),
     arg(Type.Bool, p24),
     arg(Type.Bool, p25)
@@ -12576,7 +12576,7 @@ last param isnt a toggle
 function GRAPHICS.REQUEST_STREAMED_TEXTURE_DICT(textureDict, p1)
   native.invoke(
     Type.Void, 1064, false,
-    ref(Type.String, textureDict),
+    arg(Type.String, textureDict),
     arg(Type.Bool, p1)
   )
 end
@@ -12585,7 +12585,7 @@ end
 function GRAPHICS.HAS_STREAMED_TEXTURE_DICT_LOADED(textureDict)
   return native.invoke(
     Type.Bool, 1065, false,
-    ref(Type.String, textureDict)
+    arg(Type.String, textureDict)
   )
 end
 
@@ -12593,7 +12593,7 @@ end
 function GRAPHICS.SET_STREAMED_TEXTURE_DICT_AS_NO_LONGER_NEEDED(textureDict)
   native.invoke(
     Type.Void, 1066, false,
-    ref(Type.String, textureDict)
+    arg(Type.String, textureDict)
   )
 end
 
@@ -12721,8 +12721,8 @@ function GRAPHICS.GET_SCRIPT_GFX_ALIGN_POSITION(x, y, calculatedX, calculatedY)
     Type.Void, 1073, false,
     arg(Type.Float, x),
     arg(Type.Float, y),
-    ref(Type.Float, calculatedX),
-    ref(Type.Float, calculatedY)
+    arg(Type.Float, calculatedX),
+    arg(Type.Float, calculatedY)
   )
 end
 
@@ -12757,8 +12757,8 @@ alpha - opacity level
 function GRAPHICS.DRAW_SPRITE(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, p11, p12)
   native.invoke(
     Type.Void, 1075, false,
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Float, screenX),
     arg(Type.Float, screenY),
     arg(Type.Float, width),
@@ -12786,8 +12786,8 @@ p11 seems to be unknown but almost always 0 int
 function GRAPHICS.DRAW_SPRITE_ARX(textureDict, textureName, x, y, width, height, p6, red, green, blue, alpha, p11, p12)
   native.invoke(
     Type.Void, 1076, false,
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, width),
@@ -12822,8 +12822,8 @@ And a few others
 function GRAPHICS.DRAW_SPRITE_NAMED_RENDERTARGET(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, p11)
   native.invoke(
     Type.Void, 1077, false,
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Float, screenX),
     arg(Type.Float, screenY),
     arg(Type.Float, width),
@@ -12847,8 +12847,8 @@ u2, v2 - texture coordinates for the bottom-right corner
 function GRAPHICS.DRAW_SPRITE_ARX_WITH_UV(textureDict, textureName, x, y, width, height, u1, v1, u2, v2, heading, red, green, blue, alpha, p15)
   native.invoke(
     Type.Void, 1078, false,
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, width),
@@ -12877,7 +12877,7 @@ function GRAPHICS.ADD_ENTITY_ICON(entity, icon)
   return native.invoke(
     Type.Int, 1079, false,
     arg(Type.Entity, entity),
-    ref(Type.String, icon)
+    arg(Type.String, icon)
   )
 end
 
@@ -12948,7 +12948,7 @@ end
 function GRAPHICS.SET_BINK_MOVIE(name)
   return native.invoke(
     Type.Int, 1084, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -13072,7 +13072,7 @@ end
 function GRAPHICS.LOAD_MOVIE_MESH_SET(movieMeshSetName)
   return native.invoke(
     Type.Int, 1096, false,
-    ref(Type.String, movieMeshSetName)
+    arg(Type.String, movieMeshSetName)
   )
 end
 
@@ -13100,8 +13100,8 @@ GET_SCREEN_RESOLUTION(&screenresx,&screenresy);
 function GRAPHICS.GET_SCREEN_RESOLUTION(x, y)
   native.invoke(
     Type.Void, 1099, false,
-    ref(Type.Int, x),
-    ref(Type.Int, y)
+    arg(Type.Int, x),
+    arg(Type.Int, y)
   )
 end
 
@@ -13112,8 +13112,8 @@ Returns current screen resolution.
 function GRAPHICS.GET_ACTUAL_SCREEN_RESOLUTION(x, y)
   native.invoke(
     Type.Void, 1100, false,
-    ref(Type.Int, x),
-    ref(Type.Int, y)
+    arg(Type.Int, x),
+    arg(Type.Int, y)
   )
 end
 
@@ -13278,8 +13278,8 @@ function GRAPHICS.GET_SCREEN_COORD_FROM_WORLD_COORD(worldX, worldY, worldZ, scre
     arg(Type.Float, worldX),
     arg(Type.Float, worldY),
     arg(Type.Float, worldZ),
-    ref(Type.Float, screenX),
-    ref(Type.Float, screenY)
+    arg(Type.Float, screenX),
+    arg(Type.Float, screenY)
   )
 end
 
@@ -13292,8 +13292,8 @@ Note: Most texture resolutions are doubled compared to the console version of th
 function GRAPHICS.GET_TEXTURE_RESOLUTION(textureDict, textureName)
   return native.invoke(
     Type.Vector3, 1115, false,
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName)
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName)
   )
 end
 
@@ -13305,8 +13305,8 @@ function GRAPHICS.OVERRIDE_PED_CREW_LOGO_TEXTURE(ped, txd, txn)
   return native.invoke(
     Type.Bool, 1116, false,
     arg(Type.Ped, ped),
-    ref(Type.String, txd),
-    ref(Type.String, txn)
+    arg(Type.String, txd),
+    arg(Type.String, txn)
   )
 end
 
@@ -13636,7 +13636,7 @@ Possible values:
 function GRAPHICS.CASCADE_SHADOWS_SET_SHADOW_SAMPLE_TYPE(type)
   native.invoke(
     Type.Void, 1147, false,
-    ref(Type.String, type)
+    arg(Type.String, type)
   )
 end
 
@@ -14102,7 +14102,7 @@ end
 function GRAPHICS.PHONEPHOTOEDITOR_SET_FRAME_TXD(textureDict, p1)
   return native.invoke(
     Type.Bool, 1196, false,
-    ref(Type.String, textureDict),
+    arg(Type.String, textureDict),
     arg(Type.Bool, p1)
   )
 end
@@ -14137,7 +14137,7 @@ Function.Call<int>(Hash.START_PARTICLE_FX_NON_LOOPED_AT_COORD, "scr_fbi4_trucks_
 function GRAPHICS.START_PARTICLE_FX_NON_LOOPED_AT_COORD(effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis)
   return native.invoke(
     Type.Bool, 1197, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Float, xPos),
     arg(Type.Float, yPos),
     arg(Type.Float, zPos),
@@ -14158,7 +14158,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_NETWORKED_PARTICLE_FX_NON_LOOPED_AT_COORD(effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, p11)
   return native.invoke(
     Type.Bool, 1198, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Float, xPos),
     arg(Type.Float, yPos),
     arg(Type.Float, zPos),
@@ -14184,7 +14184,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_PARTICLE_FX_NON_LOOPED_ON_PED_BONE(effectName, ped, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, boneIndex, scale, axisX, axisY, axisZ)
   return native.invoke(
     Type.Bool, 1199, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Ped, ped),
     arg(Type.Float, offsetX),
     arg(Type.Float, offsetY),
@@ -14207,7 +14207,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_NETWORKED_PARTICLE_FX_NON_LOOPED_ON_PED_BONE(effectName, ped, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, boneIndex, scale, axisX, axisY, axisZ)
   return native.invoke(
     Type.Bool, 1200, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Ped, ped),
     arg(Type.Float, offsetX),
     arg(Type.Float, offsetY),
@@ -14241,7 +14241,7 @@ however it uses -1 for the specified bone index, so it should be possible to sta
 function GRAPHICS.START_PARTICLE_FX_NON_LOOPED_ON_ENTITY(effectName, entity, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, scale, axisX, axisY, axisZ)
   return native.invoke(
     Type.Bool, 1201, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Entity, entity),
     arg(Type.Float, offsetX),
     arg(Type.Float, offsetY),
@@ -14263,7 +14263,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_NETWORKED_PARTICLE_FX_NON_LOOPED_ON_ENTITY(effectName, entity, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, scale, axisX, axisY, axisZ)
   return native.invoke(
     Type.Bool, 1202, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Entity, entity),
     arg(Type.Float, offsetX),
     arg(Type.Float, offsetY),
@@ -14285,7 +14285,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_PARTICLE_FX_NON_LOOPED_ON_ENTITY_BONE(effectName, entity, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, boneIndex, scale, axisX, axisY, axisZ)
   return native.invoke(
     Type.Bool, 1203, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Entity, entity),
     arg(Type.Float, offsetX),
     arg(Type.Float, offsetY),
@@ -14370,7 +14370,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_PARTICLE_FX_LOOPED_AT_COORD(effectName, x, y, z, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, p11)
   return native.invoke(
     Type.Int, 1209, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -14392,7 +14392,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_PARTICLE_FX_LOOPED_ON_PED_BONE(effectName, ped, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis)
   return native.invoke(
     Type.Int, 1210, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Ped, ped),
     arg(Type.Float, xOffset),
     arg(Type.Float, yOffset),
@@ -14415,7 +14415,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_PARTICLE_FX_LOOPED_ON_ENTITY(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis)
   return native.invoke(
     Type.Int, 1211, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Entity, entity),
     arg(Type.Float, xOffset),
     arg(Type.Float, yOffset),
@@ -14437,7 +14437,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_PARTICLE_FX_LOOPED_ON_ENTITY_BONE(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis)
   return native.invoke(
     Type.Int, 1212, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Entity, entity),
     arg(Type.Float, xOffset),
     arg(Type.Float, yOffset),
@@ -14460,7 +14460,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, r, g, b, a)
   return native.invoke(
     Type.Int, 1213, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Entity, entity),
     arg(Type.Float, xOffset),
     arg(Type.Float, yOffset),
@@ -14486,7 +14486,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY_BONE(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis, r, g, b, a)
   return native.invoke(
     Type.Int, 1214, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Entity, entity),
     arg(Type.Float, xOffset),
     arg(Type.Float, yOffset),
@@ -14582,7 +14582,7 @@ function GRAPHICS.SET_PARTICLE_FX_LOOPED_EVOLUTION(ptfxHandle, propertyName, amo
   native.invoke(
     Type.Void, 1222, false,
     arg(Type.Int, ptfxHandle),
-    ref(Type.String, propertyName),
+    arg(Type.String, propertyName),
     arg(Type.Float, amount),
     arg(Type.Bool, noNetwork)
   )
@@ -14774,7 +14774,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.SET_PARTICLE_FX_FOOT_OVERRIDE_NAME(p0)
   native.invoke(
     Type.Void, 1243, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -14817,20 +14817,20 @@ end
 --[[
 From the b678d decompiled scripts:
 
-GRAPHICS::USE_PARTICLE_FX_ASSET("FM_Mission_Controler");
-GRAPHICS::USE_PARTICLE_FX_ASSET("scr_apartment_mp");
-GRAPHICS::USE_PARTICLE_FX_ASSET("scr_indep_fireworks");
-GRAPHICS::USE_PARTICLE_FX_ASSET("scr_mp_cig_plane");
-GRAPHICS::USE_PARTICLE_FX_ASSET("scr_mp_creator");
-GRAPHICS::USE_PARTICLE_FX_ASSET("scr_ornate_heist");
-GRAPHICS::USE_PARTICLE_FX_ASSET("scr_prison_break_heist_station");
+ GRAPHICS::USE_PARTICLE_FX_ASSET("FM_Mission_Controler");
+ GRAPHICS::USE_PARTICLE_FX_ASSET("scr_apartment_mp");
+ GRAPHICS::USE_PARTICLE_FX_ASSET("scr_indep_fireworks");
+ GRAPHICS::USE_PARTICLE_FX_ASSET("scr_mp_cig_plane");
+ GRAPHICS::USE_PARTICLE_FX_ASSET("scr_mp_creator");
+ GRAPHICS::USE_PARTICLE_FX_ASSET("scr_ornate_heist");
+ GRAPHICS::USE_PARTICLE_FX_ASSET("scr_prison_break_heist_station");
 
 Full list of particle effect dictionaries and effects by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json
 --]]
 function GRAPHICS.USE_PARTICLE_FX_ASSET(name)
   native.invoke(
     Type.Void, 1248, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -14841,8 +14841,8 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.SET_PARTICLE_FX_OVERRIDE(oldAsset, newAsset)
   native.invoke(
     Type.Void, 1249, false,
-    ref(Type.String, oldAsset),
-    ref(Type.String, newAsset)
+    arg(Type.String, oldAsset),
+    arg(Type.String, newAsset)
   )
 end
 
@@ -14855,7 +14855,7 @@ Full list of particle effect dictionaries and effects by DurtyFree: https://gith
 function GRAPHICS.RESET_PARTICLE_FX_OVERRIDE(name)
   native.invoke(
     Type.Void, 1250, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -14868,7 +14868,7 @@ function GRAPHICS._START_VEHICLE_PARTICLE_FX_LOOPED(vehicle, effectName, frontBa
   return native.invoke(
     Type.Int, 1251, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Bool, frontBack),
     arg(Type.Bool, leftRight),
     arg(Type.Bool, localOnly)
@@ -15167,8 +15167,8 @@ function GRAPHICS.PATCH_DECAL_DIFFUSE_MAP(decalType, textureDict, textureName)
   native.invoke(
     Type.Void, 1274, false,
     arg(Type.Int, decalType),
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName)
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName)
   )
 end
 
@@ -15218,7 +15218,7 @@ end
 function GRAPHICS.ABORT_VEHICLE_CREW_EMBLEM_REQUEST(p0)
   return native.invoke(
     Type.Bool, 1278, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -15277,7 +15277,7 @@ end
 function GRAPHICS.OVERRIDE_INTERIOR_SMOKE_NAME(name)
   native.invoke(
     Type.Void, 1285, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -15384,7 +15384,7 @@ GRAPHICS::PRESET_INTERIOR_AMBIENT_CACHE("int_carrier_hanger");
 function GRAPHICS.PRESET_INTERIOR_AMBIENT_CACHE(timecycleModifierName)
   native.invoke(
     Type.Void, 1297, false,
-    ref(Type.String, timecycleModifierName)
+    arg(Type.String, timecycleModifierName)
   )
 end
 
@@ -15400,7 +15400,7 @@ Full list of timecycle modifiers by DurtyFree: https://github.com/DurtyFree/gta-
 function GRAPHICS.SET_TIMECYCLE_MODIFIER(modifierName)
   native.invoke(
     Type.Void, 1298, false,
-    ref(Type.String, modifierName)
+    arg(Type.String, modifierName)
   )
 end
 
@@ -15419,7 +15419,7 @@ Full list of timecycle modifiers by DurtyFree: https://github.com/DurtyFree/gta-
 function GRAPHICS.SET_TRANSITION_TIMECYCLE_MODIFIER(modifierName, transition)
   native.invoke(
     Type.Void, 1300, false,
-    ref(Type.String, modifierName),
+    arg(Type.String, modifierName),
     arg(Type.Float, transition)
   )
 end
@@ -15483,7 +15483,7 @@ end
 function GRAPHICS.SET_CURRENT_PLAYER_TCMODIFIER(modifierName)
   native.invoke(
     Type.Void, 1308, false,
-    ref(Type.String, modifierName)
+    arg(Type.String, modifierName)
   )
 end
 
@@ -15499,7 +15499,7 @@ end
 function GRAPHICS.SET_NEXT_PLAYER_TCMODIFIER(modifierName)
   native.invoke(
     Type.Void, 1310, false,
-    ref(Type.String, modifierName)
+    arg(Type.String, modifierName)
   )
 end
 
@@ -15507,8 +15507,8 @@ end
 function GRAPHICS.ADD_TCMODIFIER_OVERRIDE(modifierName1, modifierName2)
   native.invoke(
     Type.Void, 1311, false,
-    ref(Type.String, modifierName1),
-    ref(Type.String, modifierName2)
+    arg(Type.String, modifierName1),
+    arg(Type.String, modifierName2)
   )
 end
 
@@ -15516,7 +15516,7 @@ end
 function GRAPHICS.CLEAR_ALL_TCMODIFIER_OVERRIDES(p0)
   native.invoke(
     Type.Void, 1312, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -15527,7 +15527,7 @@ Full list of timecycle modifiers by DurtyFree: https://github.com/DurtyFree/gta-
 function GRAPHICS.SET_EXTRA_TCMODIFIER(modifierName)
   native.invoke(
     Type.Void, 1313, false,
-    ref(Type.String, modifierName)
+    arg(Type.String, modifierName)
   )
 end
 
@@ -15577,7 +15577,7 @@ end
 function GRAPHICS.REQUEST_SCALEFORM_MOVIE(scaleformName)
   return native.invoke(
     Type.Int, 1318, false,
-    ref(Type.String, scaleformName)
+    arg(Type.String, scaleformName)
   )
 end
 
@@ -15588,7 +15588,7 @@ Another REQUEST_SCALEFORM_MOVIE equivalent.
 function GRAPHICS.REQUEST_SCALEFORM_MOVIE_WITH_IGNORE_SUPER_WIDESCREEN(scaleformName)
   return native.invoke(
     Type.Int, 1319, false,
-    ref(Type.String, scaleformName)
+    arg(Type.String, scaleformName)
   )
 end
 
@@ -15596,7 +15596,7 @@ end
 function GRAPHICS.REQUEST_SCALEFORM_MOVIE_INSTANCE(scaleformName)
   return native.invoke(
     Type.Int, 1320, false,
-    ref(Type.String, scaleformName)
+    arg(Type.String, scaleformName)
   )
 end
 
@@ -15617,7 +15617,7 @@ Note: Unless this hash is out-of-order, this native is next-gen only.
 function GRAPHICS.REQUEST_SCALEFORM_MOVIE_SKIP_RENDER_WHILE_PAUSED(scaleformName)
   return native.invoke(
     Type.Int, 1321, false,
-    ref(Type.String, scaleformName)
+    arg(Type.String, scaleformName)
   )
 end
 
@@ -15663,7 +15663,7 @@ Only values used in the scripts are:
 function GRAPHICS.HAS_SCALEFORM_MOVIE_FILENAME_LOADED(scaleformName)
   return native.invoke(
     Type.Bool, 1325, false,
-    ref(Type.String, scaleformName)
+    arg(Type.String, scaleformName)
   )
 end
 
@@ -15679,7 +15679,7 @@ end
 function GRAPHICS.SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(scaleformHandle)
   native.invoke(
     Type.Void, 1327, false,
-    ref(Type.Int, scaleformHandle)
+    arg(Type.Int, scaleformHandle)
   )
 end
 
@@ -15809,7 +15809,7 @@ function GRAPHICS.CALL_SCALEFORM_MOVIE_METHOD(scaleform, method)
   native.invoke(
     Type.Void, 1336, false,
     arg(Type.Int, scaleform),
-    ref(Type.String, method)
+    arg(Type.String, method)
   )
 end
 
@@ -15823,7 +15823,7 @@ function GRAPHICS.CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(scaleform, methodName,
   native.invoke(
     Type.Void, 1337, false,
     arg(Type.Int, scaleform),
-    ref(Type.String, methodName),
+    arg(Type.String, methodName),
     arg(Type.Float, param1),
     arg(Type.Float, param2),
     arg(Type.Float, param3),
@@ -15842,12 +15842,12 @@ function GRAPHICS.CALL_SCALEFORM_MOVIE_METHOD_WITH_STRING(scaleform, methodName,
   native.invoke(
     Type.Void, 1338, false,
     arg(Type.Int, scaleform),
-    ref(Type.String, methodName),
-    ref(Type.String, param1),
-    ref(Type.String, param2),
-    ref(Type.String, param3),
-    ref(Type.String, param4),
-    ref(Type.String, param5)
+    arg(Type.String, methodName),
+    arg(Type.String, param1),
+    arg(Type.String, param2),
+    arg(Type.String, param3),
+    arg(Type.String, param4),
+    arg(Type.String, param5)
   )
 end
 
@@ -15870,17 +15870,17 @@ function GRAPHICS.CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER_AND_STRING(scaleform, 
   native.invoke(
     Type.Void, 1339, false,
     arg(Type.Int, scaleform),
-    ref(Type.String, methodName),
+    arg(Type.String, methodName),
     arg(Type.Float, floatParam1),
     arg(Type.Float, floatParam2),
     arg(Type.Float, floatParam3),
     arg(Type.Float, floatParam4),
     arg(Type.Float, floatParam5),
-    ref(Type.String, stringParam1),
-    ref(Type.String, stringParam2),
-    ref(Type.String, stringParam3),
-    ref(Type.String, stringParam4),
-    ref(Type.String, stringParam5)
+    arg(Type.String, stringParam1),
+    arg(Type.String, stringParam2),
+    arg(Type.String, stringParam3),
+    arg(Type.String, stringParam4),
+    arg(Type.String, stringParam5)
   )
 end
 
@@ -15898,7 +15898,7 @@ function GRAPHICS.BEGIN_SCALEFORM_SCRIPT_HUD_MOVIE_METHOD(hudComponent, methodNa
   return native.invoke(
     Type.Bool, 1340, false,
     arg(Type.Int, hudComponent),
-    ref(Type.String, methodName)
+    arg(Type.String, methodName)
   )
 end
 
@@ -15911,7 +15911,7 @@ function GRAPHICS.BEGIN_SCALEFORM_MOVIE_METHOD(scaleform, methodName)
   return native.invoke(
     Type.Bool, 1341, false,
     arg(Type.Int, scaleform),
-    ref(Type.String, methodName)
+    arg(Type.String, methodName)
   )
 end
 
@@ -15924,7 +15924,7 @@ Use `BEGIN_SCALEFORM_MOVIE_METHOD_ON_FRONTEND_HEADER` for header scaleform funct
 function GRAPHICS.BEGIN_SCALEFORM_MOVIE_METHOD_ON_FRONTEND(methodName)
   return native.invoke(
     Type.Bool, 1342, false,
-    ref(Type.String, methodName)
+    arg(Type.String, methodName)
   )
 end
 
@@ -15936,7 +15936,7 @@ Use `BEGIN_SCALEFORM_MOVIE_METHOD_ON_FRONTEND` to customize the content inside t
 function GRAPHICS.BEGIN_SCALEFORM_MOVIE_METHOD_ON_FRONTEND_HEADER(methodName)
   return native.invoke(
     Type.Bool, 1343, false,
-    ref(Type.String, methodName)
+    arg(Type.String, methodName)
   )
 end
 
@@ -15999,7 +15999,7 @@ Used to get a return value from a scaleform function. Returns a string in the sa
 --]]
 function GRAPHICS.GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_STRING(methodReturn)
   return native.invoke(
-    Type.String, 1349, false,
+    Type.Const char, 1349, false,
     arg(Type.Int, methodReturn)
   )
 end
@@ -16062,7 +16062,7 @@ GRAPHICS::END_TEXT_COMMAND_SCALEFORM_STRING();
 function GRAPHICS.BEGIN_TEXT_COMMAND_SCALEFORM_STRING(componentType)
   native.invoke(
     Type.Void, 1353, false,
-    ref(Type.String, componentType)
+    arg(Type.String, componentType)
   )
 end
 
@@ -16093,7 +16093,7 @@ Both SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING / _SCALEFORM_MOVIE_MET
 function GRAPHICS.SCALEFORM_MOVIE_METHOD_ADD_PARAM_LITERAL_STRING(string)
   native.invoke(
     Type.Void, 1356, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -16101,7 +16101,7 @@ end
 function GRAPHICS.SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING(string)
   native.invoke(
     Type.Void, 1357, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -16109,7 +16109,7 @@ end
 function GRAPHICS.SCALEFORM_MOVIE_METHOD_ADD_PARAM_PLAYER_NAME_STRING(string)
   native.invoke(
     Type.Void, 1358, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -16271,7 +16271,7 @@ function GRAPHICS.SET_TV_CHANNEL_PLAYLIST(tvChannel, playlistName, restart)
   native.invoke(
     Type.Void, 1370, false,
     arg(Type.Int, tvChannel),
-    ref(Type.String, playlistName),
+    arg(Type.String, playlistName),
     arg(Type.Bool, restart)
   )
 end
@@ -16281,7 +16281,7 @@ function GRAPHICS.SET_TV_CHANNEL_PLAYLIST_AT_HOUR(tvChannel, playlistName, hour)
   native.invoke(
     Type.Void, 1371, false,
     arg(Type.Int, tvChannel),
-    ref(Type.String, playlistName),
+    arg(Type.String, playlistName),
     arg(Type.Int, hour)
   )
 end
@@ -16365,7 +16365,7 @@ All presets can be found in common\data\ui\uiscenes.meta
 function GRAPHICS.UI3DSCENE_PUSH_PRESET(presetName)
   return native.invoke(
     Type.Bool, 1381, false,
-    ref(Type.String, presetName)
+    arg(Type.String, presetName)
   )
 end
 
@@ -16379,7 +16379,7 @@ All presets can be found in common\data\ui\uiscenes.meta
 function GRAPHICS.UI3DSCENE_ASSIGN_PED_TO_SLOT(presetName, ped, slot, posX, posY, posZ)
   return native.invoke(
     Type.Bool, 1382, false,
-    ref(Type.String, presetName),
+    arg(Type.String, presetName),
     arg(Type.Ped, ped),
     arg(Type.Int, slot),
     arg(Type.Float, posX),
@@ -16481,7 +16481,7 @@ Full list of animpostFX / screen effects by DurtyFree: https://github.com/DurtyF
 function GRAPHICS.ANIMPOSTFX_PLAY(effectName, duration, looped)
   native.invoke(
     Type.Void, 1388, false,
-    ref(Type.String, effectName),
+    arg(Type.String, effectName),
     arg(Type.Int, duration),
     arg(Type.Bool, looped)
   )
@@ -16496,7 +16496,7 @@ Full list of animpostFX / screen effects by DurtyFree: https://github.com/DurtyF
 function GRAPHICS.ANIMPOSTFX_STOP(effectName)
   native.invoke(
     Type.Void, 1389, false,
-    ref(Type.String, effectName)
+    arg(Type.String, effectName)
   )
 end
 
@@ -16509,7 +16509,7 @@ Full list of animpostFX / screen effects by DurtyFree: https://github.com/DurtyF
 function GRAPHICS.ANIMPOSTFX_GET_CURRENT_TIME(effectName)
   return native.invoke(
     Type.Float, 1390, false,
-    ref(Type.String, effectName)
+    arg(Type.String, effectName)
   )
 end
 
@@ -16523,7 +16523,7 @@ Full list of animpostFX / screen effects by DurtyFree: https://github.com/DurtyF
 function GRAPHICS.ANIMPOSTFX_IS_RUNNING(effectName)
   return native.invoke(
     Type.Bool, 1391, false,
-    ref(Type.String, effectName)
+    arg(Type.String, effectName)
   )
 end
 
@@ -16547,7 +16547,7 @@ Full list of animpostFX / screen effects by DurtyFree: https://github.com/DurtyF
 function GRAPHICS.ANIMPOSTFX_STOP_AND_FLUSH_REQUESTS(effectName)
   native.invoke(
     Type.Void, 1393, false,
-    ref(Type.String, effectName)
+    arg(Type.String, effectName)
   )
 end
 
@@ -16562,19 +16562,19 @@ Initializes the text entry for the the text next to a loading prompt. All native
 e.g
 void StartLoadingMessage(char *text, int spinnerType = 3)
   {
-    BEGIN_TEXT_COMMAND_BUSYSPINNER_ON("STRING");
-      ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
-      END_TEXT_COMMAND_BUSYSPINNER_ON(spinnerType);
+     BEGIN_TEXT_COMMAND_BUSYSPINNER_ON("STRING");
+       ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
+       END_TEXT_COMMAND_BUSYSPINNER_ON(spinnerType);
     }
 /*OR*/
-void ShowLoadingMessage(char *text, int spinnerType = 3, int timeMs = 10000)
+ void ShowLoadingMessage(char *text, int spinnerType = 3, int timeMs = 10000)
   {
-    BEGIN_TEXT_COMMAND_BUSYSPINNER_ON("STRING");
-      ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
-      END_TEXT_COMMAND_BUSYSPINNER_ON(spinnerType);
+     BEGIN_TEXT_COMMAND_BUSYSPINNER_ON("STRING");
+       ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
+       END_TEXT_COMMAND_BUSYSPINNER_ON(spinnerType);
         WAIT(timeMs);
-    BUSYSPINNER_OFF();
-}
+     BUSYSPINNER_OFF();
+ }
 
 
 These are some localized strings used in the loading spinner.
@@ -16596,7 +16596,7 @@ These are some localized strings used in the loading spinner.
 function HUD.BEGIN_TEXT_COMMAND_BUSYSPINNER_ON(string)
   native.invoke(
     Type.Void, 1394, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -16604,11 +16604,11 @@ end
 --[[
 enum eBusySpinnerType
 {
-  BUSY_SPINNER_LEFT,
-  BUSY_SPINNER_LEFT_2,
-  BUSY_SPINNER_LEFT_3,
-  BUSY_SPINNER_SAVE,
-  BUSY_SPINNER_RIGHT,
+	BUSY_SPINNER_LEFT,
+	BUSY_SPINNER_LEFT_2,
+	BUSY_SPINNER_LEFT_3,
+	BUSY_SPINNER_SAVE,
+	BUSY_SPINNER_RIGHT,
 };
 --]]
 function HUD.END_TEXT_COMMAND_BUSYSPINNER_ON(busySpinnerType)
@@ -16708,9 +16708,9 @@ function HUD.GET_MOUSE_EVENT(scaleformHandle, p1, p2, p3)
   return native.invoke(
     Type.Bool, 1405, false,
     arg(Type.Int, scaleformHandle),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p1),
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -16950,10 +16950,10 @@ Used in the native scripts to reference "GET_PEDHEADSHOT_TXD_STRING" and "CHAR_D
 function HUD.THEFEED_UPDATE_ITEM_TEXTURE(txdString1, txnString1, txdString2, txnString2)
   native.invoke(
     Type.Void, 1431, false,
-    ref(Type.String, txdString1),
-    ref(Type.String, txnString1),
-    ref(Type.String, txdString2),
-    ref(Type.String, txnString2)
+    arg(Type.String, txdString1),
+    arg(Type.String, txnString1),
+    arg(Type.String, txdString2),
+    arg(Type.String, txnString2)
   )
 end
 
@@ -16963,15 +16963,15 @@ Declares the entry type of a notification, for example "STRING".
 
 int ShowNotification(char *text)
 {
-  BEGIN_TEXT_COMMAND_THEFEED_POST("STRING");
-  ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
-  return END_TEXT_COMMAND_THEFEED_POST_TICKER(1, 1);
+	BEGIN_TEXT_COMMAND_THEFEED_POST("STRING");
+	ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
+	return END_TEXT_COMMAND_THEFEED_POST_TICKER(1, 1);
 }
 --]]
 function HUD.BEGIN_TEXT_COMMAND_THEFEED_POST(text)
   native.invoke(
     Type.Void, 1432, false,
-    ref(Type.String, text)
+    arg(Type.String, text)
   )
 end
 
@@ -16983,13 +16983,13 @@ Example result: https://i.imgur.com/SdEZ22m.png
 function HUD.END_TEXT_COMMAND_THEFEED_POST_STATS(statTitle, iconEnum, stepVal, barValue, isImportant, pictureTextureDict, pictureTextureName)
   return native.invoke(
     Type.Int, 1433, false,
-    ref(Type.String, statTitle),
+    arg(Type.String, statTitle),
     arg(Type.Int, iconEnum),
     arg(Type.Bool, stepVal),
     arg(Type.Int, barValue),
     arg(Type.Bool, isImportant),
-    ref(Type.String, pictureTextureDict),
-    ref(Type.String, pictureTextureName)
+    arg(Type.String, pictureTextureDict),
+    arg(Type.String, pictureTextureName)
   )
 end
 
@@ -17018,12 +17018,12 @@ iconTypes:
 function HUD.END_TEXT_COMMAND_THEFEED_POST_MESSAGETEXT(txdName, textureName, flash, iconType, sender, subject)
   return native.invoke(
     Type.Int, 1434, false,
-    ref(Type.String, txdName),
-    ref(Type.String, textureName),
+    arg(Type.String, txdName),
+    arg(Type.String, textureName),
     arg(Type.Bool, flash),
     arg(Type.Int, iconType),
-    ref(Type.String, sender),
-    ref(Type.String, subject)
+    arg(Type.String, sender),
+    arg(Type.String, subject)
   )
 end
 
@@ -17040,12 +17040,12 @@ HUD::END_TEXT_COMMAND_THEFEED_POST_MESSAGETEXT_SUBTITLE_LABEL("CHAR_ACTING_UP", 
 function HUD.END_TEXT_COMMAND_THEFEED_POST_MESSAGETEXT_SUBTITLE_LABEL(txdName, textureName, flash, iconType, sender, subject)
   return native.invoke(
     Type.Int, 1435, false,
-    ref(Type.String, txdName),
-    ref(Type.String, textureName),
+    arg(Type.String, txdName),
+    arg(Type.String, textureName),
     arg(Type.Bool, flash),
     arg(Type.Int, iconType),
-    ref(Type.String, sender),
-    ref(Type.String, subject)
+    arg(Type.String, sender),
+    arg(Type.String, subject)
   )
 end
 
@@ -17061,12 +17061,12 @@ v_8 = HUD::END_TEXT_COMMAND_THEFEED_POST_MESSAGETEXT_TU("CHAR_SOCIAL_CLUB", "CHA
 function HUD.END_TEXT_COMMAND_THEFEED_POST_MESSAGETEXT_TU(txdName, textureName, flash, iconType, sender, subject, duration)
   return native.invoke(
     Type.Int, 1436, false,
-    ref(Type.String, txdName),
-    ref(Type.String, textureName),
+    arg(Type.String, txdName),
+    arg(Type.String, textureName),
     arg(Type.Bool, flash),
     arg(Type.Int, iconType),
-    ref(Type.String, sender),
-    ref(Type.String, subject),
+    arg(Type.String, sender),
+    arg(Type.String, subject),
     arg(Type.Float, duration)
   )
 end
@@ -17097,14 +17097,14 @@ iconTypes:
 function HUD.END_TEXT_COMMAND_THEFEED_POST_MESSAGETEXT_WITH_CREW_TAG(txdName, textureName, flash, iconType, sender, subject, duration, clanTag)
   return native.invoke(
     Type.Int, 1437, false,
-    ref(Type.String, txdName),
-    ref(Type.String, textureName),
+    arg(Type.String, txdName),
+    arg(Type.String, textureName),
     arg(Type.Bool, flash),
     arg(Type.Int, iconType),
-    ref(Type.String, sender),
-    ref(Type.String, subject),
+    arg(Type.String, sender),
+    arg(Type.String, subject),
     arg(Type.Float, duration),
-    ref(Type.String, clanTag)
+    arg(Type.String, clanTag)
   )
 end
 
@@ -17136,22 +17136,22 @@ iconType2 is a mirror of iconType. It shows in the "subject" line, right under t
 int IconNotification(char *text, char *text2, char *Subject)
 {
     BEGIN_TEXT_COMMAND_THEFEED_POST("STRING");
-ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
-  _SET_NOTIFICATION_MESSAGE_CLAN_TAG_2("CHAR_SOCIAL_CLUB", "CHAR_SOCIAL_CLUB", 1, 7, text2, Subject, 1.0f, "__EXAMPLE", 7);
-  return END_TEXT_COMMAND_THEFEED_POST_TICKER(1, 1);
+ ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
+   _SET_NOTIFICATION_MESSAGE_CLAN_TAG_2("CHAR_SOCIAL_CLUB", "CHAR_SOCIAL_CLUB", 1, 7, text2, Subject, 1.0f, "__EXAMPLE", 7);
+   return END_TEXT_COMMAND_THEFEED_POST_TICKER(1, 1);
 }
 --]]
 function HUD.END_TEXT_COMMAND_THEFEED_POST_MESSAGETEXT_WITH_CREW_TAG_AND_ADDITIONAL_ICON(txdName, textureName, flash, iconType1, sender, subject, duration, clanTag, iconType2, p9)
   return native.invoke(
     Type.Int, 1438, false,
-    ref(Type.String, txdName),
-    ref(Type.String, textureName),
+    arg(Type.String, txdName),
+    arg(Type.String, textureName),
     arg(Type.Bool, flash),
     arg(Type.Int, iconType1),
-    ref(Type.String, sender),
-    ref(Type.String, subject),
+    arg(Type.String, sender),
+    arg(Type.String, subject),
     arg(Type.Float, duration),
-    ref(Type.String, clanTag),
+    arg(Type.String, clanTag),
     arg(Type.Int, iconType2),
     arg(Type.Int, p9)
   )
@@ -17195,11 +17195,11 @@ HUD::END_TEXT_COMMAND_THEFEED_POST_AWARD("Hunting", "Hunting_Gold_128", 0, 109, 
 function HUD.END_TEXT_COMMAND_THEFEED_POST_AWARD(textureDict, textureName, rpBonus, colorOverlay, titleLabel)
   return native.invoke(
     Type.Int, 1442, false,
-    ref(Type.String, textureDict),
-    ref(Type.String, textureName),
+    arg(Type.String, textureDict),
+    arg(Type.String, textureName),
     arg(Type.Int, rpBonus),
     arg(Type.Int, colorOverlay),
-    ref(Type.String, titleLabel)
+    arg(Type.String, titleLabel)
   )
 end
 
@@ -17209,7 +17209,7 @@ function HUD.END_TEXT_COMMAND_THEFEED_POST_CREWTAG(p0, p1, p2, p3, isLeader, unk
     Type.Int, 1443, false,
     arg(Type.Bool, p0),
     arg(Type.Bool, p1),
-    ref(Type.Int, p2),
+    arg(Type.Int, p2),
     arg(Type.Int, p3),
     arg(Type.Bool, isLeader),
     arg(Type.Bool, unk0),
@@ -17226,12 +17226,12 @@ function HUD.END_TEXT_COMMAND_THEFEED_POST_CREWTAG_WITH_GAME_NAME(p0, p1, p2, p3
     Type.Int, 1444, false,
     arg(Type.Bool, p0),
     arg(Type.Bool, p1),
-    ref(Type.Int, p2),
+    arg(Type.Int, p2),
     arg(Type.Int, p3),
     arg(Type.Bool, isLeader),
     arg(Type.Bool, unk0),
     arg(Type.Int, clanDesc),
-    ref(Type.String, playerName),
+    arg(Type.String, playerName),
     arg(Type.Int, R),
     arg(Type.Int, G),
     arg(Type.Int, B)
@@ -17242,9 +17242,9 @@ end
 function HUD.END_TEXT_COMMAND_THEFEED_POST_UNLOCK(gxtLabel1, p1, gxtLabel2)
   return native.invoke(
     Type.Int, 1445, false,
-    ref(Type.String, gxtLabel1),
+    arg(Type.String, gxtLabel1),
     arg(Type.Int, p1),
-    ref(Type.String, gxtLabel2)
+    arg(Type.String, gxtLabel2)
   )
 end
 
@@ -17252,9 +17252,9 @@ end
 function HUD.END_TEXT_COMMAND_THEFEED_POST_UNLOCK_TU(gxtLabel1, p1, gxtLabel2, p3)
   return native.invoke(
     Type.Int, 1446, false,
-    ref(Type.String, gxtLabel1),
+    arg(Type.String, gxtLabel1),
     arg(Type.Int, p1),
-    ref(Type.String, gxtLabel2),
+    arg(Type.String, gxtLabel2),
     arg(Type.Int, p3)
   )
 end
@@ -17285,9 +17285,9 @@ end
 function HUD.END_TEXT_COMMAND_THEFEED_POST_CREW_RANKUP_WITH_LITERAL_FLAG(p0, p1, p2, p3, p4)
   return native.invoke(
     Type.Int, 1449, false,
-    ref(Type.String, p0),
-    ref(Type.String, p1),
-    ref(Type.String, p2),
+    arg(Type.String, p0),
+    arg(Type.String, p1),
+    arg(Type.String, p2),
     arg(Type.Bool, p3),
     arg(Type.Bool, p4)
   )
@@ -17305,11 +17305,11 @@ Shows a deathmatch score above the minimap, example: https://i.imgur.com/YmoMklG
 function HUD.END_TEXT_COMMAND_THEFEED_POST_VERSUS_TU(txdName1, textureName1, count1, txdName2, textureName2, count2, hudColor1, hudColor2)
   return native.invoke(
     Type.Int, 1450, false,
-    ref(Type.String, txdName1),
-    ref(Type.String, textureName1),
+    arg(Type.String, txdName1),
+    arg(Type.String, textureName1),
     arg(Type.Int, count1),
-    ref(Type.String, txdName2),
-    ref(Type.String, textureName2),
+    arg(Type.String, txdName2),
+    arg(Type.String, textureName2),
     arg(Type.Int, count2),
     arg(Type.Int, hudColor1),
     arg(Type.Int, hudColor2)
@@ -17331,7 +17331,7 @@ function HUD.END_TEXT_COMMAND_THEFEED_POST_REPLAY(type, image, text)
     Type.Int, 1451, false,
     arg(Type.Int, type),
     arg(Type.Int, image),
-    ref(Type.String, text)
+    arg(Type.String, text)
   )
 end
 
@@ -17357,8 +17357,8 @@ function HUD.END_TEXT_COMMAND_THEFEED_POST_REPLAY_INPUT(type, button, text)
   return native.invoke(
     Type.Int, 1452, false,
     arg(Type.Int, type),
-    ref(Type.String, button),
-    ref(Type.String, text)
+    arg(Type.String, button),
+    arg(Type.String, text)
   )
 end
 
@@ -17367,14 +17367,14 @@ end
 void ShowSubtitle(const char *text)
 {
   BEGIN_TEXT_COMMAND_PRINT("STRING");
-ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
-  END_TEXT_COMMAND_PRINT(2000, true);
+ ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
+   END_TEXT_COMMAND_PRINT(2000, true);
 }
 --]]
 function HUD.BEGIN_TEXT_COMMAND_PRINT(GxtEntry)
   native.invoke(
     Type.Void, 1453, false,
-    ref(Type.String, GxtEntry)
+    arg(Type.String, GxtEntry)
   )
 end
 
@@ -17401,16 +17401,16 @@ end
 nothin doin. 
 
 BOOL Message(const char* text)
-  {
-    BEGIN_TEXT_COMMAND_IS_MESSAGE_DISPLAYED("STRING");
+   {
+     BEGIN_TEXT_COMMAND_IS_MESSAGE_DISPLAYED("STRING");
       ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
-      return END_TEXT_COMMAND_IS_MESSAGE_DISPLAYED();
-  }
+       return END_TEXT_COMMAND_IS_MESSAGE_DISPLAYED();
+   }
 --]]
 function HUD.BEGIN_TEXT_COMMAND_IS_MESSAGE_DISPLAYED(text)
   native.invoke(
     Type.Void, 1455, false,
-    ref(Type.String, text)
+    arg(Type.String, text)
   )
 end
 
@@ -17434,7 +17434,7 @@ Used to be known as _SET_TEXT_ENTRY
 function HUD.BEGIN_TEXT_COMMAND_DISPLAY_TEXT(text)
   native.invoke(
     Type.Void, 1457, false,
-    ref(Type.String, text)
+    arg(Type.String, text)
   )
 end
 
@@ -17457,7 +17457,7 @@ end
 function HUD.BEGIN_TEXT_COMMAND_GET_SCREEN_WIDTH_OF_DISPLAY_TEXT(text)
   native.invoke(
     Type.Void, 1459, false,
-    ref(Type.String, text)
+    arg(Type.String, text)
   )
 end
 
@@ -17473,7 +17473,7 @@ end
 --[[
 int GetLineCount(char *text, float x, float y)
     {
-    BEGIN_TEXT_COMMAND_GET_NUMBER_OF_LINES_FOR_STRING("STRING");
+     BEGIN_TEXT_COMMAND_GET_NUMBER_OF_LINES_FOR_STRING("STRING");
                 ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
       return BEGIN_TEXT_COMMAND_GET_NUMBER_OF_LINES_FOR_STRING(x, y);
     }
@@ -17481,7 +17481,7 @@ int GetLineCount(char *text, float x, float y)
 function HUD.BEGIN_TEXT_COMMAND_GET_NUMBER_OF_LINES_FOR_STRING(entry)
   native.invoke(
     Type.Void, 1461, false,
-    ref(Type.String, entry)
+    arg(Type.String, entry)
   )
 end
 
@@ -17505,7 +17505,7 @@ Used to be known as _SET_TEXT_COMPONENT_FORMAT
 function HUD.BEGIN_TEXT_COMMAND_DISPLAY_HELP(inputType)
   native.invoke(
     Type.Void, 1463, false,
-    ref(Type.String, inputType)
+    arg(Type.String, inputType)
   )
 end
 
@@ -17519,7 +17519,7 @@ void FloatingHelpText(const char* text)
 {
     BEGIN_TEXT_COMMAND_DISPLAY_HELP("STRING");
   ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text);
-  END_TEXT_COMMAND_DISPLAY_HELP (0, 0, 1, -1);
+   END_TEXT_COMMAND_DISPLAY_HELP (0, 0, 1, -1);
 }
 
 Image:
@@ -17544,14 +17544,14 @@ end
 --[[
 BOOL IsContextActive(char *ctx)
     {
-    BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(ctx);
-    return END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(0);
+     BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(ctx);
+     return END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(0);
   }
 --]]
 function HUD.BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(labelName)
   native.invoke(
     Type.Void, 1465, false,
-    ref(Type.String, labelName)
+    arg(Type.String, labelName)
   )
 end
 
@@ -17576,7 +17576,7 @@ HUD::END_TEXT_COMMAND_SET_BLIP_NAME(blip);
 function HUD.BEGIN_TEXT_COMMAND_SET_BLIP_NAME(textLabel)
   native.invoke(
     Type.Void, 1467, false,
-    ref(Type.String, textLabel)
+    arg(Type.String, textLabel)
   )
 end
 
@@ -17595,7 +17595,7 @@ end
 function HUD.BEGIN_TEXT_COMMAND_ADD_DIRECTLY_TO_PREVIOUS_BRIEFS(p0)
   native.invoke(
     Type.Void, 1469, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -17614,7 +17614,7 @@ clears a print text command with this text
 function HUD.BEGIN_TEXT_COMMAND_CLEAR_PRINT(text)
   native.invoke(
     Type.Void, 1471, false,
-    ref(Type.String, text)
+    arg(Type.String, text)
   )
 end
 
@@ -17629,7 +17629,7 @@ end
 function HUD.BEGIN_TEXT_COMMAND_OVERRIDE_BUTTON_TEXT(gxtEntry)
   native.invoke(
     Type.Void, 1473, false,
-    ref(Type.String, gxtEntry)
+    arg(Type.String, gxtEntry)
   )
 end
 
@@ -17662,7 +17662,7 @@ end
 function HUD.ADD_TEXT_COMPONENT_SUBSTRING_TEXT_LABEL(labelName)
   native.invoke(
     Type.Void, 1477, false,
-    ref(Type.String, labelName)
+    arg(Type.String, labelName)
   )
 end
 
@@ -17689,7 +17689,7 @@ end
 function HUD.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text)
   native.invoke(
     Type.Void, 1480, false,
-    ref(Type.String, text)
+    arg(Type.String, text)
   )
 end
 
@@ -17721,7 +17721,7 @@ p1 was always -1
 function HUD.ADD_TEXT_COMPONENT_SUBSTRING_PHONE_NUMBER(p0, p1)
   native.invoke(
     Type.Void, 1483, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Int, p1)
   )
 end
@@ -17733,7 +17733,7 @@ This native (along with ADD_TEXT_COMPONENT_SUBSTRING_KEYBOARD_DISPLAY and ADD_TE
 function HUD.ADD_TEXT_COMPONENT_SUBSTRING_WEBSITE(website)
   native.invoke(
     Type.Void, 1484, false,
-    ref(Type.String, website)
+    arg(Type.String, website)
   )
 end
 
@@ -17741,7 +17741,7 @@ end
 function HUD.ADD_TEXT_COMPONENT_SUBSTRING_KEYBOARD_DISPLAY(string)
   native.invoke(
     Type.Void, 1485, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -17763,8 +17763,8 @@ subStr = HUD::GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME("MY_STRING", 3, 6);
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME(text, position, length)
   return native.invoke(
-    Type.String, 1487, false,
-    ref(Type.String, text),
+    Type.Const char, 1487, false,
+    arg(Type.String, text),
     arg(Type.Int, position),
     arg(Type.Int, length)
   )
@@ -17796,8 +17796,8 @@ BOOL sub_8e5aa(char *text, int length) {
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_WITH_BYTE_LIMIT(text, position, length, maxLength)
   return native.invoke(
-    Type.String, 1488, false,
-    ref(Type.String, text),
+    Type.Const char, 1488, false,
+    arg(Type.String, text),
     arg(Type.Int, position),
     arg(Type.Int, length),
     arg(Type.Int, maxLength)
@@ -17816,8 +17816,8 @@ subStr = HUD::GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_BYTES("MY_STRING", 
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_BYTES(text, startPosition, endPosition)
   return native.invoke(
-    Type.String, 1489, false,
-    ref(Type.String, text),
+    Type.Const char, 1489, false,
+    arg(Type.String, text),
     arg(Type.Int, startPosition),
     arg(Type.Int, endPosition)
   )
@@ -17829,8 +17829,8 @@ Gets a localized string literal from a label name. Can be used for output of e.g
 --]]
 function HUD.GET_FILENAME_FOR_AUDIO_CONVERSATION(labelName)
   return native.invoke(
-    Type.String, 1490, false,
-    ref(Type.String, labelName)
+    Type.Const char, 1490, false,
+    arg(Type.String, labelName)
   )
 end
 
@@ -17862,7 +17862,7 @@ p0: found arguments in the b617d scripts: https://pastebin.com/X5akCN7z
 function HUD.CLEAR_THIS_PRINT(p0)
   native.invoke(
     Type.Void, 1494, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -17877,7 +17877,7 @@ end
 function HUD.DOES_TEXT_BLOCK_EXIST(gxt)
   return native.invoke(
     Type.Bool, 1496, false,
-    ref(Type.String, gxt)
+    arg(Type.String, gxt)
   )
 end
 
@@ -17888,7 +17888,7 @@ Request a gxt into the passed slot.
 function HUD.REQUEST_ADDITIONAL_TEXT(gxt, slot)
   native.invoke(
     Type.Void, 1497, false,
-    ref(Type.String, gxt),
+    arg(Type.String, gxt),
     arg(Type.Int, slot)
   )
 end
@@ -17897,7 +17897,7 @@ end
 function HUD.REQUEST_ADDITIONAL_TEXT_FOR_DLC(gxt, slot)
   native.invoke(
     Type.Void, 1498, false,
-    ref(Type.String, gxt),
+    arg(Type.String, gxt),
     arg(Type.Int, slot)
   )
 end
@@ -17934,7 +17934,7 @@ Checks if the specified gxt has loaded into the passed slot.
 function HUD.HAS_THIS_ADDITIONAL_TEXT_LOADED(gxt, slot)
   return native.invoke(
     Type.Bool, 1502, false,
-    ref(Type.String, gxt),
+    arg(Type.String, gxt),
     arg(Type.Int, slot)
   )
 end
@@ -17953,15 +17953,15 @@ Checks if the passed gxt name exists in the game files.
 function HUD.DOES_TEXT_LABEL_EXIST(gxt)
   return native.invoke(
     Type.Bool, 1504, false,
-    ref(Type.String, gxt)
+    arg(Type.String, gxt)
   )
 end
 
 -- const char* GET_FIRST_N_CHARACTERS_OF_LITERAL_STRING(const char* string, int length) // 0x98C3CF913D895111
 function HUD.GET_FIRST_N_CHARACTERS_OF_LITERAL_STRING(string, length)
   return native.invoke(
-    Type.String, 1505, false,
-    ref(Type.String, string),
+    Type.Const char, 1505, false,
+    arg(Type.String, string),
     arg(Type.Int, length)
   )
 end
@@ -17973,7 +17973,7 @@ Returns the string length of the string from the gxt string .
 function HUD.GET_LENGTH_OF_STRING_WITH_THIS_TEXT_LABEL(gxt)
   return native.invoke(
     Type.Int, 1506, false,
-    ref(Type.String, gxt)
+    arg(Type.String, gxt)
   )
 end
 
@@ -17984,7 +17984,7 @@ Returns the length of the string passed (much like strlen).
 function HUD.GET_LENGTH_OF_LITERAL_STRING(string)
   return native.invoke(
     Type.Int, 1507, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -17992,7 +17992,7 @@ end
 function HUD.GET_LENGTH_OF_LITERAL_STRING_IN_BYTES(string)
   return native.invoke(
     Type.Int, 1508, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -18004,7 +18004,7 @@ For how to get the hashes, see PATHFIND::GET_STREET_NAME_AT_COORD.
 --]]
 function HUD.GET_STREET_NAME_FROM_HASH_KEY(hash)
   return native.invoke(
-    Type.String, 1509, false,
+    Type.Const char, 1509, false,
     arg(Type.Hash, hash)
   )
 end
@@ -18264,10 +18264,10 @@ function HUD.GET_HUD_COLOUR(hudColorIndex, r, g, b, a)
   native.invoke(
     Type.Void, 1539, false,
     arg(Type.Int, hudColorIndex),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b),
-    ref(Type.Int, a)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b),
+    arg(Type.Int, a)
   )
 end
 
@@ -18572,7 +18572,7 @@ end
 function HUD.REGISTER_NAMED_RENDERTARGET(name, p1)
   return native.invoke(
     Type.Bool, 1568, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Bool, p1)
   )
 end
@@ -18581,7 +18581,7 @@ end
 function HUD.IS_NAMED_RENDERTARGET_REGISTERED(name)
   return native.invoke(
     Type.Bool, 1569, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -18589,7 +18589,7 @@ end
 function HUD.RELEASE_NAMED_RENDERTARGET(name)
   return native.invoke(
     Type.Bool, 1570, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -18605,7 +18605,7 @@ end
 function HUD.GET_NAMED_RENDERTARGET_RENDER_ID(name)
   return native.invoke(
     Type.Int, 1572, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -18940,7 +18940,7 @@ function HUD.SET_BLIP_NAME_FROM_TEXT_FILE(blip, gxtEntry)
   native.invoke(
     Type.Void, 1605, false,
     arg(Type.Blip, blip),
-    ref(Type.String, gxtEntry)
+    arg(Type.String, gxtEntry)
   )
 end
 
@@ -19358,7 +19358,7 @@ Remove blip will currently crash your game, just artificially remove the blip by
 function HUD.REMOVE_BLIP(blip)
   native.invoke(
     Type.Void, 1642, false,
-    ref(Type.Blip, blip)
+    arg(Type.Blip, blip)
   )
 end
 
@@ -20036,7 +20036,7 @@ picture of where on the screen this is displayed?
 function HUD.DISPLAY_HELP_TEXT_THIS_FRAME(message, p1)
   native.invoke(
     Type.Void, 1710, false,
-    ref(Type.String, message),
+    arg(Type.String, message),
     arg(Type.Bool, p1)
   )
 end
@@ -20322,7 +20322,7 @@ function HUD.SET_MISSION_NAME(p0, name)
   native.invoke(
     Type.Void, 1737, false,
     arg(Type.Bool, p0),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -20331,7 +20331,7 @@ function HUD.SET_MISSION_NAME_FOR_UGC_MISSION(p0, name)
   native.invoke(
     Type.Void, 1738, false,
     arg(Type.Bool, p0),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -20340,14 +20340,14 @@ function HUD.SET_DESCRIPTION_FOR_UGC_MISSION_EIGHT_STRINGS(p0, p1, p2, p3, p4, p
   native.invoke(
     Type.Void, 1739, false,
     arg(Type.Bool, p0),
-    ref(Type.String, p1),
-    ref(Type.String, p2),
-    ref(Type.String, p3),
-    ref(Type.String, p4),
-    ref(Type.String, p5),
-    ref(Type.String, p6),
-    ref(Type.String, p7),
-    ref(Type.String, p8)
+    arg(Type.String, p1),
+    arg(Type.String, p2),
+    arg(Type.String, p3),
+    arg(Type.String, p4),
+    arg(Type.String, p5),
+    arg(Type.String, p6),
+    arg(Type.String, p7),
+    arg(Type.String, p8)
   )
 end
 
@@ -20736,8 +20736,8 @@ function HUD.GET_HUD_SCREEN_POSITION_FROM_WORLD_POSITION(worldX, worldY, worldZ,
     arg(Type.Float, worldX),
     arg(Type.Float, worldY),
     arg(Type.Float, worldZ),
-    ref(Type.Float, screenX),
-    ref(Type.Float, screenY)
+    arg(Type.Float, screenX),
+    arg(Type.Float, screenY)
   )
 end
 
@@ -20835,10 +20835,10 @@ function HUD.CREATE_MP_GAMER_TAG_WITH_CREW_COLOR(player, username, pointedClanTa
   native.invoke(
     Type.Void, 1781, false,
     arg(Type.Player, player),
-    ref(Type.String, username),
+    arg(Type.String, username),
     arg(Type.Bool, pointedClanTag),
     arg(Type.Bool, isRockstarClan),
-    ref(Type.String, clanTag),
+    arg(Type.String, clanTag),
     arg(Type.Int, clanFlag),
     arg(Type.Int, r),
     arg(Type.Int, g),
@@ -20861,10 +20861,10 @@ function HUD.CREATE_FAKE_MP_GAMER_TAG(ped, username, pointedClanTag, isRockstarC
   return native.invoke(
     Type.Int, 1783, false,
     arg(Type.Ped, ped),
-    ref(Type.String, username),
+    arg(Type.String, username),
     arg(Type.Bool, pointedClanTag),
     arg(Type.Bool, isRockstarClan),
-    ref(Type.String, clanTag),
+    arg(Type.String, clanTag),
     arg(Type.Int, clanFlag)
   )
 end
@@ -20897,36 +20897,36 @@ end
 --[[
 enum eMpGamerTagComponent
 {
-  MP_TAG_GAMER_NAME,
-  MP_TAG_CREW_TAG,
-  MP_TAG_HEALTH_ARMOUR,
-  MP_TAG_BIG_TEXT,
-  MP_TAG_AUDIO_ICON,
-  MP_TAG_USING_MENU,
-  MP_TAG_PASSIVE_MODE,
-  MP_TAG_WANTED_STARS,
-  MP_TAG_DRIVER,
-  MP_TAG_CO_DRIVER,
-  MP_TAG_TAGGED,
-  MP_TAG_GAMER_NAME_NEARBY,
-  MP_TAG_ARROW,
-  MP_TAG_PACKAGES,
-  MP_TAG_INV_IF_PED_FOLLOWING,
-  MP_TAG_RANK_TEXT,
-  MP_TAG_TYPING,
-  MP_TAG_BAG_LARGE,
-  MP_TAG_ARROW,
-  MP_TAG_GANG_CEO,
-  MP_TAG_GANG_BIKER,
-  MP_TAG_BIKER_ARROW,
-  MP_TAG_MC_ROLE_PRESIDENT,
-  MP_TAG_MC_ROLE_VICE_PRESIDENT,
-  MP_TAG_MC_ROLE_ROAD_CAPTAIN,
-  MP_TAG_MC_ROLE_SARGEANT,
-  MP_TAG_MC_ROLE_ENFORCER,
-  MP_TAG_MC_ROLE_PROSPECT,
-  MP_TAG_TRANSMITTER,
-  MP_TAG_BOMB
+	MP_TAG_GAMER_NAME,
+	MP_TAG_CREW_TAG,
+	MP_TAG_HEALTH_ARMOUR,
+	MP_TAG_BIG_TEXT,
+	MP_TAG_AUDIO_ICON,
+	MP_TAG_USING_MENU,
+	MP_TAG_PASSIVE_MODE,
+	MP_TAG_WANTED_STARS,
+	MP_TAG_DRIVER,
+	MP_TAG_CO_DRIVER,
+	MP_TAG_TAGGED,
+	MP_TAG_GAMER_NAME_NEARBY,
+	MP_TAG_ARROW,
+	MP_TAG_PACKAGES,
+	MP_TAG_INV_IF_PED_FOLLOWING,
+	MP_TAG_RANK_TEXT,
+	MP_TAG_TYPING,
+	MP_TAG_BAG_LARGE,
+	MP_TAG_ARROW,
+	MP_TAG_GANG_CEO,
+	MP_TAG_GANG_BIKER,
+	MP_TAG_BIKER_ARROW,
+	MP_TAG_MC_ROLE_PRESIDENT,
+	MP_TAG_MC_ROLE_VICE_PRESIDENT,
+	MP_TAG_MC_ROLE_ROAD_CAPTAIN,
+	MP_TAG_MC_ROLE_SARGEANT,
+	MP_TAG_MC_ROLE_ENFORCER,
+	MP_TAG_MC_ROLE_PROSPECT,
+	MP_TAG_TRANSMITTER,
+	MP_TAG_BOMB
 };
 --]]
 function HUD.SET_MP_GAMER_TAG_VISIBILITY(gamerTagId, component, toggle, p3)
@@ -21050,7 +21050,7 @@ function HUD.SET_MP_GAMER_TAG_NAME(gamerTagId, string)
   native.invoke(
     Type.Void, 1797, false,
     arg(Type.Int, gamerTagId),
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -21067,7 +21067,7 @@ function HUD.SET_MP_GAMER_TAG_BIG_TEXT(gamerTagId, string)
   native.invoke(
     Type.Void, 1799, false,
     arg(Type.Int, gamerTagId),
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -21129,13 +21129,13 @@ errorCode: shows an error code at the bottom left if nonzero
 function HUD.SET_WARNING_MESSAGE(titleMsg, flags, promptMsg, p3, p4, p5, p6, showBackground, errorCode)
   native.invoke(
     Type.Void, 1805, false,
-    ref(Type.String, titleMsg),
+    arg(Type.String, titleMsg),
     arg(Type.Int, flags),
-    ref(Type.String, promptMsg),
+    arg(Type.String, promptMsg),
     arg(Type.Bool, p3),
     arg(Type.Int, p4),
-    ref(Type.String, p5),
-    ref(Type.String, p6),
+    arg(Type.String, p5),
+    arg(Type.String, p6),
     arg(Type.Bool, showBackground),
     arg(Type.Int, errorCode)
   )
@@ -21150,14 +21150,14 @@ Example: https://i.imgur.com/ITJt8bJ.png
 function HUD.SET_WARNING_MESSAGE_WITH_HEADER(entryHeader, entryLine1, instructionalKey, entryLine2, p4, p5, showBackground, p7, p8, p9)
   native.invoke(
     Type.Void, 1806, false,
-    ref(Type.String, entryHeader),
-    ref(Type.String, entryLine1),
+    arg(Type.String, entryHeader),
+    arg(Type.String, entryLine1),
     arg(Type.Int, instructionalKey),
-    ref(Type.String, entryLine2),
+    arg(Type.String, entryLine2),
     arg(Type.Bool, p4),
     arg(Type.Any, p5),
-    ref(Type.Any, showBackground),
-    ref(Type.Any, p7),
+    arg(Type.Any, showBackground),
+    arg(Type.Any, p7),
     arg(Type.Bool, p8),
     arg(Type.Any, p9)
   )
@@ -21183,15 +21183,15 @@ https://imgur.com/a/IYA7vJ8
 function HUD.SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS(entryHeader, entryLine1, instructionalKey, entryLine2, p4, p5, additionalIntInfo, additionalTextInfoLine1, additionalTextInfoLine2, showBackground, errorCode)
   native.invoke(
     Type.Void, 1807, false,
-    ref(Type.String, entryHeader),
-    ref(Type.String, entryLine1),
+    arg(Type.String, entryHeader),
+    arg(Type.String, entryLine1),
     arg(Type.Int, instructionalKey),
-    ref(Type.String, entryLine2),
+    arg(Type.String, entryLine2),
     arg(Type.Bool, p4),
     arg(Type.Any, p5),
     arg(Type.Any, additionalIntInfo),
-    ref(Type.String, additionalTextInfoLine1),
-    ref(Type.String, additionalTextInfoLine2),
+    arg(Type.String, additionalTextInfoLine1),
+    arg(Type.String, additionalTextInfoLine2),
     arg(Type.Bool, showBackground),
     arg(Type.Int, errorCode)
   )
@@ -21201,14 +21201,14 @@ end
 function HUD.SET_WARNING_MESSAGE_WITH_HEADER_EXTENDED(entryHeader, entryLine1, flags, entryLine2, p4, p5, p6, p7, showBg, p9, p10)
   native.invoke(
     Type.Void, 1808, false,
-    ref(Type.String, entryHeader),
-    ref(Type.String, entryLine1),
+    arg(Type.String, entryHeader),
+    arg(Type.String, entryLine1),
     arg(Type.Int, flags),
-    ref(Type.String, entryLine2),
+    arg(Type.String, entryLine2),
     arg(Type.Bool, p4),
     arg(Type.Any, p5),
-    ref(Type.Any, p6),
-    ref(Type.Any, p7),
+    arg(Type.Any, p6),
+    arg(Type.Any, p7),
     arg(Type.Bool, showBg),
     arg(Type.Any, p9),
     arg(Type.Any, p10)
@@ -21279,16 +21279,16 @@ Example: https://i.imgur.com/TvmNF4k.png
 function HUD.SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS_EXTENDED(labelTitle, labelMessage, p2, p3, labelMessage2, p5, p6, p7, p8, p9, background, errorCode)
   native.invoke(
     Type.Void, 1809, false,
-    ref(Type.String, labelTitle),
-    ref(Type.String, labelMessage),
+    arg(Type.String, labelTitle),
+    arg(Type.String, labelMessage),
     arg(Type.Int, p2),
     arg(Type.Int, p3),
-    ref(Type.String, labelMessage2),
+    arg(Type.String, labelMessage2),
     arg(Type.Bool, p5),
     arg(Type.Int, p6),
     arg(Type.Int, p7),
-    ref(Type.String, p8),
-    ref(Type.String, p9),
+    arg(Type.String, p8),
+    arg(Type.String, p9),
     arg(Type.Bool, background),
     arg(Type.Int, errorCode)
   )
@@ -21314,7 +21314,7 @@ function HUD.SET_WARNING_MESSAGE_OPTION_ITEMS(index, name, cash, rp, lvl, colour
   return native.invoke(
     Type.Bool, 1811, false,
     arg(Type.Int, index),
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Int, cash),
     arg(Type.Int, rp),
     arg(Type.Int, lvl),
@@ -21624,7 +21624,7 @@ _LOG_DEBUG_INFO(const char* category, const char* debugText);
 function HUD.FORCE_SCRIPTED_GFX_WHEN_FRONTEND_ACTIVE(p0)
   native.invoke(
     Type.Void, 1838, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -21714,9 +21714,9 @@ end
 function HUD.PAUSE_MENU_GET_MOUSE_CLICK_EVENT(p0, p1, p2)
   return native.invoke(
     Type.Bool, 1849, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
+    arg(Type.Any, p2)
   )
 end
 
@@ -21823,8 +21823,8 @@ end
 function HUD.GET_MENU_TRIGGER_EVENT_DETAILS(lastItemMenuId, selectedItemUniqueId)
   native.invoke(
     Type.Void, 1862, false,
-    ref(Type.Int, lastItemMenuId),
-    ref(Type.Int, selectedItemUniqueId)
+    arg(Type.Int, lastItemMenuId),
+    arg(Type.Int, selectedItemUniqueId)
   )
 end
 
@@ -21852,9 +21852,9 @@ selectedItemUniqueId updates as normal
 function HUD.GET_MENU_LAYOUT_CHANGED_EVENT_DETAILS(lastItemMenuId, selectedItemMenuId, selectedItemUniqueId)
   native.invoke(
     Type.Void, 1863, false,
-    ref(Type.Int, lastItemMenuId),
-    ref(Type.Int, selectedItemMenuId),
-    ref(Type.Int, selectedItemUniqueId)
+    arg(Type.Int, lastItemMenuId),
+    arg(Type.Int, selectedItemMenuId),
+    arg(Type.Int, selectedItemUniqueId)
   )
 end
 
@@ -21862,9 +21862,9 @@ end
 function HUD.GET_PM_PLAYER_CREW_COLOR(r, g, b)
   return native.invoke(
     Type.Bool, 1864, false,
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -21873,7 +21873,7 @@ function HUD.GET_MENU_PED_INT_STAT(p0, p1)
   return native.invoke(
     Type.Bool, 1865, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -21882,7 +21882,7 @@ function HUD.GET_CHARACTER_MENU_PED_INT_STAT(p0, p1, p2)
   return native.invoke(
     Type.Bool, 1866, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1),
+    arg(Type.Any, p1),
     arg(Type.Any, p2)
   )
 end
@@ -21892,7 +21892,7 @@ function HUD.GET_MENU_PED_MASKED_INT_STAT(statHash, outValue, mask, p3)
   return native.invoke(
     Type.Bool, 1867, false,
     arg(Type.Hash, statHash),
-    ref(Type.Int, outValue),
+    arg(Type.Int, outValue),
     arg(Type.Int, mask),
     arg(Type.Bool, p3)
   )
@@ -21903,7 +21903,7 @@ function HUD.GET_CHARACTER_MENU_PED_MASKED_INT_STAT(statHash, outValue, p2, mask
   return native.invoke(
     Type.Bool, 1868, false,
     arg(Type.Hash, statHash),
-    ref(Type.Any, outValue),
+    arg(Type.Any, outValue),
     arg(Type.Int, p2),
     arg(Type.Int, mask),
     arg(Type.Bool, p4)
@@ -21915,7 +21915,7 @@ function HUD.GET_MENU_PED_FLOAT_STAT(statHash, outValue)
   return native.invoke(
     Type.Bool, 1869, false,
     arg(Type.Hash, statHash),
-    ref(Type.Float, outValue)
+    arg(Type.Float, outValue)
   )
 end
 
@@ -21924,7 +21924,7 @@ function HUD.GET_CHARACTER_MENU_PED_FLOAT_STAT(statHash, outValue, p2)
   return native.invoke(
     Type.Bool, 1870, false,
     arg(Type.Float, statHash),
-    ref(Type.Float, outValue),
+    arg(Type.Float, outValue),
     arg(Type.Bool, p2)
   )
 end
@@ -21937,7 +21937,7 @@ function HUD.GET_MENU_PED_BOOL_STAT(statHash, outValue)
   return native.invoke(
     Type.Bool, 1871, false,
     arg(Type.Hash, statHash),
-    ref(Type.Bool, outValue)
+    arg(Type.Bool, outValue)
   )
 end
 
@@ -22046,7 +22046,7 @@ HUD::SET_SOCIAL_CLUB_TOUR("Playlists");
 function HUD.SET_SOCIAL_CLUB_TOUR(name)
   native.invoke(
     Type.Void, 1881, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -22297,8 +22297,8 @@ function INTERIOR.GET_INTERIOR_LOCATION_AND_NAMEHASH(interior, position, nameHas
   native.invoke(
     Type.Void, 1909, true,
     arg(Type.Interior, interior),
-    ref(Type.Vector3, position),
-    ref(Type.Hash, nameHash)
+    arg(Type.Vector3, position),
+    arg(Type.Hash, nameHash)
   )
 end
 
@@ -22450,7 +22450,7 @@ INTERIOR::SET_ROOM_FOR_GAME_VIEWPORT_BY_NAME("V_CarModRoom");
 function INTERIOR.SET_ROOM_FOR_GAME_VIEWPORT_BY_NAME(roomName)
   native.invoke(
     Type.Void, 1923, false,
-    ref(Type.String, roomName)
+    arg(Type.String, roomName)
   )
 end
 
@@ -22510,7 +22510,7 @@ function INTERIOR.ADD_PICKUP_TO_INTERIOR_ROOM_BY_NAME(pickup, roomName)
   native.invoke(
     Type.Void, 1929, false,
     arg(Type.Pickup, pickup),
-    ref(Type.String, roomName)
+    arg(Type.String, roomName)
   )
 end
 
@@ -22571,7 +22571,7 @@ function INTERIOR.GET_INTERIOR_AT_COORDS_WITH_TYPE(x, y, z, interiorType)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.String, interiorType)
+    arg(Type.String, interiorType)
   )
 end
 
@@ -22637,7 +22637,7 @@ function INTERIOR.ACTIVATE_INTERIOR_ENTITY_SET(interior, entitySetName)
   native.invoke(
     Type.Void, 1940, false,
     arg(Type.Interior, interior),
-    ref(Type.String, entitySetName)
+    arg(Type.String, entitySetName)
   )
 end
 
@@ -22649,7 +22649,7 @@ function INTERIOR.DEACTIVATE_INTERIOR_ENTITY_SET(interior, entitySetName)
   native.invoke(
     Type.Void, 1941, false,
     arg(Type.Interior, interior),
-    ref(Type.String, entitySetName)
+    arg(Type.String, entitySetName)
   )
 end
 
@@ -22661,7 +22661,7 @@ function INTERIOR.IS_INTERIOR_ENTITY_SET_ACTIVE(interior, entitySetName)
   return native.invoke(
     Type.Bool, 1942, false,
     arg(Type.Interior, interior),
-    ref(Type.String, entitySetName)
+    arg(Type.String, entitySetName)
   )
 end
 
@@ -22673,7 +22673,7 @@ function INTERIOR.SET_INTERIOR_ENTITY_SET_TINT_INDEX(interior, entitySetName, co
   native.invoke(
     Type.Void, 1943, false,
     arg(Type.Interior, interior),
-    ref(Type.String, entitySetName),
+    arg(Type.String, entitySetName),
     arg(Type.Int, color)
   )
 end
@@ -23050,7 +23050,7 @@ Returns pointer to an empty string.
 --]]
 function MISC.GET_CONTENT_TO_LOAD()
   return native.invoke(
-    Type.String, 1981, false
+    Type.Const char, 1981, false
   )
 end
 
@@ -23061,8 +23061,8 @@ Does nothing (it's a nullsub). Seems to be PS4 specific.
 function MISC.ACTIVITY_FEED_CREATE(p0, p1)
   native.invoke(
     Type.Void, 1982, false,
-    ref(Type.String, p0),
-    ref(Type.String, p1)
+    arg(Type.String, p0),
+    arg(Type.String, p1)
   )
 end
 
@@ -23073,7 +23073,7 @@ Does nothing (it's a nullsub). Seems to be PS4 specific.
 function MISC.ACTIVITY_FEED_ADD_SUBSTRING_TO_CAPTION(p0)
   native.invoke(
     Type.Void, 1983, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -23084,7 +23084,7 @@ Does nothing (it's a nullsub). Seems to be PS4 specific.
 function MISC.ACTIVITY_FEED_ADD_LITERAL_SUBSTRING_TO_CAPTION(p0)
   native.invoke(
     Type.Void, 1984, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -23106,7 +23106,7 @@ Does nothing (it's a nullsub). Seems to be PS4 specific.
 function MISC.ACTIVITY_FEED_LARGE_IMAGE_URL(p0)
   native.invoke(
     Type.Void, 1986, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -23117,8 +23117,8 @@ Does nothing (it's a nullsub). Seems to be PS4 specific.
 function MISC.ACTIVITY_FEED_ACTION_START_WITH_COMMAND_LINE(p0, p1)
   native.invoke(
     Type.Void, 1987, false,
-    ref(Type.String, p0),
-    ref(Type.String, p1)
+    arg(Type.String, p0),
+    arg(Type.String, p1)
   )
 end
 
@@ -23129,7 +23129,7 @@ Does nothing (it's a nullsub). Seems to be PS4 specific.
 function MISC.ACTIVITY_FEED_ACTION_START_WITH_COMMAND_LINE_ADD(p0)
   native.invoke(
     Type.Void, 1988, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -23152,7 +23152,7 @@ Used only once in the scripts (ingamehud) with p0 = "AF_GAMEMODE"
 function MISC.ACTIVITY_FEED_ONLINE_PLAYED_WITH_POST(p0)
   native.invoke(
     Type.Void, 1990, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -23192,7 +23192,7 @@ end
 function MISC.INFORM_CODE_OF_CONTENT_ID_OF_CURRENT_UGC_MISSION(p0)
   native.invoke(
     Type.Void, 1994, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -23200,8 +23200,8 @@ end
 function MISC.GET_BASE_ELEMENT_LOCATION_FROM_METADATA_BLOCK(p0, p1, p2, p3)
   return native.invoke(
     Type.Bool, 1995, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Bool, p3)
   )
@@ -23231,7 +23231,7 @@ end
 function MISC.IS_PREV_WEATHER_TYPE(weatherType)
   return native.invoke(
     Type.Bool, 1998, false,
-    ref(Type.String, weatherType)
+    arg(Type.String, weatherType)
   )
 end
 
@@ -23239,7 +23239,7 @@ end
 function MISC.IS_NEXT_WEATHER_TYPE(weatherType)
   return native.invoke(
     Type.Bool, 1999, false,
-    ref(Type.String, weatherType)
+    arg(Type.String, weatherType)
   )
 end
 
@@ -23265,7 +23265,7 @@ The following weatherTypes are used in the scripts:
 function MISC.SET_WEATHER_TYPE_PERSIST(weatherType)
   native.invoke(
     Type.Void, 2000, false,
-    ref(Type.String, weatherType)
+    arg(Type.String, weatherType)
   )
 end
 
@@ -23291,7 +23291,7 @@ The following weatherTypes are used in the scripts:
 function MISC.SET_WEATHER_TYPE_NOW_PERSIST(weatherType)
   native.invoke(
     Type.Void, 2001, false,
-    ref(Type.String, weatherType)
+    arg(Type.String, weatherType)
   )
 end
 
@@ -23317,7 +23317,7 @@ The following weatherTypes are used in the scripts:
 function MISC.SET_WEATHER_TYPE_NOW(weatherType)
   native.invoke(
     Type.Void, 2002, false,
-    ref(Type.String, weatherType)
+    arg(Type.String, weatherType)
   )
 end
 
@@ -23325,7 +23325,7 @@ end
 function MISC.SET_WEATHER_TYPE_OVERTIME_PERSIST(weatherType, time)
   native.invoke(
     Type.Void, 2003, false,
-    ref(Type.String, weatherType),
+    arg(Type.String, weatherType),
     arg(Type.Float, time)
   )
 end
@@ -23356,9 +23356,9 @@ end
 function MISC.GET_CURR_WEATHER_STATE(weatherType1, weatherType2, percentWeather2)
   native.invoke(
     Type.Void, 2007, false,
-    ref(Type.Hash, weatherType1),
-    ref(Type.Hash, weatherType2),
-    ref(Type.Float, percentWeather2)
+    arg(Type.Hash, weatherType1),
+    arg(Type.Hash, weatherType2),
+    arg(Type.Float, percentWeather2)
   )
 end
 
@@ -23412,7 +23412,7 @@ If you pass true, something will be set to zero.
 function MISC.SET_OVERRIDE_WEATHER(weatherType)
   native.invoke(
     Type.Void, 2009, false,
-    ref(Type.String, weatherType)
+    arg(Type.String, weatherType)
   )
 end
 
@@ -23423,7 +23423,7 @@ Identical to SET_OVERRIDE_WEATHER but has an additional BOOL param that sets som
 function MISC.SET_OVERRIDE_WEATHEREX(weatherType, p1)
   native.invoke(
     Type.Void, 2010, false,
-    ref(Type.String, weatherType),
+    arg(Type.String, weatherType),
     arg(Type.Bool, p1)
   )
 end
@@ -23651,7 +23651,7 @@ end
 function MISC.SET_CLOUD_SETTINGS_OVERRIDE(p0)
   native.invoke(
     Type.Void, 2036, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -23659,7 +23659,7 @@ end
 function MISC.PRELOAD_CLOUD_HAT(name)
   native.invoke(
     Type.Void, 2037, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -23691,7 +23691,7 @@ Wispy
 function MISC.LOAD_CLOUD_HAT(name, transitionTime)
   native.invoke(
     Type.Void, 2038, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Float, transitionTime)
   )
 end
@@ -23700,7 +23700,7 @@ end
 function MISC.UNLOAD_CLOUD_HAT(name, p1)
   native.invoke(
     Type.Void, 2039, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Float, p1)
   )
 end
@@ -23800,7 +23800,7 @@ function MISC.GET_GROUND_Z_FOR_3D_COORD(x, y, z, groundZ, ignoreWater, p5)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Float, groundZ),
+    arg(Type.Float, groundZ),
     arg(Type.Bool, ignoreWater),
     arg(Type.Bool, p5)
   )
@@ -23813,8 +23813,8 @@ function MISC.GET_GROUND_Z_AND_NORMAL_FOR_3D_COORD(x, y, z, groundZ, normal)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Float, groundZ),
-    ref(Type.Vector3, normal)
+    arg(Type.Float, groundZ),
+    arg(Type.Vector3, normal)
   )
 end
 
@@ -23825,7 +23825,7 @@ function MISC.GET_GROUND_Z_EXCLUDING_OBJECTS_FOR_3D_COORD(x, y, z, groundZ, p4, 
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Float, groundZ),
+    arg(Type.Float, groundZ),
     arg(Type.Bool, p4),
     arg(Type.Bool, p5)
   )
@@ -23972,7 +23972,7 @@ function MISC.GET_LINE_PLANE_INTERSECTION(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9
     arg(Type.Float, p9),
     arg(Type.Float, p10),
     arg(Type.Float, p11),
-    ref(Type.Float, p12)
+    arg(Type.Float, p12)
   )
 end
 
@@ -24014,7 +24014,7 @@ Please note, this method may assign a value to [address] when used.
 function MISC.SET_BIT(address, offset)
   native.invoke(
     Type.Void, 2065, false,
-    ref(Type.Int, address),
+    arg(Type.Int, address),
     arg(Type.Int, offset)
   )
 end
@@ -24032,7 +24032,7 @@ MISC::IS_BIT_SET(bitAddress, 1); // will return 0 afterwards
 function MISC.CLEAR_BIT(address, offset)
   native.invoke(
     Type.Void, 2066, false,
-    ref(Type.Int, address),
+    arg(Type.Int, address),
     arg(Type.Int, offset)
   )
 end
@@ -24044,7 +24044,7 @@ This native converts its past string to hash. It is hashed using jenkins one at 
 function MISC.GET_HASH_KEY(string)
   return native.invoke(
     Type.Hash, 2067, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -24064,10 +24064,10 @@ function MISC.SLERP_NEAR_QUATERNION(t, x, y, z, w, x1, y1, z1, w1, outX, outY, o
     arg(Type.Float, y1),
     arg(Type.Float, z1),
     arg(Type.Float, w1),
-    ref(Type.Float, outX),
-    ref(Type.Float, outY),
-    ref(Type.Float, outZ),
-    ref(Type.Float, outW)
+    arg(Type.Float, outX),
+    arg(Type.Float, outY),
+    arg(Type.Float, outZ),
+    arg(Type.Float, outW)
   )
 end
 
@@ -24354,7 +24354,7 @@ end
 function MISC.TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME(scriptName)
   native.invoke(
     Type.Void, 2088, false,
-    ref(Type.String, scriptName)
+    arg(Type.String, scriptName)
   )
 end
 
@@ -24509,7 +24509,7 @@ function MISC.REGISTER_SAVE_HOUSE(x, y, z, p3, p4, p5, p6)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Float, p3),
-    ref(Type.String, p4),
+    arg(Type.String, p4),
     arg(Type.Any, p5),
     arg(Type.Any, p6)
   )
@@ -24544,10 +24544,10 @@ end
 function MISC.GET_SAVE_HOUSE_DETAILS_AFTER_SUCCESSFUL_LOAD(p0, p1, fadeInAfterLoad, p3)
   return native.invoke(
     Type.Bool, 2105, true,
-    ref(Type.Vector3, p0),
-    ref(Type.Float, p1),
-    ref(Type.Bool, fadeInAfterLoad),
-    ref(Type.Bool, p3)
+    arg(Type.Vector3, p0),
+    arg(Type.Float, p1),
+    arg(Type.Bool, fadeInAfterLoad),
+    arg(Type.Bool, p3)
   )
 end
 
@@ -24784,8 +24784,8 @@ function MISC.GET_MODEL_DIMENSIONS(modelHash, minimum, maximum)
   native.invoke(
     Type.Void, 2128, true,
     arg(Type.Hash, modelHash),
-    ref(Type.Vector3, minimum),
-    ref(Type.Vector3, maximum)
+    arg(Type.Vector3, minimum),
+    arg(Type.Vector3, maximum)
   )
 end
 
@@ -24879,8 +24879,8 @@ end
 function MISC.ARE_STRINGS_EQUAL(string1, string2)
   return native.invoke(
     Type.Bool, 2139, false,
-    ref(Type.String, string1),
-    ref(Type.String, string2)
+    arg(Type.String, string1),
+    arg(Type.String, string2)
   )
 end
 
@@ -24914,8 +24914,8 @@ MISC::COMPARE_STRINGS("a", "A", true, 1); // 1; 'a' > 'A'
 function MISC.COMPARE_STRINGS(str1, str2, matchCase, maxLength)
   return native.invoke(
     Type.Int, 2140, false,
-    ref(Type.String, str1),
-    ref(Type.String, str2),
+    arg(Type.String, str1),
+    arg(Type.String, str2),
     arg(Type.Bool, matchCase),
     arg(Type.Int, maxLength)
   )
@@ -25036,7 +25036,7 @@ function MISC.GET_COORDS_OF_PROJECTILE_TYPE_IN_AREA(x1, y1, z1, x2, y2, z2, proj
     arg(Type.Float, y2),
     arg(Type.Float, z2),
     arg(Type.Hash, projectileHash),
-    ref(Type.Vector3, projectilePos),
+    arg(Type.Vector3, projectilePos),
     arg(Type.Bool, ownedByPlayer)
   )
 end
@@ -25053,7 +25053,7 @@ function MISC.GET_COORDS_OF_PROJECTILE_TYPE_IN_ANGLED_AREA(vecAngledAreaPoint1X,
     arg(Type.Float, vecAngledAreaPoint2Z),
     arg(Type.Float, distanceOfOppositeFace),
     arg(Type.Hash, weaponType),
-    ref(Type.Vector3, positionOut),
+    arg(Type.Vector3, positionOut),
     arg(Type.Bool, bIsPlayer)
   )
 end
@@ -25065,7 +25065,7 @@ function MISC.GET_COORDS_OF_PROJECTILE_TYPE_WITHIN_DISTANCE(ped, weaponHash, dis
     arg(Type.Ped, ped),
     arg(Type.Hash, weaponHash),
     arg(Type.Float, distance),
-    ref(Type.Vector3, outCoords),
+    arg(Type.Vector3, outCoords),
     arg(Type.Bool, p4)
   )
 end
@@ -25077,8 +25077,8 @@ function MISC.GET_PROJECTILE_OF_PROJECTILE_TYPE_WITHIN_DISTANCE(ped, weaponHash,
     arg(Type.Ped, ped),
     arg(Type.Hash, weaponHash),
     arg(Type.Float, distance),
-    ref(Type.Vector3, outCoords),
-    ref(Type.Object, outProjectile),
+    arg(Type.Vector3, outCoords),
+    arg(Type.Object, outProjectile),
     arg(Type.Bool, p5)
   )
 end
@@ -25263,7 +25263,7 @@ end
 function MISC.IS_STRING_NULL(string)
   return native.invoke(
     Type.Bool, 2169, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -25271,7 +25271,7 @@ end
 function MISC.IS_STRING_NULL_OR_EMPTY(string)
   return native.invoke(
     Type.Bool, 2170, false,
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -25284,8 +25284,8 @@ If all checks have passed successfully, the return value will be set to whatever
 function MISC.STRING_TO_INT(string, outInteger)
   return native.invoke(
     Type.Bool, 2171, false,
-    ref(Type.String, string),
-    ref(Type.Int, outInteger)
+    arg(Type.String, string),
+    arg(Type.Int, outInteger)
   )
 end
 
@@ -25293,7 +25293,7 @@ end
 function MISC.SET_BITS_IN_RANGE(var, rangeStart, rangeEnd, p3)
   native.invoke(
     Type.Void, 2172, false,
-    ref(Type.Int, var),
+    arg(Type.Int, var),
     arg(Type.Int, rangeStart),
     arg(Type.Int, rangeEnd),
     arg(Type.Int, p3)
@@ -25521,7 +25521,7 @@ while (TRUE)
 {
     if (MISC::HAS_PC_CHEAT_WITH_HASH_BEEN_ACTIVATED(${fugitive}))
     {
-      // Do something.
+       // Do something.
     }
     SYSTEM::WAIT(0);
 }
@@ -25615,7 +25615,7 @@ end
 function MISC.START_SAVE_DATA(p0, p1, p2)
   native.invoke(
     Type.Void, 2198, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Bool, p2)
   )
@@ -25640,8 +25640,8 @@ end
 function MISC.REGISTER_INT_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2201, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25649,8 +25649,8 @@ end
 function MISC.REGISTER_INT64_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2202, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25658,8 +25658,8 @@ end
 function MISC.REGISTER_ENUM_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2203, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25667,8 +25667,8 @@ end
 function MISC.REGISTER_FLOAT_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2204, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25676,8 +25676,8 @@ end
 function MISC.REGISTER_BOOL_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2205, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25685,8 +25685,8 @@ end
 function MISC.REGISTER_TEXT_LABEL_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2206, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25699,8 +25699,8 @@ MISC::REGISTER_TEXT_LABEL_15_TO_SAVE(&a_0._f10B, "tlCarAppPlateText");
 function MISC.REGISTER_TEXT_LABEL_15_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2207, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25715,8 +25715,8 @@ MISC::REGISTER_TEXT_LABEL_23_TO_SAVE(&a_0._f1EC4._f12[v_A/*6*/], &v_13); // wher
 function MISC.REGISTER_TEXT_LABEL_23_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2208, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25730,8 +25730,8 @@ MISC::REGISTER_TEXT_LABEL_31_TO_SAVE(&a_0._f4B4[v_1A/*8*/], &v_5); // where v_5 
 function MISC.REGISTER_TEXT_LABEL_31_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2209, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25751,8 +25751,8 @@ MISC::REGISTER_TEXT_LABEL_63_TO_SAVE(&a_0._f5B, "RADIO_STATION");
 function MISC.REGISTER_TEXT_LABEL_63_TO_SAVE(p0, name)
   native.invoke(
     Type.Void, 2210, false,
-    ref(Type.Any, p0),
-    ref(Type.String, name)
+    arg(Type.Any, p0),
+    arg(Type.String, name)
   )
 end
 
@@ -25760,9 +25760,9 @@ end
 function MISC.START_SAVE_STRUCT_WITH_SIZE(p0, size, structName)
   native.invoke(
     Type.Void, 2211, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Int, size),
-    ref(Type.String, structName)
+    arg(Type.String, structName)
   )
 end
 
@@ -25777,9 +25777,9 @@ end
 function MISC.START_SAVE_ARRAY_WITH_SIZE(p0, size, arrayName)
   native.invoke(
     Type.Void, 2213, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Int, size),
-    ref(Type.String, arrayName)
+    arg(Type.String, arrayName)
   )
 end
 
@@ -25794,8 +25794,8 @@ end
 function MISC.COPY_SCRIPT_STRUCT(dst, src, size)
   native.invoke(
     Type.Void, 2215, false,
-    ref(Type.Any, dst),
-    ref(Type.Any, src),
+    arg(Type.Any, dst),
+    arg(Type.Any, src),
     arg(Type.Int, size)
   )
 end
@@ -25848,7 +25848,7 @@ function MISC.CREATE_INCIDENT(dispatchService, x, y, z, numUnits, radius, outInc
     arg(Type.Float, z),
     arg(Type.Int, numUnits),
     arg(Type.Float, radius),
-    ref(Type.Int, outIncidentID),
+    arg(Type.Int, outIncidentID),
     arg(Type.Any, p7),
     arg(Type.Any, p8)
   )
@@ -25871,7 +25871,7 @@ function MISC.CREATE_INCIDENT_WITH_ENTITY(dispatchService, ped, numUnits, radius
     arg(Type.Ped, ped),
     arg(Type.Int, numUnits),
     arg(Type.Float, radius),
-    ref(Type.Int, outIncidentID),
+    arg(Type.Int, outIncidentID),
     arg(Type.Any, p5),
     arg(Type.Any, p6)
   )
@@ -25944,7 +25944,7 @@ function MISC.FIND_SPAWN_POINT_IN_DIRECTION(posX, posY, posZ, fwdVecX, fwdVecY, 
     arg(Type.Float, fwdVecY),
     arg(Type.Float, fwdVecZ),
     arg(Type.Float, distance),
-    ref(Type.Vector3, spawnPoint)
+    arg(Type.Vector3, spawnPoint)
   )
 end
 
@@ -26057,8 +26057,8 @@ function MISC.PLAY_TENNIS_SWING_ANIM(ped, animDict, animName, p3, p4, p5)
   native.invoke(
     Type.Void, 2235, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Float, p3),
     arg(Type.Float, p4),
     arg(Type.Bool, p5)
@@ -26114,7 +26114,7 @@ function MISC.SET_TENNIS_MOVE_NETWORK_SIGNAL_FLOAT(ped, p1, p2)
   native.invoke(
     Type.Void, 2240, false,
     arg(Type.Ped, ped),
-    ref(Type.String, p1),
+    arg(Type.String, p1),
     arg(Type.Float, p2)
   )
 end
@@ -26270,16 +26270,16 @@ function MISC.DISPLAY_ONSCREEN_KEYBOARD_WITH_LONGER_INITIAL_STRING(p0, windowTit
   native.invoke(
     Type.Void, 2257, false,
     arg(Type.Int, p0),
-    ref(Type.String, windowTitle),
-    ref(Type.Any, p2),
-    ref(Type.String, defaultText),
-    ref(Type.String, defaultConcat1),
-    ref(Type.String, defaultConcat2),
-    ref(Type.String, defaultConcat3),
-    ref(Type.String, defaultConcat4),
-    ref(Type.String, defaultConcat5),
-    ref(Type.String, defaultConcat6),
-    ref(Type.String, defaultConcat7),
+    arg(Type.String, windowTitle),
+    arg(Type.Any, p2),
+    arg(Type.String, defaultText),
+    arg(Type.String, defaultConcat1),
+    arg(Type.String, defaultConcat2),
+    arg(Type.String, defaultConcat3),
+    arg(Type.String, defaultConcat4),
+    arg(Type.String, defaultConcat5),
+    arg(Type.String, defaultConcat6),
+    arg(Type.String, defaultConcat7),
     arg(Type.Int, maxInputLength)
   )
 end
@@ -26323,12 +26323,12 @@ function MISC.DISPLAY_ONSCREEN_KEYBOARD(p0, windowTitle, p2, defaultText, defaul
   native.invoke(
     Type.Void, 2258, false,
     arg(Type.Int, p0),
-    ref(Type.String, windowTitle),
-    ref(Type.String, p2),
-    ref(Type.String, defaultText),
-    ref(Type.String, defaultConcat1),
-    ref(Type.String, defaultConcat2),
-    ref(Type.String, defaultConcat3),
+    arg(Type.String, windowTitle),
+    arg(Type.String, p2),
+    arg(Type.String, defaultText),
+    arg(Type.String, defaultConcat1),
+    arg(Type.String, defaultConcat2),
+    arg(Type.String, defaultConcat3),
     arg(Type.Int, maxInputLength)
   )
 end
@@ -26356,7 +26356,7 @@ Returns NULL unless UPDATE_ONSCREEN_KEYBOARD() returns 1 in the same tick.
 --]]
 function MISC.GET_ONSCREEN_KEYBOARD_RESULT()
   return native.invoke(
-    Type.String, 2260, false
+    Type.Const char, 2260, false
   )
 end
 
@@ -26544,8 +26544,8 @@ function MISC.SCRIPT_RACE_GET_PLAYER_SPLIT_TIME(player, p1, p2)
   return native.invoke(
     Type.Bool, 2280, false,
     arg(Type.Player, player),
-    ref(Type.Int, p1),
-    ref(Type.Int, p2)
+    arg(Type.Int, p1),
+    arg(Type.Int, p2)
   )
 end
 
@@ -26841,7 +26841,7 @@ end
 function MOBILE.GET_MOBILE_PHONE_ROTATION(rotation, p1)
   native.invoke(
     Type.Void, 2310, true,
-    ref(Type.Vector3, rotation),
+    arg(Type.Vector3, rotation),
     arg(Type.Vehicle, p1)
   )
 end
@@ -26860,7 +26860,7 @@ end
 function MOBILE.GET_MOBILE_PHONE_POSITION(position)
   native.invoke(
     Type.Void, 2312, true,
-    ref(Type.Vector3, position)
+    arg(Type.Vector3, position)
   )
 end
 
@@ -27021,7 +27021,7 @@ end
 function MOBILE.GET_MOBILE_PHONE_RENDER_ID(renderId)
   native.invoke(
     Type.Void, 2330, false,
-    ref(Type.Int, renderId)
+    arg(Type.Int, renderId)
   )
 end
 
@@ -27078,7 +27078,7 @@ function MONEY.NETWORK_GIVE_PLAYER_JOBSHARE_CASH(amount, gamerHandle)
   native.invoke(
     Type.Void, 2336, false,
     arg(Type.Int, amount),
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -27087,7 +27087,7 @@ function MONEY.NETWORK_RECEIVE_PLAYER_JOBSHARE_CASH(value, gamerHandle)
   native.invoke(
     Type.Void, 2337, false,
     arg(Type.Int, value),
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -27142,8 +27142,8 @@ function MONEY.NETWORK_REFUND_CASH(index, context, reason, p3)
   native.invoke(
     Type.Void, 2339, false,
     arg(Type.Int, index),
-    ref(Type.String, context),
-    ref(Type.String, reason),
+    arg(Type.String, context),
+    arg(Type.String, reason),
     arg(Type.Bool, p3)
   )
 end
@@ -27153,8 +27153,8 @@ function MONEY.NETWORK_DEDUCT_CASH(amount, p1, p2, p3, p4, p5)
   native.invoke(
     Type.Void, 2340, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1),
-    ref(Type.String, p2),
+    arg(Type.String, p1),
+    arg(Type.String, p2),
     arg(Type.Bool, p3),
     arg(Type.Bool, p4),
     arg(Type.Bool, p5)
@@ -27255,7 +27255,7 @@ function MONEY.CAN_PAY_AMOUNT_TO_BOSS(p0, p1, amount, p3)
     arg(Type.Int, p0),
     arg(Type.Int, p1),
     arg(Type.Int, amount),
-    ref(Type.Int, p3)
+    arg(Type.Int, p3)
   )
 end
 
@@ -27317,7 +27317,7 @@ function MONEY.NETWORK_EARN_FROM_BETTING(amount, p1)
   native.invoke(
     Type.Void, 2357, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -27326,7 +27326,7 @@ function MONEY.NETWORK_EARN_FROM_JOB(amount, p1)
   native.invoke(
     Type.Void, 2358, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -27335,7 +27335,7 @@ function MONEY.NETWORK_EARN_FROM_JOBX2(amount, p1)
   native.invoke(
     Type.Void, 2359, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -27344,7 +27344,7 @@ function MONEY.NETWORK_EARN_FROM_PREMIUM_JOB(amount, p1)
   native.invoke(
     Type.Void, 2360, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -27353,7 +27353,7 @@ function MONEY.NETWORK_EARN_FROM_BEND_JOB(amount, heistHash)
   native.invoke(
     Type.Void, 2361, false,
     arg(Type.Int, amount),
-    ref(Type.String, heistHash)
+    arg(Type.String, heistHash)
   )
 end
 
@@ -27362,7 +27362,7 @@ function MONEY.NETWORK_EARN_FROM_CHALLENGE_WIN(p0, p1, p2)
   native.invoke(
     Type.Void, 2362, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1),
+    arg(Type.Any, p1),
     arg(Type.Bool, p2)
   )
 end
@@ -27372,8 +27372,8 @@ function MONEY.NETWORK_EARN_FROM_BOUNTY(amount, gamerHandle, p2, p3)
   native.invoke(
     Type.Void, 2363, false,
     arg(Type.Int, amount),
-    ref(Type.Any, gamerHandle),
-    ref(Type.Any, p2),
+    arg(Type.Any, gamerHandle),
+    arg(Type.Any, p2),
     arg(Type.Any, p3)
   )
 end
@@ -27463,7 +27463,7 @@ function MONEY.NETWORK_EARN_FROM_DAILY_OBJECTIVES(amount, type, characterSlot)
   native.invoke(
     Type.Void, 2371, false,
     arg(Type.Int, amount),
-    ref(Type.String, type),
+    arg(Type.String, type),
     arg(Type.Int, characterSlot)
   )
 end
@@ -27476,8 +27476,8 @@ function MONEY.NETWORK_EARN_FROM_AMBIENT_JOB(p0, p1, p2)
   native.invoke(
     Type.Void, 2372, false,
     arg(Type.Int, p0),
-    ref(Type.String, p1),
-    ref(Type.Any, p2)
+    arg(Type.String, p1),
+    arg(Type.Any, p2)
   )
 end
 
@@ -27486,8 +27486,8 @@ function MONEY.NETWORK_EARN_FROM_JOB_BONUS(p0, p1, p2)
   native.invoke(
     Type.Void, 2373, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2)
+    arg(Type.Any, p1),
+    arg(Type.Any, p2)
   )
 end
 
@@ -27723,7 +27723,7 @@ function MONEY.NETWORK_CAN_SPEND_MONEY2(p0, p1, p2, p3, p4, p5, p6)
     arg(Type.Bool, p1),
     arg(Type.Bool, p2),
     arg(Type.Bool, p3),
-    ref(Type.Any, p4),
+    arg(Type.Any, p4),
     arg(Type.Any, p5),
     arg(Type.Any, p6)
   )
@@ -27738,7 +27738,7 @@ function MONEY.NETWORK_BUY_ITEM(amount, item, p2, p3, p4, item_name, p6, p7, p8,
     arg(Type.Any, p2),
     arg(Type.Any, p3),
     arg(Type.Bool, p4),
-    ref(Type.String, item_name),
+    arg(Type.String, item_name),
     arg(Type.Any, p6),
     arg(Type.Any, p7),
     arg(Type.Any, p8),
@@ -27773,7 +27773,7 @@ function MONEY.NETWORK_PAY_MATCH_ENTRY_FEE(amount, matchId, p2, p3)
   native.invoke(
     Type.Void, 2401, false,
     arg(Type.Int, amount),
-    ref(Type.String, matchId),
+    arg(Type.String, matchId),
     arg(Type.Bool, p2),
     arg(Type.Bool, p3)
   )
@@ -27785,7 +27785,7 @@ function MONEY.NETWORK_SPENT_BETTING(amount, p1, matchId, p3, p4)
     Type.Void, 2402, false,
     arg(Type.Int, amount),
     arg(Type.Int, p1),
-    ref(Type.String, matchId),
+    arg(Type.String, matchId),
     arg(Type.Bool, p3),
     arg(Type.Bool, p4)
   )
@@ -27997,7 +27997,7 @@ function MONEY.NETWORK_SPENT_BUY_WANTEDLEVEL(p0, p1, p2, p3, p4)
   native.invoke(
     Type.Void, 2420, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1),
+    arg(Type.Any, p1),
     arg(Type.Bool, p2),
     arg(Type.Bool, p3),
     arg(Type.Any, p4)
@@ -28129,7 +28129,7 @@ function MONEY.NETWORK_SPENT_PAY_VEHICLE_INSURANCE_PREMIUM(amount, vehicleModel,
     Type.Void, 2431, false,
     arg(Type.Int, amount),
     arg(Type.Hash, vehicleModel),
-    ref(Type.Any, gamerHandle),
+    arg(Type.Any, gamerHandle),
     arg(Type.Bool, notBankrupt),
     arg(Type.Bool, hasTheMoney)
   )
@@ -28140,7 +28140,7 @@ function MONEY.NETWORK_SPENT_CALL_PLAYER(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 2432, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1),
+    arg(Type.Any, p1),
     arg(Type.Bool, p2),
     arg(Type.Bool, p3)
   )
@@ -28183,10 +28183,10 @@ This isn't a hash collision.
 --]]
 function MONEY.PROCESS_CASH_GIFT(p0, p1, p2)
   return native.invoke(
-    Type.String, 2436, false,
-    ref(Type.Int, p0),
-    ref(Type.Int, p1),
-    ref(Type.String, p2)
+    Type.Const char, 2436, false,
+    arg(Type.Int, p0),
+    arg(Type.Int, p1),
+    arg(Type.String, p2)
   )
 end
 
@@ -28289,7 +28289,7 @@ function MONEY.NETWORK_SPENT_JOB_SKIP(amount, matchId, p2, p3)
   native.invoke(
     Type.Void, 2445, false,
     arg(Type.Int, amount),
-    ref(Type.String, matchId),
+    arg(Type.String, matchId),
     arg(Type.Bool, p2),
     arg(Type.Bool, p3)
   )
@@ -28474,7 +28474,7 @@ function MONEY.NETWORK_SPENT_PURCHASE_IMPEXP_WAREHOUSE_PROPERTY(amount, data, p2
   native.invoke(
     Type.Void, 2462, false,
     arg(Type.Int, amount),
-    ref(Type.Any, data),
+    arg(Type.Any, data),
     arg(Type.Bool, p2),
     arg(Type.Bool, p3)
   )
@@ -28950,7 +28950,7 @@ function MONEY.NETWORK_EARN_GANGOPS_AWARD(amount, p1, p2)
   native.invoke(
     Type.Void, 2507, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1),
+    arg(Type.String, p1),
     arg(Type.Any, p2)
   )
 end
@@ -28960,7 +28960,7 @@ function MONEY.NETWORK_EARN_GANGOPS_ELITE(amount, p1, actIndex)
   native.invoke(
     Type.Void, 2508, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1),
+    arg(Type.String, p1),
     arg(Type.Int, actIndex)
   )
 end
@@ -29007,7 +29007,7 @@ function MONEY.NETWORK_EARN_GANGOPS_SETUP(amount, p1)
   native.invoke(
     Type.Void, 2513, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -29016,7 +29016,7 @@ function MONEY.NETWORK_EARN_GANGOPS_FINALE(amount, p1)
   native.invoke(
     Type.Void, 2514, false,
     arg(Type.Int, amount),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -29234,7 +29234,7 @@ function MONEY.NETWORK_SPEND_BUY_ARENA(amount, p1, p2, p3)
     arg(Type.Int, amount),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2),
-    ref(Type.String, p3)
+    arg(Type.String, p3)
   )
 end
 
@@ -29245,7 +29245,7 @@ function MONEY.NETWORK_SPEND_UPGRADE_ARENA(amount, p1, p2, p3)
     arg(Type.Int, amount),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2),
-    ref(Type.String, p3)
+    arg(Type.String, p3)
   )
 end
 
@@ -29352,7 +29352,7 @@ function MONEY.NETWORK_SPEND_BUY_CASINO(amount, p1, p2, data)
     arg(Type.Int, amount),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2),
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -29363,7 +29363,7 @@ function MONEY.NETWORK_SPEND_UPGRADE_CASINO(amount, p1, p2, data)
     arg(Type.Int, amount),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2),
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -30139,7 +30139,7 @@ function MONEY.NETWORK_SPEND_APARTMENT_UTILITIES(amount, p1, p2, data)
     arg(Type.Int, amount),
     arg(Type.Bool, p1),
     arg(Type.Bool, p2),
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -30573,9 +30573,9 @@ function MONEY._NETWORK_SPENT_GENERIC(price, p1, p2, stat, spent, p5, p6, data)
     arg(Type.Bool, p2),
     arg(Type.Hash, stat),
     arg(Type.Hash, spent),
-    ref(Type.String, p5),
-    ref(Type.String, p6),
-    ref(Type.Any, data)
+    arg(Type.String, p5),
+    arg(Type.String, p6),
+    arg(Type.Any, data)
   )
 end
 
@@ -30588,9 +30588,9 @@ function MONEY._NETWORK_EARN_GENERIC(amount, earn, p2, p3, data)
     Type.Void, 2666, false,
     arg(Type.Int, amount),
     arg(Type.Hash, earn),
-    ref(Type.String, p2),
-    ref(Type.String, p3),
-    ref(Type.Any, data)
+    arg(Type.String, p2),
+    arg(Type.String, p3),
+    arg(Type.Any, data)
   )
 end
 
@@ -30640,7 +30640,7 @@ end
 -- const char* NETWORK_GET_STRING_WALLET_BALANCE(int characterSlot) // 0xF9B10B529DCFB33B
 function MONEY.NETWORK_GET_STRING_WALLET_BALANCE(characterSlot)
   return native.invoke(
-    Type.String, 2673, false,
+    Type.Const char, 2673, false,
     arg(Type.Int, characterSlot)
   )
 end
@@ -30648,14 +30648,14 @@ end
 -- const char* NETWORK_GET_STRING_BANK_BALANCE() // 0xA6FA3979BED01B81
 function MONEY.NETWORK_GET_STRING_BANK_BALANCE()
   return native.invoke(
-    Type.String, 2674, false
+    Type.Const char, 2674, false
   )
 end
 
 -- const char* NETWORK_GET_STRING_BANK_WALLET_BALANCE(int character) // 0x700AF71AE615E6DD
 function MONEY.NETWORK_GET_STRING_BANK_WALLET_BALANCE(character)
   return native.invoke(
-    Type.String, 2675, false,
+    Type.Const char, 2675, false,
     arg(Type.Int, character)
   )
 end
@@ -30795,7 +30795,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_CATALOG_ITEM_IS_VALID(name)
   return native.invoke(
     Type.Bool, 2688, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -30852,7 +30852,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_RETRIEVE_CATALOG_REFRESH_STATUS(state)
   return native.invoke(
     Type.Bool, 2695, false,
-    ref(Type.Int, state)
+    arg(Type.Int, state)
   )
 end
 
@@ -30867,7 +30867,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_RETRIEVE_INIT_SESSION_STATUS(p0)
   return native.invoke(
     Type.Bool, 2697, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -30890,7 +30890,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_RETRIEVE_START_SESSION_STATUS(p0)
   return native.invoke(
     Type.Bool, 2700, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -30898,7 +30898,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_RETRIEVE_SESSION_ERROR_CODE(p0)
   return native.invoke(
     Type.Bool, 2701, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -30956,8 +30956,8 @@ end
 function NETSHOPPING.NET_GAMESERVER_GET_SESSION_STATE_AND_STATUS(p0, p1)
   return native.invoke(
     Type.Bool, 2708, false,
-    ref(Type.Int, p0),
-    ref(Type.Bool, p1)
+    arg(Type.Int, p0),
+    arg(Type.Bool, p1)
   )
 end
 
@@ -30965,7 +30965,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_BASKET_START(transactionId, categoryHash, actionHash, flags)
   return native.invoke(
     Type.Bool, 2709, false,
-    ref(Type.Int, transactionId),
+    arg(Type.Int, transactionId),
     arg(Type.Hash, categoryHash),
     arg(Type.Hash, actionHash),
     arg(Type.Int, flags)
@@ -30990,7 +30990,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_BASKET_ADD_ITEM(itemData, quantity)
   return native.invoke(
     Type.Bool, 2712, false,
-    ref(Type.Any, itemData),
+    arg(Type.Any, itemData),
     arg(Type.Int, quantity)
   )
 end
@@ -31007,7 +31007,7 @@ function NETSHOPPING.NET_GAMESERVER_BASKET_APPLY_SERVER_DATA(p0, p1)
   return native.invoke(
     Type.Bool, 2714, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -31023,7 +31023,7 @@ end
 function NETSHOPPING.NET_GAMESERVER_BEGIN_SERVICE(transactionId, categoryHash, itemHash, actionTypeHash, value, flags)
   return native.invoke(
     Type.Bool, 2716, false,
-    ref(Type.Int, transactionId),
+    arg(Type.Int, transactionId),
     arg(Type.Hash, categoryHash),
     arg(Type.Hash, itemHash),
     arg(Type.Hash, actionTypeHash),
@@ -31136,7 +31136,7 @@ _GET_ONLINE_VERSION() will return "1.33"
 --]]
 function NETWORK.GET_ONLINE_VERSION()
   return native.invoke(
-    Type.String, 2727, false
+    Type.Const char, 2727, false
   )
 end
 
@@ -31190,12 +31190,12 @@ Hardcoded to return zero.
 
 Returns some sort of unavailable reason:
 -1 = REASON_INVALID
-0 = REASON_OTHER
-1 = REASON_SYSTEM_UPDATE
-2 = REASON_GAME_UPDATE
-3 = REASON_SIGNED_OUT
-4 = REASON_AGE
-5 = REASON_CONNECTION
+ 0 = REASON_OTHER
+ 1 = REASON_SYSTEM_UPDATE
+ 2 = REASON_GAME_UPDATE
+ 3 = REASON_SIGNED_OUT
+ 4 = REASON_AGE
+ 5 = REASON_CONNECTION
 
 =================================
 --]]
@@ -31534,7 +31534,7 @@ Returns 1 if the multiplayer is loaded, otherwhise 0.
 function NETWORK.NETWORK_CAN_ACCESS_MULTIPLAYER(loadingState)
   return native.invoke(
     Type.Bool, 2771, false,
-    ref(Type.Int, loadingState)
+    arg(Type.Int, loadingState)
   )
 end
 
@@ -31864,7 +31864,7 @@ end
 function NETWORK.NETWORK_ADD_FOLLOWERS(p0, p1)
   native.invoke(
     Type.Void, 2807, false,
-    ref(Type.Int, p0),
+    arg(Type.Int, p0),
     arg(Type.Int, p1)
   )
 end
@@ -31880,9 +31880,9 @@ end
 function NETWORK.NETWORK_GET_GLOBAL_MULTIPLAYER_CLOCK(hours, minutes, seconds)
   native.invoke(
     Type.Void, 2809, false,
-    ref(Type.Int, hours),
-    ref(Type.Int, minutes),
-    ref(Type.Int, seconds)
+    arg(Type.Int, hours),
+    arg(Type.Int, minutes),
+    arg(Type.Int, seconds)
   )
 end
 
@@ -31960,7 +31960,7 @@ end
 function NETWORK.NETWORK_GET_FOUND_GAMER(p0, p1)
   return native.invoke(
     Type.Bool, 2817, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
 end
@@ -31976,7 +31976,7 @@ end
 function NETWORK.NETWORK_QUEUE_GAMER_FOR_STATUS(p0)
   return native.invoke(
     Type.Bool, 2819, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -32005,7 +32005,7 @@ end
 function NETWORK.NETWORK_GET_GAMER_STATUS_RESULT(p0, p1)
   return native.invoke(
     Type.Bool, 2823, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
 end
@@ -32073,7 +32073,7 @@ end
 function NETWORK.NETWORK_SESSION_GET_INVITER(gamerHandle)
   native.invoke(
     Type.Void, 2832, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -32308,7 +32308,7 @@ end
 function NETWORK.NETWORK_SESSION_VOICE_CONNECT_TO_PLAYER(gamerHandle)
   native.invoke(
     Type.Void, 2861, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -32357,8 +32357,8 @@ Message is limited to 64 characters.
 function NETWORK.NETWORK_SEND_TEXT_MESSAGE(message, gamerHandle)
   return native.invoke(
     Type.Bool, 2867, false,
-    ref(Type.String, message),
-    ref(Type.Any, gamerHandle)
+    arg(Type.String, message),
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -32405,7 +32405,7 @@ end
 function NETWORK.NETWORK_IS_ACTIVITY_SPECTATOR_FROM_HANDLE(gamerHandle)
   return native.invoke(
     Type.Bool, 2873, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -32476,7 +32476,7 @@ function NETWORK.NETWORK_DO_TRANSITION_QUICKMATCH_WITH_GROUP(p0, p1, p2, p3, p4,
     arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Any, p3),
-    ref(Type.Any, p4),
+    arg(Type.Any, p4),
     arg(Type.Any, p5),
     arg(Type.Any, p6),
     arg(Type.Any, p7)
@@ -32567,7 +32567,7 @@ end
 function NETWORK.NETWORK_SET_TRANSITION_CREATOR_HANDLE(p0)
   native.invoke(
     Type.Void, 2889, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -32582,7 +32582,7 @@ end
 function NETWORK.NETWORK_INVITE_GAMERS_TO_TRANSITION(p0, p1)
   return native.invoke(
     Type.Bool, 2891, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
 end
@@ -32591,7 +32591,7 @@ end
 function NETWORK.NETWORK_SET_GAMER_INVITED_TO_TRANSITION(gamerHandle)
   native.invoke(
     Type.Void, 2892, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -32664,7 +32664,7 @@ p2 is true 3/4 of the occurrences I found.
 function NETWORK.NETWORK_DO_TRANSITION_TO_FREEMODE(p0, p1, p2, players, p4)
   return native.invoke(
     Type.Bool, 2900, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Bool, p2),
     arg(Type.Int, players),
@@ -32676,7 +32676,7 @@ end
 function NETWORK.NETWORK_DO_TRANSITION_TO_NEW_FREEMODE(p0, p1, players, p3, p4, p5)
   return native.invoke(
     Type.Bool, 2901, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Int, players),
     arg(Type.Bool, p3),
@@ -32699,7 +32699,7 @@ Returns count.
 function NETWORK.NETWORK_GET_TRANSITION_MEMBERS(data, dataCount)
   return native.invoke(
     Type.Int, 2903, false,
-    ref(Type.Any, data),
+    arg(Type.Any, data),
     arg(Type.Int, dataCount)
   )
 end
@@ -32718,7 +32718,7 @@ function NETWORK.NETWORK_APPLY_TRANSITION_PARAMETER_STRING(p0, string, p2)
   native.invoke(
     Type.Void, 2905, false,
     arg(Type.Int, p0),
-    ref(Type.String, string),
+    arg(Type.String, string),
     arg(Type.Bool, p2)
   )
 end
@@ -32727,8 +32727,8 @@ end
 function NETWORK.NETWORK_SEND_TRANSITION_GAMER_INSTRUCTION(gamerHandle, p1, p2, p3, p4)
   return native.invoke(
     Type.Bool, 2906, false,
-    ref(Type.Any, gamerHandle),
-    ref(Type.String, p1),
+    arg(Type.Any, gamerHandle),
+    arg(Type.String, p1),
     arg(Type.Int, p2),
     arg(Type.Int, p3),
     arg(Type.Bool, p4)
@@ -32739,7 +32739,7 @@ end
 function NETWORK.NETWORK_MARK_TRANSITION_GAMER_AS_FULLY_JOINED(p0)
   return native.invoke(
     Type.Bool, 2907, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -32754,7 +32754,7 @@ end
 function NETWORK.NETWORK_IS_TRANSITION_HOST_FROM_HANDLE(gamerHandle)
   return native.invoke(
     Type.Bool, 2909, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -32762,7 +32762,7 @@ end
 function NETWORK.NETWORK_GET_TRANSITION_HOST(gamerHandle)
   return native.invoke(
     Type.Bool, 2910, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -32922,7 +32922,7 @@ end
 function NETWORK.NETWORK_HAS_INVITED_GAMER_TO_TRANSITION(p0)
   return native.invoke(
     Type.Bool, 2930, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -32930,7 +32930,7 @@ end
 function NETWORK.NETWORK_HAS_TRANSITION_INVITE_BEEN_ACKED(p0)
   return native.invoke(
     Type.Bool, 2931, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -32963,8 +32963,8 @@ end
 function NETWORK.NETWORK_SEND_INVITE_VIA_PRESENCE(gamerHandle, p1, dataCount, p3)
   return native.invoke(
     Type.Bool, 2935, false,
-    ref(Type.Any, gamerHandle),
-    ref(Type.String, p1),
+    arg(Type.Any, gamerHandle),
+    arg(Type.String, p1),
     arg(Type.Int, dataCount),
     arg(Type.Int, p3)
   )
@@ -32974,8 +32974,8 @@ end
 function NETWORK.NETWORK_SEND_TRANSITION_INVITE_VIA_PRESENCE(gamerHandle, p1, dataCount, p3)
   return native.invoke(
     Type.Bool, 2936, false,
-    ref(Type.Any, gamerHandle),
-    ref(Type.String, p1),
+    arg(Type.Any, gamerHandle),
+    arg(Type.String, p1),
     arg(Type.Int, dataCount),
     arg(Type.Int, p3)
   )
@@ -32988,8 +32988,8 @@ Contains the string "NETWORK_SEND_PRESENCE_TRANSITION_INVITE" but so does 0xC116
 function NETWORK.NETWORK_SEND_IMPORTANT_TRANSITION_INVITE_VIA_PRESENCE(gamerHandle, p1, dataCount, p3)
   return native.invoke(
     Type.Bool, 2937, false,
-    ref(Type.Any, gamerHandle),
-    ref(Type.String, p1),
+    arg(Type.Any, gamerHandle),
+    arg(Type.String, p1),
     arg(Type.Int, dataCount),
     arg(Type.Int, p3)
   )
@@ -33037,7 +33037,7 @@ end
 -- const char* NETWORK_GET_PRESENCE_INVITE_INVITER(int p0) // 0x4962CC4AA2F345B7
 function NETWORK.NETWORK_GET_PRESENCE_INVITE_INVITER(p0)
   return native.invoke(
-    Type.String, 2943, false,
+    Type.Const char, 2943, false,
     arg(Type.Int, p0)
   )
 end
@@ -33047,7 +33047,7 @@ function NETWORK.NETWORK_GET_PRESENCE_INVITE_HANDLE(p0, p1)
   return native.invoke(
     Type.Bool, 2944, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -33062,7 +33062,7 @@ end
 -- const char* NETWORK_GET_PRESENCE_INVITE_CONTENT_ID(int p0) // 0x24409FC4C55CB22D
 function NETWORK.NETWORK_GET_PRESENCE_INVITE_CONTENT_ID(p0)
   return native.invoke(
-    Type.String, 2946, false,
+    Type.Const char, 2946, false,
     arg(Type.Int, p0)
   )
 end
@@ -33131,7 +33131,7 @@ end
 function NETWORK.NETWORK_REMOVE_TRANSITION_INVITE(p0)
   native.invoke(
     Type.Void, 2955, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -33153,9 +33153,9 @@ end
 function NETWORK.NETWORK_INVITE_GAMERS(p0, p1, p2, p3)
   return native.invoke(
     Type.Bool, 2958, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.Any, p2),
+    arg(Type.Any, p2),
     arg(Type.Any, p3)
   )
 end
@@ -33164,7 +33164,7 @@ end
 function NETWORK.NETWORK_HAS_INVITED_GAMER(p0)
   return native.invoke(
     Type.Bool, 2959, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -33172,7 +33172,7 @@ end
 function NETWORK.NETWORK_HAS_MADE_INVITE_DECISION(gamerHandle)
   return native.invoke(
     Type.Bool, 2960, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -33188,7 +33188,7 @@ end
 function NETWORK.NETWORK_GET_CURRENTLY_SELECTED_GAMER_HANDLE_FROM_INVITE_MENU(p0)
   return native.invoke(
     Type.Bool, 2962, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -33196,7 +33196,7 @@ end
 function NETWORK.NETWORK_SET_CURRENTLY_SELECTED_GAMER_HANDLE_FROM_INVITE_MENU(p0)
   return native.invoke(
     Type.Bool, 2963, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -33204,7 +33204,7 @@ end
 function NETWORK.NETWORK_SET_INVITE_ON_CALL_FOR_INVITE_MENU(p0)
   native.invoke(
     Type.Void, 2964, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -33213,7 +33213,7 @@ function NETWORK.NETWORK_CHECK_DATA_MANAGER_SUCCEEDED_FOR_HANDLE(p0, gamerHandle
   return native.invoke(
     Type.Bool, 2965, false,
     arg(Type.Int, p0),
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -33222,7 +33222,7 @@ function NETWORK.NETWORK_CHECK_DATA_MANAGER_FOR_HANDLE(p0, gamerHandle)
   return native.invoke(
     Type.Bool, 2966, false,
     arg(Type.Any, p0),
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -33230,8 +33230,8 @@ end
 function NETWORK.NETWORK_SET_INVITE_FAILED_MESSAGE_FOR_INVITE_MENU(p0, p1)
   native.invoke(
     Type.Void, 2967, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1)
   )
 end
 
@@ -33239,7 +33239,7 @@ end
 function NETWORK.FILLOUT_PM_PLAYER_LIST(gamerHandle, p1, p2)
   return native.invoke(
     Type.Bool, 2968, false,
-    ref(Type.Any, gamerHandle),
+    arg(Type.Any, gamerHandle),
     arg(Type.Any, p1),
     arg(Type.Any, p2)
   )
@@ -33249,8 +33249,8 @@ end
 function NETWORK.FILLOUT_PM_PLAYER_LIST_WITH_NAMES(p0, p1, p2, p3)
   return native.invoke(
     Type.Bool, 2969, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Any, p3)
   )
@@ -33268,7 +33268,7 @@ end
 function NETWORK.NETWORK_SET_CURRENT_DATA_MANAGER_HANDLE(p0)
   return native.invoke(
     Type.Bool, 2971, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -33293,7 +33293,7 @@ end
 function NETWORK.NETWORK_GET_PLATFORM_PARTY_MEMBERS(data, dataSize)
   return native.invoke(
     Type.Int, 2974, false,
-    ref(Type.Any, data),
+    arg(Type.Any, data),
     arg(Type.Int, dataSize)
   )
 end
@@ -33317,7 +33317,7 @@ This would be nice to see if someone is in party chat, but 2 sad notes.
 function NETWORK.NETWORK_IS_CHATTING_IN_PLATFORM_PARTY(gamerHandle)
   return native.invoke(
     Type.Bool, 2976, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -33427,7 +33427,7 @@ end
 function NETWORK.BAD_SPORT_PLAYER_LEFT_DETECTED(gamerHandle, event, amountReceived)
   return native.invoke(
     Type.Bool, 2990, false,
-    ref(Type.Any, gamerHandle),
+    arg(Type.Any, gamerHandle),
     arg(Type.Int, event),
     arg(Type.Int, amountReceived)
   )
@@ -33517,9 +33517,9 @@ end
 function NETWORK.NETWORK_REGISTER_HOST_BROADCAST_VARIABLES(vars, numVars, debugName)
   native.invoke(
     Type.Void, 3001, false,
-    ref(Type.Int, vars),
+    arg(Type.Int, vars),
     arg(Type.Int, numVars),
-    ref(Type.String, debugName)
+    arg(Type.String, debugName)
   )
 end
 
@@ -33527,9 +33527,9 @@ end
 function NETWORK.NETWORK_REGISTER_PLAYER_BROADCAST_VARIABLES(vars, numVars, debugName)
   native.invoke(
     Type.Void, 3002, false,
-    ref(Type.Int, vars),
+    arg(Type.Int, vars),
     arg(Type.Int, numVars),
-    ref(Type.String, debugName)
+    arg(Type.String, debugName)
   )
 end
 
@@ -33669,7 +33669,7 @@ position_hash = 0
 function NETWORK.NETWORK_GET_HOST_OF_SCRIPT(scriptName, instance_id, position_hash)
   return native.invoke(
     Type.Player, 3018, false,
-    ref(Type.String, scriptName),
+    arg(Type.String, scriptName),
     arg(Type.Int, instance_id),
     arg(Type.Int, position_hash)
   )
@@ -33686,7 +33686,7 @@ end
 function NETWORK.NETWORK_IS_SCRIPT_ACTIVE(scriptName, instance_id, p2, position_hash)
   return native.invoke(
     Type.Bool, 3020, false,
-    ref(Type.String, scriptName),
+    arg(Type.String, scriptName),
     arg(Type.Int, instance_id),
     arg(Type.Bool, p2),
     arg(Type.Int, position_hash)
@@ -33716,7 +33716,7 @@ end
 function NETWORK.NETWORK_GET_NUM_SCRIPT_PARTICIPANTS(scriptName, instance_id, position_hash)
   return native.invoke(
     Type.Int, 3023, false,
-    ref(Type.String, scriptName),
+    arg(Type.String, scriptName),
     arg(Type.Int, instance_id),
     arg(Type.Int, position_hash)
   )
@@ -33741,7 +33741,7 @@ function NETWORK.NETWORK_IS_PLAYER_A_PARTICIPANT_ON_SCRIPT(player, script, insta
   return native.invoke(
     Type.Bool, 3026, false,
     arg(Type.Player, player),
-    ref(Type.String, script),
+    arg(Type.String, script),
     arg(Type.Int, instance_id)
   )
 end
@@ -33787,7 +33787,7 @@ function NETWORK.NETWORK_GET_KILLER_OF_PLAYER(player, weaponHash)
   return native.invoke(
     Type.Player, 3031, false,
     arg(Type.Player, player),
-    ref(Type.Hash, weaponHash)
+    arg(Type.Hash, weaponHash)
   )
 end
 
@@ -33796,7 +33796,7 @@ function NETWORK.NETWORK_GET_DESTROYER_OF_NETWORK_ID(netId, weaponHash)
   return native.invoke(
     Type.Player, 3032, false,
     arg(Type.Int, netId),
-    ref(Type.Hash, weaponHash)
+    arg(Type.Hash, weaponHash)
   )
 end
 
@@ -33805,7 +33805,7 @@ function NETWORK.NETWORK_GET_DESTROYER_OF_ENTITY(entity, weaponHash)
   return native.invoke(
     Type.Player, 3033, false,
     arg(Type.Entity, entity),
-    ref(Type.Hash, weaponHash)
+    arg(Type.Hash, weaponHash)
   )
 end
 
@@ -33818,7 +33818,7 @@ function NETWORK.NETWORK_GET_ASSISTED_KILL_OF_ENTITY(player, entity, p2)
     Type.Bool, 3034, false,
     arg(Type.Player, player),
     arg(Type.Entity, entity),
-    ref(Type.Int, p2)
+    arg(Type.Int, p2)
   )
 end
 
@@ -33828,7 +33828,7 @@ function NETWORK.NETWORK_GET_ASSISTED_DAMAGE_OF_ENTITY(player, entity, p2)
     Type.Bool, 3035, false,
     arg(Type.Player, player),
     arg(Type.Entity, entity),
-    ref(Type.Int, p2)
+    arg(Type.Int, p2)
   )
 end
 
@@ -33837,7 +33837,7 @@ function NETWORK.NETWORK_GET_ENTITY_KILLER_OF_PLAYER(player, weaponHash)
   return native.invoke(
     Type.Entity, 3036, false,
     arg(Type.Player, player),
-    ref(Type.Hash, weaponHash)
+    arg(Type.Hash, weaponHash)
   )
 end
 
@@ -33845,7 +33845,7 @@ end
 function NETWORK.NETWORK_SET_CURRENT_PUBLIC_CONTENT_ID(missionId)
   native.invoke(
     Type.Void, 3037, false,
-    ref(Type.String, missionId)
+    arg(Type.String, missionId)
   )
 end
 
@@ -33863,27 +33863,27 @@ mpSettingSpawn:
 
 enum eMpSettingSpawn
 {
-  MP_SETTING_SPAWN_NULL,
-  MP_SETTING_SPAWN_PROPERTY,
-  MP_SETTING_SPAWN_LAST_POSITION,
-  MP_SETTING_SPAWN_GARAGE,
-  MP_SETTING_SPAWN_RANDOM,
-  MP_SETTING_SPAWN_PRIVATE_YACHT,
-  MP_SETTING_SPAWN_OFFICE,
-  MP_SETTING_SPAWN_CLUBHOUSE,
-  MP_SETTING_SPAWN_IE_WAREHOUSE,
-  MP_SETTING_SPAWN_BUNKER,
-  MP_SETTING_SPAWN_HANGAR,
-  MP_SETTING_SPAWN_DEFUNCT_BASE,
-  MP_SETTING_SPAWN_NIGHTCLUB,
-  MP_SETTING_SPAWN_ARENA_GARAGE,
-  MP_SETTING_SPAWN_CASINO_APARTMENT,
-  MP_SETTING_SPAWN_ARCADE,
-  MP_SETTING_SPAWN_SUBMARINE,
-  MP_SETTING_SPAWN_CAR_MEET,
-  MP_SETTING_SPAWN_AUTO_SHOP,
-  MP_SETTING_SPAWN_FIXER_HQ,
-  MP_SETTING_SPAWN_MAX,
+	MP_SETTING_SPAWN_NULL,
+	MP_SETTING_SPAWN_PROPERTY,
+	MP_SETTING_SPAWN_LAST_POSITION,
+	MP_SETTING_SPAWN_GARAGE,
+	MP_SETTING_SPAWN_RANDOM,
+	MP_SETTING_SPAWN_PRIVATE_YACHT,
+	MP_SETTING_SPAWN_OFFICE,
+	MP_SETTING_SPAWN_CLUBHOUSE,
+	MP_SETTING_SPAWN_IE_WAREHOUSE,
+	MP_SETTING_SPAWN_BUNKER,
+	MP_SETTING_SPAWN_HANGAR,
+	MP_SETTING_SPAWN_DEFUNCT_BASE,
+	MP_SETTING_SPAWN_NIGHTCLUB,
+	MP_SETTING_SPAWN_ARENA_GARAGE,
+	MP_SETTING_SPAWN_CASINO_APARTMENT,
+	MP_SETTING_SPAWN_ARCADE,
+	MP_SETTING_SPAWN_SUBMARINE,
+	MP_SETTING_SPAWN_CAR_MEET,
+	MP_SETTING_SPAWN_AUTO_SHOP,
+	MP_SETTING_SPAWN_FIXER_HQ,
+	MP_SETTING_SPAWN_MAX,
 };
 --]]
 function NETWORK.NETWORK_SET_CURRENT_SPAWN_LOCATION_OPTION(mpSettingSpawn)
@@ -34199,7 +34199,7 @@ end
 function NETWORK.NETWORK_GET_LOCAL_HANDLE(gamerHandle, gamerHandleSize)
   native.invoke(
     Type.Void, 3073, false,
-    ref(Type.Any, gamerHandle),
+    arg(Type.Any, gamerHandle),
     arg(Type.Int, gamerHandleSize)
   )
 end
@@ -34208,8 +34208,8 @@ end
 function NETWORK.NETWORK_HANDLE_FROM_USER_ID(userId, gamerHandle, gamerHandleSize)
   native.invoke(
     Type.Void, 3074, false,
-    ref(Type.String, userId),
-    ref(Type.Any, gamerHandle),
+    arg(Type.String, userId),
+    arg(Type.Any, gamerHandle),
     arg(Type.Int, gamerHandleSize)
   )
 end
@@ -34218,8 +34218,8 @@ end
 function NETWORK.NETWORK_HANDLE_FROM_MEMBER_ID(memberId, gamerHandle, gamerHandleSize)
   native.invoke(
     Type.Void, 3075, false,
-    ref(Type.String, memberId),
-    ref(Type.Any, gamerHandle),
+    arg(Type.String, memberId),
+    arg(Type.Any, gamerHandle),
     arg(Type.Int, gamerHandleSize)
   )
 end
@@ -34229,7 +34229,7 @@ function NETWORK.NETWORK_HANDLE_FROM_PLAYER(player, gamerHandle, gamerHandleSize
   native.invoke(
     Type.Void, 3076, false,
     arg(Type.Player, player),
-    ref(Type.Any, gamerHandle),
+    arg(Type.Any, gamerHandle),
     arg(Type.Int, gamerHandleSize)
   )
 end
@@ -34246,7 +34246,7 @@ end
 function NETWORK.NETWORK_HASH_FROM_GAMER_HANDLE(gamerHandle)
   return native.invoke(
     Type.Hash, 3078, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34255,7 +34255,7 @@ function NETWORK.NETWORK_HANDLE_FROM_FRIEND(friendIndex, gamerHandle, gamerHandl
   native.invoke(
     Type.Void, 3079, false,
     arg(Type.Int, friendIndex),
-    ref(Type.Any, gamerHandle),
+    arg(Type.Any, gamerHandle),
     arg(Type.Int, gamerHandleSize)
   )
 end
@@ -34264,7 +34264,7 @@ end
 function NETWORK.NETWORK_GAMERTAG_FROM_HANDLE_START(gamerHandle)
   return native.invoke(
     Type.Bool, 3080, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34285,8 +34285,8 @@ end
 -- const char* NETWORK_GET_GAMERTAG_FROM_HANDLE(Any* gamerHandle) // 0x426141162EBE5CDB
 function NETWORK.NETWORK_GET_GAMERTAG_FROM_HANDLE(gamerHandle)
   return native.invoke(
-    Type.String, 3083, false,
-    ref(Type.Any, gamerHandle)
+    Type.Const char, 3083, false,
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34297,7 +34297,7 @@ Hardcoded to return -1.
 function NETWORK.NETWORK_DISPLAYNAMES_FROM_HANDLES_START(p0, p1)
   return native.invoke(
     Type.Int, 3084, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
 end
@@ -34319,8 +34319,8 @@ end
 function NETWORK.NETWORK_ARE_HANDLES_THE_SAME(gamerHandle1, gamerHandle2)
   return native.invoke(
     Type.Bool, 3086, false,
-    ref(Type.Any, gamerHandle1),
-    ref(Type.Any, gamerHandle2)
+    arg(Type.Any, gamerHandle1),
+    arg(Type.Any, gamerHandle2)
   )
 end
 
@@ -34328,7 +34328,7 @@ end
 function NETWORK.NETWORK_IS_HANDLE_VALID(gamerHandle, gamerHandleSize)
   return native.invoke(
     Type.Bool, 3087, false,
-    ref(Type.Any, gamerHandle),
+    arg(Type.Any, gamerHandle),
     arg(Type.Int, gamerHandleSize)
   )
 end
@@ -34337,15 +34337,15 @@ end
 function NETWORK.NETWORK_GET_PLAYER_FROM_GAMER_HANDLE(gamerHandle)
   return native.invoke(
     Type.Player, 3088, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
 -- const char* NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(Any* gamerHandle) // 0xC82630132081BB6F
 function NETWORK.NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(gamerHandle)
   return native.invoke(
-    Type.String, 3089, false,
-    ref(Type.Any, gamerHandle)
+    Type.Const char, 3089, false,
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34353,7 +34353,7 @@ end
 function NETWORK.NETWORK_IS_GAMER_IN_MY_SESSION(gamerHandle)
   return native.invoke(
     Type.Bool, 3090, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34361,7 +34361,7 @@ end
 function NETWORK.NETWORK_SHOW_PROFILE_UI(gamerHandle)
   native.invoke(
     Type.Void, 3091, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34371,7 +34371,7 @@ Returns the name of a given player. Returns "**Invalid**" if rlGamerInfo of the 
 --]]
 function NETWORK.NETWORK_PLAYER_GET_NAME(player)
   return native.invoke(
-    Type.String, 3092, false,
+    Type.Const char, 3092, false,
     arg(Type.Player, player)
   )
 end
@@ -34383,9 +34383,9 @@ Takes a 24 char buffer. Returns the buffer or "**Invalid**" if rlGamerInfo of th
 --]]
 function NETWORK.NETWORK_PLAYER_GET_USERID(player, userID)
   return native.invoke(
-    Type.String, 3093, false,
+    Type.Const char, 3093, false,
     arg(Type.Player, player),
-    ref(Type.Int, userID)
+    arg(Type.Int, userID)
   )
 end
 
@@ -34441,7 +34441,7 @@ end
 function NETWORK.NETWORK_IS_INACTIVE_PROFILE(p0)
   return native.invoke(
     Type.Bool, 3098, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -34462,7 +34462,7 @@ end
 -- const char* NETWORK_GET_FRIEND_NAME(int friendIndex) // 0xE11EBBB2A783FE8B
 function NETWORK.NETWORK_GET_FRIEND_NAME(friendIndex)
   return native.invoke(
-    Type.String, 3101, false,
+    Type.Const char, 3101, false,
     arg(Type.Int, friendIndex)
   )
 end
@@ -34470,7 +34470,7 @@ end
 -- const char* NETWORK_GET_FRIEND_DISPLAY_NAME(int friendIndex) // 0x4164F227D052E293
 function NETWORK.NETWORK_GET_FRIEND_DISPLAY_NAME(friendIndex)
   return native.invoke(
-    Type.String, 3102, false,
+    Type.Const char, 3102, false,
     arg(Type.Int, friendIndex)
   )
 end
@@ -34479,7 +34479,7 @@ end
 function NETWORK.NETWORK_IS_FRIEND_ONLINE(name)
   return native.invoke(
     Type.Bool, 3103, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -34487,7 +34487,7 @@ end
 function NETWORK.NETWORK_IS_FRIEND_HANDLE_ONLINE(gamerHandle)
   return native.invoke(
     Type.Bool, 3104, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34498,7 +34498,7 @@ In scripts R* calls 'NETWORK_GET_FRIEND_NAME' in this param.
 function NETWORK.NETWORK_IS_FRIEND_IN_SAME_TITLE(friendName)
   return native.invoke(
     Type.Bool, 3105, false,
-    ref(Type.String, friendName)
+    arg(Type.String, friendName)
   )
 end
 
@@ -34506,7 +34506,7 @@ end
 function NETWORK.NETWORK_IS_FRIEND_IN_MULTIPLAYER(friendName)
   return native.invoke(
     Type.Bool, 3106, false,
-    ref(Type.String, friendName)
+    arg(Type.String, friendName)
   )
 end
 
@@ -34514,7 +34514,7 @@ end
 function NETWORK.NETWORK_IS_FRIEND(gamerHandle)
   return native.invoke(
     Type.Bool, 3107, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34540,8 +34540,8 @@ end
 function NETWORK.NETWORK_ADD_FRIEND(gamerHandle, message)
   return native.invoke(
     Type.Bool, 3110, false,
-    ref(Type.Any, gamerHandle),
-    ref(Type.String, message)
+    arg(Type.Any, gamerHandle),
+    arg(Type.String, message)
   )
 end
 
@@ -34601,14 +34601,14 @@ communicationType: see 0xDBDF80673BBA3D65
 
 enum eCommunicationGroupFlag
 {
-  COMMUNICATION_GROUP_LOCAL_PLAYER = 1 << 0,
-  COMMUNICATION_GROUP_FRIENDS = 1 << 1,
-  COMMUNICATION_GROUP_SMALL_CREW = 1 << 2,
-  COMMUNICATION_GROUP_LARGE_CREW = 1 << 3,
-  COMMUNICATION_GROUP_RECENT_PLAYER = 1 << 4,
-  COMMUNICATION_GROUP_SAME_SESSION = 1 << 5,
-  COMMUNICATION_GROUP_SAME_TEAM = 1 << 6,
-  COMMUNICATION_GROUP_INVALID = 1 << 7,
+	COMMUNICATION_GROUP_LOCAL_PLAYER = 1 << 0,
+	COMMUNICATION_GROUP_FRIENDS = 1 << 1,
+	COMMUNICATION_GROUP_SMALL_CREW = 1 << 2,
+	COMMUNICATION_GROUP_LARGE_CREW = 1 << 3,
+	COMMUNICATION_GROUP_RECENT_PLAYER = 1 << 4,
+	COMMUNICATION_GROUP_SAME_SESSION = 1 << 5,
+	COMMUNICATION_GROUP_SAME_TEAM = 1 << 6,
+	COMMUNICATION_GROUP_INVALID = 1 << 7,
 };
 --]]
 function NETWORK._NETWORK_GET_COMMUNICATION_GROUP_FLAGS(communicationType)
@@ -34635,7 +34635,7 @@ end
 function NETWORK.NETWORK_IS_PLAYER_ON_BLOCKLIST(gamerHandle)
   return native.invoke(
     Type.Bool, 3119, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34680,7 +34680,7 @@ end
 function NETWORK.NETWORK_GAMER_HAS_HEADSET(gamerHandle)
   return native.invoke(
     Type.Bool, 3125, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34688,7 +34688,7 @@ end
 function NETWORK.NETWORK_IS_GAMER_TALKING(gamerHandle)
   return native.invoke(
     Type.Bool, 3126, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34696,7 +34696,7 @@ end
 function NETWORK.NETWORK_PERMISSIONS_HAS_GAMER_RECORD(gamerHandle)
   return native.invoke(
     Type.Bool, 3127, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34704,7 +34704,7 @@ end
 function NETWORK.NETWORK_CAN_COMMUNICATE_WITH_GAMER(gamerHandle)
   return native.invoke(
     Type.Bool, 3128, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34712,7 +34712,7 @@ end
 function NETWORK.NETWORK_CAN_TEXT_CHAT_WITH_GAMER(gamerHandle)
   return native.invoke(
     Type.Bool, 3129, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34720,7 +34720,7 @@ end
 function NETWORK.NETWORK_IS_GAMER_MUTED_BY_ME(gamerHandle)
   return native.invoke(
     Type.Bool, 3130, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34728,7 +34728,7 @@ end
 function NETWORK.NETWORK_AM_I_MUTED_BY_GAMER(gamerHandle)
   return native.invoke(
     Type.Bool, 3131, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34736,7 +34736,7 @@ end
 function NETWORK.NETWORK_IS_GAMER_BLOCKED_BY_ME(gamerHandle)
   return native.invoke(
     Type.Bool, 3132, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34744,7 +34744,7 @@ end
 function NETWORK.NETWORK_AM_I_BLOCKED_BY_GAMER(gamerHandle)
   return native.invoke(
     Type.Bool, 3133, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34752,7 +34752,7 @@ end
 function NETWORK.NETWORK_CAN_VIEW_GAMER_USER_CONTENT(gamerHandle)
   return native.invoke(
     Type.Bool, 3134, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34760,7 +34760,7 @@ end
 function NETWORK.NETWORK_HAS_VIEW_GAMER_USER_CONTENT_RESULT(gamerHandle)
   return native.invoke(
     Type.Bool, 3135, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34768,7 +34768,7 @@ end
 function NETWORK.NETWORK_CAN_PLAY_MULTIPLAYER_WITH_GAMER(gamerHandle)
   return native.invoke(
     Type.Bool, 3136, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34776,7 +34776,7 @@ end
 function NETWORK.NETWORK_CAN_GAMER_PLAY_MULTIPLAYER_WITH_ME(gamerHandle)
   return native.invoke(
     Type.Bool, 3137, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34784,7 +34784,7 @@ end
 function NETWORK.NETWORK_CAN_SEND_LOCAL_INVITE(gamerHandle)
   return native.invoke(
     Type.Bool, 3138, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -34792,7 +34792,7 @@ end
 function NETWORK.NETWORK_CAN_RECEIVE_LOCAL_INVITE(gamerHandle)
   return native.invoke(
     Type.Bool, 3139, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -35081,8 +35081,8 @@ function NETWORK.NETWORK_GET_MUTE_COUNT_FOR_PLAYER(p0, p1, p2)
   native.invoke(
     Type.Void, 3172, false,
     arg(Type.Player, p0),
-    ref(Type.Float, p1),
-    ref(Type.Float, p2)
+    arg(Type.Float, p1),
+    arg(Type.Float, p2)
   )
 end
 
@@ -35160,7 +35160,7 @@ function NETWORK.NETWORK_SET_RICH_PRESENCE_STRING(p0, textLabel)
   native.invoke(
     Type.Void, 3179, false,
     arg(Type.Int, p0),
-    ref(Type.String, textLabel)
+    arg(Type.String, textLabel)
   )
 end
 
@@ -35242,7 +35242,7 @@ end
 function NETWORK.NETWORK_CLAN_PLAYER_IS_ACTIVE(gamerHandle)
   return native.invoke(
     Type.Bool, 3187, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -35259,9 +35259,9 @@ https://pastebin.com/cSZniHak
 function NETWORK.NETWORK_CLAN_PLAYER_GET_DESC(clanDesc, bufferSize, gamerHandle)
   return native.invoke(
     Type.Bool, 3188, false,
-    ref(Type.Any, clanDesc),
+    arg(Type.Any, clanDesc),
     arg(Type.Int, bufferSize),
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -35272,7 +35272,7 @@ bufferSize is 35 in the scripts.
 function NETWORK.NETWORK_CLAN_IS_ROCKSTAR_CLAN(clanDesc, bufferSize)
   return native.invoke(
     Type.Bool, 3189, false,
-    ref(Type.Any, clanDesc),
+    arg(Type.Any, clanDesc),
     arg(Type.Int, bufferSize)
   )
 end
@@ -35284,9 +35284,9 @@ bufferSize is 35 in the scripts.
 function NETWORK.NETWORK_CLAN_GET_UI_FORMATTED_TAG(clanDesc, bufferSize, formattedTag)
   native.invoke(
     Type.Void, 3190, false,
-    ref(Type.Any, clanDesc),
+    arg(Type.Any, clanDesc),
     arg(Type.Int, bufferSize),
-    ref(Type.Char, formattedTag)
+    arg(Type.Char, formattedTag)
   )
 end
 
@@ -35301,7 +35301,7 @@ end
 function NETWORK.NETWORK_CLAN_GET_MEMBERSHIP_DESC(memberDesc, p1)
   return native.invoke(
     Type.Bool, 3192, false,
-    ref(Type.Any, memberDesc),
+    arg(Type.Any, memberDesc),
     arg(Type.Int, p1)
   )
 end
@@ -35310,7 +35310,7 @@ end
 function NETWORK.NETWORK_CLAN_DOWNLOAD_MEMBERSHIP(gamerHandle)
   return native.invoke(
     Type.Bool, 3193, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -35318,7 +35318,7 @@ end
 function NETWORK.NETWORK_CLAN_DOWNLOAD_MEMBERSHIP_PENDING(p0)
   return native.invoke(
     Type.Bool, 3194, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -35333,7 +35333,7 @@ end
 function NETWORK.NETWORK_CLAN_REMOTE_MEMBERSHIPS_ARE_IN_CACHE(p0)
   return native.invoke(
     Type.Bool, 3196, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -35341,7 +35341,7 @@ end
 function NETWORK.NETWORK_CLAN_GET_MEMBERSHIP_COUNT(p0)
   return native.invoke(
     Type.Int, 3197, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -35349,7 +35349,7 @@ end
 function NETWORK.NETWORK_CLAN_GET_MEMBERSHIP_VALID(p0, p1)
   return native.invoke(
     Type.Bool, 3198, false,
-    ref(Type.Int, p0),
+    arg(Type.Int, p0),
     arg(Type.Any, p1)
   )
 end
@@ -35358,8 +35358,8 @@ end
 function NETWORK.NETWORK_CLAN_GET_MEMBERSHIP(p0, clanMembership, p2)
   return native.invoke(
     Type.Bool, 3199, false,
-    ref(Type.Int, p0),
-    ref(Type.Any, clanMembership),
+    arg(Type.Int, p0),
+    arg(Type.Any, clanMembership),
     arg(Type.Int, p2)
   )
 end
@@ -35381,8 +35381,8 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function NETWORK.NETWORK_CLAN_CREWINFO_GET_STRING_VALUE(animDict, animName)
   return native.invoke(
     Type.Bool, 3201, false,
-    ref(Type.String, animDict),
-    ref(Type.String, animName)
+    arg(Type.String, animDict),
+    arg(Type.String, animName)
   )
 end
 
@@ -35391,7 +35391,7 @@ function NETWORK.NETWORK_CLAN_CREWINFO_GET_CREWRANKTITLE(p0, p1)
   return native.invoke(
     Type.Bool, 3202, false,
     arg(Type.Int, p0),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -35406,8 +35406,8 @@ end
 function NETWORK.NETWORK_CLAN_GET_EMBLEM_TXD_NAME(netHandle, txdName)
   return native.invoke(
     Type.Bool, 3204, false,
-    ref(Type.Any, netHandle),
-    ref(Type.Char, txdName)
+    arg(Type.Any, netHandle),
+    arg(Type.Char, txdName)
   )
 end
 
@@ -35424,7 +35424,7 @@ function NETWORK.NETWORK_CLAN_IS_EMBLEM_READY(p0, p1)
   return native.invoke(
     Type.Bool, 3206, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -35454,7 +35454,7 @@ end
 function NETWORK.NETWORK_GET_PRIMARY_CLAN_DATA_START(p0, p1)
   return native.invoke(
     Type.Bool, 3210, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
 end
@@ -35477,8 +35477,8 @@ end
 function NETWORK.NETWORK_GET_PRIMARY_CLAN_DATA_NEW(p0, p1)
   return native.invoke(
     Type.Bool, 3213, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1)
   )
 end
 
@@ -35694,7 +35694,7 @@ end
 --[[
 normal - transition like when your coming out of LSC
 slow - transition like when you walk into a mission
-
+ 
 --]]
 function NETWORK.NETWORK_FADE_OUT_ENTITY(entity, normal, slow)
   native.invoke(
@@ -35998,9 +35998,9 @@ function NETWORK.GET_RESERVED_MISSION_ENTITIES_IN_AREA(x, y, z, p3, out1, out2, 
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Any, p3),
-    ref(Type.Any, out1),
-    ref(Type.Any, out2),
-    ref(Type.Any, out3)
+    arg(Type.Any, out1),
+    arg(Type.Any, out2),
+    arg(Type.Any, out3)
   )
 end
 
@@ -36151,7 +36151,7 @@ end
 -- const char* GET_TIME_AS_STRING(int time) // 0x9E23B1777A927DAD
 function NETWORK.GET_TIME_AS_STRING(time)
   return native.invoke(
-    Type.String, 3283, false,
+    Type.Const char, 3283, false,
     arg(Type.Int, time)
   )
 end
@@ -36162,7 +36162,7 @@ Same as GET_CLOUD_TIME_AS_INT but returns the value as a hex string (%I64X).
 --]]
 function NETWORK.GET_CLOUD_TIME_AS_STRING()
   return native.invoke(
-    Type.String, 3284, false
+    Type.Const char, 3284, false
   )
 end
 
@@ -36200,7 +36200,7 @@ function NETWORK.CONVERT_POSIX_TIME(posixTime, timeStructure)
   native.invoke(
     Type.Void, 3286, false,
     arg(Type.Int, posixTime),
-    ref(Type.Any, timeStructure)
+    arg(Type.Any, timeStructure)
   )
 end
 
@@ -36446,8 +36446,8 @@ function NETWORK.NETWORK_ADD_PED_TO_SYNCHRONISED_SCENE(ped, netScene, animDict, 
     Type.Void, 3312, false,
     arg(Type.Ped, ped),
     arg(Type.Int, netScene),
-    ref(Type.String, animDict),
-    ref(Type.String, animnName),
+    arg(Type.String, animDict),
+    arg(Type.String, animnName),
     arg(Type.Float, speed),
     arg(Type.Float, speedMultiplier),
     arg(Type.Int, duration),
@@ -36480,8 +36480,8 @@ function NETWORK.NETWORK_ADD_ENTITY_TO_SYNCHRONISED_SCENE(entity, netScene, anim
     Type.Void, 3314, false,
     arg(Type.Entity, entity),
     arg(Type.Int, netScene),
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Float, speed),
     arg(Type.Float, speedMulitiplier),
     arg(Type.Int, flag)
@@ -36502,7 +36502,7 @@ function NETWORK.NETWORK_ADD_MAP_ENTITY_TO_SYNCHRONISED_SCENE(netScene, modelHas
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Float, p5),
-    ref(Type.String, p6),
+    arg(Type.String, p6),
     arg(Type.Float, p7),
     arg(Type.Float, p8),
     arg(Type.Int, flags)
@@ -36514,8 +36514,8 @@ function NETWORK.NETWORK_ADD_SYNCHRONISED_SCENE_CAMERA(netScene, animDict, animN
   native.invoke(
     Type.Void, 3316, false,
     arg(Type.Int, netScene),
-    ref(Type.String, animDict),
-    ref(Type.String, animName)
+    arg(Type.String, animDict),
+    arg(Type.String, animName)
   )
 end
 
@@ -36628,7 +36628,7 @@ end
 function NETWORK.NETWORK_QUERY_RESPAWN_RESULTS(p0)
   return native.invoke(
     Type.Int, 3326, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -36647,8 +36647,8 @@ function NETWORK.NETWORK_GET_RESPAWN_RESULT(randomInt, coordinates, heading)
   native.invoke(
     Type.Void, 3328, true,
     arg(Type.Int, randomInt),
-    ref(Type.Vector3, coordinates),
-    ref(Type.Float, heading)
+    arg(Type.Vector3, coordinates),
+    arg(Type.Float, heading)
   )
 end
 
@@ -36964,8 +36964,8 @@ end
 function NETWORK.NETWORK_DOES_TUNABLE_EXIST(tunableContext, tunableName)
   return native.invoke(
     Type.Bool, 3363, false,
-    ref(Type.String, tunableContext),
-    ref(Type.String, tunableName)
+    arg(Type.String, tunableContext),
+    arg(Type.String, tunableName)
   )
 end
 
@@ -36973,9 +36973,9 @@ end
 function NETWORK.NETWORK_ACCESS_TUNABLE_INT(tunableContext, tunableName, value)
   return native.invoke(
     Type.Bool, 3364, false,
-    ref(Type.String, tunableContext),
-    ref(Type.String, tunableName),
-    ref(Type.Int, value)
+    arg(Type.String, tunableContext),
+    arg(Type.String, tunableName),
+    arg(Type.Int, value)
   )
 end
 
@@ -36983,9 +36983,9 @@ end
 function NETWORK.NETWORK_ACCESS_TUNABLE_FLOAT(tunableContext, tunableName, value)
   return native.invoke(
     Type.Bool, 3365, false,
-    ref(Type.String, tunableContext),
-    ref(Type.String, tunableName),
-    ref(Type.Float, value)
+    arg(Type.String, tunableContext),
+    arg(Type.String, tunableName),
+    arg(Type.Float, value)
   )
 end
 
@@ -36993,8 +36993,8 @@ end
 function NETWORK.NETWORK_ACCESS_TUNABLE_BOOL(tunableContext, tunableName)
   return native.invoke(
     Type.Bool, 3366, false,
-    ref(Type.String, tunableContext),
-    ref(Type.String, tunableName)
+    arg(Type.String, tunableContext),
+    arg(Type.String, tunableName)
   )
 end
 
@@ -37020,7 +37020,7 @@ function NETWORK.NETWORK_ACCESS_TUNABLE_INT_HASH(tunableContext, tunableName, va
     Type.Bool, 3369, false,
     arg(Type.Hash, tunableContext),
     arg(Type.Hash, tunableName),
-    ref(Type.Int, value)
+    arg(Type.Int, value)
   )
 end
 
@@ -37030,7 +37030,7 @@ function NETWORK.NETWORK_ACCESS_TUNABLE_INT_MODIFICATION_DETECTION_REGISTRATION_
     Type.Bool, 3370, false,
     arg(Type.Hash, contextHash),
     arg(Type.Hash, nameHash),
-    ref(Type.Int, value)
+    arg(Type.Int, value)
   )
 end
 
@@ -37040,7 +37040,7 @@ function NETWORK.NETWORK_ACCESS_TUNABLE_FLOAT_HASH(tunableContext, tunableName, 
     Type.Bool, 3371, false,
     arg(Type.Hash, tunableContext),
     arg(Type.Hash, tunableName),
-    ref(Type.Float, value)
+    arg(Type.Float, value)
   )
 end
 
@@ -37050,7 +37050,7 @@ function NETWORK.NETWORK_ACCESS_TUNABLE_FLOAT_MODIFICATION_DETECTION_REGISTRATIO
     Type.Bool, 3372, false,
     arg(Type.Hash, contextHash),
     arg(Type.Hash, nameHash),
-    ref(Type.Float, value)
+    arg(Type.Float, value)
   )
 end
 
@@ -37069,7 +37069,7 @@ function NETWORK.NETWORK_ACCESS_TUNABLE_BOOL_MODIFICATION_DETECTION_REGISTRATION
     Type.Bool, 3374, false,
     arg(Type.Hash, contextHash),
     arg(Type.Hash, nameHash),
-    ref(Type.Bool, value)
+    arg(Type.Bool, value)
   )
 end
 
@@ -37350,7 +37350,7 @@ end
 -- const char* GET_COMMERCE_ITEM_ID(int index) // 0x662635855957C411
 function NETWORK.GET_COMMERCE_ITEM_ID(index)
   return native.invoke(
-    Type.String, 3402, false,
+    Type.Const char, 3402, false,
     arg(Type.Int, index)
   )
 end
@@ -37358,7 +37358,7 @@ end
 -- const char* GET_COMMERCE_ITEM_NAME(int index) // 0xB4271092CA7EDF48
 function NETWORK.GET_COMMERCE_ITEM_NAME(index)
   return native.invoke(
-    Type.String, 3403, false,
+    Type.Const char, 3403, false,
     arg(Type.Int, index)
   )
 end
@@ -37366,7 +37366,7 @@ end
 -- const char* GET_COMMERCE_PRODUCT_PRICE(int index) // 0xCA94551B50B4932C
 function NETWORK.GET_COMMERCE_PRODUCT_PRICE(index)
   return native.invoke(
-    Type.String, 3404, false,
+    Type.Const char, 3404, false,
     arg(Type.Int, index)
   )
 end
@@ -37385,7 +37385,7 @@ index2 is unused
 --]]
 function NETWORK.GET_COMMERCE_ITEM_CAT(index, index2)
   return native.invoke(
-    Type.String, 3406, false,
+    Type.Const char, 3406, false,
     arg(Type.Int, index),
     arg(Type.Int, index2)
   )
@@ -37395,8 +37395,8 @@ end
 function NETWORK.OPEN_COMMERCE_STORE(p0, p1, p2)
   native.invoke(
     Type.Void, 3407, false,
-    ref(Type.String, p0),
-    ref(Type.String, p1),
+    arg(Type.String, p0),
+    arg(Type.String, p1),
     arg(Type.Int, p2)
   )
 end
@@ -37437,7 +37437,7 @@ end
 -- const char* GET_COMMERCE_ITEM_TEXTURENAME(int index) // 0x722F5D28B61C5EA8
 function NETWORK.GET_COMMERCE_ITEM_TEXTURENAME(index)
   return native.invoke(
-    Type.String, 3412, false,
+    Type.Const char, 3412, false,
     arg(Type.Int, index)
   )
 end
@@ -37504,7 +37504,7 @@ end
 function NETWORK.CLOUD_DELETE_MEMBER_FILE(p0)
   return native.invoke(
     Type.Int, 3420, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -37592,8 +37592,8 @@ end
 function NETWORK.UGC_COPY_CONTENT(p0, p1)
   return native.invoke(
     Type.Bool, 3430, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1)
   )
 end
 
@@ -37628,7 +37628,7 @@ end
 -- const char* UGC_GET_CREATE_CONTENT_ID() // 0xC55A0B40FFB1ED23
 function NETWORK.UGC_GET_CREATE_CONTENT_ID()
   return native.invoke(
-    Type.String, 3435, false
+    Type.Const char, 3435, false
   )
 end
 
@@ -37645,7 +37645,7 @@ function NETWORK.UGC_QUERY_MY_CONTENT(p0, p1, p2, p3, p4, p5)
     Type.Bool, 3437, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.Any, p2),
+    arg(Type.Any, p2),
     arg(Type.Any, p3),
     arg(Type.Any, p4),
     arg(Type.Any, p5)
@@ -37659,7 +37659,7 @@ function NETWORK.UGC_QUERY_BY_CATEGORY(p0, p1, p2, p3, p4, p5)
     arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
-    ref(Type.String, p3),
+    arg(Type.String, p3),
     arg(Type.Any, p4),
     arg(Type.Bool, p5)
   )
@@ -37669,9 +37669,9 @@ end
 function NETWORK.UGC_QUERY_BY_CONTENT_ID(contentId, latestVersion, contentTypeName)
   return native.invoke(
     Type.Bool, 3439, false,
-    ref(Type.String, contentId),
+    arg(Type.String, contentId),
     arg(Type.Bool, latestVersion),
-    ref(Type.String, contentTypeName)
+    arg(Type.String, contentTypeName)
   )
 end
 
@@ -37679,10 +37679,10 @@ end
 function NETWORK.UGC_QUERY_BY_CONTENT_IDS(data, count, latestVersion, contentTypeName)
   return native.invoke(
     Type.Bool, 3440, false,
-    ref(Type.Any, data),
+    arg(Type.Any, data),
     arg(Type.Int, count),
     arg(Type.Bool, latestVersion),
-    ref(Type.String, contentTypeName)
+    arg(Type.String, contentTypeName)
   )
 end
 
@@ -37692,7 +37692,7 @@ function NETWORK.UGC_QUERY_MOST_RECENTLY_CREATED_CONTENT(offset, count, contentT
     Type.Bool, 3441, false,
     arg(Type.Int, offset),
     arg(Type.Int, count),
-    ref(Type.String, contentTypeName),
+    arg(Type.String, contentTypeName),
     arg(Type.Int, p3)
   )
 end
@@ -37703,8 +37703,8 @@ function NETWORK.UGC_GET_BOOKMARKED_CONTENT(p0, p1, p2, p3)
     Type.Bool, 3442, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.String, p2),
-    ref(Type.Any, p3)
+    arg(Type.String, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -37714,8 +37714,8 @@ function NETWORK.UGC_GET_MY_CONTENT(p0, p1, p2, p3)
     Type.Bool, 3443, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.String, p2),
-    ref(Type.Any, p3)
+    arg(Type.String, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -37725,8 +37725,8 @@ function NETWORK.UGC_GET_FRIEND_CONTENT(p0, p1, p2, p3)
     Type.Bool, 3444, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.String, p2),
-    ref(Type.Any, p3)
+    arg(Type.String, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -37737,8 +37737,8 @@ function NETWORK.UGC_GET_CREW_CONTENT(p0, p1, p2, p3, p4)
     arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
-    ref(Type.String, p3),
-    ref(Type.Any, p4)
+    arg(Type.String, p3),
+    arg(Type.Any, p4)
   )
 end
 
@@ -37749,8 +37749,8 @@ function NETWORK.UGC_GET_GET_BY_CATEGORY(p0, p1, p2, p3, p4)
     arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
-    ref(Type.String, p3),
-    ref(Type.Any, p4)
+    arg(Type.String, p3),
+    arg(Type.Any, p4)
   )
 end
 
@@ -37758,8 +37758,8 @@ end
 function NETWORK.UGC_GET_GET_BY_CONTENT_ID(contentId, contentTypeName)
   return native.invoke(
     Type.Bool, 3447, false,
-    ref(Type.String, contentId),
-    ref(Type.String, contentTypeName)
+    arg(Type.String, contentId),
+    arg(Type.String, contentTypeName)
   )
 end
 
@@ -37767,9 +37767,9 @@ end
 function NETWORK.UGC_GET_GET_BY_CONTENT_IDS(data, dataCount, contentTypeName)
   return native.invoke(
     Type.Bool, 3448, false,
-    ref(Type.Any, data),
+    arg(Type.Any, data),
     arg(Type.Int, dataCount),
-    ref(Type.String, contentTypeName)
+    arg(Type.String, contentTypeName)
   )
 end
 
@@ -37779,8 +37779,8 @@ function NETWORK.UGC_GET_MOST_RECENTLY_CREATED_CONTENT(p0, p1, p2, p3)
     Type.Bool, 3449, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -37790,8 +37790,8 @@ function NETWORK.UGC_GET_MOST_RECENTLY_PLAYED_CONTENT(p0, p1, p2, p3)
     Type.Bool, 3450, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -37801,8 +37801,8 @@ function NETWORK.UGC_GET_TOP_RATED_CONTENT(p0, p1, p2, p3)
     Type.Bool, 3451, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -37879,7 +37879,7 @@ end
 -- const char* UGC_GET_CONTENT_USER_ID(int p0) // 0xCD67AD041A394C9C
 function NETWORK.UGC_GET_CONTENT_USER_ID(p0)
   return native.invoke(
-    Type.String, 3462, false,
+    Type.Const char, 3462, false,
     arg(Type.Int, p0)
   )
 end
@@ -37889,7 +37889,7 @@ function NETWORK.UGC_GET_CONTENT_CREATOR_GAMER_HANDLE(p0, p1)
   return native.invoke(
     Type.Bool, 3463, false,
     arg(Type.Int, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -37904,7 +37904,7 @@ end
 -- const char* UGC_GET_CONTENT_USER_NAME(Any p0) // 0x703F12425ECA8BF5
 function NETWORK.UGC_GET_CONTENT_USER_NAME(p0)
   return native.invoke(
-    Type.String, 3465, false,
+    Type.Const char, 3465, false,
     arg(Type.Any, p0)
   )
 end
@@ -37931,7 +37931,7 @@ Return the mission id of a job.
 --]]
 function NETWORK.UGC_GET_CONTENT_ID(p0)
   return native.invoke(
-    Type.String, 3468, false,
+    Type.Const char, 3468, false,
     arg(Type.Int, p0)
   )
 end
@@ -37942,7 +37942,7 @@ Return the root content id of a job.
 --]]
 function NETWORK.UGC_GET_ROOT_CONTENT_ID(p0)
   return native.invoke(
-    Type.String, 3469, false,
+    Type.Const char, 3469, false,
     arg(Type.Int, p0)
   )
 end
@@ -37950,7 +37950,7 @@ end
 -- const char* UGC_GET_CONTENT_NAME(Any p0) // 0xBF09786A7FCAB582
 function NETWORK.UGC_GET_CONTENT_NAME(p0)
   return native.invoke(
-    Type.String, 3470, false,
+    Type.Const char, 3470, false,
     arg(Type.Any, p0)
   )
 end
@@ -37966,7 +37966,7 @@ end
 -- const char* UGC_GET_CONTENT_PATH(int p0, int p1) // 0xBAF6BABF9E7CCC13
 function NETWORK.UGC_GET_CONTENT_PATH(p0, p1)
   return native.invoke(
-    Type.String, 3472, false,
+    Type.Const char, 3472, false,
     arg(Type.Int, p0),
     arg(Type.Int, p1)
   )
@@ -37977,7 +37977,7 @@ function NETWORK.UGC_GET_CONTENT_UPDATED_DATE(p0, p1)
   native.invoke(
     Type.Void, 3473, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -38095,8 +38095,8 @@ end
 function NETWORK.UGC_REQUEST_CONTENT_DATA_FROM_PARAMS(contentTypeName, contentId, p2, p3, p4)
   return native.invoke(
     Type.Int, 3487, false,
-    ref(Type.String, contentTypeName),
-    ref(Type.String, contentId),
+    arg(Type.String, contentTypeName),
+    arg(Type.String, contentId),
     arg(Type.Int, p2),
     arg(Type.Int, p3),
     arg(Type.Int, p4)
@@ -38138,7 +38138,7 @@ end
 -- const char* UGC_GET_CACHED_DESCRIPTION(Any p0, Any p1) // 0x40F7E66472DF3E5C
 function NETWORK.UGC_GET_CACHED_DESCRIPTION(p0, p1)
   return native.invoke(
-    Type.String, 3492, false,
+    Type.Const char, 3492, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
@@ -38170,9 +38170,9 @@ end
 function NETWORK.UGC_PUBLISH(contentId, baseContentId, contentTypeName)
   return native.invoke(
     Type.Bool, 3496, false,
-    ref(Type.String, contentId),
-    ref(Type.String, baseContentId),
-    ref(Type.String, contentTypeName)
+    arg(Type.String, contentId),
+    arg(Type.String, baseContentId),
+    arg(Type.String, contentTypeName)
   )
 end
 
@@ -38180,9 +38180,9 @@ end
 function NETWORK.UGC_SET_BOOKMARKED(contentId, bookmarked, contentTypeName)
   return native.invoke(
     Type.Bool, 3497, false,
-    ref(Type.String, contentId),
+    arg(Type.String, contentId),
     arg(Type.Bool, bookmarked),
-    ref(Type.String, contentTypeName)
+    arg(Type.String, contentTypeName)
   )
 end
 
@@ -38190,9 +38190,9 @@ end
 function NETWORK.UGC_SET_DELETED(p0, p1, p2)
   return native.invoke(
     Type.Bool, 3498, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Bool, p1),
-    ref(Type.String, p2)
+    arg(Type.String, p2)
   )
 end
 
@@ -38235,8 +38235,8 @@ end
 function NETWORK.UGC_GET_CREATORS_BY_USER_ID(p0, p1)
   return native.invoke(
     Type.Bool, 3504, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1)
   )
 end
 
@@ -38304,7 +38304,7 @@ end
 function NETWORK.FACEBOOK_POST_COMPLETED_HEIST(heistName, cashEarned, xpEarned)
   return native.invoke(
     Type.Bool, 3513, false,
-    ref(Type.String, heistName),
+    arg(Type.String, heistName),
     arg(Type.Int, cashEarned),
     arg(Type.Int, xpEarned)
   )
@@ -38350,9 +38350,9 @@ end
 function NETWORK.TEXTURE_DOWNLOAD_REQUEST(gamerHandle, filePath, name, p3)
   return native.invoke(
     Type.Int, 3519, false,
-    ref(Type.Any, gamerHandle),
-    ref(Type.String, filePath),
-    ref(Type.String, name),
+    arg(Type.Any, gamerHandle),
+    arg(Type.String, filePath),
+    arg(Type.String, name),
     arg(Type.Bool, p3)
   )
 end
@@ -38361,8 +38361,8 @@ end
 function NETWORK.TITLE_TEXTURE_DOWNLOAD_REQUEST(filePath, name, p2)
   return native.invoke(
     Type.Int, 3520, false,
-    ref(Type.String, filePath),
-    ref(Type.String, name),
+    arg(Type.String, filePath),
+    arg(Type.String, name),
     arg(Type.Bool, p2)
   )
 end
@@ -38371,11 +38371,11 @@ end
 function NETWORK.UGC_TEXTURE_DOWNLOAD_REQUEST(p0, p1, p2, p3, p4, p5)
   return native.invoke(
     Type.Int, 3521, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Int, p1),
     arg(Type.Int, p2),
     arg(Type.Int, p3),
-    ref(Type.String, p4),
+    arg(Type.String, p4),
     arg(Type.Bool, p5)
   )
 end
@@ -38399,7 +38399,7 @@ end
 -- const char* TEXTURE_DOWNLOAD_GET_NAME(int p0) // 0x3448505B6E35262D
 function NETWORK.TEXTURE_DOWNLOAD_GET_NAME(p0)
   return native.invoke(
-    Type.String, 3524, false,
+    Type.Const char, 3524, false,
     arg(Type.Int, p0)
   )
 end
@@ -38502,8 +38502,8 @@ function NETWORK.NETWORK_HAS_ROS_PRIVILEGE_END_DATE(privilege, banType, timeData
   return native.invoke(
     Type.Bool, 3536, false,
     arg(Type.Int, privilege),
-    ref(Type.Int, banType),
-    ref(Type.Any, timeData)
+    arg(Type.Int, banType),
+    arg(Type.Any, timeData)
   )
 end
 
@@ -38556,7 +38556,7 @@ Always returns -1. Seems to be XB1 specific.
 function NETWORK.NETWORK_START_USER_CONTENT_PERMISSIONS_CHECK(netHandle)
   return native.invoke(
     Type.Int, 3542, false,
-    ref(Type.Any, netHandle)
+    arg(Type.Any, netHandle)
   )
 end
 
@@ -38773,7 +38773,7 @@ Does nothing (it's a nullsub).
 function NETWORK.NETWORK_GET_SIGNALLING_INFO(p0)
   native.invoke(
     Type.Void, 3566, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -38784,7 +38784,7 @@ Does nothing (it's a nullsub).
 function NETWORK.NETWORK_GET_NET_STATISTICS_INFO(p0)
   native.invoke(
     Type.Void, 3567, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -38849,7 +38849,7 @@ Deletes the specified object, then sets the handle pointed to by the pointer to 
 function OBJECT.DELETE_OBJECT(object)
   native.invoke(
     Type.Void, 3572, false,
-    ref(Type.Object, object)
+    arg(Type.Object, object)
   )
 end
 
@@ -39011,8 +39011,8 @@ function OBJECT.GET_COORDS_AND_ROTATION_OF_CLOSEST_OBJECT_OF_TYPE(x, y, z, radiu
     arg(Type.Float, z),
     arg(Type.Float, radius),
     arg(Type.Hash, modelHash),
-    ref(Type.Vector3, outPosition),
-    ref(Type.Vector3, outRotation),
+    arg(Type.Vector3, outPosition),
+    arg(Type.Vector3, outRotation),
     arg(Type.Int, rotationOrder)
   )
 end
@@ -39066,8 +39066,8 @@ function OBJECT.GET_STATE_OF_CLOSEST_DOOR_OF_TYPE(type, x, y, z, locked, heading
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Bool, locked),
-    ref(Type.Float, heading)
+    arg(Type.Bool, locked),
+    arg(Type.Float, heading)
   )
 end
 
@@ -39339,7 +39339,7 @@ function OBJECT.DOOR_SYSTEM_FIND_EXISTING_DOOR(x, y, z, modelHash, outDoorHash)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Hash, modelHash),
-    ref(Type.Hash, outDoorHash)
+    arg(Type.Hash, outDoorHash)
   )
 end
 
@@ -39704,7 +39704,7 @@ function OBJECT.GET_RAYFIRE_MAP_OBJECT(x, y, z, radius, name)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Float, radius),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -40517,20 +40517,20 @@ end
 --[[
 enum ObjectPaintVariants
 {
-Pacific = 0,
+ Pacific = 0,
   Azure = 1,
     Nautical = 2,
-Continental = 3,
+ Continental = 3,
   Battleship = 4,
-  Intrepid = 5,
-Uniform = 6,
+   Intrepid = 5,
+ Uniform = 6,
   Classico = 7,
-Mediterranean = 8,
+ Mediterranean = 8,
     Command = 9,
   Mariner = 10,
-Ruby = 11,
+ Ruby = 11,
     Vintage = 12,
-Pristine = 13,
+ Pristine = 13,
     Merchant = 14,
     Voyager = 15
 };
@@ -41031,7 +41031,7 @@ control: unused parameter
 --]]
 function PAD.GET_CONTROL_INSTRUCTIONAL_BUTTONS_STRING(control, action, allowXOSwap)
   return native.invoke(
-    Type.String, 3755, false,
+    Type.Const char, 3755, false,
     arg(Type.Int, control),
     arg(Type.Int, action),
     arg(Type.Bool, allowXOSwap)
@@ -41044,7 +41044,7 @@ control: unused parameter
 --]]
 function PAD.GET_CONTROL_GROUP_INSTRUCTIONAL_BUTTONS_STRING(control, controlGroup, allowXOSwap)
   return native.invoke(
-    Type.String, 3756, false,
+    Type.Const char, 3756, false,
     arg(Type.Int, control),
     arg(Type.Int, controlGroup),
     arg(Type.Bool, allowXOSwap)
@@ -41297,7 +41297,7 @@ Used in carsteal3 script with schemeName = "Carsteal4_spycar".
 function PAD.INIT_PC_SCRIPTED_CONTROLS(schemeName)
   return native.invoke(
     Type.Bool, 3777, false,
-    ref(Type.String, schemeName)
+    arg(Type.String, schemeName)
   )
 end
 
@@ -41308,7 +41308,7 @@ Same as INIT_PC_SCRIPTED_CONTROLS
 function PAD.SWITCH_PC_SCRIPTED_CONTROLS(schemeName)
   return native.invoke(
     Type.Bool, 3778, false,
-    ref(Type.String, schemeName)
+    arg(Type.String, schemeName)
   )
 end
 
@@ -41412,7 +41412,7 @@ function PATHFIND.GET_SAFE_COORD_FOR_PED(x, y, z, onGround, outPosition, flags)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Bool, onGround),
-    ref(Type.Vector3, outPosition),
+    arg(Type.Vector3, outPosition),
     arg(Type.Int, flags)
   )
 end
@@ -41427,7 +41427,7 @@ function PATHFIND.GET_CLOSEST_VEHICLE_NODE(x, y, z, outPosition, nodeFlags, p5, 
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Vector3, outPosition),
+    arg(Type.Vector3, outPosition),
     arg(Type.Int, nodeFlags),
     arg(Type.Float, p5),
     arg(Type.Float, p6)
@@ -41444,7 +41444,7 @@ function PATHFIND.GET_CLOSEST_MAJOR_VEHICLE_NODE(x, y, z, outPosition, unknown1,
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Vector3, outPosition),
+    arg(Type.Vector3, outPosition),
     arg(Type.Float, unknown1),
     arg(Type.Float, unknown2)
   )
@@ -41478,8 +41478,8 @@ function PATHFIND.GET_CLOSEST_VEHICLE_NODE_WITH_HEADING(x, y, z, outPosition, ou
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Vector3, outPosition),
-    ref(Type.Float, outHeading),
+    arg(Type.Vector3, outPosition),
+    arg(Type.Float, outHeading),
     arg(Type.Int, nodeType),
     arg(Type.Float, p6),
     arg(Type.Float, p7)
@@ -41494,7 +41494,7 @@ function PATHFIND.GET_NTH_CLOSEST_VEHICLE_NODE(x, y, z, nthClosest, outPosition,
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Int, nthClosest),
-    ref(Type.Vector3, outPosition),
+    arg(Type.Vector3, outPosition),
     arg(Type.Int, nodeFlags),
     arg(Type.Float, unknown1),
     arg(Type.Float, unknown2)
@@ -41529,9 +41529,9 @@ function PATHFIND.GET_NTH_CLOSEST_VEHICLE_NODE_WITH_HEADING(x, y, z, nthClosest,
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Int, nthClosest),
-    ref(Type.Vector3, outPosition),
-    ref(Type.Float, outHeading),
-    ref(Type.Int, outNumLanes),
+    arg(Type.Vector3, outPosition),
+    arg(Type.Float, outHeading),
+    arg(Type.Int, outNumLanes),
     arg(Type.Int, nodeFlags),
     arg(Type.Float, unknown3),
     arg(Type.Float, unknown4)
@@ -41546,8 +41546,8 @@ function PATHFIND.GET_NTH_CLOSEST_VEHICLE_NODE_ID_WITH_HEADING(x, y, z, nthClose
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Int, nthClosest),
-    ref(Type.Vector3, outPosition),
-    ref(Type.Float, outHeading),
+    arg(Type.Vector3, outPosition),
+    arg(Type.Float, outHeading),
     arg(Type.Int, nodeFlags),
     arg(Type.Float, p7),
     arg(Type.Float, p8)
@@ -41571,8 +41571,8 @@ function PATHFIND.GET_NTH_CLOSEST_VEHICLE_NODE_FAVOUR_DIRECTION(x, y, z, desired
     arg(Type.Float, desiredY),
     arg(Type.Float, desiredZ),
     arg(Type.Int, nthClosest),
-    ref(Type.Vector3, outPosition),
-    ref(Type.Float, outHeading),
+    arg(Type.Vector3, outPosition),
+    arg(Type.Float, outHeading),
     arg(Type.Int, nodeFlags),
     arg(Type.Float, p10),
     arg(Type.Float, p11)
@@ -41591,8 +41591,8 @@ function PATHFIND.GET_VEHICLE_NODE_PROPERTIES(x, y, z, density, flags)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Int, density),
-    ref(Type.Int, flags)
+    arg(Type.Int, density),
+    arg(Type.Int, flags)
   )
 end
 
@@ -41617,7 +41617,7 @@ function PATHFIND.GET_VEHICLE_NODE_POSITION(nodeId, outPosition)
   native.invoke(
     Type.Void, 3795, true,
     arg(Type.Int, nodeId),
-    ref(Type.Vector3, outPosition)
+    arg(Type.Vector3, outPosition)
   )
 end
 
@@ -41658,11 +41658,11 @@ function PATHFIND.GET_CLOSEST_ROAD(x, y, z, p3, p4, p5, p6, p7, p8, p9, p10)
     arg(Type.Float, z),
     arg(Type.Float, p3),
     arg(Type.Int, p4),
-    ref(Type.Vector3, p5),
-    ref(Type.Vector3, p6),
-    ref(Type.Any, p7),
-    ref(Type.Any, p8),
-    ref(Type.Float, p9),
+    arg(Type.Vector3, p5),
+    arg(Type.Vector3, p6),
+    arg(Type.Any, p7),
+    arg(Type.Any, p8),
+    arg(Type.Float, p9),
     arg(Type.Bool, p10)
   )
 end
@@ -41802,8 +41802,8 @@ function PATHFIND.GET_RANDOM_VEHICLE_NODE(x, y, z, radius, p4, p5, p6, outPositi
     arg(Type.Bool, p4),
     arg(Type.Bool, p5),
     arg(Type.Bool, p6),
-    ref(Type.Vector3, outPosition),
-    ref(Type.Int, nodeId)
+    arg(Type.Vector3, outPosition),
+    arg(Type.Int, nodeId)
   )
 end
 
@@ -41815,8 +41815,8 @@ function PATHFIND.GET_SPAWN_COORDS_FOR_VEHICLE_NODE(nodeAddress, towardsCoorsX, 
     arg(Type.Float, towardsCoorsX),
     arg(Type.Float, towardsCoorsY),
     arg(Type.Float, towardsCoorsZ),
-    ref(Type.Vector3, centrePoint),
-    ref(Type.Float, heading)
+    arg(Type.Vector3, centrePoint),
+    arg(Type.Float, heading)
   )
 end
 
@@ -41836,8 +41836,8 @@ function PATHFIND.GET_STREET_NAME_AT_COORD(x, y, z, streetName, crossingRoad)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Hash, streetName),
-    ref(Type.Hash, crossingRoad)
+    arg(Type.Hash, streetName),
+    arg(Type.Hash, crossingRoad)
   )
 end
 
@@ -41867,9 +41867,9 @@ function PATHFIND.GENERATE_DIRECTIONS_TO_COORD(x, y, z, p3, direction, p5, distT
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Bool, p3),
-    ref(Type.Int, direction),
-    ref(Type.Float, p5),
-    ref(Type.Float, distToNxJunction)
+    arg(Type.Int, direction),
+    arg(Type.Float, p5),
+    arg(Type.Float, distToNxJunction)
   )
 end
 
@@ -41919,7 +41919,7 @@ p3 can be 0, 1 or 2.
 function PATHFIND.GET_POS_ALONG_GPS_TYPE_ROUTE(result, p1, p2, p3)
   return native.invoke(
     Type.Bool, 3817, true,
-    ref(Type.Vector3, result),
+    arg(Type.Vector3, result),
     arg(Type.Bool, p1),
     arg(Type.Float, p2),
     arg(Type.Int, p3)
@@ -41941,7 +41941,7 @@ function PATHFIND.GET_ROAD_BOUNDARY_USING_HEADING(x, y, z, heading, outPosition)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Float, heading),
-    ref(Type.Vector3, outPosition)
+    arg(Type.Vector3, outPosition)
   )
 end
 
@@ -41953,7 +41953,7 @@ function PATHFIND.GET_POSITION_BY_SIDE_OF_ROAD(x, y, z, p3, outPosition)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Int, p3),
-    ref(Type.Vector3, outPosition)
+    arg(Type.Vector3, outPosition)
   )
 end
 
@@ -42244,7 +42244,7 @@ Deletes the specified ped, then sets the handle pointed to by the pointer to NUL
 function PED.DELETE_PED(ped)
   native.invoke(
     Type.Void, 3842, false,
-    ref(Type.Ped, ped)
+    arg(Type.Ped, ped)
   )
 end
 
@@ -42618,7 +42618,7 @@ Judging purely from a quick disassembly, if the ped is in a vehicle, the ped wil
 function PED.REMOVE_PED_ELEGANTLY(ped)
   native.invoke(
     Type.Void, 3873, false,
-    ref(Type.Ped, ped)
+    arg(Type.Ped, ped)
   )
 end
 
@@ -43155,7 +43155,7 @@ function PED.GET_PED_LAST_DAMAGE_BONE(ped, outBone)
   return native.invoke(
     Type.Bool, 3925, false,
     arg(Type.Ped, ped),
-    ref(Type.Int, outBone)
+    arg(Type.Int, outBone)
   )
 end
 
@@ -43400,7 +43400,7 @@ function PED.GET_PED_PARACHUTE_TINT_INDEX(ped, outTintIndex)
   native.invoke(
     Type.Void, 3952, false,
     arg(Type.Ped, ped),
-    ref(Type.Int, outTintIndex)
+    arg(Type.Int, outTintIndex)
   )
 end
 
@@ -43596,7 +43596,7 @@ function PED.SET_PED_STEALTH_MOVEMENT(ped, p1, action)
     Type.Void, 3972, false,
     arg(Type.Ped, ped),
     arg(Type.Bool, p1),
-    ref(Type.String, action)
+    arg(Type.String, action)
   )
 end
 
@@ -44027,8 +44027,8 @@ Can't select void. This function returns nothing. The hash of the created relati
 function PED.ADD_RELATIONSHIP_GROUP(name, groupHash)
   return native.invoke(
     Type.Bool, 4012, false,
-    ref(Type.String, name),
-    ref(Type.Hash, groupHash)
+    arg(Type.String, name),
+    arg(Type.Hash, groupHash)
   )
 end
 
@@ -44171,7 +44171,7 @@ function PED.GET_POS_FROM_FIRED_EVENT(ped, eventType, outData)
     Type.Bool, 4024, false,
     arg(Type.Ped, ped),
     arg(Type.Int, eventType),
-    ref(Type.Any, outData)
+    arg(Type.Any, outData)
   )
 end
 
@@ -44279,8 +44279,8 @@ function PED.GET_GROUP_SIZE(groupID, p1, sizeInMembers)
   native.invoke(
     Type.Void, 4029, false,
     arg(Type.Int, groupID),
-    ref(Type.Any, p1),
-    ref(Type.Int, sizeInMembers)
+    arg(Type.Any, p1),
+    arg(Type.Int, sizeInMembers)
   )
 end
 
@@ -44842,51 +44842,51 @@ transitionSpeed is the time in seconds it takes to transition from one movement 
 List of movement clipsets:
 Thanks to elsewhat for list.
 
-"ANIM_GROUP_MOVE_BALLISTIC"
-"ANIM_GROUP_MOVE_LEMAR_ALLEY"
-"clipset@move@trash_fast_turn"
-"FEMALE_FAST_RUNNER"
-"missfbi4prepp1_garbageman"
-"move_characters@franklin@fire"
-"move_characters@Jimmy@slow@"
-"move_characters@michael@fire"
-"move_f@flee@a"
-"move_f@scared"
-"move_f@sexy@a"
-"move_heist_lester"
-"move_injured_generic"
-"move_lester_CaneUp"
-"move_m@bag"
-"MOVE_M@BAIL_BOND_NOT_TAZERED"
-"MOVE_M@BAIL_BOND_TAZERED"
-"move_m@brave"
-"move_m@casual@d"
-"move_m@drunk@moderatedrunk"
-"MOVE_M@DRUNK@MODERATEDRUNK"
-"MOVE_M@DRUNK@MODERATEDRUNK_HEAD_UP"
-"MOVE_M@DRUNK@SLIGHTLYDRUNK"
-"MOVE_M@DRUNK@VERYDRUNK"
-"move_m@fire"
-"move_m@gangster@var_e"
-"move_m@gangster@var_f"
-"move_m@gangster@var_i"
-"move_m@JOG@"
-"MOVE_M@PRISON_GAURD"
-"MOVE_P_M_ONE"
-"MOVE_P_M_ONE_BRIEFCASE"
-"move_p_m_zero_janitor"
-"move_p_m_zero_slow"
-"move_ped_bucket"
-"move_ped_crouched"
-"move_ped_mop"
-"MOVE_M@FEMME@"
-"MOVE_F@FEMME@"
-"MOVE_M@GANGSTER@NG"
-"MOVE_F@GANGSTER@NG"
-"MOVE_M@POSH@"
-"MOVE_F@POSH@"
-"MOVE_M@TOUGH_GUY@"
-"MOVE_F@TOUGH_GUY@"
+ "ANIM_GROUP_MOVE_BALLISTIC"
+ "ANIM_GROUP_MOVE_LEMAR_ALLEY"
+ "clipset@move@trash_fast_turn"
+ "FEMALE_FAST_RUNNER"
+ "missfbi4prepp1_garbageman"
+ "move_characters@franklin@fire"
+ "move_characters@Jimmy@slow@"
+ "move_characters@michael@fire"
+ "move_f@flee@a"
+ "move_f@scared"
+ "move_f@sexy@a"
+ "move_heist_lester"
+ "move_injured_generic"
+ "move_lester_CaneUp"
+ "move_m@bag"
+ "MOVE_M@BAIL_BOND_NOT_TAZERED"
+ "MOVE_M@BAIL_BOND_TAZERED"
+ "move_m@brave"
+ "move_m@casual@d"
+ "move_m@drunk@moderatedrunk"
+ "MOVE_M@DRUNK@MODERATEDRUNK"
+ "MOVE_M@DRUNK@MODERATEDRUNK_HEAD_UP"
+ "MOVE_M@DRUNK@SLIGHTLYDRUNK"
+ "MOVE_M@DRUNK@VERYDRUNK"
+ "move_m@fire"
+ "move_m@gangster@var_e"
+ "move_m@gangster@var_f"
+ "move_m@gangster@var_i"
+ "move_m@JOG@"
+ "MOVE_M@PRISON_GAURD"
+ "MOVE_P_M_ONE"
+ "MOVE_P_M_ONE_BRIEFCASE"
+ "move_p_m_zero_janitor"
+ "move_p_m_zero_slow"
+ "move_ped_bucket"
+ "move_ped_crouched"
+ "move_ped_mop"
+ "MOVE_M@FEMME@"
+ "MOVE_F@FEMME@"
+ "MOVE_M@GANGSTER@NG"
+ "MOVE_F@GANGSTER@NG"
+ "MOVE_M@POSH@"
+ "MOVE_F@POSH@"
+ "MOVE_M@TOUGH_GUY@"
+ "MOVE_F@TOUGH_GUY@"
 
 ~ NotCrunchyTaco
 
@@ -44896,7 +44896,7 @@ function PED.SET_PED_MOVEMENT_CLIPSET(ped, clipSet, transitionSpeed)
   native.invoke(
     Type.Void, 4083, false,
     arg(Type.Ped, ped),
-    ref(Type.String, clipSet),
+    arg(Type.String, clipSet),
     arg(Type.Float, transitionSpeed)
   )
 end
@@ -44925,7 +44925,7 @@ function PED.SET_PED_STRAFE_CLIPSET(ped, clipSet)
   native.invoke(
     Type.Void, 4085, false,
     arg(Type.Ped, ped),
-    ref(Type.String, clipSet)
+    arg(Type.String, clipSet)
   )
 end
 
@@ -44942,7 +44942,7 @@ function PED.SET_PED_WEAPON_MOVEMENT_CLIPSET(ped, clipSet)
   native.invoke(
     Type.Void, 4087, false,
     arg(Type.Ped, ped),
-    ref(Type.String, clipSet)
+    arg(Type.String, clipSet)
   )
 end
 
@@ -44959,7 +44959,7 @@ function PED.SET_PED_DRIVE_BY_CLIPSET_OVERRIDE(ped, clipset)
   native.invoke(
     Type.Void, 4089, false,
     arg(Type.Ped, ped),
-    ref(Type.String, clipset)
+    arg(Type.String, clipset)
   )
 end
 
@@ -44980,7 +44980,7 @@ function PED.SET_PED_MOTION_IN_COVER_CLIPSET_OVERRIDE(ped, p1)
   native.invoke(
     Type.Void, 4091, false,
     arg(Type.Ped, ped),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -45035,8 +45035,8 @@ function PED.IS_SCRIPTED_SCENARIO_PED_USING_CONDITIONAL_ANIM(ped, animDict, anim
   return native.invoke(
     Type.Bool, 4096, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, anim)
+    arg(Type.String, animDict),
+    arg(Type.String, anim)
   )
 end
 
@@ -45050,8 +45050,8 @@ function PED.SET_PED_ALTERNATE_WALK_ANIM(ped, animDict, animName, p3, p4)
   native.invoke(
     Type.Void, 4097, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Float, p3),
     arg(Type.Bool, p4)
   )
@@ -45084,8 +45084,8 @@ function PED.SET_PED_ALTERNATE_MOVEMENT_ANIM(ped, stance, animDictionary, animat
     Type.Void, 4099, false,
     arg(Type.Ped, ped),
     arg(Type.Int, stance),
-    ref(Type.String, animDictionary),
-    ref(Type.String, animationName),
+    arg(Type.String, animDictionary),
+    arg(Type.String, animationName),
     arg(Type.Float, p4),
     arg(Type.Bool, p5)
   )
@@ -45113,7 +45113,7 @@ function PED.SET_PED_GESTURE_GROUP(ped, animGroupGesture)
   native.invoke(
     Type.Void, 4101, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animGroupGesture)
+    arg(Type.String, animGroupGesture)
   )
 end
 
@@ -45124,8 +45124,8 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function PED.GET_ANIM_INITIAL_OFFSET_POSITION(animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9)
   return native.invoke(
     Type.Vector3, 4102, false,
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -45144,8 +45144,8 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function PED.GET_ANIM_INITIAL_OFFSET_ROTATION(animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9)
   return native.invoke(
     Type.Vector3, 4103, false,
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -45274,8 +45274,8 @@ end
 function PED.GET_MP_OUTFIT_DATA_FROM_METADATA(p0, p1)
   return native.invoke(
     Type.Bool, 4111, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1)
   )
 end
 
@@ -45321,20 +45321,20 @@ paletteId: 0 to 3.
 componentId:
 enum ePedVarComp
 {
-  PV_COMP_INVALID = -1,
-  PV_COMP_HEAD,
-  PV_COMP_BERD,
-  PV_COMP_HAIR,
-  PV_COMP_UPPR,
-  PV_COMP_LOWR,
-  PV_COMP_HAND,
-  PV_COMP_FEET,
-  PV_COMP_TEEF,
-  PV_COMP_ACCS,
-  PV_COMP_TASK,
-  PV_COMP_DECL,
-  PV_COMP_JBIB,
-  PV_COMP_MAX
+	PV_COMP_INVALID = -1,
+	PV_COMP_HEAD,
+	PV_COMP_BERD,
+	PV_COMP_HAIR,
+	PV_COMP_UPPR,
+	PV_COMP_LOWR,
+	PV_COMP_HAND,
+	PV_COMP_FEET,
+	PV_COMP_TEEF,
+	PV_COMP_ACCS,
+	PV_COMP_TASK,
+	PV_COMP_DECL,
+	PV_COMP_JBIB,
+	PV_COMP_MAX
 };
 
 Examples: https://gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html
@@ -45411,10 +45411,10 @@ The IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female 
 !!!Can someone add working example for this???
 
 try this:
-      headBlendData headData;
-      GET_PED_HEAD_BLEND_DATA(PLAYER_PED_ID(), &headData);
+       headBlendData headData;
+       GET_PED_HEAD_BLEND_DATA(PLAYER_PED_ID(), &headData);
 
-      SET_PED_HEAD_BLEND_DATA(PLAYER_PED_ID(), headData.shapeFirst, headData.shapeSecond, headData.shapeThird, headData.skinFirst, headData.skinSecond
+       SET_PED_HEAD_BLEND_DATA(PLAYER_PED_ID(), headData.shapeFirst, headData.shapeSecond, headData.shapeThird, headData.skinFirst, headData.skinSecond
           , headData.skinThird, headData.shapeMix, headData.skinMix, headData.skinThird, 0);
 
 
@@ -45469,7 +45469,7 @@ function PED.GET_PED_HEAD_BLEND_DATA(ped, headBlendData)
   return native.invoke(
     Type.Bool, 4121, false,
     arg(Type.Ped, ped),
-    ref(Type.Any, headBlendData)
+    arg(Type.Any, headBlendData)
   )
 end
 
@@ -45649,9 +45649,9 @@ function PED.GET_PED_HAIR_TINT_COLOR(hairColorIndex, outR, outG, outB)
   native.invoke(
     Type.Void, 4132, false,
     arg(Type.Int, hairColorIndex),
-    ref(Type.Int, outR),
-    ref(Type.Int, outG),
-    ref(Type.Int, outB)
+    arg(Type.Int, outR),
+    arg(Type.Int, outG),
+    arg(Type.Int, outB)
   )
 end
 
@@ -45667,9 +45667,9 @@ function PED.GET_PED_MAKEUP_TINT_COLOR(makeupColorIndex, outR, outG, outB)
   native.invoke(
     Type.Void, 4133, false,
     arg(Type.Int, makeupColorIndex),
-    ref(Type.Int, outR),
-    ref(Type.Int, outG),
-    ref(Type.Int, outB)
+    arg(Type.Int, outR),
+    arg(Type.Int, outG),
+    arg(Type.Int, outB)
   )
 end
 
@@ -45959,7 +45959,7 @@ enum PedPropsData
 {
     PED_PROP_HATS = 0,
     PED_PROP_GLASSES = 1,
-PED_PROP_EARS = 2,
+ PED_PROP_EARS = 2,
     PED_PROP_WATCHES = 3,
 };
 Usage: SET_PED_PROP_INDEX(playerPed, PED_PROP_HATS, GET_NUMBER_OF_PED_PROP_DRAWABLE_VARIATIONS(playerPed, PED_PROP_HATS), GET_NUMBER_OF_PED_PROP_TEXTURE_VARIATIONS(playerPed, PED_PROP_HATS, 0), TRUE);
@@ -46206,7 +46206,7 @@ function PED.GET_CLOSEST_PED(x, y, z, radius, p4, p5, outPed, p7, p8, pedType)
     arg(Type.Float, radius),
     arg(Type.Bool, p4),
     arg(Type.Bool, p5),
-    ref(Type.Ped, outPed),
+    arg(Type.Ped, outPed),
     arg(Type.Bool, p7),
     arg(Type.Bool, p8),
     arg(Type.Int, pedType)
@@ -46336,10 +46336,10 @@ Not sure what p2 does. It seems like it would be a time judging by it's usage in
 
 enum eRagdollType
 {
-RD_MALE=0,
-RD_FEMALE = 1,
-RD_MALE_LARGE = 2,
-RD_CUSTOM = 3,
+ RD_MALE=0,
+ RD_FEMALE = 1,
+ RD_MALE_LARGE = 2,
+ RD_CUSTOM = 3,
 }
 
 x, y, and z are coordinates, most likely to where the ped will fall.
@@ -46456,24 +46456,24 @@ Works for both player and peds,
 
 enum eRagdollBlockingFlags
 {
-RBF_BULLET_IMPACT = 0,
-RBF_VEHICLE_IMPACT = 1,
-RBF_FIRE = 2,
-RBF_ELECTROCUTION = 3,
-RBF_PLAYER_IMPACT = 4,
-RBF_EXPLOSION = 5,0
-RBF_IMPACT_OBJECT = 6,
-RBF_MELEE = 7,
-RBF_RUBBER_BULLET = 8,
-RBF_FALLING = 9,
-RBF_WATER_JET = 10,
-RBF_DROWNING = 11,
-_0x9F52E2C4 = 12,
-RBF_PLAYER_BUMP = 13,
-RBF_PLAYER_RAGDOLL_BUMP = 14,
-RBF_PED_RAGDOLL_BUMP = 15,
-RBF_VEHICLE_GRAB = 16,
-RBF_SMOKE_GRENADE = 17,
+ RBF_BULLET_IMPACT = 0,
+ RBF_VEHICLE_IMPACT = 1,
+ RBF_FIRE = 2,
+ RBF_ELECTROCUTION = 3,
+ RBF_PLAYER_IMPACT = 4,
+ RBF_EXPLOSION = 5,0
+ RBF_IMPACT_OBJECT = 6,
+ RBF_MELEE = 7,
+ RBF_RUBBER_BULLET = 8,
+ RBF_FALLING = 9,
+ RBF_WATER_JET = 10,
+ RBF_DROWNING = 11,
+ _0x9F52E2C4 = 12,
+ RBF_PLAYER_BUMP = 13,
+ RBF_PLAYER_RAGDOLL_BUMP = 14,
+ RBF_PED_RAGDOLL_BUMP = 15,
+ RBF_VEHICLE_GRAB = 16,
+ RBF_SMOKE_GRENADE = 17,
 };
 
 
@@ -46676,7 +46676,7 @@ function PED.SET_PED_NAME_DEBUG(ped, name)
   native.invoke(
     Type.Void, 4206, false,
     arg(Type.Ped, ped),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -46773,7 +46773,7 @@ function PED.APPLY_PED_BLOOD(ped, boneIndex, xRot, yRot, zRot, woundType)
     arg(Type.Float, xRot),
     arg(Type.Float, yRot),
     arg(Type.Float, zRot),
-    ref(Type.String, woundType)
+    arg(Type.String, woundType)
   )
 end
 
@@ -46785,7 +46785,7 @@ function PED.APPLY_PED_BLOOD_BY_ZONE(ped, p1, p2, p3, p4)
     arg(Type.Int, p1),
     arg(Type.Float, p2),
     arg(Type.Float, p3),
-    ref(Type.String, p4)
+    arg(Type.String, p4)
   )
 end
 
@@ -46801,7 +46801,7 @@ function PED.APPLY_PED_BLOOD_SPECIFIC(ped, p1, p2, p3, p4, p5, p6, p7, p8)
     arg(Type.Float, p5),
     arg(Type.Int, p6),
     arg(Type.Float, p7),
-    ref(Type.String, p8)
+    arg(Type.String, p8)
   )
 end
 
@@ -46809,12 +46809,12 @@ end
 --[[
 enum eDamageZone
 {
-  DZ_Torso = 0,
-  DZ_Head,
-  DZ_LeftArm,
-  DZ_RightArm,
-  DZ_LeftLeg,
-  DZ_RightLeg,
+	DZ_Torso = 0,
+	DZ_Head,
+	DZ_LeftArm,
+	DZ_RightArm,
+	DZ_LeftLeg,
+	DZ_RightLeg,
 };
 
 Decal Names:
@@ -46844,7 +46844,7 @@ function PED.APPLY_PED_DAMAGE_DECAL(ped, damageZone, xOffset, yOffset, heading, 
     arg(Type.Float, alpha),
     arg(Type.Int, variation),
     arg(Type.Bool, fadeIn),
-    ref(Type.String, decalName)
+    arg(Type.String, decalName)
   )
 end
 
@@ -46883,7 +46883,7 @@ function PED.APPLY_PED_DAMAGE_PACK(ped, damagePack, damage, mult)
   native.invoke(
     Type.Void, 4217, false,
     arg(Type.Ped, ped),
-    ref(Type.String, damagePack),
+    arg(Type.String, damagePack),
     arg(Type.Float, damage),
     arg(Type.Float, mult)
   )
@@ -46929,7 +46929,7 @@ function PED.CLEAR_PED_DAMAGE_DECAL_BY_ZONE(ped, p1, p2)
     Type.Void, 4221, false,
     arg(Type.Ped, ped),
     arg(Type.Int, p1),
-    ref(Type.String, p2)
+    arg(Type.String, p2)
   )
 end
 
@@ -47072,14 +47072,14 @@ end
 Returns the zoneID for the overlay if it is a member of collection.
 enum ePedDecorationZone
 {
-  ZONE_TORSO = 0,
-  ZONE_HEAD = 1,
-  ZONE_LEFT_ARM = 2,
-  ZONE_RIGHT_ARM = 3,
-  ZONE_LEFT_LEG = 4,
-  ZONE_RIGHT_LEG = 5,
-  ZONE_MEDALS = 6,
-  ZONE_INVALID = 7
+	ZONE_TORSO = 0,
+	ZONE_HEAD = 1,
+	ZONE_LEFT_ARM = 2,
+	ZONE_RIGHT_ARM = 3,
+	ZONE_LEFT_LEG = 4,
+	ZONE_RIGHT_LEG = 5,
+	ZONE_MEDALS = 6,
+	ZONE_INVALID = 7
 };
 
 Full list of ped overlays / decorations by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/blob/master/pedOverlayCollections.json
@@ -47253,7 +47253,7 @@ function PED.IS_PED_USING_SCENARIO(ped, scenario)
   return native.invoke(
     Type.Bool, 4244, false,
     arg(Type.Ped, ped),
-    ref(Type.String, scenario)
+    arg(Type.String, scenario)
   )
 end
 
@@ -47385,8 +47385,8 @@ function PED.PLAY_FACIAL_ANIM(ped, animName, animDict)
   native.invoke(
     Type.Void, 4258, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animName),
-    ref(Type.String, animDict)
+    arg(Type.String, animName),
+    arg(Type.String, animDict)
   )
 end
 
@@ -47408,7 +47408,7 @@ function PED.SET_FACIAL_CLIPSET(ped, animDict)
   native.invoke(
     Type.Void, 4259, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict)
+    arg(Type.String, animDict)
   )
 end
 
@@ -47420,8 +47420,8 @@ function PED.SET_FACIAL_IDLE_ANIM_OVERRIDE(ped, animName, animDict)
   native.invoke(
     Type.Void, 4260, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animName),
-    ref(Type.String, animDict)
+    arg(Type.String, animName),
+    arg(Type.String, animDict)
   )
 end
 
@@ -47618,464 +47618,464 @@ end
 --[[
 enum ePedConfigFlags
 {
-  _CPED_CONFIG_FLAG_0xC63DE95E = 1,
-  CPED_CONFIG_FLAG_NoCriticalHits = 2,
-  CPED_CONFIG_FLAG_DrownsInWater = 3,
-  CPED_CONFIG_FLAG_DisableReticuleFixedLockon = 4,
-  _CPED_CONFIG_FLAG_0x37D196F4 = 5,
-  _CPED_CONFIG_FLAG_0xE2462399 = 6,
-  CPED_CONFIG_FLAG_UpperBodyDamageAnimsOnly = 7,
-  _CPED_CONFIG_FLAG_0xEDDEB838 = 8,
-  _CPED_CONFIG_FLAG_0xB398B6FD = 9,
-  _CPED_CONFIG_FLAG_0xF6664E68 = 10,
-  _CPED_CONFIG_FLAG_0xA05E7CA3 = 11,
-  _CPED_CONFIG_FLAG_0xCE394045 = 12,
-  CPED_CONFIG_FLAG_NeverLeavesGroup = 13,
-  _CPED_CONFIG_FLAG_0xCD8D1411 = 14,
-  _CPED_CONFIG_FLAG_0xB031F1A9 = 15,
-  _CPED_CONFIG_FLAG_0xFE65BEE3 = 16,
-  CPED_CONFIG_FLAG_BlockNonTemporaryEvents = 17,
-  _CPED_CONFIG_FLAG_0x380165BD = 18,
-  _CPED_CONFIG_FLAG_0x07C045C7 = 19,
-  _CPED_CONFIG_FLAG_0x583B5E2D = 20,
-  _CPED_CONFIG_FLAG_0x475EDA58 = 21,
-  _CPED_CONFIG_FLAG_0x8629D05B = 22,
-  _CPED_CONFIG_FLAG_0x1522968B = 23,
-  CPED_CONFIG_FLAG_IgnoreSeenMelee = 24,
-  _CPED_CONFIG_FLAG_0x4CC09C4B = 25,
-  _CPED_CONFIG_FLAG_0x034F3053 = 26,
-  _CPED_CONFIG_FLAG_0xD91BA7CC = 27,
-  _CPED_CONFIG_FLAG_0x5C8DC66E = 28,
-  CPED_CONFIG_FLAG_GetOutUndriveableVehicle = 29,
-  _CPED_CONFIG_FLAG_0x6580B9D2 = 30,
-  _CPED_CONFIG_FLAG_0x0EF7A297 = 31,
-  CPED_CONFIG_FLAG_WillFlyThruWindscreen = 32,
-  CPED_CONFIG_FLAG_DieWhenRagdoll = 33,
-  CPED_CONFIG_FLAG_HasHelmet = 34,
-  CPED_CONFIG_FLAG_UseHelmet = 35,
-  CPED_CONFIG_FLAG_DontTakeOffHelmet = 36,
-  _CPED_CONFIG_FLAG_0xB130D17B = 37,
-  _CPED_CONFIG_FLAG_0x5F071200 = 38,
-  CPED_CONFIG_FLAG_DisableEvasiveDives = 39,
-  _CPED_CONFIG_FLAG_0xC287AAFF = 40,
-  _CPED_CONFIG_FLAG_0x203328CC = 41,
-  CPED_CONFIG_FLAG_DontInfluenceWantedLevel = 42,
-  CPED_CONFIG_FLAG_DisablePlayerLockon = 43,
-  CPED_CONFIG_FLAG_DisableLockonToRandomPeds = 44,
-  CPED_CONFIG_FLAG_AllowLockonToFriendlyPlayers = 45,
-  _CPED_CONFIG_FLAG_0xDB115BFA = 46,
-  CPED_CONFIG_FLAG_PedBeingDeleted = 47,
-  CPED_CONFIG_FLAG_BlockWeaponSwitching = 48,
-  _CPED_CONFIG_FLAG_0xF8E99565 = 49,
-  _CPED_CONFIG_FLAG_0xDD17FEE6 = 50,
-  _CPED_CONFIG_FLAG_0x7ED9B2C9 = 51,
-  _CPED_CONFIG_FLAG_NoCollison = 52,
-  _CPED_CONFIG_FLAG_0x5A6C1F6E = 53,
-  _CPED_CONFIG_FLAG_0xD749FC41 = 54,
-  _CPED_CONFIG_FLAG_0x357F63F3 = 55,
-  _CPED_CONFIG_FLAG_0xC5E60961 = 56,
-  _CPED_CONFIG_FLAG_0x29275C3E = 57,
-  CPED_CONFIG_FLAG_IsFiring = 58,
-  CPED_CONFIG_FLAG_WasFiring = 59,
-  CPED_CONFIG_FLAG_IsStanding = 60,
-  CPED_CONFIG_FLAG_WasStanding = 61,
-  CPED_CONFIG_FLAG_InVehicle = 62,
-  CPED_CONFIG_FLAG_OnMount = 63,
-  CPED_CONFIG_FLAG_AttachedToVehicle = 64,
-  CPED_CONFIG_FLAG_IsSwimming = 65,
-  CPED_CONFIG_FLAG_WasSwimming = 66,
-  CPED_CONFIG_FLAG_IsSkiing = 67,
-  CPED_CONFIG_FLAG_IsSitting = 68,
-  CPED_CONFIG_FLAG_KilledByStealth = 69,
-  CPED_CONFIG_FLAG_KilledByTakedown = 70,
-  CPED_CONFIG_FLAG_Knockedout = 71,
-  _CPED_CONFIG_FLAG_0x3E3C4560 = 72,
-  _CPED_CONFIG_FLAG_0x2994C7B7 = 73,
-  _CPED_CONFIG_FLAG_0x6D59D275 = 74,
-  CPED_CONFIG_FLAG_UsingCoverPoint = 75,
-  CPED_CONFIG_FLAG_IsInTheAir = 76,
-  _CPED_CONFIG_FLAG_0x2D493FB7 = 77,
-  CPED_CONFIG_FLAG_IsAimingGun = 78,
-  _CPED_CONFIG_FLAG_0x14D69875 = 79,
-  _CPED_CONFIG_FLAG_0x40B05311 = 80,
-  _CPED_CONFIG_FLAG_0x8B230BC5 = 81,
-  _CPED_CONFIG_FLAG_0xC74E5842 = 82,
-  _CPED_CONFIG_FLAG_0x9EA86147 = 83,
-  _CPED_CONFIG_FLAG_0x674C746C = 84,
-  _CPED_CONFIG_FLAG_0x3E56A8C2 = 85,
-  _CPED_CONFIG_FLAG_0xC144A1EF = 86,
-  _CPED_CONFIG_FLAG_0x0548512D = 87,
-  _CPED_CONFIG_FLAG_0x31C93909 = 88,
-  _CPED_CONFIG_FLAG_0xA0269315 = 89,
-  _CPED_CONFIG_FLAG_0xD4D59D4D = 90,
-  _CPED_CONFIG_FLAG_0x411D4420 = 91,
-  _CPED_CONFIG_FLAG_0xDF4AEF0D = 92,
-  CPED_CONFIG_FLAG_ForcePedLoadCover = 93,
-  _CPED_CONFIG_FLAG_0x300E4CD3 = 94,
-  _CPED_CONFIG_FLAG_0xF1C5BF04 = 95,
-  _CPED_CONFIG_FLAG_0x89C2EF13 = 96,
-  CPED_CONFIG_FLAG_VaultFromCover = 97,
-  _CPED_CONFIG_FLAG_0x02A852C8 = 98,
-  _CPED_CONFIG_FLAG_0x3D9407F1 = 99,
-  _CPED_CONFIG_FLAG_IsDrunk = 100, // 0x319B4558
-  CPED_CONFIG_FLAG_ForcedAim = 101,
-  _CPED_CONFIG_FLAG_0xB942D71A = 102,
-  _CPED_CONFIG_FLAG_0xD26C55A8 = 103,
-  CPED_CONFIG_FLAG_OpenDoorArmIK = 104,
-  CPED_CONFIG_FLAG_ForceReload = 105,
-  CPED_CONFIG_FLAG_DontActivateRagdollFromVehicleImpact = 106,
-  CPED_CONFIG_FLAG_DontActivateRagdollFromBulletImpact = 107,
-  CPED_CONFIG_FLAG_DontActivateRagdollFromExplosions = 108,
-  CPED_CONFIG_FLAG_DontActivateRagdollFromFire = 109,
-  CPED_CONFIG_FLAG_DontActivateRagdollFromElectrocution = 110,
-  _CPED_CONFIG_FLAG_0x83C0A4BF = 111,
-  _CPED_CONFIG_FLAG_0x0E0FAF8C = 112,
-  CPED_CONFIG_FLAG_KeepWeaponHolsteredUnlessFired = 113,
-  _CPED_CONFIG_FLAG_0x43B80B79 = 114,
-  _CPED_CONFIG_FLAG_0x0D2A9309 = 115,
-  CPED_CONFIG_FLAG_GetOutBurningVehicle = 116,
-  CPED_CONFIG_FLAG_BumpedByPlayer = 117,
-  CPED_CONFIG_FLAG_RunFromFiresAndExplosions = 118,
-  CPED_CONFIG_FLAG_TreatAsPlayerDuringTargeting = 119,
-  CPED_CONFIG_FLAG_IsHandCuffed = 120,
-  CPED_CONFIG_FLAG_IsAnkleCuffed = 121,
-  CPED_CONFIG_FLAG_DisableMelee = 122,
-  CPED_CONFIG_FLAG_DisableUnarmedDrivebys = 123,
-  CPED_CONFIG_FLAG_JustGetsPulledOutWhenElectrocuted = 124,
-  _CPED_CONFIG_FLAG_0x5FED6BFD = 125,
-  CPED_CONFIG_FLAG_WillNotHotwireLawEnforcementVehicle = 126,
-  CPED_CONFIG_FLAG_WillCommandeerRatherThanJack = 127,
-  CPED_CONFIG_FLAG_CanBeAgitated = 128,
-  CPED_CONFIG_FLAG_ForcePedToFaceLeftInCover = 129,
-  CPED_CONFIG_FLAG_ForcePedToFaceRightInCover = 130,
-  CPED_CONFIG_FLAG_BlockPedFromTurningInCover = 131,
-  CPED_CONFIG_FLAG_KeepRelationshipGroupAfterCleanUp = 132,
-  CPED_CONFIG_FLAG_ForcePedToBeDragged = 133,
-  CPED_CONFIG_FLAG_PreventPedFromReactingToBeingJacked = 134,
-  CPED_CONFIG_FLAG_IsScuba = 135,
-  CPED_CONFIG_FLAG_WillArrestRatherThanJack = 136,
-  CPED_CONFIG_FLAG_RemoveDeadExtraFarAway = 137,
-  CPED_CONFIG_FLAG_RidingTrain = 138,
-  CPED_CONFIG_FLAG_ArrestResult = 139,
-  CPED_CONFIG_FLAG_CanAttackFriendly = 140,
-  CPED_CONFIG_FLAG_WillJackAnyPlayer = 141,
-  _CPED_CONFIG_FLAG_0x6901E731 = 142,
-  _CPED_CONFIG_FLAG_0x9EC9BF6C = 143,
-  CPED_CONFIG_FLAG_WillJackWantedPlayersRatherThanStealCar = 144,
-  CPED_CONFIG_FLAG_ShootingAnimFlag = 145,
-  CPED_CONFIG_FLAG_DisableLadderClimbing = 146,
-  CPED_CONFIG_FLAG_StairsDetected = 147,
-  CPED_CONFIG_FLAG_SlopeDetected = 148,
-  _CPED_CONFIG_FLAG_0x1A15670B = 149,
-  CPED_CONFIG_FLAG_CowerInsteadOfFlee = 150,
-  CPED_CONFIG_FLAG_CanActivateRagdollWhenVehicleUpsideDown = 151,
-  CPED_CONFIG_FLAG_AlwaysRespondToCriesForHelp = 152,
-  CPED_CONFIG_FLAG_DisableBloodPoolCreation = 153,
-  CPED_CONFIG_FLAG_ShouldFixIfNoCollision = 154,
-  CPED_CONFIG_FLAG_CanPerformArrest = 155,
-  CPED_CONFIG_FLAG_CanPerformUncuff = 156,
-  CPED_CONFIG_FLAG_CanBeArrested = 157,
-  _CPED_CONFIG_FLAG_0xF7960FF5 = 158,
-  CPED_CONFIG_FLAG_PlayerPreferFrontSeatMP = 159,
-  _CPED_CONFIG_FLAG_0x0C6C3099 = 160,
-  _CPED_CONFIG_FLAG_0x645F927A = 161,
-  _CPED_CONFIG_FLAG_0xA86549B9 = 162,
-  _CPED_CONFIG_FLAG_0x8AAF337A = 163,
-  _CPED_CONFIG_FLAG_0x13BAA6E7 = 164,
-  _CPED_CONFIG_FLAG_0x5FB9D1F5 = 165,
-  CPED_CONFIG_FLAG_IsInjured = 166,
-  CPED_CONFIG_FLAG_DontEnterVehiclesInPlayersGroup = 167,
-  _CPED_CONFIG_FLAG_0xD8072639 = 168,
-  CPED_CONFIG_FLAG_PreventAllMeleeTaunts = 169,
-  CPED_CONFIG_FLAG_ForceDirectEntry = 170,
-  CPED_CONFIG_FLAG_AlwaysSeeApproachingVehicles = 171,
-  CPED_CONFIG_FLAG_CanDiveAwayFromApproachingVehicles = 172,
-  CPED_CONFIG_FLAG_AllowPlayerToInterruptVehicleEntryExit = 173,
-  CPED_CONFIG_FLAG_OnlyAttackLawIfPlayerIsWanted = 174,
-  _CPED_CONFIG_FLAG_0x90008BFA = 175,
-  _CPED_CONFIG_FLAG_0x07C7A910 = 176,
-  CPED_CONFIG_FLAG_PedsJackingMeDontGetIn = 177,
-  _CPED_CONFIG_FLAG_0xCE4E8BE2 = 178,
-  CPED_CONFIG_FLAG_PedIgnoresAnimInterruptEvents = 179,
-  CPED_CONFIG_FLAG_IsInCustody = 180,
-  CPED_CONFIG_FLAG_ForceStandardBumpReactionThresholds = 181,
-  CPED_CONFIG_FLAG_LawWillOnlyAttackIfPlayerIsWanted = 182,
-  CPED_CONFIG_FLAG_IsAgitated = 183,
-  CPED_CONFIG_FLAG_PreventAutoShuffleToDriversSeat = 184,
-  CPED_CONFIG_FLAG_UseKinematicModeWhenStationary = 185,
-  CPED_CONFIG_FLAG_EnableWeaponBlocking = 186,
-  CPED_CONFIG_FLAG_HasHurtStarted = 187,
-  CPED_CONFIG_FLAG_DisableHurt = 188,
-  CPED_CONFIG_FLAG_PlayerIsWeird = 189,
-  _CPED_CONFIG_FLAG_0x32FC208B = 190,
-  _CPED_CONFIG_FLAG_0x0C296E5A = 191,
-  _CPED_CONFIG_FLAG_0xE63B73EC = 192,
-  CPED_CONFIG_FLAG_DoNothingWhenOnFootByDefault = 193,
-  CPED_CONFIG_FLAG_UsingScenario = 194,
-  CPED_CONFIG_FLAG_VisibleOnScreen = 195,
-  _CPED_CONFIG_FLAG_0xD88C58A1 = 196,
-  _CPED_CONFIG_FLAG_0x5A3DCF43 = 197,
-  _CPED_CONFIG_FLAG_0xEA02B420 = 198,
-  CPED_CONFIG_FLAG_DontActivateRagdollOnVehicleCollisionWhenDead = 199,
-  CPED_CONFIG_FLAG_HasBeenInArmedCombat = 200,
-  _CPED_CONFIG_FLAG_0x5E6466F6 = 201,
-  CPED_CONFIG_FLAG_Avoidance_Ignore_All = 202,
-  CPED_CONFIG_FLAG_Avoidance_Ignored_by_All = 203,
-  CPED_CONFIG_FLAG_Avoidance_Ignore_Group1 = 204,
-  CPED_CONFIG_FLAG_Avoidance_Member_of_Group1 = 205,
-  CPED_CONFIG_FLAG_ForcedToUseSpecificGroupSeatIndex = 206,
-  _CPED_CONFIG_FLAG_0x415B26B9 = 207,
-  CPED_CONFIG_FLAG_DisableExplosionReactions = 208,
-  CPED_CONFIG_FLAG_DodgedPlayer = 209,
-  CPED_CONFIG_FLAG_WaitingForPlayerControlInterrupt = 210,
-  CPED_CONFIG_FLAG_ForcedToStayInCover = 211,
-  CPED_CONFIG_FLAG_GeneratesSoundEvents = 212,
-  CPED_CONFIG_FLAG_ListensToSoundEvents = 213,
-  CPED_CONFIG_FLAG_AllowToBeTargetedInAVehicle = 214,
-  CPED_CONFIG_FLAG_WaitForDirectEntryPointToBeFreeWhenExiting = 215,
-  CPED_CONFIG_FLAG_OnlyRequireOnePressToExitVehicle = 216,
-  CPED_CONFIG_FLAG_ForceExitToSkyDive = 217,
-  _CPED_CONFIG_FLAG_0x3C7DF9DF = 218,
-  _CPED_CONFIG_FLAG_0x848FFEF2 = 219,
-  CPED_CONFIG_FLAG_DontEnterLeadersVehicle = 220,
-  CPED_CONFIG_FLAG_DisableExitToSkyDive = 221,
-  _CPED_CONFIG_FLAG_0x84F722FA = 222,
-  _CPED_CONFIG_FLAG_Shrink = 223, // 0xD1B87B1F
-  _CPED_CONFIG_FLAG_0x728AA918 = 224,
-  CPED_CONFIG_FLAG_DisablePotentialToBeWalkedIntoResponse = 225,
-  CPED_CONFIG_FLAG_DisablePedAvoidance = 226,
-  CPED_CONFIG_FLAG_ForceRagdollUponDeath = 227,
-  _CPED_CONFIG_FLAG_0x1EA7225F = 228,
-  CPED_CONFIG_FLAG_DisablePanicInVehicle = 229,
-  CPED_CONFIG_FLAG_AllowedToDetachTrailer = 230,
-  _CPED_CONFIG_FLAG_0xFC3E572D = 231,
-  _CPED_CONFIG_FLAG_0x08E9F9CF = 232,
-  _CPED_CONFIG_FLAG_0x2D3BA52D = 233,
-  _CPED_CONFIG_FLAG_0xFD2F53EA = 234,
-  _CPED_CONFIG_FLAG_0x31A1B03B = 235,
-  CPED_CONFIG_FLAG_IsHoldingProp = 236,
-  CPED_CONFIG_FLAG_BlocksPathingWhenDead = 237,
-  _CPED_CONFIG_FLAG_0xCE57C9A3 = 238,
-  _CPED_CONFIG_FLAG_0x26149198 = 239,
-  CPED_CONFIG_FLAG_ForceSkinCharacterCloth = 240,
-  CPED_CONFIG_FLAG_LeaveEngineOnWhenExitingVehicles = 241,
-  CPED_CONFIG_FLAG_PhoneDisableTextingAnimations = 242,
-  CPED_CONFIG_FLAG_PhoneDisableTalkingAnimations = 243,
-  CPED_CONFIG_FLAG_PhoneDisableCameraAnimations = 244,
-  CPED_CONFIG_FLAG_DisableBlindFiringInShotReactions = 245,
-  CPED_CONFIG_FLAG_AllowNearbyCoverUsage = 246,
-  _CPED_CONFIG_FLAG_0x0C754ACA = 247,
-  CPED_CONFIG_FLAG_CanPlayInCarIdles = 248,
-  CPED_CONFIG_FLAG_CanAttackNonWantedPlayerAsLaw = 249,
-  CPED_CONFIG_FLAG_WillTakeDamageWhenVehicleCrashes = 250,
-  CPED_CONFIG_FLAG_AICanDrivePlayerAsRearPassenger = 251,
-  CPED_CONFIG_FLAG_PlayerCanJackFriendlyPlayers = 252,
-  CPED_CONFIG_FLAG_OnStairs = 253,
-  _CPED_CONFIG_FLAG_0xE1A2F73F = 254,
-  CPED_CONFIG_FLAG_AIDriverAllowFriendlyPassengerSeatEntry = 255,
-  _CPED_CONFIG_FLAG_0xF1EB20A9 = 256,
-  CPED_CONFIG_FLAG_AllowMissionPedToUseInjuredMovement = 257,
-  _CPED_CONFIG_FLAG_0x329DCF1A = 258,
-  _CPED_CONFIG_FLAG_0x8D90DD1B = 259,
-  _CPED_CONFIG_FLAG_0xB8A292B7 = 260,
-  CPED_CONFIG_FLAG_PreventUsingLowerPrioritySeats = 261,
-  _CPED_CONFIG_FLAG_0x2AF558F0 = 262,
-  _CPED_CONFIG_FLAG_0x82251455 = 263,
-  _CPED_CONFIG_FLAG_0x30CF498B = 264,
-  _CPED_CONFIG_FLAG_0xE1CD50AF = 265,
-  _CPED_CONFIG_FLAG_0x72E4AE48 = 266,
-  _CPED_CONFIG_FLAG_0xC2657EA1 = 267,
-  CPED_CONFIG_FLAG_TeleportToLeaderVehicle = 268,
-  CPED_CONFIG_FLAG_Avoidance_Ignore_WeirdPedBuffer = 269,
-  CPED_CONFIG_FLAG_OnStairSlope = 270,
-  _CPED_CONFIG_FLAG_0xA0897933 = 271,
-  CPED_CONFIG_FLAG_DontBlipCop = 272,
-  CPED_CONFIG_FLAG_ClimbedShiftedFence = 273,
-  _CPED_CONFIG_FLAG_0xF7823618 = 274,
-  CPED_CONFIG_FLAG_KillWhenTrapped = 275,
-  CPED_CONFIG_FLAG_EdgeDetected = 276,
-  _CPED_CONFIG_FLAG_0x92B67896 = 277,
-  _CPED_CONFIG_FLAG_0xCAD677C9 = 278,
-  CPED_CONFIG_FLAG_AvoidTearGas = 279,
-  _CPED_CONFIG_FLAG_0x5276AC7B = 280,
-  CPED_CONFIG_FLAG_DisableGoToWritheWhenInjured = 281,
-  CPED_CONFIG_FLAG_OnlyUseForcedSeatWhenEnteringHeliInGroup = 282,
-  _CPED_CONFIG_FLAG_0x9139724D = 283,
-  _CPED_CONFIG_FLAG_0xA1457461 = 284,
-  CPED_CONFIG_FLAG_DisableWeirdPedEvents = 285,
-  CPED_CONFIG_FLAG_ShouldChargeNow = 286,
-  CPED_CONFIG_FLAG_RagdollingOnBoat = 287,
-  CPED_CONFIG_FLAG_HasBrandishedWeapon = 288,
-  _CPED_CONFIG_FLAG_0x1B9EE8A1 = 289,
-  _CPED_CONFIG_FLAG_0xF3F5758C = 290,
-  _CPED_CONFIG_FLAG_0x2A9307F1 = 291,
-  _CPED_CONFIG_FLAG_FreezePosition = 292, // 0x7403D216
-  _CPED_CONFIG_FLAG_0xA06A3C6C = 293,
-  CPED_CONFIG_FLAG_DisableShockingEvents = 294,
-  _CPED_CONFIG_FLAG_0xF8DA25A5 = 295,
-  CPED_CONFIG_FLAG_NeverReactToPedOnRoof = 296,
-  _CPED_CONFIG_FLAG_0xB31F1187 = 297,
-  _CPED_CONFIG_FLAG_0x84315402 = 298,
-  CPED_CONFIG_FLAG_DisableShockingDrivingOnPavementEvents = 299,
-  _CPED_CONFIG_FLAG_0xC7829B67 = 300,
-  CPED_CONFIG_FLAG_DisablePedConstraints = 301,
-  CPED_CONFIG_FLAG_ForceInitialPeekInCover = 302,
-  _CPED_CONFIG_FLAG_0x2ADA871B = 303,
-  _CPED_CONFIG_FLAG_0x47BC8A58 = 304,
-  CPED_CONFIG_FLAG_DisableJumpingFromVehiclesAfterLeader = 305,
-  _CPED_CONFIG_FLAG_0x4A133C50 = 306,
-  _CPED_CONFIG_FLAG_0xC58099C3 = 307,
-  _CPED_CONFIG_FLAG_0xF3D76D41 = 308,
-  _CPED_CONFIG_FLAG_0xB0EEE9F2 = 309,
-  CPED_CONFIG_FLAG_IsInCluster = 310,
-  CPED_CONFIG_FLAG_ShoutToGroupOnPlayerMelee = 311,
-  CPED_CONFIG_FLAG_IgnoredByAutoOpenDoors = 312,
-  _CPED_CONFIG_FLAG_0xD4136C22 = 313,
-  CPED_CONFIG_FLAG_ForceIgnoreMeleeActiveCombatant = 314,
-  CPED_CONFIG_FLAG_CheckLoSForSoundEvents = 315,
-  _CPED_CONFIG_FLAG_0xD5C98277 = 316,
-  CPED_CONFIG_FLAG_CanSayFollowedByPlayerAudio = 317,
-  CPED_CONFIG_FLAG_ActivateRagdollFromMinorPlayerContact = 318,
-  _CPED_CONFIG_FLAG_0xD8BE1D54 = 319,
-  CPED_CONFIG_FLAG_ForcePoseCharacterCloth = 320,
-  CPED_CONFIG_FLAG_HasClothCollisionBounds = 321,
-  CPED_CONFIG_FLAG_HasHighHeels = 322,
-  _CPED_CONFIG_FLAG_0x86B01E54 = 323,
-  CPED_CONFIG_FLAG_DontBehaveLikeLaw = 324,
-  _CPED_CONFIG_FLAG_0xC03B736C = 325, // SpawnedAtScenario?
-  CPED_CONFIG_FLAG_DisablePoliceInvestigatingBody = 326,
-  CPED_CONFIG_FLAG_DisableWritheShootFromGround = 327,
-  CPED_CONFIG_FLAG_LowerPriorityOfWarpSeats = 328,
-  CPED_CONFIG_FLAG_DisableTalkTo = 329,
-  CPED_CONFIG_FLAG_DontBlip = 330,
-  CPED_CONFIG_FLAG_IsSwitchingWeapon = 331,
-  CPED_CONFIG_FLAG_IgnoreLegIkRestrictions = 332,
-  _CPED_CONFIG_FLAG_0x150468FD = 333,
-  _CPED_CONFIG_FLAG_0x914EBD6B = 334,
-  _CPED_CONFIG_FLAG_0x79AF3B6D = 335,
-  _CPED_CONFIG_FLAG_0x75C7A632 = 336,
-  _CPED_CONFIG_FLAG_0x52D530E2 = 337,
-  _CPED_CONFIG_FLAG_0xDB2A90E0 = 338,
-  CPED_CONFIG_FLAG_AllowTaskDoNothingTimeslicing = 339,
-  _CPED_CONFIG_FLAG_0x12ADB567 = 340,
-  _CPED_CONFIG_FLAG_0x105C8518 = 341,
-  CPED_CONFIG_FLAG_NotAllowedToJackAnyPlayers = 342,
-  _CPED_CONFIG_FLAG_0xED152C3E = 343,
-  _CPED_CONFIG_FLAG_0xA0EFE6A8 = 344,
-  CPED_CONFIG_FLAG_AlwaysLeaveTrainUponArrival = 345,
-  _CPED_CONFIG_FLAG_0xCDDFE830 = 346,
-  CPED_CONFIG_FLAG_OnlyWritheFromWeaponDamage = 347,
-  CPED_CONFIG_FLAG_UseSloMoBloodVfx = 348,
-  CPED_CONFIG_FLAG_EquipJetpack = 349,
-  CPED_CONFIG_FLAG_PreventDraggedOutOfCarThreatResponse = 350,
-  _CPED_CONFIG_FLAG_0xE13D1F7C = 351,
-  _CPED_CONFIG_FLAG_0x40E25FB9 = 352,
-  _CPED_CONFIG_FLAG_0x930629D9 = 353,
-  _CPED_CONFIG_FLAG_0xECCF0C7F = 354,
-  _CPED_CONFIG_FLAG_0xB6E9613B = 355,
-  CPED_CONFIG_FLAG_ForceDeepSurfaceCheck = 356,
-  CPED_CONFIG_FLAG_DisableDeepSurfaceAnims = 357,
-  CPED_CONFIG_FLAG_DontBlipNotSynced = 358,
-  CPED_CONFIG_FLAG_IsDuckingInVehicle = 359,
-  CPED_CONFIG_FLAG_PreventAutoShuffleToTurretSeat = 360,
-  CPED_CONFIG_FLAG_DisableEventInteriorStatusCheck = 361,
-  CPED_CONFIG_FLAG_HasReserveParachute = 362,
-  CPED_CONFIG_FLAG_UseReserveParachute = 363,
-  CPED_CONFIG_FLAG_TreatDislikeAsHateWhenInCombat = 364,
-  CPED_CONFIG_FLAG_OnlyUpdateTargetWantedIfSeen = 365,
-  CPED_CONFIG_FLAG_AllowAutoShuffleToDriversSeat = 366,
-  _CPED_CONFIG_FLAG_0xD7E07D37 = 367,
-  _CPED_CONFIG_FLAG_0x03C4FD24 = 368,
-  _CPED_CONFIG_FLAG_0x7675789A = 369,
-  _CPED_CONFIG_FLAG_0xB7288A88 = 370,
-  _CPED_CONFIG_FLAG_0xC06B6291 = 371,
-  CPED_CONFIG_FLAG_PreventReactingToSilencedCloneBullets = 372,
-  CPED_CONFIG_FLAG_DisableInjuredCryForHelpEvents = 373,
-  CPED_CONFIG_FLAG_NeverLeaveTrain = 374,
-  CPED_CONFIG_FLAG_DontDropJetpackOnDeath = 375,
-  _CPED_CONFIG_FLAG_0x147F1FFB = 376,
-  _CPED_CONFIG_FLAG_0x4376DD79 = 377,
-  _CPED_CONFIG_FLAG_0xCD3DB518 = 378,
-  _CPED_CONFIG_FLAG_0xFE4BA4B6 = 379,
-  CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInBikes = 380,
-  _CPED_CONFIG_FLAG_0xBCD816CD = 381,
-  _CPED_CONFIG_FLAG_0xCF02DD69 = 382,
-  _CPED_CONFIG_FLAG_0xF73AFA2E = 383,
-  _CPED_CONFIG_FLAG_0x80B9A9D0 = 384,
-  _CPED_CONFIG_FLAG_0xF601F7EE = 385,
-  _CPED_CONFIG_FLAG_0xA91350FC = 386,
-  _CPED_CONFIG_FLAG_0x3AB23B96 = 387,
-  CPED_CONFIG_FLAG_IsClimbingLadder = 388,
-  CPED_CONFIG_FLAG_HasBareFeet = 389,
-  CPED_CONFIG_FLAG_UNUSED_REPLACE_ME_2 = 390,
-  CPED_CONFIG_FLAG_GoOnWithoutVehicleIfItIsUnableToGetBackToRoad = 391,
-  CPED_CONFIG_FLAG_BlockDroppingHealthSnacksOnDeath = 392,
-  _CPED_CONFIG_FLAG_0xC11D3E8F = 393,
-  CPED_CONFIG_FLAG_ForceThreatResponseToNonFriendToFriendMeleeActions = 394,
-  CPED_CONFIG_FLAG_DontRespondToRandomPedsDamage = 395,
-  CPED_CONFIG_FLAG_AllowContinuousThreatResponseWantedLevelUpdates = 396,
-  CPED_CONFIG_FLAG_KeepTargetLossResponseOnCleanup = 397,
-  CPED_CONFIG_FLAG_PlayersDontDragMeOutOfCar = 398,
-  CPED_CONFIG_FLAG_BroadcastRepondedToThreatWhenGoingToPointShooting = 399,
-  CPED_CONFIG_FLAG_IgnorePedTypeForIsFriendlyWith = 400,
-  CPED_CONFIG_FLAG_TreatNonFriendlyAsHateWhenInCombat = 401,
-  CPED_CONFIG_FLAG_DontLeaveVehicleIfLeaderNotInVehicle = 402,
-  _CPED_CONFIG_FLAG_0x5E5B9591 = 403,
-  CPED_CONFIG_FLAG_AllowMeleeReactionIfMeleeProofIsOn = 404,
-  _CPED_CONFIG_FLAG_0x77840177 = 405,
-  _CPED_CONFIG_FLAG_0x1C7ACAC4 = 406,
-  CPED_CONFIG_FLAG_UseNormalExplosionDamageWhenBlownUpInVehicle = 407,
-  CPED_CONFIG_FLAG_DisableHomingMissileLockForVehiclePedInside = 408,
-  CPED_CONFIG_FLAG_DisableTakeOffScubaGear = 409,
-  CPED_CONFIG_FLAG_IgnoreMeleeFistWeaponDamageMult = 410,
-  CPED_CONFIG_FLAG_LawPedsCanFleeFromNonWantedPlayer = 411,
-  CPED_CONFIG_FLAG_ForceBlipSecurityPedsIfPlayerIsWanted = 412,
-  CPED_CONFIG_FLAG_IsHolsteringWeapon = 413,
-  CPED_CONFIG_FLAG_UseGoToPointForScenarioNavigation = 414,
-  CPED_CONFIG_FLAG_DontClearLocalPassengersWantedLevel = 415,
-  CPED_CONFIG_FLAG_BlockAutoSwapOnWeaponPickups = 416,
-  CPED_CONFIG_FLAG_ThisPedIsATargetPriorityForAI = 417,
-  CPED_CONFIG_FLAG_IsSwitchingHelmetVisor = 418,
-  CPED_CONFIG_FLAG_ForceHelmetVisorSwitch = 419,
-  _CPED_CONFIG_FLAG_0xCFF5F6DE = 420,
-  CPED_CONFIG_FLAG_UseOverrideFootstepPtFx = 421,
-  CPED_CONFIG_FLAG_DisableVehicleCombat = 422,
-  _CPED_CONFIG_FLAG_0xFE401D26 = 423,
-  CPED_CONFIG_FLAG_FallsLikeAircraft = 424,
-  _CPED_CONFIG_FLAG_0x2B42AE82 = 425,
-  CPED_CONFIG_FLAG_UseLockpickVehicleEntryAnimations = 426,
-  CPED_CONFIG_FLAG_IgnoreInteriorCheckForSprinting = 427,
-  CPED_CONFIG_FLAG_SwatHeliSpawnWithinLastSpottedLocation = 428,
-  CPED_CONFIG_FLAG_DisableStartEngine = 429,
-  CPED_CONFIG_FLAG_IgnoreBeingOnFire = 430,
-  CPED_CONFIG_FLAG_DisableTurretOrRearSeatPreference = 431,
-  CPED_CONFIG_FLAG_DisableWantedHelicopterSpawning = 432,
-  CPED_CONFIG_FLAG_UseTargetPerceptionForCreatingAimedAtEvents = 433,
-  CPED_CONFIG_FLAG_DisableHomingMissileLockon = 434,
-  CPED_CONFIG_FLAG_ForceIgnoreMaxMeleeActiveSupportCombatants = 435,
-  CPED_CONFIG_FLAG_StayInDefensiveAreaWhenInVehicle = 436,
-  CPED_CONFIG_FLAG_DontShoutTargetPosition = 437,
-  CPED_CONFIG_FLAG_DisableHelmetArmor = 438,
-  _CPED_CONFIG_FLAG_0xCB7F3A1E = 439,
-  _CPED_CONFIG_FLAG_0x50178878 = 440,
-  CPED_CONFIG_FLAG_PreventVehExitDueToInvalidWeapon = 441,
-  CPED_CONFIG_FLAG_IgnoreNetSessionFriendlyFireCheckForAllowDamage = 442,
-  CPED_CONFIG_FLAG_DontLeaveCombatIfTargetPlayerIsAttackedByPolice = 443,
-  CPED_CONFIG_FLAG_CheckLockedBeforeWarp = 444,
-  CPED_CONFIG_FLAG_DontShuffleInVehicleToMakeRoom = 445,
-  CPED_CONFIG_FLAG_GiveWeaponOnGetup = 446,
-  CPED_CONFIG_FLAG_DontHitVehicleWithProjectiles = 447,
-  CPED_CONFIG_FLAG_DisableForcedEntryForOpenVehiclesFromTryLockedDoor = 448,
-  CPED_CONFIG_FLAG_FiresDummyRockets = 449,
-  CPED_CONFIG_FLAG_PedIsArresting = 450,
-  CPED_CONFIG_FLAG_IsDecoyPed = 451,
-  CPED_CONFIG_FLAG_HasEstablishedDecoy = 452,
-  CPED_CONFIG_FLAG_BlockDispatchedHelicoptersFromLanding = 453,
-  CPED_CONFIG_FLAG_DontCryForHelpOnStun = 454,
-  _CPED_CONFIG_FLAG_0xB68D3EAB = 455,
-  CPED_CONFIG_FLAG_CanBeIncapacitated = 456,
-  _CPED_CONFIG_FLAG_0x4BD5EBAD = 457,
-  CPED_CONFIG_FLAG_DontChangeTargetFromMelee = 458,
+	_CPED_CONFIG_FLAG_0xC63DE95E = 1,
+	CPED_CONFIG_FLAG_NoCriticalHits = 2,
+	CPED_CONFIG_FLAG_DrownsInWater = 3,
+	CPED_CONFIG_FLAG_DisableReticuleFixedLockon = 4,
+	_CPED_CONFIG_FLAG_0x37D196F4 = 5,
+	_CPED_CONFIG_FLAG_0xE2462399 = 6,
+	CPED_CONFIG_FLAG_UpperBodyDamageAnimsOnly = 7,
+	_CPED_CONFIG_FLAG_0xEDDEB838 = 8,
+	_CPED_CONFIG_FLAG_0xB398B6FD = 9,
+	_CPED_CONFIG_FLAG_0xF6664E68 = 10,
+	_CPED_CONFIG_FLAG_0xA05E7CA3 = 11,
+	_CPED_CONFIG_FLAG_0xCE394045 = 12,
+	CPED_CONFIG_FLAG_NeverLeavesGroup = 13,
+	_CPED_CONFIG_FLAG_0xCD8D1411 = 14,
+	_CPED_CONFIG_FLAG_0xB031F1A9 = 15,
+	_CPED_CONFIG_FLAG_0xFE65BEE3 = 16,
+	CPED_CONFIG_FLAG_BlockNonTemporaryEvents = 17,
+	_CPED_CONFIG_FLAG_0x380165BD = 18,
+	_CPED_CONFIG_FLAG_0x07C045C7 = 19,
+	_CPED_CONFIG_FLAG_0x583B5E2D = 20,
+	_CPED_CONFIG_FLAG_0x475EDA58 = 21,
+	_CPED_CONFIG_FLAG_0x8629D05B = 22,
+	_CPED_CONFIG_FLAG_0x1522968B = 23,
+	CPED_CONFIG_FLAG_IgnoreSeenMelee = 24,
+	_CPED_CONFIG_FLAG_0x4CC09C4B = 25,
+	_CPED_CONFIG_FLAG_0x034F3053 = 26,
+	_CPED_CONFIG_FLAG_0xD91BA7CC = 27,
+	_CPED_CONFIG_FLAG_0x5C8DC66E = 28,
+	CPED_CONFIG_FLAG_GetOutUndriveableVehicle = 29,
+	_CPED_CONFIG_FLAG_0x6580B9D2 = 30,
+	_CPED_CONFIG_FLAG_0x0EF7A297 = 31,
+	CPED_CONFIG_FLAG_WillFlyThruWindscreen = 32,
+	CPED_CONFIG_FLAG_DieWhenRagdoll = 33,
+	CPED_CONFIG_FLAG_HasHelmet = 34,
+	CPED_CONFIG_FLAG_UseHelmet = 35,
+	CPED_CONFIG_FLAG_DontTakeOffHelmet = 36,
+	_CPED_CONFIG_FLAG_0xB130D17B = 37,
+	_CPED_CONFIG_FLAG_0x5F071200 = 38,
+	CPED_CONFIG_FLAG_DisableEvasiveDives = 39,
+	_CPED_CONFIG_FLAG_0xC287AAFF = 40,
+	_CPED_CONFIG_FLAG_0x203328CC = 41,
+	CPED_CONFIG_FLAG_DontInfluenceWantedLevel = 42,
+	CPED_CONFIG_FLAG_DisablePlayerLockon = 43,
+	CPED_CONFIG_FLAG_DisableLockonToRandomPeds = 44,
+	CPED_CONFIG_FLAG_AllowLockonToFriendlyPlayers = 45,
+	_CPED_CONFIG_FLAG_0xDB115BFA = 46,
+	CPED_CONFIG_FLAG_PedBeingDeleted = 47,
+	CPED_CONFIG_FLAG_BlockWeaponSwitching = 48,
+	_CPED_CONFIG_FLAG_0xF8E99565 = 49,
+	_CPED_CONFIG_FLAG_0xDD17FEE6 = 50,
+	_CPED_CONFIG_FLAG_0x7ED9B2C9 = 51,
+	_CPED_CONFIG_FLAG_NoCollison = 52,
+	_CPED_CONFIG_FLAG_0x5A6C1F6E = 53,
+	_CPED_CONFIG_FLAG_0xD749FC41 = 54,
+	_CPED_CONFIG_FLAG_0x357F63F3 = 55,
+	_CPED_CONFIG_FLAG_0xC5E60961 = 56,
+	_CPED_CONFIG_FLAG_0x29275C3E = 57,
+	CPED_CONFIG_FLAG_IsFiring = 58,
+	CPED_CONFIG_FLAG_WasFiring = 59,
+	CPED_CONFIG_FLAG_IsStanding = 60,
+	CPED_CONFIG_FLAG_WasStanding = 61,
+	CPED_CONFIG_FLAG_InVehicle = 62,
+	CPED_CONFIG_FLAG_OnMount = 63,
+	CPED_CONFIG_FLAG_AttachedToVehicle = 64,
+	CPED_CONFIG_FLAG_IsSwimming = 65,
+	CPED_CONFIG_FLAG_WasSwimming = 66,
+	CPED_CONFIG_FLAG_IsSkiing = 67,
+	CPED_CONFIG_FLAG_IsSitting = 68,
+	CPED_CONFIG_FLAG_KilledByStealth = 69,
+	CPED_CONFIG_FLAG_KilledByTakedown = 70,
+	CPED_CONFIG_FLAG_Knockedout = 71,
+	_CPED_CONFIG_FLAG_0x3E3C4560 = 72,
+	_CPED_CONFIG_FLAG_0x2994C7B7 = 73,
+	_CPED_CONFIG_FLAG_0x6D59D275 = 74,
+	CPED_CONFIG_FLAG_UsingCoverPoint = 75,
+	CPED_CONFIG_FLAG_IsInTheAir = 76,
+	_CPED_CONFIG_FLAG_0x2D493FB7 = 77,
+	CPED_CONFIG_FLAG_IsAimingGun = 78,
+	_CPED_CONFIG_FLAG_0x14D69875 = 79,
+	_CPED_CONFIG_FLAG_0x40B05311 = 80,
+	_CPED_CONFIG_FLAG_0x8B230BC5 = 81,
+	_CPED_CONFIG_FLAG_0xC74E5842 = 82,
+	_CPED_CONFIG_FLAG_0x9EA86147 = 83,
+	_CPED_CONFIG_FLAG_0x674C746C = 84,
+	_CPED_CONFIG_FLAG_0x3E56A8C2 = 85,
+	_CPED_CONFIG_FLAG_0xC144A1EF = 86,
+	_CPED_CONFIG_FLAG_0x0548512D = 87,
+	_CPED_CONFIG_FLAG_0x31C93909 = 88,
+	_CPED_CONFIG_FLAG_0xA0269315 = 89,
+	_CPED_CONFIG_FLAG_0xD4D59D4D = 90,
+	_CPED_CONFIG_FLAG_0x411D4420 = 91,
+	_CPED_CONFIG_FLAG_0xDF4AEF0D = 92,
+	CPED_CONFIG_FLAG_ForcePedLoadCover = 93,
+	_CPED_CONFIG_FLAG_0x300E4CD3 = 94,
+	_CPED_CONFIG_FLAG_0xF1C5BF04 = 95,
+	_CPED_CONFIG_FLAG_0x89C2EF13 = 96,
+	CPED_CONFIG_FLAG_VaultFromCover = 97,
+	_CPED_CONFIG_FLAG_0x02A852C8 = 98,
+	_CPED_CONFIG_FLAG_0x3D9407F1 = 99,
+	_CPED_CONFIG_FLAG_IsDrunk = 100, // 0x319B4558
+	CPED_CONFIG_FLAG_ForcedAim = 101,
+	_CPED_CONFIG_FLAG_0xB942D71A = 102,
+	_CPED_CONFIG_FLAG_0xD26C55A8 = 103,
+	CPED_CONFIG_FLAG_OpenDoorArmIK = 104,
+	CPED_CONFIG_FLAG_ForceReload = 105,
+	CPED_CONFIG_FLAG_DontActivateRagdollFromVehicleImpact = 106,
+	CPED_CONFIG_FLAG_DontActivateRagdollFromBulletImpact = 107,
+	CPED_CONFIG_FLAG_DontActivateRagdollFromExplosions = 108,
+	CPED_CONFIG_FLAG_DontActivateRagdollFromFire = 109,
+	CPED_CONFIG_FLAG_DontActivateRagdollFromElectrocution = 110,
+	_CPED_CONFIG_FLAG_0x83C0A4BF = 111,
+	_CPED_CONFIG_FLAG_0x0E0FAF8C = 112,
+	CPED_CONFIG_FLAG_KeepWeaponHolsteredUnlessFired = 113,
+	_CPED_CONFIG_FLAG_0x43B80B79 = 114,
+	_CPED_CONFIG_FLAG_0x0D2A9309 = 115,
+	CPED_CONFIG_FLAG_GetOutBurningVehicle = 116,
+	CPED_CONFIG_FLAG_BumpedByPlayer = 117,
+	CPED_CONFIG_FLAG_RunFromFiresAndExplosions = 118,
+	CPED_CONFIG_FLAG_TreatAsPlayerDuringTargeting = 119,
+	CPED_CONFIG_FLAG_IsHandCuffed = 120,
+	CPED_CONFIG_FLAG_IsAnkleCuffed = 121,
+	CPED_CONFIG_FLAG_DisableMelee = 122,
+	CPED_CONFIG_FLAG_DisableUnarmedDrivebys = 123,
+	CPED_CONFIG_FLAG_JustGetsPulledOutWhenElectrocuted = 124,
+	_CPED_CONFIG_FLAG_0x5FED6BFD = 125,
+	CPED_CONFIG_FLAG_WillNotHotwireLawEnforcementVehicle = 126,
+	CPED_CONFIG_FLAG_WillCommandeerRatherThanJack = 127,
+	CPED_CONFIG_FLAG_CanBeAgitated = 128,
+	CPED_CONFIG_FLAG_ForcePedToFaceLeftInCover = 129,
+	CPED_CONFIG_FLAG_ForcePedToFaceRightInCover = 130,
+	CPED_CONFIG_FLAG_BlockPedFromTurningInCover = 131,
+	CPED_CONFIG_FLAG_KeepRelationshipGroupAfterCleanUp = 132,
+	CPED_CONFIG_FLAG_ForcePedToBeDragged = 133,
+	CPED_CONFIG_FLAG_PreventPedFromReactingToBeingJacked = 134,
+	CPED_CONFIG_FLAG_IsScuba = 135,
+	CPED_CONFIG_FLAG_WillArrestRatherThanJack = 136,
+	CPED_CONFIG_FLAG_RemoveDeadExtraFarAway = 137,
+	CPED_CONFIG_FLAG_RidingTrain = 138,
+	CPED_CONFIG_FLAG_ArrestResult = 139,
+	CPED_CONFIG_FLAG_CanAttackFriendly = 140,
+	CPED_CONFIG_FLAG_WillJackAnyPlayer = 141,
+	_CPED_CONFIG_FLAG_0x6901E731 = 142,
+	_CPED_CONFIG_FLAG_0x9EC9BF6C = 143,
+	CPED_CONFIG_FLAG_WillJackWantedPlayersRatherThanStealCar = 144,
+	CPED_CONFIG_FLAG_ShootingAnimFlag = 145,
+	CPED_CONFIG_FLAG_DisableLadderClimbing = 146,
+	CPED_CONFIG_FLAG_StairsDetected = 147,
+	CPED_CONFIG_FLAG_SlopeDetected = 148,
+	_CPED_CONFIG_FLAG_0x1A15670B = 149,
+	CPED_CONFIG_FLAG_CowerInsteadOfFlee = 150,
+	CPED_CONFIG_FLAG_CanActivateRagdollWhenVehicleUpsideDown = 151,
+	CPED_CONFIG_FLAG_AlwaysRespondToCriesForHelp = 152,
+	CPED_CONFIG_FLAG_DisableBloodPoolCreation = 153,
+	CPED_CONFIG_FLAG_ShouldFixIfNoCollision = 154,
+	CPED_CONFIG_FLAG_CanPerformArrest = 155,
+	CPED_CONFIG_FLAG_CanPerformUncuff = 156,
+	CPED_CONFIG_FLAG_CanBeArrested = 157,
+	_CPED_CONFIG_FLAG_0xF7960FF5 = 158,
+	CPED_CONFIG_FLAG_PlayerPreferFrontSeatMP = 159,
+	_CPED_CONFIG_FLAG_0x0C6C3099 = 160,
+	_CPED_CONFIG_FLAG_0x645F927A = 161,
+	_CPED_CONFIG_FLAG_0xA86549B9 = 162,
+	_CPED_CONFIG_FLAG_0x8AAF337A = 163,
+	_CPED_CONFIG_FLAG_0x13BAA6E7 = 164,
+	_CPED_CONFIG_FLAG_0x5FB9D1F5 = 165,
+	CPED_CONFIG_FLAG_IsInjured = 166,
+	CPED_CONFIG_FLAG_DontEnterVehiclesInPlayersGroup = 167,
+	_CPED_CONFIG_FLAG_0xD8072639 = 168,
+	CPED_CONFIG_FLAG_PreventAllMeleeTaunts = 169,
+	CPED_CONFIG_FLAG_ForceDirectEntry = 170,
+	CPED_CONFIG_FLAG_AlwaysSeeApproachingVehicles = 171,
+	CPED_CONFIG_FLAG_CanDiveAwayFromApproachingVehicles = 172,
+	CPED_CONFIG_FLAG_AllowPlayerToInterruptVehicleEntryExit = 173,
+	CPED_CONFIG_FLAG_OnlyAttackLawIfPlayerIsWanted = 174,
+	_CPED_CONFIG_FLAG_0x90008BFA = 175,
+	_CPED_CONFIG_FLAG_0x07C7A910 = 176,
+	CPED_CONFIG_FLAG_PedsJackingMeDontGetIn = 177,
+	_CPED_CONFIG_FLAG_0xCE4E8BE2 = 178,
+	CPED_CONFIG_FLAG_PedIgnoresAnimInterruptEvents = 179,
+	CPED_CONFIG_FLAG_IsInCustody = 180,
+	CPED_CONFIG_FLAG_ForceStandardBumpReactionThresholds = 181,
+	CPED_CONFIG_FLAG_LawWillOnlyAttackIfPlayerIsWanted = 182,
+	CPED_CONFIG_FLAG_IsAgitated = 183,
+	CPED_CONFIG_FLAG_PreventAutoShuffleToDriversSeat = 184,
+	CPED_CONFIG_FLAG_UseKinematicModeWhenStationary = 185,
+	CPED_CONFIG_FLAG_EnableWeaponBlocking = 186,
+	CPED_CONFIG_FLAG_HasHurtStarted = 187,
+	CPED_CONFIG_FLAG_DisableHurt = 188,
+	CPED_CONFIG_FLAG_PlayerIsWeird = 189,
+	_CPED_CONFIG_FLAG_0x32FC208B = 190,
+	_CPED_CONFIG_FLAG_0x0C296E5A = 191,
+	_CPED_CONFIG_FLAG_0xE63B73EC = 192,
+	CPED_CONFIG_FLAG_DoNothingWhenOnFootByDefault = 193,
+	CPED_CONFIG_FLAG_UsingScenario = 194,
+	CPED_CONFIG_FLAG_VisibleOnScreen = 195,
+	_CPED_CONFIG_FLAG_0xD88C58A1 = 196,
+	_CPED_CONFIG_FLAG_0x5A3DCF43 = 197,
+	_CPED_CONFIG_FLAG_0xEA02B420 = 198,
+	CPED_CONFIG_FLAG_DontActivateRagdollOnVehicleCollisionWhenDead = 199,
+	CPED_CONFIG_FLAG_HasBeenInArmedCombat = 200,
+	_CPED_CONFIG_FLAG_0x5E6466F6 = 201,
+	CPED_CONFIG_FLAG_Avoidance_Ignore_All = 202,
+	CPED_CONFIG_FLAG_Avoidance_Ignored_by_All = 203,
+	CPED_CONFIG_FLAG_Avoidance_Ignore_Group1 = 204,
+	CPED_CONFIG_FLAG_Avoidance_Member_of_Group1 = 205,
+	CPED_CONFIG_FLAG_ForcedToUseSpecificGroupSeatIndex = 206,
+	_CPED_CONFIG_FLAG_0x415B26B9 = 207,
+	CPED_CONFIG_FLAG_DisableExplosionReactions = 208,
+	CPED_CONFIG_FLAG_DodgedPlayer = 209,
+	CPED_CONFIG_FLAG_WaitingForPlayerControlInterrupt = 210,
+	CPED_CONFIG_FLAG_ForcedToStayInCover = 211,
+	CPED_CONFIG_FLAG_GeneratesSoundEvents = 212,
+	CPED_CONFIG_FLAG_ListensToSoundEvents = 213,
+	CPED_CONFIG_FLAG_AllowToBeTargetedInAVehicle = 214,
+	CPED_CONFIG_FLAG_WaitForDirectEntryPointToBeFreeWhenExiting = 215,
+	CPED_CONFIG_FLAG_OnlyRequireOnePressToExitVehicle = 216,
+	CPED_CONFIG_FLAG_ForceExitToSkyDive = 217,
+	_CPED_CONFIG_FLAG_0x3C7DF9DF = 218,
+	_CPED_CONFIG_FLAG_0x848FFEF2 = 219,
+	CPED_CONFIG_FLAG_DontEnterLeadersVehicle = 220,
+	CPED_CONFIG_FLAG_DisableExitToSkyDive = 221,
+	_CPED_CONFIG_FLAG_0x84F722FA = 222,
+	_CPED_CONFIG_FLAG_Shrink = 223, // 0xD1B87B1F
+	_CPED_CONFIG_FLAG_0x728AA918 = 224,
+	CPED_CONFIG_FLAG_DisablePotentialToBeWalkedIntoResponse = 225,
+	CPED_CONFIG_FLAG_DisablePedAvoidance = 226,
+	CPED_CONFIG_FLAG_ForceRagdollUponDeath = 227,
+	_CPED_CONFIG_FLAG_0x1EA7225F = 228,
+	CPED_CONFIG_FLAG_DisablePanicInVehicle = 229,
+	CPED_CONFIG_FLAG_AllowedToDetachTrailer = 230,
+	_CPED_CONFIG_FLAG_0xFC3E572D = 231,
+	_CPED_CONFIG_FLAG_0x08E9F9CF = 232,
+	_CPED_CONFIG_FLAG_0x2D3BA52D = 233,
+	_CPED_CONFIG_FLAG_0xFD2F53EA = 234,
+	_CPED_CONFIG_FLAG_0x31A1B03B = 235,
+	CPED_CONFIG_FLAG_IsHoldingProp = 236,
+	CPED_CONFIG_FLAG_BlocksPathingWhenDead = 237,
+	_CPED_CONFIG_FLAG_0xCE57C9A3 = 238,
+	_CPED_CONFIG_FLAG_0x26149198 = 239,
+	CPED_CONFIG_FLAG_ForceSkinCharacterCloth = 240,
+	CPED_CONFIG_FLAG_LeaveEngineOnWhenExitingVehicles = 241,
+	CPED_CONFIG_FLAG_PhoneDisableTextingAnimations = 242,
+	CPED_CONFIG_FLAG_PhoneDisableTalkingAnimations = 243,
+	CPED_CONFIG_FLAG_PhoneDisableCameraAnimations = 244,
+	CPED_CONFIG_FLAG_DisableBlindFiringInShotReactions = 245,
+	CPED_CONFIG_FLAG_AllowNearbyCoverUsage = 246,
+	_CPED_CONFIG_FLAG_0x0C754ACA = 247,
+	CPED_CONFIG_FLAG_CanPlayInCarIdles = 248,
+	CPED_CONFIG_FLAG_CanAttackNonWantedPlayerAsLaw = 249,
+	CPED_CONFIG_FLAG_WillTakeDamageWhenVehicleCrashes = 250,
+	CPED_CONFIG_FLAG_AICanDrivePlayerAsRearPassenger = 251,
+	CPED_CONFIG_FLAG_PlayerCanJackFriendlyPlayers = 252,
+	CPED_CONFIG_FLAG_OnStairs = 253,
+	_CPED_CONFIG_FLAG_0xE1A2F73F = 254,
+	CPED_CONFIG_FLAG_AIDriverAllowFriendlyPassengerSeatEntry = 255,
+	_CPED_CONFIG_FLAG_0xF1EB20A9 = 256,
+	CPED_CONFIG_FLAG_AllowMissionPedToUseInjuredMovement = 257,
+	_CPED_CONFIG_FLAG_0x329DCF1A = 258,
+	_CPED_CONFIG_FLAG_0x8D90DD1B = 259,
+	_CPED_CONFIG_FLAG_0xB8A292B7 = 260,
+	CPED_CONFIG_FLAG_PreventUsingLowerPrioritySeats = 261,
+	_CPED_CONFIG_FLAG_0x2AF558F0 = 262,
+	_CPED_CONFIG_FLAG_0x82251455 = 263,
+	_CPED_CONFIG_FLAG_0x30CF498B = 264,
+	_CPED_CONFIG_FLAG_0xE1CD50AF = 265,
+	_CPED_CONFIG_FLAG_0x72E4AE48 = 266,
+	_CPED_CONFIG_FLAG_0xC2657EA1 = 267,
+	CPED_CONFIG_FLAG_TeleportToLeaderVehicle = 268,
+	CPED_CONFIG_FLAG_Avoidance_Ignore_WeirdPedBuffer = 269,
+	CPED_CONFIG_FLAG_OnStairSlope = 270,
+	_CPED_CONFIG_FLAG_0xA0897933 = 271,
+	CPED_CONFIG_FLAG_DontBlipCop = 272,
+	CPED_CONFIG_FLAG_ClimbedShiftedFence = 273,
+	_CPED_CONFIG_FLAG_0xF7823618 = 274,
+	CPED_CONFIG_FLAG_KillWhenTrapped = 275,
+	CPED_CONFIG_FLAG_EdgeDetected = 276,
+	_CPED_CONFIG_FLAG_0x92B67896 = 277,
+	_CPED_CONFIG_FLAG_0xCAD677C9 = 278,
+	CPED_CONFIG_FLAG_AvoidTearGas = 279,
+	_CPED_CONFIG_FLAG_0x5276AC7B = 280,
+	CPED_CONFIG_FLAG_DisableGoToWritheWhenInjured = 281,
+	CPED_CONFIG_FLAG_OnlyUseForcedSeatWhenEnteringHeliInGroup = 282,
+	_CPED_CONFIG_FLAG_0x9139724D = 283,
+	_CPED_CONFIG_FLAG_0xA1457461 = 284,
+	CPED_CONFIG_FLAG_DisableWeirdPedEvents = 285,
+	CPED_CONFIG_FLAG_ShouldChargeNow = 286,
+	CPED_CONFIG_FLAG_RagdollingOnBoat = 287,
+	CPED_CONFIG_FLAG_HasBrandishedWeapon = 288,
+	_CPED_CONFIG_FLAG_0x1B9EE8A1 = 289,
+	_CPED_CONFIG_FLAG_0xF3F5758C = 290,
+	_CPED_CONFIG_FLAG_0x2A9307F1 = 291,
+	_CPED_CONFIG_FLAG_FreezePosition = 292, // 0x7403D216
+	_CPED_CONFIG_FLAG_0xA06A3C6C = 293,
+	CPED_CONFIG_FLAG_DisableShockingEvents = 294,
+	_CPED_CONFIG_FLAG_0xF8DA25A5 = 295,
+	CPED_CONFIG_FLAG_NeverReactToPedOnRoof = 296,
+	_CPED_CONFIG_FLAG_0xB31F1187 = 297,
+	_CPED_CONFIG_FLAG_0x84315402 = 298,
+	CPED_CONFIG_FLAG_DisableShockingDrivingOnPavementEvents = 299,
+	_CPED_CONFIG_FLAG_0xC7829B67 = 300,
+	CPED_CONFIG_FLAG_DisablePedConstraints = 301,
+	CPED_CONFIG_FLAG_ForceInitialPeekInCover = 302,
+	_CPED_CONFIG_FLAG_0x2ADA871B = 303,
+	_CPED_CONFIG_FLAG_0x47BC8A58 = 304,
+	CPED_CONFIG_FLAG_DisableJumpingFromVehiclesAfterLeader = 305,
+	_CPED_CONFIG_FLAG_0x4A133C50 = 306,
+	_CPED_CONFIG_FLAG_0xC58099C3 = 307,
+	_CPED_CONFIG_FLAG_0xF3D76D41 = 308,
+	_CPED_CONFIG_FLAG_0xB0EEE9F2 = 309,
+	CPED_CONFIG_FLAG_IsInCluster = 310,
+	CPED_CONFIG_FLAG_ShoutToGroupOnPlayerMelee = 311,
+	CPED_CONFIG_FLAG_IgnoredByAutoOpenDoors = 312,
+	_CPED_CONFIG_FLAG_0xD4136C22 = 313,
+	CPED_CONFIG_FLAG_ForceIgnoreMeleeActiveCombatant = 314,
+	CPED_CONFIG_FLAG_CheckLoSForSoundEvents = 315,
+	_CPED_CONFIG_FLAG_0xD5C98277 = 316,
+	CPED_CONFIG_FLAG_CanSayFollowedByPlayerAudio = 317,
+	CPED_CONFIG_FLAG_ActivateRagdollFromMinorPlayerContact = 318,
+	_CPED_CONFIG_FLAG_0xD8BE1D54 = 319,
+	CPED_CONFIG_FLAG_ForcePoseCharacterCloth = 320,
+	CPED_CONFIG_FLAG_HasClothCollisionBounds = 321,
+	CPED_CONFIG_FLAG_HasHighHeels = 322,
+	_CPED_CONFIG_FLAG_0x86B01E54 = 323,
+	CPED_CONFIG_FLAG_DontBehaveLikeLaw = 324,
+	_CPED_CONFIG_FLAG_0xC03B736C = 325, // SpawnedAtScenario?
+	CPED_CONFIG_FLAG_DisablePoliceInvestigatingBody = 326,
+	CPED_CONFIG_FLAG_DisableWritheShootFromGround = 327,
+	CPED_CONFIG_FLAG_LowerPriorityOfWarpSeats = 328,
+	CPED_CONFIG_FLAG_DisableTalkTo = 329,
+	CPED_CONFIG_FLAG_DontBlip = 330,
+	CPED_CONFIG_FLAG_IsSwitchingWeapon = 331,
+	CPED_CONFIG_FLAG_IgnoreLegIkRestrictions = 332,
+	_CPED_CONFIG_FLAG_0x150468FD = 333,
+	_CPED_CONFIG_FLAG_0x914EBD6B = 334,
+	_CPED_CONFIG_FLAG_0x79AF3B6D = 335,
+	_CPED_CONFIG_FLAG_0x75C7A632 = 336,
+	_CPED_CONFIG_FLAG_0x52D530E2 = 337,
+	_CPED_CONFIG_FLAG_0xDB2A90E0 = 338,
+	CPED_CONFIG_FLAG_AllowTaskDoNothingTimeslicing = 339,
+	_CPED_CONFIG_FLAG_0x12ADB567 = 340,
+	_CPED_CONFIG_FLAG_0x105C8518 = 341,
+	CPED_CONFIG_FLAG_NotAllowedToJackAnyPlayers = 342,
+	_CPED_CONFIG_FLAG_0xED152C3E = 343,
+	_CPED_CONFIG_FLAG_0xA0EFE6A8 = 344,
+	CPED_CONFIG_FLAG_AlwaysLeaveTrainUponArrival = 345,
+	_CPED_CONFIG_FLAG_0xCDDFE830 = 346,
+	CPED_CONFIG_FLAG_OnlyWritheFromWeaponDamage = 347,
+	CPED_CONFIG_FLAG_UseSloMoBloodVfx = 348,
+	CPED_CONFIG_FLAG_EquipJetpack = 349,
+	CPED_CONFIG_FLAG_PreventDraggedOutOfCarThreatResponse = 350,
+	_CPED_CONFIG_FLAG_0xE13D1F7C = 351,
+	_CPED_CONFIG_FLAG_0x40E25FB9 = 352,
+	_CPED_CONFIG_FLAG_0x930629D9 = 353,
+	_CPED_CONFIG_FLAG_0xECCF0C7F = 354,
+	_CPED_CONFIG_FLAG_0xB6E9613B = 355,
+	CPED_CONFIG_FLAG_ForceDeepSurfaceCheck = 356,
+	CPED_CONFIG_FLAG_DisableDeepSurfaceAnims = 357,
+	CPED_CONFIG_FLAG_DontBlipNotSynced = 358,
+	CPED_CONFIG_FLAG_IsDuckingInVehicle = 359,
+	CPED_CONFIG_FLAG_PreventAutoShuffleToTurretSeat = 360,
+	CPED_CONFIG_FLAG_DisableEventInteriorStatusCheck = 361,
+	CPED_CONFIG_FLAG_HasReserveParachute = 362,
+	CPED_CONFIG_FLAG_UseReserveParachute = 363,
+	CPED_CONFIG_FLAG_TreatDislikeAsHateWhenInCombat = 364,
+	CPED_CONFIG_FLAG_OnlyUpdateTargetWantedIfSeen = 365,
+	CPED_CONFIG_FLAG_AllowAutoShuffleToDriversSeat = 366,
+	_CPED_CONFIG_FLAG_0xD7E07D37 = 367,
+	_CPED_CONFIG_FLAG_0x03C4FD24 = 368,
+	_CPED_CONFIG_FLAG_0x7675789A = 369,
+	_CPED_CONFIG_FLAG_0xB7288A88 = 370,
+	_CPED_CONFIG_FLAG_0xC06B6291 = 371,
+	CPED_CONFIG_FLAG_PreventReactingToSilencedCloneBullets = 372,
+	CPED_CONFIG_FLAG_DisableInjuredCryForHelpEvents = 373,
+	CPED_CONFIG_FLAG_NeverLeaveTrain = 374,
+	CPED_CONFIG_FLAG_DontDropJetpackOnDeath = 375,
+	_CPED_CONFIG_FLAG_0x147F1FFB = 376,
+	_CPED_CONFIG_FLAG_0x4376DD79 = 377,
+	_CPED_CONFIG_FLAG_0xCD3DB518 = 378,
+	_CPED_CONFIG_FLAG_0xFE4BA4B6 = 379,
+	CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInBikes = 380,
+	_CPED_CONFIG_FLAG_0xBCD816CD = 381,
+	_CPED_CONFIG_FLAG_0xCF02DD69 = 382,
+	_CPED_CONFIG_FLAG_0xF73AFA2E = 383,
+	_CPED_CONFIG_FLAG_0x80B9A9D0 = 384,
+	_CPED_CONFIG_FLAG_0xF601F7EE = 385,
+	_CPED_CONFIG_FLAG_0xA91350FC = 386,
+	_CPED_CONFIG_FLAG_0x3AB23B96 = 387,
+	CPED_CONFIG_FLAG_IsClimbingLadder = 388,
+	CPED_CONFIG_FLAG_HasBareFeet = 389,
+	CPED_CONFIG_FLAG_UNUSED_REPLACE_ME_2 = 390,
+	CPED_CONFIG_FLAG_GoOnWithoutVehicleIfItIsUnableToGetBackToRoad = 391,
+	CPED_CONFIG_FLAG_BlockDroppingHealthSnacksOnDeath = 392,
+	_CPED_CONFIG_FLAG_0xC11D3E8F = 393,
+	CPED_CONFIG_FLAG_ForceThreatResponseToNonFriendToFriendMeleeActions = 394,
+	CPED_CONFIG_FLAG_DontRespondToRandomPedsDamage = 395,
+	CPED_CONFIG_FLAG_AllowContinuousThreatResponseWantedLevelUpdates = 396,
+	CPED_CONFIG_FLAG_KeepTargetLossResponseOnCleanup = 397,
+	CPED_CONFIG_FLAG_PlayersDontDragMeOutOfCar = 398,
+	CPED_CONFIG_FLAG_BroadcastRepondedToThreatWhenGoingToPointShooting = 399,
+	CPED_CONFIG_FLAG_IgnorePedTypeForIsFriendlyWith = 400,
+	CPED_CONFIG_FLAG_TreatNonFriendlyAsHateWhenInCombat = 401,
+	CPED_CONFIG_FLAG_DontLeaveVehicleIfLeaderNotInVehicle = 402,
+	_CPED_CONFIG_FLAG_0x5E5B9591 = 403,
+	CPED_CONFIG_FLAG_AllowMeleeReactionIfMeleeProofIsOn = 404,
+	_CPED_CONFIG_FLAG_0x77840177 = 405,
+	_CPED_CONFIG_FLAG_0x1C7ACAC4 = 406,
+	CPED_CONFIG_FLAG_UseNormalExplosionDamageWhenBlownUpInVehicle = 407,
+	CPED_CONFIG_FLAG_DisableHomingMissileLockForVehiclePedInside = 408,
+	CPED_CONFIG_FLAG_DisableTakeOffScubaGear = 409,
+	CPED_CONFIG_FLAG_IgnoreMeleeFistWeaponDamageMult = 410,
+	CPED_CONFIG_FLAG_LawPedsCanFleeFromNonWantedPlayer = 411,
+	CPED_CONFIG_FLAG_ForceBlipSecurityPedsIfPlayerIsWanted = 412,
+	CPED_CONFIG_FLAG_IsHolsteringWeapon = 413,
+	CPED_CONFIG_FLAG_UseGoToPointForScenarioNavigation = 414,
+	CPED_CONFIG_FLAG_DontClearLocalPassengersWantedLevel = 415,
+	CPED_CONFIG_FLAG_BlockAutoSwapOnWeaponPickups = 416,
+	CPED_CONFIG_FLAG_ThisPedIsATargetPriorityForAI = 417,
+	CPED_CONFIG_FLAG_IsSwitchingHelmetVisor = 418,
+	CPED_CONFIG_FLAG_ForceHelmetVisorSwitch = 419,
+	_CPED_CONFIG_FLAG_0xCFF5F6DE = 420,
+	CPED_CONFIG_FLAG_UseOverrideFootstepPtFx = 421,
+	CPED_CONFIG_FLAG_DisableVehicleCombat = 422,
+	_CPED_CONFIG_FLAG_0xFE401D26 = 423,
+	CPED_CONFIG_FLAG_FallsLikeAircraft = 424,
+	_CPED_CONFIG_FLAG_0x2B42AE82 = 425,
+	CPED_CONFIG_FLAG_UseLockpickVehicleEntryAnimations = 426,
+	CPED_CONFIG_FLAG_IgnoreInteriorCheckForSprinting = 427,
+	CPED_CONFIG_FLAG_SwatHeliSpawnWithinLastSpottedLocation = 428,
+	CPED_CONFIG_FLAG_DisableStartEngine = 429,
+	CPED_CONFIG_FLAG_IgnoreBeingOnFire = 430,
+	CPED_CONFIG_FLAG_DisableTurretOrRearSeatPreference = 431,
+	CPED_CONFIG_FLAG_DisableWantedHelicopterSpawning = 432,
+	CPED_CONFIG_FLAG_UseTargetPerceptionForCreatingAimedAtEvents = 433,
+	CPED_CONFIG_FLAG_DisableHomingMissileLockon = 434,
+	CPED_CONFIG_FLAG_ForceIgnoreMaxMeleeActiveSupportCombatants = 435,
+	CPED_CONFIG_FLAG_StayInDefensiveAreaWhenInVehicle = 436,
+	CPED_CONFIG_FLAG_DontShoutTargetPosition = 437,
+	CPED_CONFIG_FLAG_DisableHelmetArmor = 438,
+	_CPED_CONFIG_FLAG_0xCB7F3A1E = 439,
+	_CPED_CONFIG_FLAG_0x50178878 = 440,
+	CPED_CONFIG_FLAG_PreventVehExitDueToInvalidWeapon = 441,
+	CPED_CONFIG_FLAG_IgnoreNetSessionFriendlyFireCheckForAllowDamage = 442,
+	CPED_CONFIG_FLAG_DontLeaveCombatIfTargetPlayerIsAttackedByPolice = 443,
+	CPED_CONFIG_FLAG_CheckLockedBeforeWarp = 444,
+	CPED_CONFIG_FLAG_DontShuffleInVehicleToMakeRoom = 445,
+	CPED_CONFIG_FLAG_GiveWeaponOnGetup = 446,
+	CPED_CONFIG_FLAG_DontHitVehicleWithProjectiles = 447,
+	CPED_CONFIG_FLAG_DisableForcedEntryForOpenVehiclesFromTryLockedDoor = 448,
+	CPED_CONFIG_FLAG_FiresDummyRockets = 449,
+	CPED_CONFIG_FLAG_PedIsArresting = 450,
+	CPED_CONFIG_FLAG_IsDecoyPed = 451,
+	CPED_CONFIG_FLAG_HasEstablishedDecoy = 452,
+	CPED_CONFIG_FLAG_BlockDispatchedHelicoptersFromLanding = 453,
+	CPED_CONFIG_FLAG_DontCryForHelpOnStun = 454,
+	_CPED_CONFIG_FLAG_0xB68D3EAB = 455,
+	CPED_CONFIG_FLAG_CanBeIncapacitated = 456,
+	_CPED_CONFIG_FLAG_0x4BD5EBAD = 457,
+	CPED_CONFIG_FLAG_DontChangeTargetFromMelee = 458,
 };
 --]]
 function PED.SET_PED_CONFIG_FLAG(ped, flagId, value)
@@ -48154,7 +48154,7 @@ function PED.IS_PED_EVASIVE_DIVING(ped, evadingEntity)
   return native.invoke(
     Type.Bool, 4287, false,
     arg(Type.Ped, ped),
-    ref(Type.Entity, evadingEntity)
+    arg(Type.Entity, evadingEntity)
   )
 end
 
@@ -48490,10 +48490,10 @@ end
 --[[
 enum eCombatMovement // 0x4F456B61
 {
-  CM_Stationary,
-  CM_Defensive,
-  CM_WillAdvance,
-  CM_WillRetreat
+	CM_Stationary,
+	CM_Defensive,
+	CM_WillAdvance,
+	CM_WillRetreat
 };
 --]]
 function PED.SET_PED_COMBAT_MOVEMENT(ped, combatMovement)
@@ -48519,10 +48519,10 @@ end
 --[[
 enum eCombatAbility // 0xE793438C
 {
-  CA_Poor,
-  CA_Average,
-  CA_Professional,
-  CA_NumTypes
+	CA_Poor,
+	CA_Average,
+	CA_Professional,
+	CA_NumTypes
 };
 --]]
 function PED.SET_PED_COMBAT_ABILITY(ped, abilityLevel)
@@ -48537,11 +48537,11 @@ end
 --[[
 enum eCombatRange // 0xB69160F5
 {
-  CR_Near,
-  CR_Medium,
-  CR_Far,
-  CR_VeryFar,
-  CR_NumRanges
+	CR_Near,
+	CR_Medium,
+	CR_Far,
+	CR_VeryFar,
+	CR_NumRanges
 };
 --]]
 function PED.SET_PED_COMBAT_RANGE(ped, combatRange)
@@ -48567,98 +48567,98 @@ end
 --[[
 enum eCombatAttributes // 0x0E8E7201
 {
-  BF_CanUseCover = 0,
-  BF_CanUseVehicles = 1,
-  BF_CanDoDrivebys = 2,
-  BF_CanLeaveVehicle = 3,
-  BF_CanUseDynamicStrafeDecisions = 4,
-  BF_AlwaysFight = 5,
-  BF_0x66BB9FCC = 6,
-  BF_0x6837DA41 = 7,
-  BF_0xB4A13A5A = 8,
-  BF_0xEE326AAD = 9,
-  BF_0x7DF2CCFA = 10,
-  BF_0x0036D422 = 11,
-  BF_BlindFireWhenInCover = 12,
-  BF_Aggressive = 13,
-  BF_CanInvestigate = 14,
-  BF_HasRadio = 15,
-  BF_0x6BDE28D1 = 16,
-  BF_AlwaysFlee = 17,
-  BF_0x7852797D = 18,
-  BF_0x33497B95 = 19,
-  BF_CanTauntInVehicle = 20,
-  BF_CanChaseTargetOnFoot = 21,
-  BF_WillDragInjuredPedsToSafety = 22,
-  BF_0xCD7168B8 = 23,
-  BF_UseProximityFiringRate = 24,
-  BF_0x48F914F8 = 25,
-  BF_0x2EA543D0 = 26,
-  BF_PerfectAccuracy = 27,
-  BF_CanUseFrustratedAdvance = 28,
-  BF_0x3D131AC1 = 29,
-  BF_0x3AD95F27 = 30,
-  BF_MaintainMinDistanceToTarget = 31,
-  BF_0xEAD68AD2 = 32,
-  BF_0xA206C2E0 = 33,
-  BF_CanUsePeekingVariations = 34,
-  BF_0xA5715184 = 35,
-  BF_0xD5265533 = 36,
-  BF_0x2B84C2BF = 37,
-  BF_DisableBulletReactions = 38,
-  BF_CanBust = 39,
-  BF_0xAA525726 = 40,
-  BF_CanCommandeerVehicles = 41,
-  BF_CanFlank = 42,
-  BF_SwitchToAdvanceIfCantFindCover = 43,
-  BF_SwitchToDefensiveIfInCover = 44,
-  BF_0xEB4786A0 = 45,
-  BF_CanFightArmedPedsWhenNotArmed = 46,
-  BF_0xA08E9402 = 47,
-  BF_0x952EAD7D = 48,
-  BF_UseEnemyAccuracyScaling = 49,
-  BF_CanCharge = 50,
-  BF_0xDA8C2BD3 = 51,
-  BF_0x6562F017 = 52,
-  BF_0xA2C3D53B = 53,
-  BF_AlwaysEquipBestWeapon = 54,
-  BF_CanSeeUnderwaterPeds = 55,
-  BF_0xF619486B = 56,
-  BF_0x61EB63A3 = 57,
-  BF_DisableFleeFromCombat = 58,
-  BF_0x8976D12B = 59,
-  BF_CanThrowSmokeGrenade = 60,
-  BF_NonMissionPedsFleeFromThisPedUnlessArmed = 61,
-  BF_0x5452A10C = 62,
-  BF_FleesFromInvincibleOpponents = 63,
-  BF_DisableBlockFromPursueDuringVehicleChase = 64,
-  BF_DisableSpinOutDuringVehicleChase = 65,
-  BF_DisableCruiseInFrontDuringBlockDuringVehicleChase = 66,
-  BF_0x0B404731 = 67,
-  BF_DisableReactToBuddyShot = 68,
-  BF_0x7FFD6AEB = 69,
-  BF_0x51F4AEF8 = 70,
-  BF_PermitChargeBeyondDefensiveArea = 71,
-  BF_0x63E0A8E2 = 72,
-  BF_0xDF974436 = 73,
-  BF_0x556C080B = 74,
-  BF_0xA4D50035 = 75,
-  BF_SetDisableShoutTargetPositionOnCombatStart = 76,
-  BF_DisableRespondedToThreatBroadcast = 77,
-  BF_0xCBB01765 = 78,
-  BF_0x4F862ED4 = 79,
-  BF_0xEF9C7C40 = 80,
-  BF_0xE51B494F = 81,
-  BF_0x054D0199 = 82,
-  BF_0xD36BCE94 = 83,
-  BF_0xFB11F690 = 84,
-  BF_0xD208A9AD = 85,
-  BF_AllowDogFighting = 86,
-  BF_0x07A6E531 = 87,
-  BF_0x34F9317B = 88,
-  BF_0x4240F5A9 = 89,
-  BF_0xEE129DBD = 90,
-  BF_0x053AEAD9 = 91
+	BF_CanUseCover = 0,
+	BF_CanUseVehicles = 1,
+	BF_CanDoDrivebys = 2,
+	BF_CanLeaveVehicle = 3,
+	BF_CanUseDynamicStrafeDecisions = 4,
+	BF_AlwaysFight = 5,
+	BF_0x66BB9FCC = 6,
+	BF_0x6837DA41 = 7,
+	BF_0xB4A13A5A = 8,
+	BF_0xEE326AAD = 9,
+	BF_0x7DF2CCFA = 10,
+	BF_0x0036D422 = 11,
+	BF_BlindFireWhenInCover = 12,
+	BF_Aggressive = 13,
+	BF_CanInvestigate = 14,
+	BF_HasRadio = 15,
+	BF_0x6BDE28D1 = 16,
+	BF_AlwaysFlee = 17,
+	BF_0x7852797D = 18,
+	BF_0x33497B95 = 19,
+	BF_CanTauntInVehicle = 20,
+	BF_CanChaseTargetOnFoot = 21,
+	BF_WillDragInjuredPedsToSafety = 22,
+	BF_0xCD7168B8 = 23,
+	BF_UseProximityFiringRate = 24,
+	BF_0x48F914F8 = 25,
+	BF_0x2EA543D0 = 26,
+	BF_PerfectAccuracy = 27,
+	BF_CanUseFrustratedAdvance = 28,
+	BF_0x3D131AC1 = 29,
+	BF_0x3AD95F27 = 30,
+	BF_MaintainMinDistanceToTarget = 31,
+	BF_0xEAD68AD2 = 32,
+	BF_0xA206C2E0 = 33,
+	BF_CanUsePeekingVariations = 34,
+	BF_0xA5715184 = 35,
+	BF_0xD5265533 = 36,
+	BF_0x2B84C2BF = 37,
+	BF_DisableBulletReactions = 38,
+	BF_CanBust = 39,
+	BF_0xAA525726 = 40,
+	BF_CanCommandeerVehicles = 41,
+	BF_CanFlank = 42,
+	BF_SwitchToAdvanceIfCantFindCover = 43,
+	BF_SwitchToDefensiveIfInCover = 44,
+	BF_0xEB4786A0 = 45,
+	BF_CanFightArmedPedsWhenNotArmed = 46,
+	BF_0xA08E9402 = 47,
+	BF_0x952EAD7D = 48,
+	BF_UseEnemyAccuracyScaling = 49,
+	BF_CanCharge = 50,
+	BF_0xDA8C2BD3 = 51,
+	BF_0x6562F017 = 52,
+	BF_0xA2C3D53B = 53,
+	BF_AlwaysEquipBestWeapon = 54,
+	BF_CanSeeUnderwaterPeds = 55,
+	BF_0xF619486B = 56,
+	BF_0x61EB63A3 = 57,
+	BF_DisableFleeFromCombat = 58,
+	BF_0x8976D12B = 59,
+	BF_CanThrowSmokeGrenade = 60,
+	BF_NonMissionPedsFleeFromThisPedUnlessArmed = 61,
+	BF_0x5452A10C = 62,
+	BF_FleesFromInvincibleOpponents = 63,
+	BF_DisableBlockFromPursueDuringVehicleChase = 64,
+	BF_DisableSpinOutDuringVehicleChase = 65,
+	BF_DisableCruiseInFrontDuringBlockDuringVehicleChase = 66,
+	BF_0x0B404731 = 67,
+	BF_DisableReactToBuddyShot = 68,
+	BF_0x7FFD6AEB = 69,
+	BF_0x51F4AEF8 = 70,
+	BF_PermitChargeBeyondDefensiveArea = 71,
+	BF_0x63E0A8E2 = 72,
+	BF_0xDF974436 = 73,
+	BF_0x556C080B = 74,
+	BF_0xA4D50035 = 75,
+	BF_SetDisableShoutTargetPositionOnCombatStart = 76,
+	BF_DisableRespondedToThreatBroadcast = 77,
+	BF_0xCBB01765 = 78,
+	BF_0x4F862ED4 = 79,
+	BF_0xEF9C7C40 = 80,
+	BF_0xE51B494F = 81,
+	BF_0x054D0199 = 82,
+	BF_0xD36BCE94 = 83,
+	BF_0xFB11F690 = 84,
+	BF_0xD208A9AD = 85,
+	BF_AllowDogFighting = 86,
+	BF_0x07A6E531 = 87,
+	BF_0x34F9317B = 88,
+	BF_0x4240F5A9 = 89,
+	BF_0xEE129DBD = 90,
+	BF_0x053AEAD9 = 91
 };
 --]]
 function PED.SET_PED_COMBAT_ATTRIBUTES(ped, attributeId, enabled)
@@ -48674,9 +48674,9 @@ end
 --[[
 enum eTargetLossResponseType
 {
-  TLR_ExitTask,
-  TLR_NeverLoseTarget,
-  TLR_SearchForTarget
+	TLR_ExitTask,
+	TLR_NeverLoseTarget,
+	TLR_SearchForTarget
 };
 --]]
 function PED.SET_PED_TARGET_LOSS_RESPONSE(ped, responseType)
@@ -48773,7 +48773,7 @@ function PED.SET_PED_COWER_HASH(ped, p1)
   native.invoke(
     Type.Void, 4337, false,
     arg(Type.Ped, ped),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -48968,7 +48968,7 @@ function PED.CAN_PED_SHUFFLE_TO_OR_FROM_TURRET_SEAT(ped, p1)
   return native.invoke(
     Type.Bool, 4358, false,
     arg(Type.Ped, ped),
-    ref(Type.Int, p1)
+    arg(Type.Int, p1)
   )
 end
 
@@ -48977,7 +48977,7 @@ function PED.CAN_PED_SHUFFLE_TO_OR_FROM_EXTRA_SEAT(ped, p1)
   return native.invoke(
     Type.Bool, 4359, false,
     arg(Type.Ped, ped),
-    ref(Type.Int, p1)
+    arg(Type.Int, p1)
   )
 end
 
@@ -48987,103 +48987,103 @@ no bone= -1
 
 boneIds:
         SKEL_ROOT = 0x0,
-  SKEL_Pelvis = 0x2e28,
-SKEL_L_Thigh = 0xe39f,
+   SKEL_Pelvis = 0x2e28,
+ SKEL_L_Thigh = 0xe39f,
     SKEL_L_Calf = 0xf9bb,
-SKEL_L_Foot = 0x3779,
-SKEL_L_Toe0 = 0x83c,
+ SKEL_L_Foot = 0x3779,
+ SKEL_L_Toe0 = 0x83c,
   IK_L_Foot = 0xfedd,
-  PH_L_Foot = 0xe175,
-  MH_L_Knee = 0xb3fe,
-  SKEL_R_Thigh = 0xca72,
+   PH_L_Foot = 0xe175,
+   MH_L_Knee = 0xb3fe,
+   SKEL_R_Thigh = 0xca72,
     SKEL_R_Calf = 0x9000,
-SKEL_R_Foot = 0xcc4d,
-SKEL_R_Toe0 = 0x512d,
-IK_R_Foot = 0x8aae,
-  PH_R_Foot = 0x60e6,
-  MH_R_Knee = 0x3fcf,
-  RB_L_ThighRoll = 0x5c57,
+ SKEL_R_Foot = 0xcc4d,
+ SKEL_R_Toe0 = 0x512d,
+ IK_R_Foot = 0x8aae,
+   PH_R_Foot = 0x60e6,
+   MH_R_Knee = 0x3fcf,
+   RB_L_ThighRoll = 0x5c57,
   RB_R_ThighRoll = 0x192a,
   SKEL_Spine_Root = 0xe0fd,
-SKEL_Spine0 = 0x5c01,
-SKEL_Spine1 = 0x60f0,
-SKEL_Spine2 = 0x60f1,
-SKEL_Spine3 = 0x60f2,
-SKEL_L_Clavicle = 0xfcd9,
-SKEL_L_UpperArm = 0xb1c5,
-SKEL_L_Forearm = 0xeeeb,
+ SKEL_Spine0 = 0x5c01,
+ SKEL_Spine1 = 0x60f0,
+ SKEL_Spine2 = 0x60f1,
+ SKEL_Spine3 = 0x60f2,
+ SKEL_L_Clavicle = 0xfcd9,
+ SKEL_L_UpperArm = 0xb1c5,
+ SKEL_L_Forearm = 0xeeeb,
   SKEL_L_Hand = 0x49d9,
-SKEL_L_Finger00 = 0x67f2,
-SKEL_L_Finger01 = 0xff9,
+ SKEL_L_Finger00 = 0x67f2,
+ SKEL_L_Finger01 = 0xff9,
   SKEL_L_Finger02 = 0xffa,
   SKEL_L_Finger10 = 0x67f3,
-SKEL_L_Finger11 = 0x1049,
-SKEL_L_Finger12 = 0x104a,
-SKEL_L_Finger20 = 0x67f4,
-SKEL_L_Finger21 = 0x1059,
-SKEL_L_Finger22 = 0x105a,
-SKEL_L_Finger30 = 0x67f5,
-SKEL_L_Finger31 = 0x1029,
-SKEL_L_Finger32 = 0x102a,
-SKEL_L_Finger40 = 0x67f6,
-SKEL_L_Finger41 = 0x1039,
-SKEL_L_Finger42 = 0x103a,
-PH_L_Hand = 0xeb95,
-  IK_L_Hand = 0x8cbd,
-  RB_L_ForeArmRoll = 0xee4f,
+ SKEL_L_Finger11 = 0x1049,
+ SKEL_L_Finger12 = 0x104a,
+ SKEL_L_Finger20 = 0x67f4,
+ SKEL_L_Finger21 = 0x1059,
+ SKEL_L_Finger22 = 0x105a,
+ SKEL_L_Finger30 = 0x67f5,
+ SKEL_L_Finger31 = 0x1029,
+ SKEL_L_Finger32 = 0x102a,
+ SKEL_L_Finger40 = 0x67f6,
+ SKEL_L_Finger41 = 0x1039,
+ SKEL_L_Finger42 = 0x103a,
+ PH_L_Hand = 0xeb95,
+   IK_L_Hand = 0x8cbd,
+   RB_L_ForeArmRoll = 0xee4f,
     RB_L_ArmRoll = 0x1470,
     MH_L_Elbow = 0x58b7,
   SKEL_R_Clavicle = 0x29d2,
-SKEL_R_UpperArm = 0x9d4d,
-SKEL_R_Forearm = 0x6e5c,
+ SKEL_R_UpperArm = 0x9d4d,
+ SKEL_R_Forearm = 0x6e5c,
   SKEL_R_Hand = 0xdead,
-SKEL_R_Finger00 = 0xe5f2,
-SKEL_R_Finger01 = 0xfa10,
-SKEL_R_Finger02 = 0xfa11,
-SKEL_R_Finger10 = 0xe5f3,
-SKEL_R_Finger11 = 0xfa60,
-SKEL_R_Finger12 = 0xfa61,
-SKEL_R_Finger20 = 0xe5f4,
-SKEL_R_Finger21 = 0xfa70,
-SKEL_R_Finger22 = 0xfa71,
-SKEL_R_Finger30 = 0xe5f5,
-SKEL_R_Finger31 = 0xfa40,
-SKEL_R_Finger32 = 0xfa41,
-SKEL_R_Finger40 = 0xe5f6,
-SKEL_R_Finger41 = 0xfa50,
-SKEL_R_Finger42 = 0xfa51,
-PH_R_Hand = 0x6f06,
-  IK_R_Hand = 0x188e,
-  RB_R_ForeArmRoll = 0xab22,
+ SKEL_R_Finger00 = 0xe5f2,
+ SKEL_R_Finger01 = 0xfa10,
+ SKEL_R_Finger02 = 0xfa11,
+ SKEL_R_Finger10 = 0xe5f3,
+ SKEL_R_Finger11 = 0xfa60,
+ SKEL_R_Finger12 = 0xfa61,
+ SKEL_R_Finger20 = 0xe5f4,
+ SKEL_R_Finger21 = 0xfa70,
+ SKEL_R_Finger22 = 0xfa71,
+ SKEL_R_Finger30 = 0xe5f5,
+ SKEL_R_Finger31 = 0xfa40,
+ SKEL_R_Finger32 = 0xfa41,
+ SKEL_R_Finger40 = 0xe5f6,
+ SKEL_R_Finger41 = 0xfa50,
+ SKEL_R_Finger42 = 0xfa51,
+ PH_R_Hand = 0x6f06,
+   IK_R_Hand = 0x188e,
+   RB_R_ForeArmRoll = 0xab22,
     RB_R_ArmRoll = 0x90ff,
     MH_R_Elbow = 0xbb0,
-  SKEL_Neck_1 = 0x9995,
-SKEL_Head = 0x796e,
-  IK_Head = 0x322c,
-FACIAL_facialRoot = 0xfe2c,
-  FB_L_Brow_Out_000 = 0xe3db,
-  FB_L_Lid_Upper_000 = 0xb2b6,
+   SKEL_Neck_1 = 0x9995,
+ SKEL_Head = 0x796e,
+   IK_Head = 0x322c,
+ FACIAL_facialRoot = 0xfe2c,
+   FB_L_Brow_Out_000 = 0xe3db,
+   FB_L_Lid_Upper_000 = 0xb2b6,
   FB_L_Eye_000 = 0x62ac,
     FB_L_CheekBone_000 = 0x542e,
   FB_L_Lip_Corner_000 = 0x74ac,
-FB_R_Lid_Upper_000 = 0xaa10,
+ FB_R_Lid_Upper_000 = 0xaa10,
   FB_R_Eye_000 = 0x6b52,
     FB_R_CheekBone_000 = 0x4b88,
   FB_R_Brow_Out_000 = 0x54c,
     FB_R_Lip_Corner_000 = 0x2ba6,
-FB_Brow_Centre_000 = 0x9149,
+ FB_Brow_Centre_000 = 0x9149,
   FB_UpperLipRoot_000 = 0x4ed2,
-FB_UpperLip_000 = 0xf18f,
-FB_L_Lip_Top_000 = 0x4f37,
+ FB_UpperLip_000 = 0xf18f,
+ FB_L_Lip_Top_000 = 0x4f37,
     FB_R_Lip_Top_000 = 0x4537,
     FB_Jaw_000 = 0xb4a0,
   FB_LowerLipRoot_000 = 0x4324,
-FB_LowerLip_000 = 0x508f,
-FB_L_Lip_Bot_000 = 0xb93b,
+ FB_LowerLip_000 = 0x508f,
+ FB_L_Lip_Bot_000 = 0xb93b,
     FB_R_Lip_Bot_000 = 0xc33b,
     FB_Tongue_000 = 0xb987,
-  RB_Neck_1 = 0x8b93,
-  IK_Root = 0xdd1c
+   RB_Neck_1 = 0x8b93,
+   IK_Root = 0xdd1c
 --]]
 function PED.GET_PED_BONE_INDEX(ped, boneId)
   return native.invoke(
@@ -49406,30 +49406,30 @@ Regarding p2, p3 and p4: Most common is 0, 0, 0); followed by 0, 1, 0); and 1, 1
 
 enum eMotionState // 0x92A659FE
 {
-  MotionState_None = 0xEE717723,
-  MotionState_Idle = 0x9072A713,
-  MotionState_Walk = 0xD827C3DB,
-  MotionState_Run = 0xFFF7E7A4,
-  MotionState_Sprint = 0xBD8817DB,
-  MotionState_Crouch_Idle = 0x43FB099E,
-  MotionState_Crouch_Walk = 0x08C31A98,
-  MotionState_Crouch_Run = 0x3593CF09,
-  MotionState_DoNothing = 0x0EC17E58,
-  MotionState_AnimatedVelocity = 0x551AAC43,
-  MotionState_InVehicle = 0x94D9D58D,
-  MotionState_Aiming = 0x3F67C6AF,
-  MotionState_Diving_Idle = 0x4848CDED,
-  MotionState_Diving_Swim = 0x916E828C,
-  MotionState_Swimming_TreadWater = 0xD1BF11C7,
-  MotionState_Dead = 0x0DBB071C,
-  MotionState_Stealth_Idle = 0x422D7A25,
-  MotionState_Stealth_Walk = 0x042AB6A2,
-  MotionState_Stealth_Run = 0xFB0B79E1,
-  MotionState_Parachuting = 0xBAC0F10B,
-  MotionState_ActionMode_Idle = 0xDA40A0DC,
-  MotionState_ActionMode_Walk = 0xD2905EA7,
-  MotionState_ActionMode_Run = 0x31BADE14,
-  MotionState_Jetpack = 0x535E6A5E
+	MotionState_None = 0xEE717723,
+	MotionState_Idle = 0x9072A713,
+	MotionState_Walk = 0xD827C3DB,
+	MotionState_Run = 0xFFF7E7A4,
+	MotionState_Sprint = 0xBD8817DB,
+	MotionState_Crouch_Idle = 0x43FB099E,
+	MotionState_Crouch_Walk = 0x08C31A98,
+	MotionState_Crouch_Run = 0x3593CF09,
+	MotionState_DoNothing = 0x0EC17E58,
+	MotionState_AnimatedVelocity = 0x551AAC43,
+	MotionState_InVehicle = 0x94D9D58D,
+	MotionState_Aiming = 0x3F67C6AF,
+	MotionState_Diving_Idle = 0x4848CDED,
+	MotionState_Diving_Swim = 0x916E828C,
+	MotionState_Swimming_TreadWater = 0xD1BF11C7,
+	MotionState_Dead = 0x0DBB071C,
+	MotionState_Stealth_Idle = 0x422D7A25,
+	MotionState_Stealth_Walk = 0x042AB6A2,
+	MotionState_Stealth_Run = 0xFB0B79E1,
+	MotionState_Parachuting = 0xBAC0F10B,
+	MotionState_ActionMode_Idle = 0xDA40A0DC,
+	MotionState_ActionMode_Walk = 0xD2905EA7,
+	MotionState_ActionMode_Run = 0x31BADE14,
+	MotionState_Jetpack = 0x535E6A5E
 };
 --]]
 function PED.FORCE_PED_MOTION_STATE(ped, motionStateHash, p2, p3, p4)
@@ -49448,8 +49448,8 @@ function PED.GET_PED_CURRENT_MOVE_BLEND_RATIO(ped, speedX, speedY)
   return native.invoke(
     Type.Bool, 4390, false,
     arg(Type.Ped, ped),
-    ref(Type.Float, speedX),
-    ref(Type.Float, speedY)
+    arg(Type.Float, speedX),
+    arg(Type.Float, speedY)
   )
 end
 
@@ -49509,10 +49509,10 @@ Checks if the specified sexiness flag is set
 
 enum eSexinessFlags
 {
-SF_JEER_AT_HOT_PED = 0,
-SF_HURRIEDFEMALES_SEXY = 1,
-SF_HOT_PERSON = 2,
-};
+ SF_JEER_AT_HOT_PED = 0,
+ SF_HURRIEDFEMALES_SEXY = 1,
+ SF_HOT_PERSON = 2,
+ };
 --]]
 function PED.PED_HAS_SEXINESS_FLAG_SET(ped, sexinessFlag)
   return native.invoke(
@@ -49531,33 +49531,33 @@ See below for usage information.
 This function actually requires a struct, where the first value is the maximum number of elements to return.  Here is a sample of how I was able to get it to work correctly, without yet knowing the struct format.
 
 //Setup the array
-const int numElements = 10;
-  const int arrSize = numElements * 2 + 2;
+ const int numElements = 10;
+   const int arrSize = numElements * 2 + 2;
   Any veh[arrSize];
-//0 index is the size of the array
+ //0 index is the size of the array
     veh[0] = numElements;
 
-  int count = PED::GET_PED_NEARBY_VEHICLES(PLAYER::PLAYER_PED_ID(), veh);
+   int count = PED::GET_PED_NEARBY_VEHICLES(PLAYER::PLAYER_PED_ID(), veh);
 
-if (veh != NULL)
+ if (veh != NULL)
   {
-    //Simple loop to go through results
-      for (int i = 0; i < count; i++)
+     //Simple loop to go through results
+       for (int i = 0; i < count; i++)
         {
-        int offsettedID = i * 2 + 2;
+         int offsettedID = i * 2 + 2;
           //Make sure it exists
-        if (veh[offsettedID] != NULL && ENTITY::DOES_ENTITY_EXIST(veh[offsettedID]))
+         if (veh[offsettedID] != NULL && ENTITY::DOES_ENTITY_EXIST(veh[offsettedID]))
           {
-            //Do something
+             //Do something
             }
-    }
-}  
+     }
+ }  
 --]]
 function PED.GET_PED_NEARBY_VEHICLES(ped, sizeAndVehs)
   return native.invoke(
     Type.Int, 4396, false,
     arg(Type.Ped, ped),
-    ref(Type.Any, sizeAndVehs)
+    arg(Type.Any, sizeAndVehs)
   )
 end
 
@@ -49572,7 +49572,7 @@ Return value is the number of peds found and added to the array passed.
 
 To make this work in most menu bases at least in C++ do it like so,
 
-Formatted Example: https://pastebin.com/D8an9wwp
+ Formatted Example: https://pastebin.com/D8an9wwp
 
 -----------------------------------
 
@@ -49582,7 +49582,7 @@ function PED.GET_PED_NEARBY_PEDS(ped, sizeAndPeds, ignore)
   return native.invoke(
     Type.Int, 4397, false,
     arg(Type.Ped, ped),
-    ref(Type.Any, sizeAndPeds),
+    arg(Type.Any, sizeAndPeds),
     arg(Type.Int, ignore)
   )
 end
@@ -49613,7 +49613,7 @@ function PED.SET_PED_USING_ACTION_MODE(ped, p1, p2, action)
     arg(Type.Ped, ped),
     arg(Type.Bool, p1),
     arg(Type.Int, p2),
-    ref(Type.String, action)
+    arg(Type.String, action)
   )
 end
 
@@ -49625,7 +49625,7 @@ function PED.SET_MOVEMENT_MODE_OVERRIDE(ped, name)
   native.invoke(
     Type.Void, 4401, false,
     arg(Type.Ped, ped),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -49713,7 +49713,7 @@ gtaforums.com/topic/885580-ped-headshotmugshot-txd/
 --]]
 function PED.GET_PEDHEADSHOT_TXD_STRING(id)
   return native.invoke(
-    Type.String, 4409, false,
+    Type.Const char, 4409, false,
     arg(Type.Int, id)
   )
 end
@@ -49844,9 +49844,9 @@ function PED.SPAWNPOINTS_GET_SEARCH_RESULT(randomInt, x, y, z)
   native.invoke(
     Type.Void, 4424, false,
     arg(Type.Int, randomInt),
-    ref(Type.Float, x),
-    ref(Type.Float, y),
-    ref(Type.Float, z)
+    arg(Type.Float, x),
+    arg(Type.Float, y),
+    arg(Type.Float, z)
   )
 end
 
@@ -49855,7 +49855,7 @@ function PED.SPAWNPOINTS_GET_SEARCH_RESULT_FLAGS(p0, p1)
   native.invoke(
     Type.Void, 4425, false,
     arg(Type.Int, p0),
-    ref(Type.Int, p1)
+    arg(Type.Int, p1)
   )
 end
 
@@ -49888,7 +49888,7 @@ end
 function PED.REQUEST_ACTION_MODE_ASSET(asset)
   native.invoke(
     Type.Void, 4428, false,
-    ref(Type.String, asset)
+    arg(Type.String, asset)
   )
 end
 
@@ -49896,7 +49896,7 @@ end
 function PED.HAS_ACTION_MODE_ASSET_LOADED(asset)
   return native.invoke(
     Type.Bool, 4429, false,
-    ref(Type.String, asset)
+    arg(Type.String, asset)
   )
 end
 
@@ -49904,7 +49904,7 @@ end
 function PED.REMOVE_ACTION_MODE_ASSET(asset)
   native.invoke(
     Type.Void, 4430, false,
-    ref(Type.String, asset)
+    arg(Type.String, asset)
   )
 end
 
@@ -49912,7 +49912,7 @@ end
 function PED.REQUEST_STEALTH_MODE_ASSET(asset)
   native.invoke(
     Type.Void, 4431, false,
-    ref(Type.String, asset)
+    arg(Type.String, asset)
   )
 end
 
@@ -49920,7 +49920,7 @@ end
 function PED.HAS_STEALTH_MODE_ASSET_LOADED(asset)
   return native.invoke(
     Type.Bool, 4432, false,
-    ref(Type.String, asset)
+    arg(Type.String, asset)
   )
 end
 
@@ -49928,7 +49928,7 @@ end
 function PED.REMOVE_STEALTH_MODE_ASSET(asset)
   native.invoke(
     Type.Void, 4433, false,
-    ref(Type.String, asset)
+    arg(Type.String, asset)
   )
 end
 
@@ -50177,7 +50177,7 @@ function PHYSICS.ADD_ROPE(x, y, z, rotX, rotY, rotZ, length, ropeType, maxLength
     arg(Type.Bool, rigid),
     arg(Type.Float, p14),
     arg(Type.Bool, breakWhenShot),
-    ref(Type.Any, unkPtr)
+    arg(Type.Any, unkPtr)
   )
 end
 
@@ -50185,7 +50185,7 @@ end
 function PHYSICS.DELETE_ROPE(ropeId)
   native.invoke(
     Type.Void, 4454, false,
-    ref(Type.Int, ropeId)
+    arg(Type.Int, ropeId)
   )
 end
 
@@ -50201,7 +50201,7 @@ end
 function PHYSICS.DOES_ROPE_EXIST(ropeId)
   return native.invoke(
     Type.Bool, 4456, false,
-    ref(Type.Int, ropeId)
+    arg(Type.Int, ropeId)
   )
 end
 
@@ -50209,7 +50209,7 @@ end
 function PHYSICS.ROPE_DRAW_ENABLED(ropeId, p1)
   native.invoke(
     Type.Void, 4457, false,
-    ref(Type.Int, ropeId),
+    arg(Type.Int, ropeId),
     arg(Type.Bool, p1)
   )
 end
@@ -50218,7 +50218,7 @@ end
 function PHYSICS.ROPE_DRAW_SHADOW_ENABLED(ropeId, toggle)
   native.invoke(
     Type.Void, 4458, false,
-    ref(Type.Int, ropeId),
+    arg(Type.Int, ropeId),
     arg(Type.Bool, toggle)
   )
 end
@@ -50231,7 +50231,7 @@ function PHYSICS.LOAD_ROPE_DATA(ropeId, rope_preset)
   native.invoke(
     Type.Void, 4459, false,
     arg(Type.Int, ropeId),
-    ref(Type.String, rope_preset)
+    arg(Type.String, rope_preset)
   )
 end
 
@@ -50283,8 +50283,8 @@ function PHYSICS.ATTACH_ENTITIES_TO_ROPE(ropeId, ent1, ent2, ent1_x, ent1_y, ent
     arg(Type.Float, length),
     arg(Type.Bool, p10),
     arg(Type.Bool, p11),
-    ref(Type.Any, p12),
-    ref(Type.Any, p13)
+    arg(Type.Any, p12),
+    arg(Type.Any, p13)
   )
 end
 
@@ -50343,7 +50343,7 @@ end
 function PHYSICS.IS_ROPE_ATTACHED_AT_BOTH_ENDS(ropeId)
   return native.invoke(
     Type.Bool, 4469, false,
-    ref(Type.Int, ropeId)
+    arg(Type.Int, ropeId)
   )
 end
 
@@ -50707,9 +50707,9 @@ function PLAYER.GET_PLAYER_RGB_COLOUR(player, r, g, b)
   native.invoke(
     Type.Void, 4505, false,
     arg(Type.Player, player),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -50759,7 +50759,7 @@ end
 -- const char* GET_PLAYER_NAME(Player player) // 0x6D0DE6A7B5DA71F8
 function PLAYER.GET_PLAYER_NAME(player)
   return native.invoke(
-    Type.String, 4510, false,
+    Type.Const char, 4510, false,
     arg(Type.Player, player)
   )
 end
@@ -50797,7 +50797,7 @@ function PLAYER.SET_PLAYER_WANTED_CENTRE_POSITION(player, position, p2, p3)
   native.invoke(
     Type.Void, 4513, true,
     arg(Type.Player, player),
-    ref(Type.Vector3, position),
+    arg(Type.Vector3, position),
     arg(Type.Bool, p2),
     arg(Type.Bool, p3)
   )
@@ -50978,10 +50978,10 @@ end
 -- void SET_POLICE_RADAR_BLIPS(BOOL toggle) // 0x43286D561B72B8BF
 --[[
 If toggle is set to false:
-The police won't be shown on the (mini)map
+ The police won't be shown on the (mini)map
 
 If toggle is set to true:
-The police will be shown on the (mini)map
+ The police will be shown on the (mini)map
 --]]
 function PLAYER.SET_POLICE_RADAR_BLIPS(toggle)
   native.invoke(
@@ -51345,7 +51345,7 @@ function PLAYER.GET_PLAYER_TARGET_ENTITY(player, entity)
   return native.invoke(
     Type.Bool, 4559, false,
     arg(Type.Player, player),
-    ref(Type.Entity, entity)
+    arg(Type.Entity, entity)
   )
 end
 
@@ -51381,7 +51381,7 @@ function PLAYER.GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(player, entity)
   return native.invoke(
     Type.Bool, 4562, false,
     arg(Type.Player, player),
-    ref(Type.Entity, entity)
+    arg(Type.Entity, entity)
   )
 end
 
@@ -51746,7 +51746,7 @@ PLAYER::FORCE_CLEANUP_FOR_ALL_THREADS_WITH_THIS_NAME("pb_prostitute", 1); // Fou
 function PLAYER.FORCE_CLEANUP_FOR_ALL_THREADS_WITH_THIS_NAME(name, cleanupFlags)
   native.invoke(
     Type.Void, 4598, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Int, cleanupFlags)
   )
 end
@@ -51969,18 +51969,18 @@ Returns the Player's Invincible status.
 
 This function will always return false if 0x733A643B5B0C53C1 is used to set the invincibility status. To always get the correct result, use this:
 
-bool IsPlayerInvincible(Player player)
+ bool IsPlayerInvincible(Player player)
     {
-    auto addr = getScriptHandleBaseAddress(GET_PLAYER_PED(player)); 
+     auto addr = getScriptHandleBaseAddress(GET_PLAYER_PED(player)); 
 
         if (addr)
-    {
-        DWORD flag = *(DWORD *)(addr + 0x188);
+     {
+         DWORD flag = *(DWORD *)(addr + 0x188);
             return ((flag & (1 << 8)) != 0) || ((flag & (1 << 9)) != 0);
       }
 
-      return false;
-}
+       return false;
+ }
 
 
 --]]
@@ -52828,21 +52828,21 @@ end
 -- void SET_PLAYER_PARACHUTE_TINT_INDEX(Player player, int tintIndex) // 0xA3D0E54541D9A5E5
 --[[
 Tints:
-  None = -1,
+   None = -1,
     Rainbow = 0,
   Red = 1,
   SeasideStripes = 2,
-  WidowMaker = 3,
-  Patriot = 4,
+   WidowMaker = 3,
+   Patriot = 4,
   Blue = 5,
-Black = 6,
+ Black = 6,
     Hornet = 7,
-  AirFocce = 8,
-Desert = 9,
-  Shadow = 10,
+   AirFocce = 8,
+ Desert = 9,
+   Shadow = 10,
   HighAltitude = 11,
     Airbone = 12,
-Sunrise = 13,
+ Sunrise = 13,
 
 --]]
 function PLAYER.SET_PLAYER_PARACHUTE_TINT_INDEX(player, tintIndex)
@@ -52860,44 +52860,44 @@ Tints:
     Rainbow = 0,
   Red = 1,
   SeasideStripes = 2,
-  WidowMaker = 3,
-  Patriot = 4,
+   WidowMaker = 3,
+   Patriot = 4,
   Blue = 5,
-Black = 6,
+ Black = 6,
     Hornet = 7,
-  AirFocce = 8,
-Desert = 9,
-  Shadow = 10,
+   AirFocce = 8,
+ Desert = 9,
+   Shadow = 10,
   HighAltitude = 11,
     Airbone = 12,
-Sunrise = 13,
+ Sunrise = 13,
 --]]
 function PLAYER.GET_PLAYER_PARACHUTE_TINT_INDEX(player, tintIndex)
   native.invoke(
     Type.Void, 4690, false,
     arg(Type.Player, player),
-    ref(Type.Int, tintIndex)
+    arg(Type.Int, tintIndex)
   )
 end
 
 -- void SET_PLAYER_RESERVE_PARACHUTE_TINT_INDEX(Player player, int index) // 0xAF04C87F5DC1DF38
 --[[
 Tints:
-  None = -1,
+   None = -1,
     Rainbow = 0,
   Red = 1,
   SeasideStripes = 2,
-  WidowMaker = 3,
-  Patriot = 4,
+   WidowMaker = 3,
+   Patriot = 4,
   Blue = 5,
-Black = 6,
+ Black = 6,
     Hornet = 7,
-  AirFocce = 8,
-Desert = 9,
-  Shadow = 10,
+   AirFocce = 8,
+ Desert = 9,
+   Shadow = 10,
   HighAltitude = 11,
     Airbone = 12,
-Sunrise = 13,
+ Sunrise = 13,
 --]]
 function PLAYER.SET_PLAYER_RESERVE_PARACHUTE_TINT_INDEX(player, index)
   native.invoke(
@@ -52914,23 +52914,23 @@ Tints:
     Rainbow = 0,
   Red = 1,
   SeasideStripes = 2,
-  WidowMaker = 3,
-  Patriot = 4,
+   WidowMaker = 3,
+   Patriot = 4,
   Blue = 5,
-Black = 6,
+ Black = 6,
     Hornet = 7,
-  AirFocce = 8,
-Desert = 9,
-  Shadow = 10,
+   AirFocce = 8,
+ Desert = 9,
+   Shadow = 10,
   HighAltitude = 11,
     Airbone = 12,
-Sunrise = 13,
+ Sunrise = 13,
 --]]
 function PLAYER.GET_PLAYER_RESERVE_PARACHUTE_TINT_INDEX(player, index)
   native.invoke(
     Type.Void, 4692, false,
     arg(Type.Player, player),
-    ref(Type.Int, index)
+    arg(Type.Int, index)
   )
 end
 
@@ -52956,7 +52956,7 @@ function PLAYER.GET_PLAYER_PARACHUTE_PACK_TINT_INDEX(player, tintIndex)
   native.invoke(
     Type.Void, 4694, false,
     arg(Type.Player, player),
-    ref(Type.Int, tintIndex)
+    arg(Type.Int, tintIndex)
   )
 end
 
@@ -53001,9 +53001,9 @@ function PLAYER.GET_PLAYER_PARACHUTE_SMOKE_TRAIL_COLOR(player, r, g, b)
   native.invoke(
     Type.Void, 4699, false,
     arg(Type.Player, player),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -53566,7 +53566,7 @@ p1 was always 0.
 function RECORDING.REPLAY_CHECK_FOR_EVENT_THIS_FRAME(missionNameLabel, p1)
   native.invoke(
     Type.Void, 4755, false,
-    ref(Type.String, missionNameLabel),
+    arg(Type.String, missionNameLabel),
     arg(Type.Any, p1)
   )
 end
@@ -53697,7 +53697,7 @@ Does nothing (it's a nullsub).
 function REPLAY.REGISTER_EFFECT_FOR_REPLAY_EDITOR(p0, p1)
   native.invoke(
     Type.Void, 4768, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Bool, p1)
   )
 end
@@ -53787,7 +53787,7 @@ function SAVEMIGRATION.SAVEMIGRATION_MP_GET_ACCOUNT(p0, p1)
   return native.invoke(
     Type.Bool, 4778, false,
     arg(Type.Int, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -53812,7 +53812,7 @@ SCRIPT = {}
 function SCRIPT.REQUEST_SCRIPT(scriptName)
   native.invoke(
     Type.Void, 4781, false,
-    ref(Type.String, scriptName)
+    arg(Type.String, scriptName)
   )
 end
 
@@ -53820,7 +53820,7 @@ end
 function SCRIPT.SET_SCRIPT_AS_NO_LONGER_NEEDED(scriptName)
   native.invoke(
     Type.Void, 4782, false,
-    ref(Type.String, scriptName)
+    arg(Type.String, scriptName)
   )
 end
 
@@ -53831,7 +53831,7 @@ Returns if a script has been loaded into the game. Used to see if a script was l
 function SCRIPT.HAS_SCRIPT_LOADED(scriptName)
   return native.invoke(
     Type.Bool, 4783, false,
-    ref(Type.String, scriptName)
+    arg(Type.String, scriptName)
   )
 end
 
@@ -53839,7 +53839,7 @@ end
 function SCRIPT.DOES_SCRIPT_EXIST(scriptName)
   return native.invoke(
     Type.Bool, 4784, false,
-    ref(Type.String, scriptName)
+    arg(Type.String, scriptName)
   )
 end
 
@@ -53897,7 +53897,7 @@ end
 -- const char* GET_NAME_OF_SCRIPT_WITH_THIS_ID(int threadId) // 0x05A42BA9FC8DA96B
 function SCRIPT.GET_NAME_OF_SCRIPT_WITH_THIS_ID(threadId)
   return native.invoke(
-    Type.String, 4791, false,
+    Type.Const char, 4791, false,
     arg(Type.Int, threadId)
   )
 end
@@ -53943,7 +53943,7 @@ Gets the number of instances of the specified script is currently running.
 
 Actually returns numRefs - 1.
 if (program)
-  v3 = rage::scrProgram::GetNumRefs(program) - 1;
+	v3 = rage::scrProgram::GetNumRefs(program) - 1;
 return v3;
 --]]
 function SCRIPT.GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(scriptHash)
@@ -53956,7 +53956,7 @@ end
 -- const char* GET_THIS_SCRIPT_NAME() // 0x442E0A7EDE4A738A
 function SCRIPT.GET_THIS_SCRIPT_NAME()
   return native.invoke(
-    Type.String, 4797, false
+    Type.Const char, 4797, false
   )
 end
 
@@ -54013,7 +54013,7 @@ function SCRIPT.GET_EVENT_DATA(eventGroup, eventIndex, eventData, eventDataSize)
     Type.Bool, 4802, false,
     arg(Type.Int, eventGroup),
     arg(Type.Int, eventIndex),
-    ref(Type.Any, eventData),
+    arg(Type.Any, eventData),
     arg(Type.Int, eventDataSize)
   )
 end
@@ -54030,7 +54030,7 @@ function SCRIPT.TRIGGER_SCRIPT_EVENT(eventGroup, eventData, eventDataSize, playe
   native.invoke(
     Type.Void, 4803, false,
     arg(Type.Int, eventGroup),
-    ref(Type.Any, eventData),
+    arg(Type.Any, eventData),
     arg(Type.Int, eventDataSize),
     arg(Type.Int, playerBits)
   )
@@ -54114,7 +54114,7 @@ Inserts the given context into the background scripts context map.
 function SCRIPT.BG_START_CONTEXT(contextName)
   native.invoke(
     Type.Void, 4812, false,
-    ref(Type.String, contextName)
+    arg(Type.String, contextName)
   )
 end
 
@@ -54125,7 +54125,7 @@ Deletes the given context from the background scripts context map.
 function SCRIPT.BG_END_CONTEXT(contextName)
   native.invoke(
     Type.Void, 4813, false,
-    ref(Type.String, contextName)
+    arg(Type.String, contextName)
   )
 end
 
@@ -54134,7 +54134,7 @@ function SCRIPT.BG_DOES_LAUNCH_PARAM_EXIST(scriptIndex, p1)
   return native.invoke(
     Type.Bool, 4814, false,
     arg(Type.Int, scriptIndex),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -54143,7 +54143,7 @@ function SCRIPT.BG_GET_LAUNCH_PARAM_VALUE(scriptIndex, p1)
   return native.invoke(
     Type.Int, 4815, false,
     arg(Type.Int, scriptIndex),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -54164,7 +54164,7 @@ function SCRIPT._SEND_TU_SCRIPT_EVENT_NEW(eventGroup, eventData, eventDataSize, 
   native.invoke(
     Type.Void, 4817, false,
     arg(Type.Int, eventGroup),
-    ref(Type.Any, eventData),
+    arg(Type.Any, eventData),
     arg(Type.Int, eventDataSize),
     arg(Type.Int, playerBits),
     arg(Type.Hash, eventType)
@@ -54181,7 +54181,7 @@ Registers a protected variable that will be checked for modifications by the ant
 function SECURITY.REGISTER_SCRIPT_VARIABLE(variable)
   native.invoke(
     Type.Void, 4818, false,
-    ref(Type.Any, variable)
+    arg(Type.Any, variable)
   )
 end
 
@@ -54189,7 +54189,7 @@ end
 function SECURITY.UNREGISTER_SCRIPT_VARIABLE(variable)
   native.invoke(
     Type.Void, 4819, false,
-    ref(Type.Any, variable)
+    arg(Type.Any, variable)
   )
 end
 
@@ -54341,8 +54341,8 @@ In its only usage in game scripts its called with flag set to 511, entity to pla
 function SHAPETEST.START_SHAPE_TEST_MOUSE_CURSOR_LOS_PROBE(pVec1, pVec2, flag, entity, flag2)
   return native.invoke(
     Type.Int, 4828, true,
-    ref(Type.Vector3, pVec1),
-    ref(Type.Vector3, pVec2),
+    arg(Type.Vector3, pVec1),
+    arg(Type.Vector3, pVec2),
     arg(Type.Int, flag),
     arg(Type.Entity, entity),
     arg(Type.Int, flag2)
@@ -54359,10 +54359,10 @@ function SHAPETEST.GET_SHAPE_TEST_RESULT(shapeTestHandle, hit, endCoords, surfac
   return native.invoke(
     Type.Int, 4829, true,
     arg(Type.Int, shapeTestHandle),
-    ref(Type.Bool, hit),
-    ref(Type.Vector3, endCoords),
-    ref(Type.Vector3, surfaceNormal),
-    ref(Type.Entity, entityHit)
+    arg(Type.Bool, hit),
+    arg(Type.Vector3, endCoords),
+    arg(Type.Vector3, surfaceNormal),
+    arg(Type.Entity, entityHit)
   )
 end
 
@@ -54378,11 +54378,11 @@ function SHAPETEST.GET_SHAPE_TEST_RESULT_INCLUDING_MATERIAL(shapeTestHandle, hit
   return native.invoke(
     Type.Int, 4830, true,
     arg(Type.Int, shapeTestHandle),
-    ref(Type.Bool, hit),
-    ref(Type.Vector3, endCoords),
-    ref(Type.Vector3, surfaceNormal),
-    ref(Type.Hash, materialHash),
-    ref(Type.Entity, entityHit)
+    arg(Type.Bool, hit),
+    arg(Type.Vector3, endCoords),
+    arg(Type.Vector3, surfaceNormal),
+    arg(Type.Hash, materialHash),
+    arg(Type.Entity, entityHit)
   )
 end
 
@@ -54436,8 +54436,8 @@ function SOCIALCLUB.SC_INBOX_MESSAGE_GET_DATA_INT(p0, context, out)
   return native.invoke(
     Type.Bool, 4836, false,
     arg(Type.Int, p0),
-    ref(Type.String, context),
-    ref(Type.Int, out)
+    arg(Type.String, context),
+    arg(Type.Int, out)
   )
 end
 
@@ -54446,7 +54446,7 @@ function SOCIALCLUB.SC_INBOX_MESSAGE_GET_DATA_BOOL(p0, p1)
   return native.invoke(
     Type.Bool, 4837, false,
     arg(Type.Int, p0),
-    ref(Type.String, p1)
+    arg(Type.String, p1)
   )
 end
 
@@ -54455,8 +54455,8 @@ function SOCIALCLUB.SC_INBOX_MESSAGE_GET_DATA_STRING(p0, context, out)
   return native.invoke(
     Type.Bool, 4838, false,
     arg(Type.Int, p0),
-    ref(Type.String, context),
-    ref(Type.Char, out)
+    arg(Type.String, context),
+    arg(Type.Char, out)
   )
 end
 
@@ -54471,7 +54471,7 @@ end
 -- const char* SC_INBOX_MESSAGE_GET_RAW_TYPE_AT_INDEX(int p0) // 0xF3E31D16CBDCB304
 function SOCIALCLUB.SC_INBOX_MESSAGE_GET_RAW_TYPE_AT_INDEX(p0)
   return native.invoke(
-    Type.String, 4840, false,
+    Type.Const char, 4840, false,
     arg(Type.Int, p0)
   )
 end
@@ -54480,7 +54480,7 @@ end
 function SOCIALCLUB.SC_INBOX_MESSAGE_PUSH_GAMER_T0_RECIP_LIST(gamerHandle)
   native.invoke(
     Type.Void, 4841, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -54488,7 +54488,7 @@ end
 function SOCIALCLUB.SC_INBOX_SEND_UGCSTATUPDATE_TO_RECIP_LIST(data)
   native.invoke(
     Type.Void, 4842, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -54497,7 +54497,7 @@ function SOCIALCLUB.SC_INBOX_MESSAGE_GET_UGCDATA(p0, p1)
   return native.invoke(
     Type.Bool, 4843, false,
     arg(Type.Int, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -54506,7 +54506,7 @@ function SOCIALCLUB.SC_INBOX_GET_BOUNTY_DATA_AT_INDEX(index, outData)
   return native.invoke(
     Type.Bool, 4844, false,
     arg(Type.Int, index),
-    ref(Type.Any, outData)
+    arg(Type.Any, outData)
   )
 end
 
@@ -54538,7 +54538,7 @@ function SOCIALCLUB.SC_EMAIL_GET_EMAIL_AT_INDEX(p0, p1)
   return native.invoke(
     Type.Bool, 4848, false,
     arg(Type.Int, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -54546,7 +54546,7 @@ end
 function SOCIALCLUB.SC_EMAIL_DELETE_EMAILS(p0, p1)
   native.invoke(
     Type.Void, 4849, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
 end
@@ -54555,7 +54555,7 @@ end
 function SOCIALCLUB.SC_EMAIL_MESSAGE_PUSH_GAMER_TO_RECIP_LIST(gamerHandle)
   native.invoke(
     Type.Void, 4850, false,
-    ref(Type.Any, gamerHandle)
+    arg(Type.Any, gamerHandle)
   )
 end
 
@@ -54570,7 +54570,7 @@ end
 function SOCIALCLUB.SC_EMAIL_SEND_EMAIL(p0)
   native.invoke(
     Type.Void, 4852, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -54600,7 +54600,7 @@ end
 -- const char* SC_GET_NEW_ROCKSTAR_MSG() // 0xDF649C4E9AFDD788
 function SOCIALCLUB.SC_GET_NEW_ROCKSTAR_MSG()
   return native.invoke(
-    Type.String, 4856, false
+    Type.Const char, 4856, false
   )
 end
 
@@ -54627,7 +54627,7 @@ function SOCIALCLUB.SC_PRESENCE_ATTR_SET_STRING(attrHash, value)
   return native.invoke(
     Type.Bool, 4859, false,
     arg(Type.Hash, attrHash),
-    ref(Type.String, value)
+    arg(Type.String, value)
   )
 end
 
@@ -54644,8 +54644,8 @@ end
 function SOCIALCLUB.SC_GAMERDATA_GET_INT(name, value)
   return native.invoke(
     Type.Bool, 4861, false,
-    ref(Type.String, name),
-    ref(Type.Int, value)
+    arg(Type.String, name),
+    arg(Type.Int, value)
   )
 end
 
@@ -54653,8 +54653,8 @@ end
 function SOCIALCLUB.SC_GAMERDATA_GET_FLOAT(name, value)
   return native.invoke(
     Type.Bool, 4862, false,
-    ref(Type.String, name),
-    ref(Type.Float, value)
+    arg(Type.String, name),
+    arg(Type.Float, value)
   )
 end
 
@@ -54662,7 +54662,7 @@ end
 function SOCIALCLUB.SC_GAMERDATA_GET_BOOL(name)
   return native.invoke(
     Type.Bool, 4863, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -54670,8 +54670,8 @@ end
 function SOCIALCLUB.SC_GAMERDATA_GET_STRING(name, value)
   return native.invoke(
     Type.Bool, 4864, false,
-    ref(Type.String, name),
-    ref(Type.Char, value)
+    arg(Type.String, name),
+    arg(Type.Char, value)
   )
 end
 
@@ -54679,7 +54679,7 @@ end
 function SOCIALCLUB.SC_GAMERDATA_GET_ACTIVE_XP_BONUS(value)
   return native.invoke(
     Type.Bool, 4865, false,
-    ref(Type.Float, value)
+    arg(Type.Float, value)
   )
 end
 
@@ -54692,8 +54692,8 @@ See also: 1753344C770358AE, 82E4A58BABC15AE7.
 function SOCIALCLUB.SC_PROFANITY_CHECK_STRING(string, token)
   return native.invoke(
     Type.Bool, 4866, false,
-    ref(Type.String, string),
-    ref(Type.Int, token)
+    arg(Type.String, string),
+    arg(Type.Int, token)
   )
 end
 
@@ -54701,8 +54701,8 @@ end
 function SOCIALCLUB.SC_PROFANITY_CHECK_STRING_UGC(string, token)
   return native.invoke(
     Type.Bool, 4867, false,
-    ref(Type.String, string),
-    ref(Type.Int, token)
+    arg(Type.String, string),
+    arg(Type.Int, token)
   )
 end
 
@@ -54742,8 +54742,8 @@ end
 function SOCIALCLUB.SC_LICENSEPLATE_CHECK_STRING(p0, p1)
   return native.invoke(
     Type.Bool, 4872, false,
-    ref(Type.String, p0),
-    ref(Type.Int, p1)
+    arg(Type.String, p0),
+    arg(Type.Int, p1)
   )
 end
 
@@ -54774,7 +54774,7 @@ end
 -- const char* SC_LICENSEPLATE_GET_PLATE(int token, int plateIndex) // 0x1D4446A62D35B0D0
 function SOCIALCLUB.SC_LICENSEPLATE_GET_PLATE(token, plateIndex)
   return native.invoke(
-    Type.String, 4876, false,
+    Type.Const char, 4876, false,
     arg(Type.Int, token),
     arg(Type.Int, plateIndex)
   )
@@ -54783,7 +54783,7 @@ end
 -- const char* SC_LICENSEPLATE_GET_PLATE_DATA(int token, int plateIndex) // 0x2E89990DDFF670C3
 function SOCIALCLUB.SC_LICENSEPLATE_GET_PLATE_DATA(token, plateIndex)
   return native.invoke(
-    Type.String, 4877, false,
+    Type.Const char, 4877, false,
     arg(Type.Int, token),
     arg(Type.Int, plateIndex)
   )
@@ -54793,9 +54793,9 @@ end
 function SOCIALCLUB.SC_LICENSEPLATE_SET_PLATE_DATA(oldPlateText, newPlateText, plateData)
   return native.invoke(
     Type.Bool, 4878, false,
-    ref(Type.String, oldPlateText),
-    ref(Type.String, newPlateText),
-    ref(Type.Any, plateData)
+    arg(Type.String, oldPlateText),
+    arg(Type.String, newPlateText),
+    arg(Type.Any, plateData)
   )
 end
 
@@ -54803,9 +54803,9 @@ end
 function SOCIALCLUB.SC_LICENSEPLATE_ADD(plateText, plateData, token)
   return native.invoke(
     Type.Bool, 4879, false,
-    ref(Type.String, plateText),
-    ref(Type.Any, plateData),
-    ref(Type.Int, token)
+    arg(Type.String, plateText),
+    arg(Type.Any, plateData),
+    arg(Type.Int, token)
   )
 end
 
@@ -54829,8 +54829,8 @@ end
 function SOCIALCLUB.SC_LICENSEPLATE_ISVALID(plateText, token)
   return native.invoke(
     Type.Bool, 4882, false,
-    ref(Type.String, plateText),
-    ref(Type.Int, token)
+    arg(Type.String, plateText),
+    arg(Type.Int, token)
   )
 end
 
@@ -54868,8 +54868,8 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_INT(p0, p1)
   return native.invoke(
     Type.Bool, 4887, false,
-    ref(Type.String, p0),
-    ref(Type.Int, p1)
+    arg(Type.String, p0),
+    arg(Type.Int, p1)
   )
 end
 
@@ -54877,8 +54877,8 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_FLOAT(p0, p1)
   return native.invoke(
     Type.Bool, 4888, false,
-    ref(Type.String, p0),
-    ref(Type.Float, p1)
+    arg(Type.String, p0),
+    arg(Type.Float, p1)
   )
 end
 
@@ -54886,8 +54886,8 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_STRING(p0, p1)
   return native.invoke(
     Type.Bool, 4889, false,
-    ref(Type.String, p0),
-    ref(Type.Char, p1)
+    arg(Type.String, p0),
+    arg(Type.Char, p1)
   )
 end
 
@@ -54895,7 +54895,7 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_DISPLAY_NAME(p0)
   return native.invoke(
     Type.Bool, 4890, false,
-    ref(Type.Char, p0)
+    arg(Type.Char, p0)
   )
 end
 
@@ -54903,7 +54903,7 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_IS_ACTIVE_FOR_TYPE(p0)
   return native.invoke(
     Type.Bool, 4891, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -54911,7 +54911,7 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EVENT_ID_FOR_TYPE(p0)
   return native.invoke(
     Type.Int, 4892, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -54919,9 +54919,9 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_INT_FOR_TYPE(p0, p1, p2)
   return native.invoke(
     Type.Bool, 4893, false,
-    ref(Type.String, p0),
-    ref(Type.Int, p1),
-    ref(Type.String, p2)
+    arg(Type.String, p0),
+    arg(Type.Int, p1),
+    arg(Type.String, p2)
   )
 end
 
@@ -54929,9 +54929,9 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_FLOAT_FOR_TYPE(p0, p1, p2)
   return native.invoke(
     Type.Bool, 4894, false,
-    ref(Type.String, p0),
-    ref(Type.Float, p1),
-    ref(Type.String, p2)
+    arg(Type.String, p0),
+    arg(Type.Float, p1),
+    arg(Type.String, p2)
   )
 end
 
@@ -54939,9 +54939,9 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_STRING_FOR_TYPE(p0, p1, p2)
   return native.invoke(
     Type.Bool, 4895, false,
-    ref(Type.String, p0),
-    ref(Type.Char, p1),
-    ref(Type.String, p2)
+    arg(Type.String, p0),
+    arg(Type.Char, p1),
+    arg(Type.String, p2)
   )
 end
 
@@ -54949,8 +54949,8 @@ end
 function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_DISPLAY_NAME_FOR_TYPE(p0, p1)
   return native.invoke(
     Type.Bool, 4896, false,
-    ref(Type.Char, p0),
-    ref(Type.String, p1)
+    arg(Type.Char, p0),
+    arg(Type.String, p1)
   )
 end
 
@@ -54967,8 +54967,8 @@ function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_INT_BY_ID(p0, p1, p2)
   return native.invoke(
     Type.Bool, 4898, false,
     arg(Type.Int, p0),
-    ref(Type.String, p1),
-    ref(Type.Int, p2)
+    arg(Type.String, p1),
+    arg(Type.Int, p2)
   )
 end
 
@@ -54977,8 +54977,8 @@ function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_FLOAT_BY_ID(p0, p1, p2)
   return native.invoke(
     Type.Bool, 4899, false,
     arg(Type.Int, p0),
-    ref(Type.String, p1),
-    ref(Type.Float, p2)
+    arg(Type.String, p1),
+    arg(Type.Float, p2)
   )
 end
 
@@ -54987,8 +54987,8 @@ function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_EXTRA_DATA_STRING_BY_ID(p0, p1, p2)
   return native.invoke(
     Type.Bool, 4900, false,
     arg(Type.Int, p0),
-    ref(Type.String, p1),
-    ref(Type.Char, p2)
+    arg(Type.String, p1),
+    arg(Type.Char, p2)
   )
 end
 
@@ -54997,7 +54997,7 @@ function SOCIALCLUB.SC_COMMUNITY_EVENT_GET_DISPLAY_NAME_BY_ID(p0, p1)
   return native.invoke(
     Type.Bool, 4901, false,
     arg(Type.Int, p0),
-    ref(Type.Char, p1)
+    arg(Type.Char, p1)
   )
 end
 
@@ -55036,8 +55036,8 @@ end
 function SOCIALCLUB.SC_TRANSITION_NEWS_GET_EXTRA_DATA_INT_TU(p0, p1)
   return native.invoke(
     Type.Bool, 4906, false,
-    ref(Type.String, p0),
-    ref(Type.Int, p1)
+    arg(Type.String, p0),
+    arg(Type.Int, p1)
   )
 end
 
@@ -55080,7 +55080,7 @@ Returns the nickname of the logged-in Rockstar Social Club account.
 --]]
 function SOCIALCLUB.SC_ACCOUNT_INFO_GET_NICKNAME()
   return native.invoke(
-    Type.String, 4911, false
+    Type.Const char, 4911, false
   )
 end
 
@@ -55088,7 +55088,7 @@ end
 function SOCIALCLUB.SC_ACHIEVEMENT_INFO_STATUS(p0)
   return native.invoke(
     Type.Bool, 4912, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -55273,7 +55273,7 @@ end
 -- BOOL STAT_SET_INT(Hash statName, int value, BOOL save) // 0xB3271D7AB655B441
 --[[
 Example:
-STATS::STAT_SET_INT(MISC::GET_HASH_KEY("MPPLY_KILLS_PLAYERS"), 1337, true);
+ STATS::STAT_SET_INT(MISC::GET_HASH_KEY("MPPLY_KILLS_PLAYERS"), 1337, true);
 --]]
 function STATS.STAT_SET_INT(statName, value, save)
   return native.invoke(
@@ -55287,7 +55287,7 @@ end
 -- BOOL STAT_SET_FLOAT(Hash statName, float value, BOOL save) // 0x4851997F37FE9B3C
 --[[
 Example:
-STATS::STAT_SET_FLOAT(MISC::GET_HASH_KEY("MP0_WEAPON_ACCURACY"), 66.6f, true);
+ STATS::STAT_SET_FLOAT(MISC::GET_HASH_KEY("MP0_WEAPON_ACCURACY"), 66.6f, true);
 --]]
 function STATS.STAT_SET_FLOAT(statName, value, save)
   return native.invoke(
@@ -55301,7 +55301,7 @@ end
 -- BOOL STAT_SET_BOOL(Hash statName, BOOL value, BOOL save) // 0x4B33C4243DE0C432
 --[[
 Example:
-STATS::STAT_SET_BOOL(MISC::GET_HASH_KEY("MPPLY_MELEECHLENGECOMPLETED"), trur, true);
+ STATS::STAT_SET_BOOL(MISC::GET_HASH_KEY("MPPLY_MELEECHLENGECOMPLETED"), trur, true);
 --]]
 function STATS.STAT_SET_BOOL(statName, value, save)
   return native.invoke(
@@ -55383,7 +55383,7 @@ function STATS.STAT_SET_GXT_LABEL(statName, value, save)
   return native.invoke(
     Type.Bool, 4936, false,
     arg(Type.Hash, statName),
-    ref(Type.String, value),
+    arg(Type.String, value),
     arg(Type.Bool, save)
   )
 end
@@ -55408,7 +55408,7 @@ function STATS.STAT_SET_DATE(statName, value, numFields, save)
   return native.invoke(
     Type.Bool, 4937, false,
     arg(Type.Hash, statName),
-    ref(Type.Any, value),
+    arg(Type.Any, value),
     arg(Type.Int, numFields),
     arg(Type.Bool, save)
   )
@@ -55419,7 +55419,7 @@ function STATS.STAT_SET_STRING(statName, value, save)
   return native.invoke(
     Type.Bool, 4938, false,
     arg(Type.Hash, statName),
-    ref(Type.String, value),
+    arg(Type.String, value),
     arg(Type.Bool, save)
   )
 end
@@ -55453,7 +55453,7 @@ function STATS.STAT_SET_USER_ID(statName, value, save)
   return native.invoke(
     Type.Bool, 4941, false,
     arg(Type.Hash, statName),
-    ref(Type.String, value),
+    arg(Type.String, value),
     arg(Type.Bool, save)
   )
 end
@@ -55479,7 +55479,7 @@ function STATS.STAT_GET_INT(statHash, outValue, p2)
   return native.invoke(
     Type.Bool, 4943, false,
     arg(Type.Hash, statHash),
-    ref(Type.Int, outValue),
+    arg(Type.Int, outValue),
     arg(Type.Int, p2)
   )
 end
@@ -55489,7 +55489,7 @@ function STATS.STAT_GET_FLOAT(statHash, outValue, p2)
   return native.invoke(
     Type.Bool, 4944, false,
     arg(Type.Hash, statHash),
-    ref(Type.Float, outValue),
+    arg(Type.Float, outValue),
     arg(Type.Any, p2)
   )
 end
@@ -55499,7 +55499,7 @@ function STATS.STAT_GET_BOOL(statHash, outValue, p2)
   return native.invoke(
     Type.Bool, 4945, false,
     arg(Type.Hash, statHash),
-    ref(Type.Bool, outValue),
+    arg(Type.Bool, outValue),
     arg(Type.Any, p2)
   )
 end
@@ -55512,7 +55512,7 @@ function STATS.STAT_GET_DATE(statHash, outValue, numFields, p3)
   return native.invoke(
     Type.Bool, 4946, false,
     arg(Type.Hash, statHash),
-    ref(Type.Any, outValue),
+    arg(Type.Any, outValue),
     arg(Type.Int, numFields),
     arg(Type.Any, p3)
   )
@@ -55524,7 +55524,7 @@ p1 is always -1 in the script files
 --]]
 function STATS.STAT_GET_STRING(statHash, p1)
   return native.invoke(
-    Type.String, 4947, false,
+    Type.Const char, 4947, false,
     arg(Type.Hash, statHash),
     arg(Type.Int, p1)
   )
@@ -55538,9 +55538,9 @@ function STATS.STAT_GET_POS(statName, outX, outY, outZ, p4)
   return native.invoke(
     Type.Bool, 4948, false,
     arg(Type.Hash, statName),
-    ref(Type.Float, outX),
-    ref(Type.Float, outY),
-    ref(Type.Float, outZ),
+    arg(Type.Float, outX),
+    arg(Type.Float, outY),
+    arg(Type.Float, outZ),
     arg(Type.Any, p4)
   )
 end
@@ -55553,7 +55553,7 @@ function STATS.STAT_GET_MASKED_INT(statHash, outValue, p2, p3, p4)
   return native.invoke(
     Type.Bool, 4949, false,
     arg(Type.Hash, statHash),
-    ref(Type.Int, outValue),
+    arg(Type.Int, outValue),
     arg(Type.Int, p2),
     arg(Type.Int, p3),
     arg(Type.Any, p4)
@@ -55566,7 +55566,7 @@ Returns the rockstar ID (user id) value of a given stat. Returns "STAT_UNKNOWN" 
 --]]
 function STATS.STAT_GET_USER_ID(statHash)
   return native.invoke(
-    Type.String, 4950, false,
+    Type.Const char, 4950, false,
     arg(Type.Hash, statHash)
   )
 end
@@ -55574,7 +55574,7 @@ end
 -- const char* STAT_GET_LICENSE_PLATE(Hash statName) // 0x5473D4195058B2E4
 function STATS.STAT_GET_LICENSE_PLATE(statName)
   return native.invoke(
-    Type.String, 4951, false,
+    Type.Const char, 4951, false,
     arg(Type.Hash, statName)
   )
 end
@@ -55584,7 +55584,7 @@ function STATS.STAT_SET_LICENSE_PLATE(statName, str)
   return native.invoke(
     Type.Bool, 4952, false,
     arg(Type.Hash, statName),
-    ref(Type.String, str)
+    arg(Type.String, str)
   )
 end
 
@@ -55617,7 +55617,7 @@ function STATS.STAT_COMMUNITY_GET_HISTORY(statName, p1, outValue)
     Type.Bool, 4956, false,
     arg(Type.Hash, statName),
     arg(Type.Int, p1),
-    ref(Type.Float, outValue)
+    arg(Type.Float, outValue)
   )
 end
 
@@ -55762,7 +55762,7 @@ function STATS.GET_PACKED_NG_INT_STAT_KEY(index, spStat, charStat, character, se
     arg(Type.Bool, spStat),
     arg(Type.Bool, charStat),
     arg(Type.Int, character),
-    ref(Type.String, section)
+    arg(Type.String, section)
   )
 end
 
@@ -55808,7 +55808,7 @@ end
 function STATS.PLAYSTATS_BACKGROUND_SCRIPT_ACTION(action, value)
   native.invoke(
     Type.Void, 4973, false,
-    ref(Type.String, action),
+    arg(Type.String, action),
     arg(Type.Int, value)
   )
 end
@@ -55824,7 +55824,7 @@ function STATS._PLAYSTATS_FLOW_LOW(posX, posY, posZ, p3, p4, amount)
     arg(Type.Float, posX),
     arg(Type.Float, posY),
     arg(Type.Float, posZ),
-    ref(Type.String, p3),
+    arg(Type.String, p3),
     arg(Type.Any, p4),
     arg(Type.Int, amount)
   )
@@ -55840,7 +55840,7 @@ function STATS._PLAYSTATS_FLOW_MEDIUM(x, y, z, interiorAction, p4, p5)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.String, interiorAction),
+    arg(Type.String, interiorAction),
     arg(Type.Int, p4),
     arg(Type.Hash, p5)
   )
@@ -55850,7 +55850,7 @@ end
 function STATS.PLAYSTATS_NPC_INVITE(p0)
   native.invoke(
     Type.Void, 4976, false,
-    ref(Type.String, p0)
+    arg(Type.String, p0)
   )
 end
 
@@ -55905,7 +55905,7 @@ end
 function STATS.PLAYSTATS_MISSION_STARTED(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 4982, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Bool, p3)
@@ -55916,7 +55916,7 @@ end
 function STATS.PLAYSTATS_MISSION_OVER(p0, p1, p2, p3, p4, p5)
   native.invoke(
     Type.Void, 4983, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Bool, p3),
@@ -55929,7 +55929,7 @@ end
 function STATS.PLAYSTATS_MISSION_CHECKPOINT(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 4984, false,
-    ref(Type.String, p0),
+    arg(Type.String, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Any, p3)
@@ -55940,7 +55940,7 @@ end
 function STATS.PLAYSTATS_RANDOM_MISSION_DONE(name, p1, p2, p3)
   native.invoke(
     Type.Void, 4985, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Any, p3)
@@ -55974,8 +55974,8 @@ end
 function STATS.PLAYSTATS_CREATE_MATCH_HISTORY_ID_2(playerAccountId, posixTime)
   return native.invoke(
     Type.Bool, 4988, false,
-    ref(Type.Int, playerAccountId),
-    ref(Type.Int, posixTime)
+    arg(Type.Int, playerAccountId),
+    arg(Type.Int, posixTime)
   )
 end
 
@@ -56138,7 +56138,7 @@ end
 function STATS.PLAYSTATS_CHEAT_APPLIED(cheat)
   native.invoke(
     Type.Void, 5003, false,
-    ref(Type.String, cheat)
+    arg(Type.String, cheat)
   )
 end
 
@@ -56146,10 +56146,10 @@ end
 function STATS.PLAYSTATS_JOB_ACTIVITY_END(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 5004, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -56157,10 +56157,10 @@ end
 function STATS.PLAYSTATS_JOB_BEND(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 5005, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -56168,10 +56168,10 @@ end
 function STATS.PLAYSTATS_JOB_LTS_END(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 5006, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -56179,10 +56179,10 @@ end
 function STATS.PLAYSTATS_JOB_LTS_ROUND_END(p0, p1, p2, p3)
   native.invoke(
     Type.Void, 5007, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2),
-    ref(Type.Any, p3)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
+    arg(Type.Any, p2),
+    arg(Type.Any, p3)
   )
 end
 
@@ -56191,7 +56191,7 @@ function STATS.PLAYSTATS_QUICKFIX_TOOL(element, item)
   native.invoke(
     Type.Void, 5008, false,
     arg(Type.Int, element),
-    ref(Type.String, item)
+    arg(Type.String, item)
   )
 end
 
@@ -56224,7 +56224,7 @@ end
 function STATS.PLAYSTATS_APPEND_DIRECTOR_METRIC(p0)
   native.invoke(
     Type.Void, 5012, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -56363,7 +56363,7 @@ end
 function STATS.PLAYSTATS_PIMENU_HIDE_OPTIONS(data)
   native.invoke(
     Type.Void, 5029, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -56444,8 +56444,8 @@ end
 function STATS.LEADERBOARDS2_READ_FRIENDS_BY_ROW(p0, p1, p2, p3, p4, p5)
   return native.invoke(
     Type.Bool, 5038, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Bool, p3),
     arg(Type.Any, p4),
@@ -56457,8 +56457,8 @@ end
 function STATS.LEADERBOARDS2_READ_BY_HANDLE(p0, p1)
   return native.invoke(
     Type.Bool, 5039, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1)
   )
 end
 
@@ -56466,7 +56466,7 @@ end
 function STATS.LEADERBOARDS2_READ_BY_RANK(p0, p1, p2)
   return native.invoke(
     Type.Bool, 5040, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2)
   )
@@ -56476,9 +56476,9 @@ end
 function STATS.LEADERBOARDS2_READ_BY_RADIUS(p0, p1, p2)
   return native.invoke(
     Type.Bool, 5041, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.Any, p2)
+    arg(Type.Any, p2)
   )
 end
 
@@ -56486,7 +56486,7 @@ end
 function STATS.LEADERBOARDS2_READ_BY_SCORE_INT(p0, p1, p2)
   return native.invoke(
     Type.Bool, 5042, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Any, p1),
     arg(Type.Any, p2)
   )
@@ -56496,7 +56496,7 @@ end
 function STATS.LEADERBOARDS2_READ_BY_SCORE_FLOAT(p0, p1, p2)
   return native.invoke(
     Type.Bool, 5043, false,
-    ref(Type.Any, p0),
+    arg(Type.Any, p0),
     arg(Type.Float, p1),
     arg(Type.Any, p2)
   )
@@ -56506,9 +56506,9 @@ end
 function STATS.LEADERBOARDS2_READ_RANK_PREDICTION(p0, p1, p2)
   return native.invoke(
     Type.Bool, 5044, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1),
-    ref(Type.Any, p2)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1),
+    arg(Type.Any, p2)
   )
 end
 
@@ -56516,9 +56516,9 @@ end
 function STATS.LEADERBOARDS2_READ_BY_PLAFORM(p0, gamerHandleCsv, platformName)
   return native.invoke(
     Type.Bool, 5045, false,
-    ref(Type.Any, p0),
-    ref(Type.String, gamerHandleCsv),
-    ref(Type.String, platformName)
+    arg(Type.Any, p0),
+    arg(Type.String, gamerHandleCsv),
+    arg(Type.String, platformName)
   )
 end
 
@@ -56526,7 +56526,7 @@ end
 function STATS.LEADERBOARDS2_READ_GET_ROW_DATA_START(p0)
   return native.invoke(
     Type.Bool, 5046, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -56542,7 +56542,7 @@ function STATS.LEADERBOARDS2_READ_GET_ROW_DATA_INFO(p0, p1)
   return native.invoke(
     Type.Bool, 5048, false,
     arg(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -56568,7 +56568,7 @@ end
 function STATS.LEADERBOARDS2_WRITE_DATA(p0)
   return native.invoke(
     Type.Bool, 5051, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -56596,7 +56596,7 @@ end
 function STATS.LEADERBOARDS_CACHE_DATA_ROW(p0)
   return native.invoke(
     Type.Bool, 5054, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -56645,7 +56645,7 @@ function STATS.LEADERBOARDS_GET_CACHE_DATA_ROW(p0, p1, p2)
     Type.Bool, 5060, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1),
-    ref(Type.Any, p2)
+    arg(Type.Any, p2)
   )
 end
 
@@ -56676,7 +56676,7 @@ function STATS.PRESENCE_EVENT_UPDATESTAT_INT_WITH_STRING(statHash, value, p2, st
     arg(Type.Hash, statHash),
     arg(Type.Int, value),
     arg(Type.Int, p2),
-    ref(Type.String, string)
+    arg(Type.String, string)
   )
 end
 
@@ -56794,8 +56794,8 @@ end
 function STATS.LEADERBOARDS2_WRITE_DATA_FOR_EVENT_TYPE(p0, p1)
   return native.invoke(
     Type.Bool, 5076, false,
-    ref(Type.Any, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p0),
+    arg(Type.Any, p1)
   )
 end
 
@@ -56820,7 +56820,7 @@ platformName must be one of the following: ps3, xbox360, ps4, xboxone
 function STATS.STAT_MIGRATE_SAVEGAME_START(platformName)
   return native.invoke(
     Type.Bool, 5079, false,
-    ref(Type.String, platformName)
+    arg(Type.String, platformName)
   )
 end
 
@@ -56858,7 +56858,7 @@ function STATS.STAT_MIGRATE_CHECK_GET_PLATFORM_STATUS(p0, p1)
   return native.invoke(
     Type.Int, 5084, false,
     arg(Type.Int, p0),
-    ref(Type.Any, p1)
+    arg(Type.Any, p1)
   )
 end
 
@@ -56866,7 +56866,7 @@ end
 function STATS.STAT_GET_SAVE_MIGRATION_STATUS(data)
   return native.invoke(
     Type.Int, 5085, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -56889,8 +56889,8 @@ function STATS.STAT_SAVE_MIGRATION_CONSUME_CONTENT(contentId, srcPlatform, srcGa
   return native.invoke(
     Type.Bool, 5088, false,
     arg(Type.Hash, contentId),
-    ref(Type.String, srcPlatform),
-    ref(Type.String, srcGamerHandle)
+    arg(Type.String, srcPlatform),
+    arg(Type.String, srcGamerHandle)
   )
 end
 
@@ -56898,7 +56898,7 @@ end
 function STATS.STAT_GET_SAVE_MIGRATION_CONSUME_CONTENT_STATUS(p0)
   return native.invoke(
     Type.Int, 5089, false,
-    ref(Type.Int, p0)
+    arg(Type.Int, p0)
   )
 end
 
@@ -56930,44 +56930,44 @@ end
 --[[
 enum StatTrackingType
 {
-  LongestWheelie = 1,
-  LongestStoppie = 2,
-  NoCrashes = 3,
-  HighestSpeed = 4,
-  _MostFlips = 5,
-  _LongestSpin = 6,
-  _HighestJumpReached = 7,
-  LongestJump = 8,
-  _NearMissesNoCrash = 9,
-  LongestFallSurvived = 10,
-  LowestParachute = 11,
-  ReverseDriving = 12,
-  LongestFreefall = 13,
-  VehiclesStolen = 14,
-  _SomeCFireEventCount = 15,
-  _Unk16 = 16,
-  _LowFlyingTime = 17,
-  LowFlying = 18,
-  _InvertedFlyingTime = 19,
-  InvertedFlying = 20,
-  _PlaneSpinCount = 21,
-  MeleeKills = 22, // Players
-  _LongestSniperKill = 23,
-  SniperSkills = 24, // Players
-  DrivebyKills = 25, // Players
-  HeadshotKills = 26, // Players
-  LongestBail = 27,
-  _TotalRammedByCar = 28,
-  NearMissesPrecise = 29,
-  _FreefallTime = 30,
-  Unk31 = 31,
+	LongestWheelie = 1,
+	LongestStoppie = 2,
+	NoCrashes = 3,
+	HighestSpeed = 4,
+	_MostFlips = 5,
+	_LongestSpin = 6,
+	_HighestJumpReached = 7,
+	LongestJump = 8,
+	_NearMissesNoCrash = 9,
+	LongestFallSurvived = 10,
+	LowestParachute = 11,
+	ReverseDriving = 12,
+	LongestFreefall = 13,
+	VehiclesStolen = 14,
+	_SomeCFireEventCount = 15,
+	_Unk16 = 16,
+	_LowFlyingTime = 17,
+	LowFlying = 18,
+	_InvertedFlyingTime = 19,
+	InvertedFlying = 20,
+	_PlaneSpinCount = 21,
+	MeleeKills = 22, // Players
+	_LongestSniperKill = 23,
+	SniperSkills = 24, // Players
+	DrivebyKills = 25, // Players
+	HeadshotKills = 26, // Players
+	LongestBail = 27,
+	_TotalRammedByCar = 28,
+	NearMissesPrecise = 29,
+	_FreefallTime = 30,
+	Unk31 = 31,
 }
 
 enum StatTrackingValueType
 {
-  Total,
-  Max,
-  Min
+	Total,
+	Max,
+	Min
 }
 --]]
 function STATS.STAT_START_RECORD_STAT(statType, valueType)
@@ -56989,7 +56989,7 @@ end
 function STATS.STAT_GET_RECORDED_VALUE(value)
   return native.invoke(
     Type.Bool, 5095, false,
-    ref(Type.Float, value)
+    arg(Type.Float, value)
   )
 end
 
@@ -57094,7 +57094,7 @@ end
 function STATS.STAT_GET_FLYING_ALTITUDE(outValue)
   return native.invoke(
     Type.Bool, 5106, false,
-    ref(Type.Float, outValue)
+    arg(Type.Float, outValue)
   )
 end
 
@@ -57308,7 +57308,7 @@ end
 function STATS.PLAYSTATS_BUY_CONTRABAND_MISSION(data)
   native.invoke(
     Type.Void, 5131, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57316,7 +57316,7 @@ end
 function STATS.PLAYSTATS_SELL_CONTRABAND_MISSION(data)
   native.invoke(
     Type.Void, 5132, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57324,7 +57324,7 @@ end
 function STATS.PLAYSTATS_DEFEND_CONTRABAND_MISSION(data)
   native.invoke(
     Type.Void, 5133, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57332,7 +57332,7 @@ end
 function STATS.PLAYSTATS_RECOVER_CONTRABAND_MISSION(data)
   native.invoke(
     Type.Void, 5134, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57636,7 +57636,7 @@ end
 function STATS.PLAYSTATS_DUPE_DETECTED(data)
   native.invoke(
     Type.Void, 5162, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57652,7 +57652,7 @@ end
 function STATS.PLAYSTATS_GUNRUNNING_MISSION_ENDED(data)
   native.invoke(
     Type.Void, 5164, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57711,7 +57711,7 @@ end
 function STATS.PLAYSTATS_STONE_HATCHET_ENDED(data)
   native.invoke(
     Type.Void, 5171, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57719,7 +57719,7 @@ end
 function STATS.PLAYSTATS_SMUGGLER_MISSION_ENDED(data)
   native.invoke(
     Type.Void, 5172, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57727,7 +57727,7 @@ end
 function STATS.PLAYSTATS_FM_HEIST_PREP_ENDED(data)
   native.invoke(
     Type.Void, 5173, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57735,7 +57735,7 @@ end
 function STATS.PLAYSTATS_INSTANCED_HEIST_ENDED(data, p1, p2, p3)
   native.invoke(
     Type.Void, 5174, false,
-    ref(Type.Any, data),
+    arg(Type.Any, data),
     arg(Type.Any, p1),
     arg(Type.Any, p2),
     arg(Type.Any, p3)
@@ -57746,7 +57746,7 @@ end
 function STATS.PLAYSTATS_DAR_CHECKPOINT(data)
   native.invoke(
     Type.Void, 5175, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57754,7 +57754,7 @@ end
 function STATS.PLAYSTATS_ENTER_SESSION_PACK(data)
   native.invoke(
     Type.Void, 5176, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57795,7 +57795,7 @@ end
 function STATS.PLAYSTATS_ARENA_WARS_ENDED(data)
   native.invoke(
     Type.Void, 5180, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57960,7 +57960,7 @@ end
 function STATS.PLAYSTATS_FREEMODE_CASINO_MISSION_ENDED(data)
   native.invoke(
     Type.Void, 5198, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -57989,7 +57989,7 @@ end
 function STATS.PLAYSTATS_NPC_PHONE(p0)
   native.invoke(
     Type.Void, 5201, false,
-    ref(Type.Any, p0)
+    arg(Type.Any, p0)
   )
 end
 
@@ -58292,7 +58292,7 @@ end
 function STATS._PLAYSTATS_ALERT(data)
   native.invoke(
     Type.Void, 5234, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -58321,7 +58321,7 @@ Data struct contains various tunables related to test drives at Simeons Showroom
 function STATS._PLAYSTATS_SHOWROOM_OVERVIEW(data)
   native.invoke(
     Type.Void, 5237, false,
-    ref(Type.Any, data)
+    arg(Type.Any, data)
   )
 end
 
@@ -58412,7 +58412,7 @@ function STREAMING.REQUEST_MODELS_IN_ROOM(interior, roomName)
   native.invoke(
     Type.Void, 5246, false,
     arg(Type.Interior, interior),
-    ref(Type.String, roomName)
+    arg(Type.String, roomName)
   )
 end
 
@@ -58514,7 +58514,7 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function STREAMING.DOES_ANIM_DICT_EXIST(animDict)
   return native.invoke(
     Type.Bool, 5256, false,
-    ref(Type.String, animDict)
+    arg(Type.String, animDict)
   )
 end
 
@@ -58525,7 +58525,7 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function STREAMING.REQUEST_ANIM_DICT(animDict)
   native.invoke(
     Type.Void, 5257, false,
-    ref(Type.String, animDict)
+    arg(Type.String, animDict)
   )
 end
 
@@ -58536,7 +58536,7 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function STREAMING.HAS_ANIM_DICT_LOADED(animDict)
   return native.invoke(
     Type.Bool, 5258, false,
-    ref(Type.String, animDict)
+    arg(Type.String, animDict)
   )
 end
 
@@ -58547,7 +58547,7 @@ Full list of animation dictionaries and anims by DurtyFree: https://github.com/D
 function STREAMING.REMOVE_ANIM_DICT(animDict)
   native.invoke(
     Type.Void, 5259, false,
-    ref(Type.String, animDict)
+    arg(Type.String, animDict)
   )
 end
 
@@ -58562,7 +58562,7 @@ Full list of movement clipsets by DurtyFree: https://github.com/DurtyFree/gta-v-
 function STREAMING.REQUEST_ANIM_SET(animSet)
   native.invoke(
     Type.Void, 5260, false,
-    ref(Type.String, animSet)
+    arg(Type.String, animSet)
   )
 end
 
@@ -58579,7 +58579,7 @@ Full list of movement clipsets by DurtyFree: https://github.com/DurtyFree/gta-v-
 function STREAMING.HAS_ANIM_SET_LOADED(animSet)
   return native.invoke(
     Type.Bool, 5261, false,
-    ref(Type.String, animSet)
+    arg(Type.String, animSet)
   )
 end
 
@@ -58596,7 +58596,7 @@ Full list of movement clipsets by DurtyFree: https://github.com/DurtyFree/gta-v-
 function STREAMING.REMOVE_ANIM_SET(animSet)
   native.invoke(
     Type.Void, 5262, false,
-    ref(Type.String, animSet)
+    arg(Type.String, animSet)
   )
 end
 
@@ -58609,7 +58609,7 @@ Full list of movement clipsets by DurtyFree: https://github.com/DurtyFree/gta-v-
 function STREAMING.REQUEST_CLIP_SET(clipSet)
   native.invoke(
     Type.Void, 5263, false,
-    ref(Type.String, clipSet)
+    arg(Type.String, clipSet)
   )
 end
 
@@ -58624,7 +58624,7 @@ Full list of movement clipsets by DurtyFree: https://github.com/DurtyFree/gta-v-
 function STREAMING.HAS_CLIP_SET_LOADED(clipSet)
   return native.invoke(
     Type.Bool, 5264, false,
-    ref(Type.String, clipSet)
+    arg(Type.String, clipSet)
   )
 end
 
@@ -58639,7 +58639,7 @@ Full list of movement clipsets by DurtyFree: https://github.com/DurtyFree/gta-v-
 function STREAMING.REMOVE_CLIP_SET(clipSet)
   native.invoke(
     Type.Void, 5265, false,
-    ref(Type.String, clipSet)
+    arg(Type.String, clipSet)
   )
 end
 
@@ -58652,7 +58652,7 @@ Full list of IPLs and interior entity sets by DurtyFree: https://github.com/Durt
 function STREAMING.REQUEST_IPL(iplName)
   native.invoke(
     Type.Void, 5266, false,
-    ref(Type.String, iplName)
+    arg(Type.String, iplName)
   )
 end
 
@@ -58674,7 +58674,7 @@ iplName = Name of IPL you want to remove.
 function STREAMING.REMOVE_IPL(iplName)
   native.invoke(
     Type.Void, 5267, false,
-    ref(Type.String, iplName)
+    arg(Type.String, iplName)
   )
 end
 
@@ -58685,7 +58685,7 @@ Full list of IPLs and interior entity sets by DurtyFree: https://github.com/Durt
 function STREAMING.IS_IPL_ACTIVE(iplName)
   return native.invoke(
     Type.Bool, 5268, false,
-    ref(Type.String, iplName)
+    arg(Type.String, iplName)
   )
 end
 
@@ -58784,26 +58784,26 @@ end
 
 -- void REQUEST_NAMED_PTFX_ASSET(const char* fxName) // 0xB80D8756B4668AB6
 --[[
-From the b678d decompiled scripts:
+ From the b678d decompiled scripts:
 
-STREAMING::REQUEST_NAMED_PTFX_ASSET("core_snow");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("fm_mission_controler");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("proj_xmas_firework");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_apartment_mp");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_biolab_heist");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_fireworks");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_parachute");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_wheelsmoke");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_cig_plane");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_creator");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_tankbattle");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_ornate_heist");
-STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_prison_break_heist_station");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("core_snow");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("fm_mission_controler");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("proj_xmas_firework");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_apartment_mp");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_biolab_heist");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_fireworks");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_parachute");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_wheelsmoke");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_cig_plane");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_creator");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_tankbattle");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_ornate_heist");
+ STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_prison_break_heist_station");
 --]]
 function STREAMING.REQUEST_NAMED_PTFX_ASSET(fxName)
   native.invoke(
     Type.Void, 5280, false,
-    ref(Type.String, fxName)
+    arg(Type.String, fxName)
   )
 end
 
@@ -58811,7 +58811,7 @@ end
 function STREAMING.HAS_NAMED_PTFX_ASSET_LOADED(fxName)
   return native.invoke(
     Type.Bool, 5281, false,
-    ref(Type.String, fxName)
+    arg(Type.String, fxName)
   )
 end
 
@@ -58819,7 +58819,7 @@ end
 function STREAMING.REMOVE_NAMED_PTFX_ASSET(fxName)
   native.invoke(
     Type.Void, 5282, false,
-    ref(Type.String, fxName)
+    arg(Type.String, fxName)
   )
 end
 
@@ -58905,7 +58905,7 @@ Possible p0 values:
 function STREAMING.SET_MAPDATACULLBOX_ENABLED(name, toggle)
   native.invoke(
     Type.Void, 5290, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Bool, toggle)
   )
 end
@@ -59070,9 +59070,9 @@ end
 enum ePlayerSwitchTypes
 {
   SWITCH_TYPE_AUTO,
-SWITCH_TYPE_LONG,
-SWITCH_TYPE_MEDIUM,
-  SWITCH_TYPE_SHORT
+ SWITCH_TYPE_LONG,
+ SWITCH_TYPE_MEDIUM,
+   SWITCH_TYPE_SHORT
 };
 
 Use GET_IDEAL_PLAYER_SWITCH_TYPE for the best switch type.
@@ -59195,7 +59195,7 @@ All names can be found in playerswitchestablishingshots.meta
 function STREAMING.SET_PLAYER_SWITCH_ESTABLISHING_SHOT(name)
   native.invoke(
     Type.Void, 5315, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -59373,8 +59373,8 @@ end
 function STREAMING.IPL_GROUP_SWAP_START(iplName1, iplName2)
   native.invoke(
     Type.Void, 5336, false,
-    ref(Type.String, iplName1),
-    ref(Type.String, iplName2)
+    arg(Type.String, iplName1),
+    arg(Type.String, iplName2)
   )
 end
 
@@ -59416,7 +59416,7 @@ https://pastebin.com/zd9XYUWY here is the content of a SRL file opened with code
 function STREAMING.PREFETCH_SRL(srl)
   native.invoke(
     Type.Void, 5341, false,
-    ref(Type.String, srl)
+    arg(Type.String, srl)
   )
 end
 
@@ -59563,7 +59563,7 @@ Enables the specified island. For more information, see islandhopper.meta
 function STREAMING.SET_ISLAND_ENABLED(name, toggle)
   native.invoke(
     Type.Void, 5357, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Bool, toggle)
   )
 end
@@ -59689,7 +59689,7 @@ function TASK.TASK_ENTER_VEHICLE(ped, vehicle, timeout, seat, speed, flag, overr
     arg(Type.Int, seat),
     arg(Type.Float, speed),
     arg(Type.Int, flag),
-    ref(Type.String, overrideEntryClipsetName),
+    arg(Type.String, overrideEntryClipsetName),
     arg(Type.Any, p7)
   )
 end
@@ -59975,7 +59975,7 @@ Ped will run towards the vehicle for 5 seconds and stop when time is over or whe
 
 enum EGOTO_ENTITY_SCRIPT_FLAGS
 {
-  EGOTO_ENTITY_NEVER_SLOW_FOR_PATH_LENGTH = 0x01,
+	EGOTO_ENTITY_NEVER_SLOW_FOR_PATH_LENGTH = 0x01,
 };
 --]]
 function TASK.TASK_GO_TO_ENTITY(entity, target, duration, distance, moveBlendRatio, slowDownDistance, flags)
@@ -60080,8 +60080,8 @@ function TASK.TASK_WANDER_SPECIFIC(ped, conditionalAnimGroupStr, conditionalAnim
   native.invoke(
     Type.Void, 5391, false,
     arg(Type.Ped, ped),
-    ref(Type.String, conditionalAnimGroupStr),
-    ref(Type.String, conditionalAnimStr),
+    arg(Type.String, conditionalAnimGroupStr),
+    arg(Type.String, conditionalAnimStr),
     arg(Type.Float, heading)
   )
 end
@@ -60268,8 +60268,8 @@ function TASK.GET_NAVMESH_ROUTE_DISTANCE_REMAINING(ped, distanceRemaining, isPat
   return native.invoke(
     Type.Int, 5405, false,
     arg(Type.Ped, ped),
-    ref(Type.Float, distanceRemaining),
-    ref(Type.Bool, isPathReady)
+    arg(Type.Float, distanceRemaining),
+    arg(Type.Bool, isPathReady)
   )
 end
 
@@ -60297,7 +60297,7 @@ end
 example from fm_mission_controller
 
 TASK::TASK_GO_TO_COORD_ANY_MEANS(l_649, sub_f7e86(-1, 0), 1.0, 0, 0, 786603, 0xbf800000);
-
+ 
 --]]
 function TASK.TASK_GO_TO_COORD_ANY_MEANS(ped, x, y, z, moveBlendRatio, vehicle, useLongRangeVehiclePathing, drivingFlags, maxRangeToShootTargets)
   native.invoke(
@@ -60378,12 +60378,12 @@ int flag:
 ----------------------
 enum eAnimationFlags
 {
-ANIM_FLAG_NORMAL = 0,
-  ANIM_FLAG_REPEAT = 1,
-  ANIM_FLAG_STOP_LAST_FRAME = 2,
-  ANIM_FLAG_UPPERBODY = 16,
-  ANIM_FLAG_ENABLE_PLAYER_CONTROL = 32,
-  ANIM_FLAG_CANCELABLE = 120,
+ ANIM_FLAG_NORMAL = 0,
+   ANIM_FLAG_REPEAT = 1,
+   ANIM_FLAG_STOP_LAST_FRAME = 2,
+   ANIM_FLAG_UPPERBODY = 16,
+   ANIM_FLAG_ENABLE_PLAYER_CONTROL = 32,
+   ANIM_FLAG_CANCELABLE = 120,
 };
 Odd number : loop infinitely
 Even number : Freeze at last frame
@@ -60407,7 +60407,7 @@ lockX:
 
 0 in most cases 1 for rcmepsilonism8 and rcmpaparazzo_3
 > 1 for mini@sprunk
-
+ 
 
 lockY:
 
@@ -60424,8 +60424,8 @@ function TASK.TASK_PLAY_ANIM(ped, animDictionary, animationName, blendInSpeed, b
   native.invoke(
     Type.Void, 5411, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDictionary),
-    ref(Type.String, animationName),
+    arg(Type.String, animDictionary),
+    arg(Type.String, animationName),
     arg(Type.Float, blendInSpeed),
     arg(Type.Float, blendOutSpeed),
     arg(Type.Int, duration),
@@ -60447,8 +60447,8 @@ function TASK.TASK_PLAY_ANIM_ADVANCED(ped, animDict, animName, posX, posY, posZ,
   native.invoke(
     Type.Void, 5412, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, animName),
+    arg(Type.String, animDict),
+    arg(Type.String, animName),
     arg(Type.Float, posX),
     arg(Type.Float, posY),
     arg(Type.Float, posZ),
@@ -60473,8 +60473,8 @@ function TASK.STOP_ANIM_TASK(entity, animDictionary, animationName, blendDelta)
   native.invoke(
     Type.Void, 5413, false,
     arg(Type.Entity, entity),
-    ref(Type.String, animDictionary),
-    ref(Type.String, animationName),
+    arg(Type.String, animDictionary),
+    arg(Type.String, animationName),
     arg(Type.Float, blendDelta)
   )
 end
@@ -60483,24 +60483,24 @@ end
 --[[
 From fm_mission_controller.c:
 reserve_network_mission_objects(get_num_reserved_mission_objects(0) + 1);
-          vVar28 = {0.094f, 0.02f, -0.005f};
+           vVar28 = {0.094f, 0.02f, -0.005f};
             vVar29 = {-92.24f, 63.64f, 150.24f};
           func_253(&uVar30, joaat("prop_ld_case_01"), Global_1592429.imm_34757[iParam1 <268>], 1, 1, 0, 1);
-        set_entity_lod_dist(net_to_ent(uVar30), 500);
-        attach_entity_to_entity(net_to_ent(uVar30), iParam0, get_ped_bone_index(iParam0, 28422), vVar28, vVar29, 1, 0, 0, 0, 2, 1);
-          Var31.imm_4 = 1065353216;
-        Var31.imm_5 = 1065353216;
-        Var31.imm_9 = 1065353216;
-        Var31.imm_10 = 1065353216;
+         set_entity_lod_dist(net_to_ent(uVar30), 500);
+         attach_entity_to_entity(net_to_ent(uVar30), iParam0, get_ped_bone_index(iParam0, 28422), vVar28, vVar29, 1, 0, 0, 0, 2, 1);
+           Var31.imm_4 = 1065353216;
+         Var31.imm_5 = 1065353216;
+         Var31.imm_9 = 1065353216;
+         Var31.imm_10 = 1065353216;
             Var31.imm_14 = 1065353216;
             Var31.imm_15 = 1065353216;
             Var31.imm_17 = 1040187392;
             Var31.imm_18 = 1040187392;
             Var31.imm_19 = -1;
             Var32.imm_4 = 1065353216;
-        Var32.imm_5 = 1065353216;
-        Var32.imm_9 = 1065353216;
-        Var32.imm_10 = 1065353216;
+         Var32.imm_5 = 1065353216;
+         Var32.imm_9 = 1065353216;
+         Var32.imm_10 = 1065353216;
             Var32.imm_14 = 1065353216;
             Var32.imm_15 = 1065353216;
             Var32.imm_17 = 1040187392;
@@ -60509,9 +60509,9 @@ reserve_network_mission_objects(get_num_reserved_mission_objects(0) + 1);
             Var31 = 1;
             Var31.imm_1 = "weapons@misc@jerrycan@mp_male";
           Var31.imm_2 = "idle";
-          Var31.imm_20 = 1048633;
-          Var31.imm_4 = 0.5f;
-          Var31.imm_16 = get_hash_key("BONEMASK_ARMONLY_R");
+           Var31.imm_20 = 1048633;
+           Var31.imm_4 = 0.5f;
+           Var31.imm_16 = get_hash_key("BONEMASK_ARMONLY_R");
           task_scripted_animation(iParam0, &Var31, &Var32, &Var32, 0f, 0.25f);
           set_model_as_no_longer_needed(joaat("prop_ld_case_01"));
             remove_anim_dict("anim@heists@biolab@");
@@ -60520,9 +60520,9 @@ function TASK.TASK_SCRIPTED_ANIMATION(ped, priorityLowData, priorityMidData, pri
   native.invoke(
     Type.Void, 5414, false,
     arg(Type.Ped, ped),
-    ref(Type.Int, priorityLowData),
-    ref(Type.Int, priorityMidData),
-    ref(Type.Int, priorityHighData),
+    arg(Type.Int, priorityLowData),
+    arg(Type.Int, priorityMidData),
+    arg(Type.Int, priorityHighData),
     arg(Type.Float, blendInDelta),
     arg(Type.Float, blendOutDelta)
   )
@@ -60533,9 +60533,9 @@ function TASK.PLAY_ENTITY_SCRIPTED_ANIM(entity, priorityLowData, priorityMidData
   native.invoke(
     Type.Void, 5415, false,
     arg(Type.Entity, entity),
-    ref(Type.Int, priorityLowData),
-    ref(Type.Int, priorityMidData),
-    ref(Type.Int, priorityHighData),
+    arg(Type.Int, priorityLowData),
+    arg(Type.Int, priorityMidData),
+    arg(Type.Int, priorityHighData),
     arg(Type.Float, blendInDelta),
     arg(Type.Float, blendOutDelta)
   )
@@ -60629,9 +60629,9 @@ function TASK.TASK_PLAY_PHONE_GESTURE_ANIMATION(ped, animDict, animation, boneMa
   native.invoke(
     Type.Void, 5421, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, animation),
-    ref(Type.String, boneMaskType),
+    arg(Type.String, animDict),
+    arg(Type.String, animation),
+    arg(Type.String, boneMaskType),
     arg(Type.Float, blendInDuration),
     arg(Type.Float, blendOutDuration),
     arg(Type.Bool, isLooping),
@@ -60688,8 +60688,8 @@ function TASK.TASK_VEHICLE_PLAY_ANIM(vehicle, animationSet, animationName)
   native.invoke(
     Type.Void, 5426, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, animationSet),
-    ref(Type.String, animationName)
+    arg(Type.String, animationSet),
+    arg(Type.String, animationName)
   )
 end
 
@@ -60697,23 +60697,23 @@ end
 --[[
 enum eScriptLookatFlags
 {
-  SLF_SLOW_TURN_RATE            = 1,    // turn the head toward the target slowly
-  SLF_FAST_TURN_RATE            = 2,    // turn the head toward the target quickly
-  SLF_EXTEND_YAW_LIMIT        = 4,    // wide yaw head limits
-  SLF_EXTEND_PITCH_LIMIT        = 8,    // wide pitch head limit
-  SLF_WIDEST_YAW_LIMIT        = 16,   // widest yaw head limit
-  SLF_WIDEST_PITCH_LIMIT        = 32,   // widest pitch head limit
-  SLF_NARROW_YAW_LIMIT        = 64,   // narrow yaw head limits
-  SLF_NARROW_PITCH_LIMIT        = 128,  // narrow pitch head limit
-  SLF_NARROWEST_YAW_LIMIT        = 256,  // narrowest yaw head limit
-  SLF_NARROWEST_PITCH_LIMIT    = 512,  // narrowest pitch head limit
-  SLF_USE_TORSO                = 1024, // use the torso aswell as the neck and head (currently disabled)
-  SLF_WHILE_NOT_IN_FOV        = 2048, // keep tracking the target even if they are not in the hard coded FOV
-  SLF_USE_CAMERA_FOCUS        = 4096, // use the camera as the target
-  SLF_USE_EYES_ONLY            = 8192, // only track the target with the eyes  
-  SLF_USE_LOOK_DIR            = 16384, // use information in look dir DOF
-  SLF_FROM_SCRIPT                = 32768, // internal use only
-  SLF_USE_REF_DIR_ABSOLUTE    = 65536  // use absolute reference direction mode for solver
+	SLF_SLOW_TURN_RATE            = 1,    // turn the head toward the target slowly
+	SLF_FAST_TURN_RATE            = 2,    // turn the head toward the target quickly
+	SLF_EXTEND_YAW_LIMIT        = 4,    // wide yaw head limits
+	SLF_EXTEND_PITCH_LIMIT        = 8,    // wide pitch head limit
+	SLF_WIDEST_YAW_LIMIT        = 16,   // widest yaw head limit
+	SLF_WIDEST_PITCH_LIMIT        = 32,   // widest pitch head limit
+	SLF_NARROW_YAW_LIMIT        = 64,   // narrow yaw head limits
+	SLF_NARROW_PITCH_LIMIT        = 128,  // narrow pitch head limit
+	SLF_NARROWEST_YAW_LIMIT        = 256,  // narrowest yaw head limit
+	SLF_NARROWEST_PITCH_LIMIT    = 512,  // narrowest pitch head limit
+	SLF_USE_TORSO                = 1024, // use the torso aswell as the neck and head (currently disabled)
+	SLF_WHILE_NOT_IN_FOV        = 2048, // keep tracking the target even if they are not in the hard coded FOV
+	SLF_USE_CAMERA_FOCUS        = 4096, // use the camera as the target
+	SLF_USE_EYES_ONLY            = 8192, // only track the target with the eyes  
+	SLF_USE_LOOK_DIR            = 16384, // use information in look dir DOF
+	SLF_FROM_SCRIPT                = 32768, // internal use only
+	SLF_USE_REF_DIR_ABSOLUTE    = 65536  // use absolute reference direction mode for solver
 };
 --]]
 function TASK.TASK_LOOK_AT_COORD(entity, x, y, z, duration, flags, priority)
@@ -60756,7 +60756,7 @@ end
 function TASK.OPEN_SEQUENCE_TASK(taskSequenceId)
   native.invoke(
     Type.Void, 5430, false,
-    ref(Type.Int, taskSequenceId)
+    arg(Type.Int, taskSequenceId)
   )
 end
 
@@ -60790,7 +60790,7 @@ end
 function TASK.CLEAR_SEQUENCE_TASK(taskSequenceId)
   native.invoke(
     Type.Void, 5434, false,
-    ref(Type.Int, taskSequenceId)
+    arg(Type.Int, taskSequenceId)
   )
 end
 
@@ -60907,7 +60907,7 @@ end
 -- const char* GET_CLIP_SET_FOR_SCRIPTED_GUN_TASK(int gunTaskType) // 0x3A8CADC7D37AACC5
 function TASK.GET_CLIP_SET_FOR_SCRIPTED_GUN_TASK(gunTaskType)
   return native.invoke(
-    Type.String, 5444, false,
+    Type.Const char, 5444, false,
     arg(Type.Int, gunTaskType)
   )
 end
@@ -61011,8 +61011,8 @@ end
 --[[
 enum ESEEK_ENTITY_OFFSET_FLAGS
 {
-  ESEEK_OFFSET_ORIENTATES_WITH_ENTITY = 0x01,
-  ESEEK_KEEP_TO_PAVEMENTS = 0x02
+	ESEEK_OFFSET_ORIENTATES_WITH_ENTITY = 0x01,
+	ESEEK_KEEP_TO_PAVEMENTS = 0x02
 };
 --]]
 function TASK.TASK_GOTO_ENTITY_OFFSET(ped, entity, time, seekRadius, seekAngleDeg, moveBlendRatio, gotoEntityOffsetFlags)
@@ -61405,15 +61405,15 @@ Set whichever is not being used to 0
 
 
 Mission mode type:
-- 4, 7: Forces heli to snap to the heading if set, flies to destination or tracks specified entity (mode 4 only works for coordinates, 7 works for coordinates OR ped/vehicle)
-- 6: Attacks the target ped/vehicle with mounted weapons. If radius is set, will maintain that distance from target.
-- 8: Makes the heli flee from the ped/vehicle/coordinate
-- 9: Circles around target ped/vehicle, snaps to angle if set. Behavior flag (last parameter) of 2048 switches from counter-clockwise to clockwise circling. Does not work with coordinate destination.
-- 10, 11: Follows ped/vehicle target and imitates target heading. Only works with ped/vehicle target, not coord target
-- 19: Heli lands at specified coordinate, ignores heading (lands facing whatever direction it is facing when the task is started)
-- 20: Makes the heli land when near target ped. It won't resume chasing.
-- 21: Emulates a helicopter crash
-- 23: makes the heli circle erratically around ped
+ - 4, 7: Forces heli to snap to the heading if set, flies to destination or tracks specified entity (mode 4 only works for coordinates, 7 works for coordinates OR ped/vehicle)
+ - 6: Attacks the target ped/vehicle with mounted weapons. If radius is set, will maintain that distance from target.
+ - 8: Makes the heli flee from the ped/vehicle/coordinate
+ - 9: Circles around target ped/vehicle, snaps to angle if set. Behavior flag (last parameter) of 2048 switches from counter-clockwise to clockwise circling. Does not work with coordinate destination.
+ - 10, 11: Follows ped/vehicle target and imitates target heading. Only works with ped/vehicle target, not coord target
+ - 19: Heli lands at specified coordinate, ignores heading (lands facing whatever direction it is facing when the task is started)
+ - 20: Makes the heli land when near target ped. It won't resume chasing.
+ - 21: Emulates a helicopter crash
+ - 23: makes the heli circle erratically around ped
 
 
 Heli will fly at maxSpeed (up to actual maximum speed defined by the model's handling config)
@@ -61426,16 +61426,16 @@ Radius affects how closely the heli will follow tracked ped/vehicle, and when ci
 Heading is -1.0 for default behavior, which will point the nose of the helicopter towards the destination. Set a heading and the heli will lock to that direction when near its destination/target, but may still turn towards the destination when flying at higher speed from a further distance.
 
 Behavior Flags is a bitwise value that modifies the AI behavior. Not clear what all flags do, but here are some guesses/notes:
-  1: Forces heading to face E
-  2: Unknown
-  4: Tight circles around coordinate destination
-  8: Unknown
+   1: Forces heading to face E
+   2: Unknown
+   4: Tight circles around coordinate destination
+   8: Unknown
   16: Circles around coordinate destination facing towards destination
   32: Flys to normally, then lands at coordinate destination and stays on the ground (using mission type 4)
   64: Ignores obstacles when flying, will follow at specified minHeight above ground level but will not avoid buildings, vehicles, etc.
-128: Unknown
-256: Unknown
-512: Unknown
+ 128: Unknown
+ 256: Unknown
+ 512: Unknown
 1024: Unknown 
 2048: Reverses direction of circling (mission type 9) to clockwise
 4096: Hugs closer to the ground, maintains minHeight from ground generally, but barely clears buildings and dips down more between buildings instead of taking a more efficient/safe route
@@ -61822,7 +61822,7 @@ function TASK.TASK_RAPPEL_DOWN_WALL_USING_CLIPSET_OVERRIDE(ped, x1, y1, z1, x2, 
     arg(Type.Float, z2),
     arg(Type.Float, minZ),
     arg(Type.Int, ropeHandle),
-    ref(Type.String, clipSet),
+    arg(Type.String, clipSet),
     arg(Type.Any, p10),
     arg(Type.Any, p11)
   )
@@ -61893,7 +61893,7 @@ end
 --[[
 eg
 
-TASK::TASK_GOTO_ENTITY_AIMING(v_2, PLAYER::PLAYER_PED_ID(), 5.0, 25.0);
+ TASK::TASK_GOTO_ENTITY_AIMING(v_2, PLAYER::PLAYER_PED_ID(), 5.0, 25.0);
 
 ped = Ped you want to perform this task.
 target = the Entity they should aim at.
@@ -62258,7 +62258,7 @@ function TASK.TASK_STAND_GUARD(ped, x, y, z, heading, scenarioName)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Float, heading),
-    ref(Type.String, scenarioName)
+    arg(Type.String, scenarioName)
   )
 end
 
@@ -62400,7 +62400,7 @@ function TASK.TASK_START_SCENARIO_IN_PLACE(ped, scenarioName, unkDelay, playEnte
   native.invoke(
     Type.Void, 5533, false,
     arg(Type.Ped, ped),
-    ref(Type.String, scenarioName),
+    arg(Type.String, scenarioName),
     arg(Type.Int, unkDelay),
     arg(Type.Bool, playEnterAnim)
   )
@@ -62432,7 +62432,7 @@ function TASK.TASK_START_SCENARIO_AT_POSITION(ped, scenarioName, x, y, z, headin
   native.invoke(
     Type.Void, 5534, false,
     arg(Type.Ped, ped),
-    ref(Type.String, scenarioName),
+    arg(Type.String, scenarioName),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -62525,7 +62525,7 @@ function TASK.DOES_SCENARIO_OF_TYPE_EXIST_IN_AREA(x, y, z, scenarioName, radius,
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.String, scenarioName),
+    arg(Type.String, scenarioName),
     arg(Type.Float, radius),
     arg(Type.Bool, mustBeFree)
   )
@@ -62559,8 +62559,8 @@ function TASK.PLAY_ANIM_ON_RUNNING_SCENARIO(ped, animDict, animName)
   native.invoke(
     Type.Void, 5543, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, animName)
+    arg(Type.String, animDict),
+    arg(Type.String, animName)
   )
 end
 
@@ -62606,7 +62606,7 @@ else if (TASK::IS_SCENARIO_GROUP_ENABLED("BLIMP")) {
 function TASK.DOES_SCENARIO_GROUP_EXIST(scenarioGroup)
   return native.invoke(
     Type.Bool, 5544, false,
-    ref(Type.String, scenarioGroup)
+    arg(Type.String, scenarioGroup)
   )
 end
 
@@ -62615,29 +62615,29 @@ end
 Full list of scenario groups used in scripts by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/blob/master/scenarioGroupNames.json
 Occurrences in the b617d scripts: 
 
-"ARMY_GUARD",
-"ARMY_HELI",
-"BLIMP",
-"Cinema_Downtown",
-"Cinema_Morningwood",
-"Cinema_Textile",
-"City_Banks",
-"Countryside_Banks",
-"DEALERSHIP",
-"KORTZ_SECURITY",
-"LSA_Planes",
-"MP_POLICE",
-"Observatory_Bikers",
-"POLICE_POUND1",
-"POLICE_POUND2",
-"POLICE_POUND3",
-"POLICE_POUND4",
-"POLICE_POUND5",
-"Rampage1",
-"SANDY_PLANES",
-"SCRAP_SECURITY",
-"SEW_MACHINE",
-"SOLOMON_GATE"
+ "ARMY_GUARD",
+ "ARMY_HELI",
+ "BLIMP",
+ "Cinema_Downtown",
+ "Cinema_Morningwood",
+ "Cinema_Textile",
+ "City_Banks",
+ "Countryside_Banks",
+ "DEALERSHIP",
+ "KORTZ_SECURITY",
+ "LSA_Planes",
+ "MP_POLICE",
+ "Observatory_Bikers",
+ "POLICE_POUND1",
+ "POLICE_POUND2",
+ "POLICE_POUND3",
+ "POLICE_POUND4",
+ "POLICE_POUND5",
+ "Rampage1",
+ "SANDY_PLANES",
+ "SCRAP_SECURITY",
+ "SEW_MACHINE",
+ "SOLOMON_GATE"
 
 Sometimes used with DOES_SCENARIO_GROUP_EXIST:
 if (TASK::DOES_SCENARIO_GROUP_EXIST("Observatory_Bikers") &&   (!TASK::IS_SCENARIO_GROUP_ENABLED("Observatory_Bikers"))) {
@@ -62646,7 +62646,7 @@ else if (TASK::IS_SCENARIO_GROUP_ENABLED("BLIMP")) {
 function TASK.IS_SCENARIO_GROUP_ENABLED(scenarioGroup)
   return native.invoke(
     Type.Bool, 5545, false,
-    ref(Type.String, scenarioGroup)
+    arg(Type.String, scenarioGroup)
   )
 end
 
@@ -62658,7 +62658,7 @@ Occurrences in the b617d scripts: https://pastebin.com/Tvg2PRHU
 function TASK.SET_SCENARIO_GROUP_ENABLED(scenarioGroup, enabled)
   native.invoke(
     Type.Void, 5546, false,
-    ref(Type.String, scenarioGroup),
+    arg(Type.String, scenarioGroup),
     arg(Type.Bool, enabled)
   )
 end
@@ -62684,7 +62684,7 @@ Groups found in the scripts used with this native:
 function TASK.SET_EXCLUSIVE_SCENARIO_GROUP(scenarioGroup)
   native.invoke(
     Type.Void, 5548, false,
-    ref(Type.String, scenarioGroup)
+    arg(Type.String, scenarioGroup)
   )
 end
 
@@ -62714,7 +62714,7 @@ scenarioType could be the same as scenarioName, used in for example TASK::TASK_S
 function TASK.IS_SCENARIO_TYPE_ENABLED(scenarioType)
   return native.invoke(
     Type.Bool, 5550, false,
-    ref(Type.String, scenarioType)
+    arg(Type.String, scenarioType)
   )
 end
 
@@ -62758,7 +62758,7 @@ scenarioType could be the same as scenarioName, used in for example TASK::TASK_S
 function TASK.SET_SCENARIO_TYPE_ENABLED(scenarioType, toggle)
   native.invoke(
     Type.Void, 5551, false,
-    ref(Type.String, scenarioType),
+    arg(Type.String, scenarioType),
     arg(Type.Bool, toggle)
   )
 end
@@ -62948,32 +62948,32 @@ end
 
 -- void OPEN_PATROL_ROUTE(const char* patrolRoute) // 0xA36BFB5EE89F3D82
 --[[
-patrolRoutes found in the b617d scripts:
-"miss_Ass0",
-"miss_Ass1",
-"miss_Ass2",
-"miss_Ass3",
-"miss_Ass4",
-"miss_Ass5",
-"miss_Ass6",
-"MISS_PATROL_6",
-"MISS_PATROL_7",
-"MISS_PATROL_8",
-"MISS_PATROL_9",
-"miss_Tower_01",
-"miss_Tower_02",
-"miss_Tower_03",
-"miss_Tower_04",
-"miss_Tower_05",
-"miss_Tower_06",
-"miss_Tower_07",
-"miss_Tower_08",
-"miss_Tower_10"
+ patrolRoutes found in the b617d scripts:
+ "miss_Ass0",
+ "miss_Ass1",
+ "miss_Ass2",
+ "miss_Ass3",
+ "miss_Ass4",
+ "miss_Ass5",
+ "miss_Ass6",
+ "MISS_PATROL_6",
+ "MISS_PATROL_7",
+ "MISS_PATROL_8",
+ "MISS_PATROL_9",
+ "miss_Tower_01",
+ "miss_Tower_02",
+ "miss_Tower_03",
+ "miss_Tower_04",
+ "miss_Tower_05",
+ "miss_Tower_06",
+ "miss_Tower_07",
+ "miss_Tower_08",
+ "miss_Tower_10"
 --]]
 function TASK.OPEN_PATROL_ROUTE(patrolRoute)
   native.invoke(
     Type.Void, 5565, false,
-    ref(Type.String, patrolRoute)
+    arg(Type.String, patrolRoute)
   )
 end
 
@@ -63007,7 +63007,7 @@ function TASK.ADD_PATROL_ROUTE_NODE(nodeId, nodeType, posX, posY, posZ, headingX
   native.invoke(
     Type.Void, 5567, false,
     arg(Type.Int, nodeId),
-    ref(Type.String, nodeType),
+    arg(Type.String, nodeType),
     arg(Type.Float, posX),
     arg(Type.Float, posY),
     arg(Type.Float, posZ),
@@ -63046,7 +63046,7 @@ TASK::DELETE_PATROL_ROUTE("miss_dock");
 function TASK.DELETE_PATROL_ROUTE(patrolRoute)
   native.invoke(
     Type.Void, 5570, false,
-    ref(Type.String, patrolRoute)
+    arg(Type.String, patrolRoute)
   )
 end
 
@@ -63055,8 +63055,8 @@ function TASK.GET_PATROL_TASK_INFO(ped, timeLeftAtNode, nodeId)
   return native.invoke(
     Type.Bool, 5571, false,
     arg(Type.Ped, ped),
-    ref(Type.Int, timeLeftAtNode),
-    ref(Type.Int, nodeId)
+    arg(Type.Int, timeLeftAtNode),
+    arg(Type.Int, nodeId)
   )
 end
 
@@ -63090,7 +63090,7 @@ function TASK.TASK_PATROL(ped, patrolRouteName, alertState, canChatToPeds, useHe
   native.invoke(
     Type.Void, 5572, false,
     arg(Type.Ped, ped),
-    ref(Type.String, patrolRouteName),
+    arg(Type.String, patrolRouteName),
     arg(Type.Int, alertState),
     arg(Type.Bool, canChatToPeds),
     arg(Type.Bool, useHeadLookAt)
@@ -63280,8 +63280,8 @@ Example:
 
 enum AimFlag
 {
-  AimAtFocusLocation,
-  AimAtGoToLocation
+   AimAtFocusLocation,
+   AimAtGoToLocation
 };
 
 Vector3 goToLocation1 = { 996.2867f, 0, -2143.044f, 0, 28.4763f, 0 }; // remember the padding.
@@ -63387,7 +63387,7 @@ Max number of loaded recordings is 32.
 function TASK.REQUEST_WAYPOINT_RECORDING(name)
   native.invoke(
     Type.Void, 5587, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -63398,7 +63398,7 @@ Full list of waypoint recordings by DurtyFree: https://github.com/DurtyFree/gta-
 function TASK.GET_IS_WAYPOINT_RECORDING_LOADED(name)
   return native.invoke(
     Type.Bool, 5588, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -63409,7 +63409,7 @@ Full list of waypoint recordings by DurtyFree: https://github.com/DurtyFree/gta-
 function TASK.REMOVE_WAYPOINT_RECORDING(name)
   native.invoke(
     Type.Void, 5589, false,
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -63421,8 +63421,8 @@ For a full list of the points, see here: goo.gl/wIH0vn
 function TASK.WAYPOINT_RECORDING_GET_NUM_POINTS(name, points)
   return native.invoke(
     Type.Bool, 5590, false,
-    ref(Type.String, name),
-    ref(Type.Int, points)
+    arg(Type.String, name),
+    arg(Type.Int, points)
   )
 end
 
@@ -63434,9 +63434,9 @@ For a full list of the points, see here: goo.gl/wIH0vn
 function TASK.WAYPOINT_RECORDING_GET_COORD(name, point, coord)
   return native.invoke(
     Type.Bool, 5591, true,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Int, point),
-    ref(Type.Vector3, coord)
+    arg(Type.Vector3, coord)
   )
 end
 
@@ -63447,7 +63447,7 @@ Full list of waypoint recordings by DurtyFree: https://github.com/DurtyFree/gta-
 function TASK.WAYPOINT_RECORDING_GET_SPEED_AT_POINT(name, point)
   return native.invoke(
     Type.Float, 5592, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Int, point)
   )
 end
@@ -63460,11 +63460,11 @@ For a full list of the points, see here: goo.gl/wIH0vn
 function TASK.WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT(name, x, y, z, point)
   return native.invoke(
     Type.Bool, 5593, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Int, point)
+    arg(Type.Int, point)
   )
 end
 
@@ -63473,7 +63473,7 @@ function TASK.TASK_FOLLOW_WAYPOINT_RECORDING(ped, name, p2, p3, p4)
   native.invoke(
     Type.Void, 5594, false,
     arg(Type.Ped, ped),
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Int, p2),
     arg(Type.Int, p3),
     arg(Type.Int, p4)
@@ -63519,7 +63519,7 @@ end
 function TASK.GET_WAYPOINT_DISTANCE_ALONG_ROUTE(name, point)
   return native.invoke(
     Type.Float, 5599, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Int, point)
   )
 end
@@ -63575,7 +63575,7 @@ end
 function TASK.USE_WAYPOINT_RECORDING_AS_ASSISTED_MOVEMENT_ROUTE(name, p1, p2, p3)
   native.invoke(
     Type.Void, 5605, false,
-    ref(Type.String, name),
+    arg(Type.String, name),
     arg(Type.Bool, p1),
     arg(Type.Float, p2),
     arg(Type.Float, p3)
@@ -63643,7 +63643,7 @@ Routes: "1_FIBStairs", "2_FIBStairs", "3_FIBStairs", "4_FIBStairs", "5_FIBStairs
 function TASK.ASSISTED_MOVEMENT_REQUEST_ROUTE(route)
   native.invoke(
     Type.Void, 5611, false,
-    ref(Type.String, route)
+    arg(Type.String, route)
   )
 end
 
@@ -63651,7 +63651,7 @@ end
 function TASK.ASSISTED_MOVEMENT_REMOVE_ROUTE(route)
   native.invoke(
     Type.Void, 5612, false,
-    ref(Type.String, route)
+    arg(Type.String, route)
   )
 end
 
@@ -63659,7 +63659,7 @@ end
 function TASK.ASSISTED_MOVEMENT_IS_ROUTE_LOADED(route)
   return native.invoke(
     Type.Bool, 5613, false,
-    ref(Type.String, route)
+    arg(Type.String, route)
   )
 end
 
@@ -63667,7 +63667,7 @@ end
 function TASK.ASSISTED_MOVEMENT_SET_ROUTE_PROPERTIES(route, props)
   native.invoke(
     Type.Void, 5614, false,
-    ref(Type.String, route),
+    arg(Type.String, route),
     arg(Type.Int, props)
   )
 end
@@ -63700,7 +63700,7 @@ function TASK.TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING(ped, vehicle, WPRecording, 
     Type.Void, 5616, false,
     arg(Type.Ped, ped),
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, WPRecording),
+    arg(Type.String, WPRecording),
     arg(Type.Int, p3),
     arg(Type.Int, p4),
     arg(Type.Int, p5),
@@ -63810,10 +63810,10 @@ function TASK.TASK_MOVE_NETWORK_BY_NAME(ped, task, multiplier, allowOverrideClon
   native.invoke(
     Type.Void, 5626, false,
     arg(Type.Ped, ped),
-    ref(Type.String, task),
+    arg(Type.String, task),
     arg(Type.Float, multiplier),
     arg(Type.Bool, allowOverrideCloneUpdate),
-    ref(Type.String, animDict),
+    arg(Type.String, animDict),
     arg(Type.Int, flags)
   )
 end
@@ -63827,7 +63827,7 @@ function TASK.TASK_MOVE_NETWORK_ADVANCED_BY_NAME(ped, network, x, y, z, rotX, ro
   native.invoke(
     Type.Void, 5627, false,
     arg(Type.Ped, ped),
-    ref(Type.String, network),
+    arg(Type.String, network),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -63837,7 +63837,7 @@ function TASK.TASK_MOVE_NETWORK_ADVANCED_BY_NAME(ped, network, x, y, z, rotX, ro
     arg(Type.Int, rotOrder),
     arg(Type.Float, blendDuration),
     arg(Type.Bool, allowOverrideCloneUpdate),
-    ref(Type.String, animDict),
+    arg(Type.String, animDict),
     arg(Type.Int, flags)
   )
 end
@@ -63850,11 +63850,11 @@ function TASK.TASK_MOVE_NETWORK_BY_NAME_WITH_INIT_PARAMS(ped, network, initialPa
   native.invoke(
     Type.Void, 5628, false,
     arg(Type.Ped, ped),
-    ref(Type.String, network),
-    ref(Type.Int, initialParameters),
+    arg(Type.String, network),
+    arg(Type.Int, initialParameters),
     arg(Type.Float, blendDuration),
     arg(Type.Bool, allowOverrideCloneUpdate),
-    ref(Type.String, animDict),
+    arg(Type.String, animDict),
     arg(Type.Int, flags)
   )
 end
@@ -63864,8 +63864,8 @@ function TASK.TASK_MOVE_NETWORK_ADVANCED_BY_NAME_WITH_INIT_PARAMS(ped, network, 
   native.invoke(
     Type.Void, 5629, false,
     arg(Type.Ped, ped),
-    ref(Type.String, network),
-    ref(Type.Int, initialParameters),
+    arg(Type.String, network),
+    arg(Type.Int, initialParameters),
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
@@ -63875,7 +63875,7 @@ function TASK.TASK_MOVE_NETWORK_ADVANCED_BY_NAME_WITH_INIT_PARAMS(ped, network, 
     arg(Type.Int, rotOrder),
     arg(Type.Float, blendDuration),
     arg(Type.Bool, allowOverrideCloneUpdate),
-    ref(Type.String, dictionary),
+    arg(Type.String, dictionary),
     arg(Type.Int, flags)
   )
 end
@@ -63901,7 +63901,7 @@ function TASK.REQUEST_TASK_MOVE_NETWORK_STATE_TRANSITION(ped, name)
   return native.invoke(
     Type.Bool, 5632, false,
     arg(Type.Ped, ped),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -63915,14 +63915,14 @@ function TASK.SET_EXPECTED_CLONE_NEXT_TASK_MOVE_NETWORK_STATE(ped, state)
   return native.invoke(
     Type.Bool, 5633, false,
     arg(Type.Ped, ped),
-    ref(Type.String, state)
+    arg(Type.String, state)
   )
 end
 
 -- const char* GET_TASK_MOVE_NETWORK_STATE(Ped ped) // 0x717E4D1F2048376D
 function TASK.GET_TASK_MOVE_NETWORK_STATE(ped)
   return native.invoke(
-    Type.String, 5634, false,
+    Type.Const char, 5634, false,
     arg(Type.Ped, ped)
   )
 end
@@ -63948,7 +63948,7 @@ function TASK.SET_TASK_MOVE_NETWORK_SIGNAL_FLOAT(ped, signalName, value)
   native.invoke(
     Type.Void, 5636, false,
     arg(Type.Ped, ped),
-    ref(Type.String, signalName),
+    arg(Type.String, signalName),
     arg(Type.Float, value)
   )
 end
@@ -63958,7 +63958,7 @@ function TASK.SET_TASK_MOVE_NETWORK_SIGNAL_LOCAL_FLOAT(ped, signalName, value)
   native.invoke(
     Type.Void, 5637, false,
     arg(Type.Ped, ped),
-    ref(Type.String, signalName),
+    arg(Type.String, signalName),
     arg(Type.Float, value)
   )
 end
@@ -63968,7 +63968,7 @@ function TASK.SET_TASK_MOVE_NETWORK_SIGNAL_FLOAT_LERP_RATE(ped, signalName, valu
   native.invoke(
     Type.Void, 5638, false,
     arg(Type.Ped, ped),
-    ref(Type.String, signalName),
+    arg(Type.String, signalName),
     arg(Type.Float, value)
   )
 end
@@ -63978,7 +63978,7 @@ function TASK.SET_TASK_MOVE_NETWORK_SIGNAL_BOOL(ped, signalName, value)
   native.invoke(
     Type.Void, 5639, false,
     arg(Type.Ped, ped),
-    ref(Type.String, signalName),
+    arg(Type.String, signalName),
     arg(Type.Bool, value)
   )
 end
@@ -63988,7 +63988,7 @@ function TASK.GET_TASK_MOVE_NETWORK_SIGNAL_FLOAT(ped, signalName)
   return native.invoke(
     Type.Float, 5640, false,
     arg(Type.Ped, ped),
-    ref(Type.String, signalName)
+    arg(Type.String, signalName)
   )
 end
 
@@ -63997,7 +63997,7 @@ function TASK.GET_TASK_MOVE_NETWORK_SIGNAL_BOOL(ped, signalName)
   return native.invoke(
     Type.Bool, 5641, false,
     arg(Type.Ped, ped),
-    ref(Type.String, signalName)
+    arg(Type.String, signalName)
   )
 end
 
@@ -64006,7 +64006,7 @@ function TASK.GET_TASK_MOVE_NETWORK_EVENT(ped, eventName)
   return native.invoke(
     Type.Bool, 5642, false,
     arg(Type.Ped, ped),
-    ref(Type.String, eventName)
+    arg(Type.String, eventName)
   )
 end
 
@@ -64108,7 +64108,7 @@ end
 
 -- void TASK_SYNCHRONIZED_SCENE(Ped ped, int scene, const char* animDictionary, const char* animationName, float blendIn, float blendOut, int flags, int ragdollBlockingFlags, float moverBlendDelta, int ikFlags) // 0xEEA929141F699854
 --[[
-TASK::TASK_SYNCHRONIZED_SCENE(ped, scene, "creatures@rottweiler@in_vehicle@std_car", "get_in", 1000.0, -8.0, 4, 0, 0x447a0000, 0);
+ TASK::TASK_SYNCHRONIZED_SCENE(ped, scene, "creatures@rottweiler@in_vehicle@std_car", "get_in", 1000.0, -8.0, 4, 0, 0x447a0000, 0);
 
 Full list of animation dictionaries and anims by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/blob/master/animDictsCompact.json
 --]]
@@ -64117,8 +64117,8 @@ function TASK.TASK_SYNCHRONIZED_SCENE(ped, scene, animDictionary, animationName,
     Type.Void, 5654, false,
     arg(Type.Ped, ped),
     arg(Type.Int, scene),
-    ref(Type.String, animDictionary),
-    ref(Type.String, animationName),
+    arg(Type.String, animDictionary),
+    arg(Type.String, animationName),
     arg(Type.Float, blendIn),
     arg(Type.Float, blendOut),
     arg(Type.Int, flags),
@@ -64149,10 +64149,10 @@ function TASK.TASK_SWEEP_AIM_ENTITY(ped, animDict, lowAnimName, medAnimName, hiA
   native.invoke(
     Type.Void, 5656, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, lowAnimName),
-    ref(Type.String, medAnimName),
-    ref(Type.String, hiAnimName),
+    arg(Type.String, animDict),
+    arg(Type.String, lowAnimName),
+    arg(Type.String, medAnimName),
+    arg(Type.String, hiAnimName),
     arg(Type.Int, runtime),
     arg(Type.Entity, targetEntity),
     arg(Type.Float, turnRate),
@@ -64174,10 +64174,10 @@ function TASK.TASK_SWEEP_AIM_POSITION(ped, animDict, lowAnimName, medAnimName, h
   native.invoke(
     Type.Void, 5658, false,
     arg(Type.Ped, ped),
-    ref(Type.String, animDict),
-    ref(Type.String, lowAnimName),
-    ref(Type.String, medAnimName),
-    ref(Type.String, hiAnimName),
+    arg(Type.String, animDict),
+    arg(Type.String, lowAnimName),
+    arg(Type.String, medAnimName),
+    arg(Type.String, hiAnimName),
     arg(Type.Int, runtime),
     arg(Type.Float, x),
     arg(Type.Float, y),
@@ -64292,7 +64292,7 @@ Deletes the specified vehicle, then sets the handle pointed to by the pointer to
 function VEHICLE.DELETE_VEHICLE(vehicle)
   native.invoke(
     Type.Void, 5666, false,
-    ref(Type.Vehicle, vehicle)
+    arg(Type.Vehicle, vehicle)
   )
 end
 
@@ -64688,17 +64688,17 @@ end
 --[[
 enum eVehicleLockState
 {
-  VEHICLELOCK_NONE,
-  VEHICLELOCK_UNLOCKED,
-  VEHICLELOCK_LOCKED,
-  VEHICLELOCK_LOCKOUT_PLAYER_ONLY,
-  VEHICLELOCK_LOCKED_PLAYER_INSIDE,
-  VEHICLELOCK_LOCKED_INITIALLY,
-  VEHICLELOCK_FORCE_SHUT_DOORS,
-  VEHICLELOCK_LOCKED_BUT_CAN_BE_DAMAGED,
-  VEHICLELOCK_LOCKED_BUT_BOOT_UNLOCKED,
-  VEHICLELOCK_LOCKED_NO_PASSENGERS,
-  VEHICLELOCK_CANNOT_ENTER	
+	VEHICLELOCK_NONE,
+	VEHICLELOCK_UNLOCKED,
+	VEHICLELOCK_LOCKED,
+	VEHICLELOCK_LOCKOUT_PLAYER_ONLY,
+	VEHICLELOCK_LOCKED_PLAYER_INSIDE,
+	VEHICLELOCK_LOCKED_INITIALLY,
+	VEHICLELOCK_FORCE_SHUT_DOORS,
+	VEHICLELOCK_LOCKED_BUT_CAN_BE_DAMAGED,
+	VEHICLELOCK_LOCKED_BUT_BOOT_UNLOCKED,
+	VEHICLELOCK_LOCKED_NO_PASSENGERS,
+	VEHICLELOCK_CANNOT_ENTER	
 };
 --]]
 function VEHICLE.SET_VEHICLE_DOORS_LOCKED(vehicle, doorLockStatus)
@@ -64944,7 +64944,7 @@ Full list of garages by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps
 function VEHICLE.IS_VEHICLE_IN_GARAGE_AREA(garageName, vehicle)
   return native.invoke(
     Type.Bool, 5724, false,
-    ref(Type.String, garageName),
+    arg(Type.String, garageName),
     arg(Type.Vehicle, vehicle)
   )
 end
@@ -65010,9 +65010,9 @@ function VEHICLE.GET_VEHICLE_CUSTOM_PRIMARY_COLOUR(vehicle, r, g, b)
   native.invoke(
     Type.Void, 5729, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -65051,9 +65051,9 @@ function VEHICLE.GET_VEHICLE_CUSTOM_SECONDARY_COLOUR(vehicle, r, g, b)
   native.invoke(
     Type.Void, 5733, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -65332,8 +65332,8 @@ function VEHICLE.GET_VEHICLE_COLOURS(vehicle, colorPrimary, colorSecondary)
   native.invoke(
     Type.Void, 5762, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, colorPrimary),
-    ref(Type.Int, colorSecondary)
+    arg(Type.Int, colorPrimary),
+    arg(Type.Int, colorSecondary)
   )
 end
 
@@ -65392,8 +65392,8 @@ function VEHICLE.GET_VEHICLE_LIGHTS_STATE(vehicle, lightsOn, highbeamsOn)
   return native.invoke(
     Type.Bool, 5766, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Bool, lightsOn),
-    ref(Type.Bool, highbeamsOn)
+    arg(Type.Bool, lightsOn),
+    arg(Type.Bool, highbeamsOn)
   )
 end
 
@@ -66127,7 +66127,7 @@ function VEHICLE.SET_VEHICLE_NUMBER_PLATE_TEXT(vehicle, plateText)
   native.invoke(
     Type.Void, 5824, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, plateText)
+    arg(Type.String, plateText)
   )
 end
 
@@ -66137,7 +66137,7 @@ Returns the license plate text from a vehicle. 8 chars maximum.
 --]]
 function VEHICLE.GET_VEHICLE_NUMBER_PLATE_TEXT(vehicle)
   return native.invoke(
-    Type.String, 5825, false,
+    Type.Const char, 5825, false,
     arg(Type.Vehicle, vehicle)
   )
 end
@@ -66177,7 +66177,7 @@ Returns the PlateType of a vehicle
       Blue_on_White_2 = 0,
       Blue_on_White_3 = 4,
       Yellow_on_Blue = 2,
-      Yellow_on_Black = 1,
+       Yellow_on_Black = 1,
       North_Yankton = 5,
 --]]
 function VEHICLE.GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(vehicle)
@@ -66343,7 +66343,7 @@ function VEHICLE.GET_VEHICLE_RECORDING_ID(recording, script)
   return native.invoke(
     Type.Int, 5841, false,
     arg(Type.Int, recording),
-    ref(Type.String, script)
+    arg(Type.String, script)
   )
 end
 
@@ -66357,7 +66357,7 @@ function VEHICLE.REQUEST_VEHICLE_RECORDING(recording, script)
   native.invoke(
     Type.Void, 5842, false,
     arg(Type.Int, recording),
-    ref(Type.String, script)
+    arg(Type.String, script)
   )
 end
 
@@ -66369,7 +66369,7 @@ function VEHICLE.HAS_VEHICLE_RECORDING_BEEN_LOADED(recording, script)
   return native.invoke(
     Type.Bool, 5843, false,
     arg(Type.Int, recording),
-    ref(Type.String, script)
+    arg(Type.String, script)
   )
 end
 
@@ -66381,7 +66381,7 @@ function VEHICLE.REMOVE_VEHICLE_RECORDING(recording, script)
   native.invoke(
     Type.Void, 5844, false,
     arg(Type.Int, recording),
-    ref(Type.String, script)
+    arg(Type.String, script)
   )
 end
 
@@ -66405,7 +66405,7 @@ function VEHICLE.GET_POSITION_OF_VEHICLE_RECORDING_AT_TIME(recording, time, scri
     Type.Vector3, 5846, false,
     arg(Type.Int, recording),
     arg(Type.Float, time),
-    ref(Type.String, script)
+    arg(Type.String, script)
   )
 end
 
@@ -66429,7 +66429,7 @@ function VEHICLE.GET_ROTATION_OF_VEHICLE_RECORDING_AT_TIME(recording, time, scri
     Type.Vector3, 5848, false,
     arg(Type.Int, recording),
     arg(Type.Float, time),
-    ref(Type.String, script)
+    arg(Type.String, script)
   )
 end
 
@@ -66449,7 +66449,7 @@ function VEHICLE.GET_TOTAL_DURATION_OF_VEHICLE_RECORDING(recording, script)
   return native.invoke(
     Type.Float, 5850, false,
     arg(Type.Int, recording),
-    ref(Type.String, script)
+    arg(Type.String, script)
   )
 end
 
@@ -66486,7 +66486,7 @@ function VEHICLE.START_PLAYBACK_RECORDED_VEHICLE(vehicle, recording, script, p3)
     Type.Void, 5853, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, recording),
-    ref(Type.String, script),
+    arg(Type.String, script),
     arg(Type.Bool, p3)
   )
 end
@@ -66502,7 +66502,7 @@ function VEHICLE.START_PLAYBACK_RECORDED_VEHICLE_WITH_FLAGS(vehicle, recording, 
     Type.Void, 5854, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, recording),
-    ref(Type.String, script),
+    arg(Type.String, script),
     arg(Type.Int, flags),
     arg(Type.Int, time),
     arg(Type.Int, drivingStyle)
@@ -66597,7 +66597,7 @@ function VEHICLE.START_PLAYBACK_RECORDED_VEHICLE_USING_AI(vehicle, recording, sc
     Type.Void, 5864, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, recording),
-    ref(Type.String, script),
+    arg(Type.String, script),
     arg(Type.Float, speed),
     arg(Type.Int, drivingStyle)
   )
@@ -66846,7 +66846,7 @@ end
 function VEHICLE.DELETE_MISSION_TRAIN(train)
   native.invoke(
     Type.Void, 5881, false,
-    ref(Type.Vehicle, train)
+    arg(Type.Vehicle, train)
   )
 end
 
@@ -66857,7 +66857,7 @@ p1 is always 0
 function VEHICLE.SET_MISSION_TRAIN_AS_NO_LONGER_NEEDED(train, p1)
   native.invoke(
     Type.Void, 5882, false,
-    ref(Type.Vehicle, train),
+    arg(Type.Vehicle, train),
     arg(Type.Bool, p1)
   )
 end
@@ -67205,13 +67205,13 @@ end
 --[[
 enum eDoorId
 {
-  VEH_EXT_DOOR_INVALID_ID = -1,
-  VEH_EXT_DOOR_DSIDE_F,
-  VEH_EXT_DOOR_DSIDE_R,
-  VEH_EXT_DOOR_PSIDE_F,
-  VEH_EXT_DOOR_PSIDE_R,
-  VEH_EXT_BONNET,
-  VEH_EXT_BOOT
+	VEH_EXT_DOOR_INVALID_ID = -1,
+	VEH_EXT_DOOR_DSIDE_F,
+	VEH_EXT_DOOR_DSIDE_R,
+	VEH_EXT_DOOR_PSIDE_F,
+	VEH_EXT_DOOR_PSIDE_R,
+	VEH_EXT_BONNET,
+	VEH_EXT_BOOT
 };
 --]]
 function VEHICLE.SET_VEHICLE_DOOR_SHUT(vehicle, doorId, closeInstantly)
@@ -67412,8 +67412,8 @@ function VEHICLE.GET_RANDOM_VEHICLE_MODEL_IN_MEMORY(p0, modelHash, successIndica
   native.invoke(
     Type.Void, 5933, false,
     arg(Type.Bool, p0),
-    ref(Type.Hash, modelHash),
-    ref(Type.Int, successIndicator)
+    arg(Type.Hash, modelHash),
+    arg(Type.Int, successIndicator)
   )
 end
 
@@ -67515,7 +67515,7 @@ end
 
 -- BOOL IS_VEHICLE_ON_ALL_WHEELS(Vehicle vehicle) // 0xB104CD1BABF302E2
 --[[
-Public Function isVehicleOnAllWheels(vh As Vehicle) As Boolean
+ Public Function isVehicleOnAllWheels(vh As Vehicle) As Boolean
         Return Native.Function.Call(Of Boolean)(Hash.IS_VEHICLE_ON_ALL_WHEELS, vh)
     End Function
 
@@ -67588,8 +67588,8 @@ function VEHICLE.GET_VEHICLE_EXTRA_COLOURS(vehicle, pearlescentColor, wheelColor
   native.invoke(
     Type.Void, 5947, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, pearlescentColor),
-    ref(Type.Int, wheelColor)
+    arg(Type.Int, pearlescentColor),
+    arg(Type.Int, wheelColor)
   )
 end
 
@@ -67607,7 +67607,7 @@ function VEHICLE.GET_VEHICLE_EXTRA_COLOUR_5(vehicle, color)
   native.invoke(
     Type.Void, 5949, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, color)
+    arg(Type.Int, color)
   )
 end
 
@@ -67625,7 +67625,7 @@ function VEHICLE.GET_VEHICLE_EXTRA_COLOUR_6(vehicle, color)
   native.invoke(
     Type.Void, 5951, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, color)
+    arg(Type.Int, color)
   )
 end
 
@@ -68057,21 +68057,21 @@ The inner function has a switch on the second parameter. It's the stuck timer in
 Here's some pseudo code I wrote for the inner function:
 void __fastcall NATIVE_RESET_VEHICLE_STUCK_TIMER_INNER(CUnknown* unknownClassInVehicle, int timerIndex)
 {
-switch (timerIndex)
-  {
-case 0:
-      unknownClassInVehicle->FirstStuckTimer = (WORD)0u;
-case 1:
-      unknownClassInVehicle->SecondStuckTimer = (WORD)0u;
+ switch (timerIndex)
+   {
+ case 0:
+       unknownClassInVehicle->FirstStuckTimer = (WORD)0u;
+ case 1:
+       unknownClassInVehicle->SecondStuckTimer = (WORD)0u;
     case 2:
-      unknownClassInVehicle->ThirdStuckTimer = (WORD)0u;
-case 3:
-      unknownClassInVehicle->FourthStuckTimer = (WORD)0u;
+       unknownClassInVehicle->ThirdStuckTimer = (WORD)0u;
+ case 3:
+       unknownClassInVehicle->FourthStuckTimer = (WORD)0u;
     case 4:
-      unknownClassInVehicle->FirstStuckTimer = (WORD)0u;
-    unknownClassInVehicle->SecondStuckTimer = (WORD)0u;
+       unknownClassInVehicle->FirstStuckTimer = (WORD)0u;
+     unknownClassInVehicle->SecondStuckTimer = (WORD)0u;
         unknownClassInVehicle->ThirdStuckTimer = (WORD)0u;
-    unknownClassInVehicle->FourthStuckTimer = (WORD)0u;
+     unknownClassInVehicle->FourthStuckTimer = (WORD)0u;
         break;
     };
 }
@@ -68193,7 +68193,7 @@ Full list of vehicles by DurtyFree: https://github.com/DurtyFree/gta-v-data-dump
 --]]
 function VEHICLE.GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(modelHash)
   return native.invoke(
-    Type.String, 5996, false,
+    Type.Const char, 5996, false,
     arg(Type.Hash, modelHash)
   )
 end
@@ -68207,7 +68207,7 @@ Full list of vehicles by DurtyFree: https://github.com/DurtyFree/gta-v-data-dump
 --]]
 function VEHICLE.GET_MAKE_NAME_FROM_VEHICLE_MODEL(modelHash)
   return native.invoke(
-    Type.String, 5997, false,
+    Type.Const char, 5997, false,
     arg(Type.Hash, modelHash)
   )
 end
@@ -68433,7 +68433,7 @@ function VEHICLE.SET_VEHICLE_NAME_DEBUG(vehicle, name)
   native.invoke(
     Type.Void, 6016, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.String, name)
+    arg(Type.String, name)
   )
 end
 
@@ -68813,9 +68813,9 @@ end
 function VEHICLE.GENERATE_VEHICLE_CREATION_POS_FROM_PATHS(outVec, p1, outVec1, p3, p4, p5, p6, p7, p8)
   return native.invoke(
     Type.Bool, 6053, true,
-    ref(Type.Vector3, outVec),
+    arg(Type.Vector3, outVec),
     arg(Type.Any, p1),
-    ref(Type.Vector3, outVec1),
+    arg(Type.Vector3, outVec1),
     arg(Type.Any, p3),
     arg(Type.Any, p4),
     arg(Type.Any, p5),
@@ -68970,7 +68970,7 @@ function VEHICLE.GET_VEHICLE_TRAILER_VEHICLE(vehicle, trailer)
   return native.invoke(
     Type.Bool, 6067, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Vehicle, trailer)
+    arg(Type.Vehicle, trailer)
   )
 end
 
@@ -69474,9 +69474,9 @@ function VEHICLE.GET_VEHICLE_MOD_COLOR_1(vehicle, paintType, color, pearlescentC
   native.invoke(
     Type.Void, 6109, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, paintType),
-    ref(Type.Int, color),
-    ref(Type.Int, pearlescentColor)
+    arg(Type.Int, paintType),
+    arg(Type.Int, color),
+    arg(Type.Int, pearlescentColor)
   )
 end
 
@@ -69485,8 +69485,8 @@ function VEHICLE.GET_VEHICLE_MOD_COLOR_2(vehicle, paintType, color)
   native.invoke(
     Type.Void, 6110, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, paintType),
-    ref(Type.Int, color)
+    arg(Type.Int, paintType),
+    arg(Type.Int, color)
   )
 end
 
@@ -69498,7 +69498,7 @@ p1 is always 0
 --]]
 function VEHICLE.GET_VEHICLE_MOD_COLOR_1_NAME(vehicle, p1)
   return native.invoke(
-    Type.String, 6111, false,
+    Type.Const char, 6111, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Bool, p1)
   )
@@ -69510,7 +69510,7 @@ Returns a string which is the codename of the vehicle's currently selected secon
 --]]
 function VEHICLE.GET_VEHICLE_MOD_COLOR_2_NAME(vehicle)
   return native.invoke(
-    Type.String, 6112, false,
+    Type.Const char, 6112, false,
     arg(Type.Vehicle, vehicle)
   )
 end
@@ -69670,7 +69670,7 @@ Use GET_FILENAME_FOR_AUDIO_CONVERSATION to get the part name in the game's langu
 --]]
 function VEHICLE.GET_MOD_TEXT_LABEL(vehicle, modType, modValue)
   return native.invoke(
-    Type.String, 6122, false,
+    Type.Const char, 6122, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, modType),
     arg(Type.Int, modValue)
@@ -69684,7 +69684,7 @@ Returns the name for the type of vehicle mod(Armour, engine etc)
 --]]
 function VEHICLE.GET_MOD_SLOT_NAME(vehicle, modType)
   return native.invoke(
-    Type.String, 6123, false,
+    Type.Const char, 6123, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, modType)
   )
@@ -69699,7 +69699,7 @@ example
 int count = VEHICLE::GET_VEHICLE_LIVERY_COUNT(veh);
 for (int i = 0; i < count; i++)  
   {
-    const char* LiveryName = VEHICLE::GET_LIVERY_NAME(veh, i);
+     const char* LiveryName = VEHICLE::GET_LIVERY_NAME(veh, i);
   }
 
 
@@ -69719,7 +69719,7 @@ Full list of vehicle mod kits and mods by DurtyFree: https://github.com/DurtyFre
 --]]
 function VEHICLE.GET_LIVERY_NAME(vehicle, liveryIndex)
   return native.invoke(
-    Type.String, 6124, false,
+    Type.Const char, 6124, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, liveryIndex)
   )
@@ -69800,9 +69800,9 @@ function VEHICLE.GET_VEHICLE_TYRE_SMOKE_COLOR(vehicle, r, g, b)
   native.invoke(
     Type.Void, 6131, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -69810,12 +69810,12 @@ end
 --[[
 enum WindowTints
 {
-WINDOWTINT_NONE,
+ WINDOWTINT_NONE,
   WINDOWTINT_PURE_BLACK,
     WINDOWTINT_DARKSMOKE,
-WINDOWTINT_LIGHTSMOKE,
+ WINDOWTINT_LIGHTSMOKE,
     WINDOWTINT_STOCK,
-WINDOWTINT_LIMO,
+ WINDOWTINT_LIMO,
   WINDOWTINT_GREEN
 };
 Full list of all vehicle window tints by DurtyFree https://github.com/DurtyFree/gta-v-data-dumps/blob/master/vehicleColors.json
@@ -69851,9 +69851,9 @@ function VEHICLE.GET_VEHICLE_COLOR(vehicle, r, g, b)
   native.invoke(
     Type.Void, 6135, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -69873,8 +69873,8 @@ end
 iVar3 = get_vehicle_cause_of_destruction(uLocal_248[iVar2]);
 if (iVar3 == joaat("weapon_stickybomb"))
 {
-  func_171(726);
-  iLocal_260 = 1;
+	func_171(726);
+	iLocal_260 = 1;
 }
 --]]
 function VEHICLE.GET_VEHICLE_CAUSE_OF_DESTRUCTION(vehicle)
@@ -70329,7 +70329,7 @@ function VEHICLE.GET_VEHICLE_LOCK_ON_TARGET(vehicle, entity)
   return native.invoke(
     Type.Bool, 6180, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Entity, entity)
+    arg(Type.Entity, entity)
   )
 end
 
@@ -71186,7 +71186,7 @@ end
 function VEHICLE.DOES_VEHICLE_EXIST_WITH_DECORATOR(decorator)
   return native.invoke(
     Type.Vehicle, 6260, false,
-    ref(Type.String, decorator)
+    arg(Type.String, decorator)
   )
 end
 
@@ -71224,7 +71224,7 @@ function VEHICLE.IS_PED_EXCLUSIVE_DRIVER_OF_VEHICLE(ped, vehicle, outIndex)
     Type.Bool, 6263, false,
     arg(Type.Ped, ped),
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, outIndex)
+    arg(Type.Int, outIndex)
   )
 end
 
@@ -71340,9 +71340,9 @@ function VEHICLE.GET_VEHICLE_NEON_COLOUR(vehicle, r, g, b)
   native.invoke(
     Type.Void, 6274, false,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Int, r),
-    ref(Type.Int, g),
-    ref(Type.Int, b)
+    arg(Type.Int, r),
+    arg(Type.Int, g),
+    arg(Type.Int, b)
   )
 end
 
@@ -71450,8 +71450,8 @@ function VEHICLE.GET_VEHICLE_SIZE(vehicle, out1, out2)
   native.invoke(
     Type.Void, 6283, true,
     arg(Type.Vehicle, vehicle),
-    ref(Type.Vector3, out1),
-    ref(Type.Vector3, out2)
+    arg(Type.Vector3, out1),
+    arg(Type.Vector3, out2)
   )
 end
 
@@ -72138,7 +72138,7 @@ end
 function VEHICLE.GET_ALL_VEHICLES(vehsStruct)
   return native.invoke(
     Type.Int, 6349, false,
-    ref(Type.Any, vehsStruct)
+    arg(Type.Any, vehsStruct)
   )
 end
 
@@ -73072,8 +73072,8 @@ function VEHICLE._GET_VEHICLE_EXHAUST_BONE(vehicle, index, boneIndex, axisX)
     Type.Bool, 6429, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, index),
-    ref(Type.Int, boneIndex),
-    ref(Type.Bool, axisX)
+    arg(Type.Int, boneIndex),
+    arg(Type.Bool, axisX)
   )
 end
 
@@ -73094,7 +73094,7 @@ function WATER.GET_WATER_HEIGHT(x, y, z, height)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Float, height)
+    arg(Type.Float, height)
   )
 end
 
@@ -73105,7 +73105,7 @@ function WATER.GET_WATER_HEIGHT_NO_WAVES(x, y, z, height)
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z),
-    ref(Type.Float, height)
+    arg(Type.Float, height)
   )
 end
 
@@ -73119,7 +73119,7 @@ function WATER.TEST_PROBE_AGAINST_WATER(x1, y1, z1, x2, y2, z2, result)
     arg(Type.Float, x2),
     arg(Type.Float, y2),
     arg(Type.Float, z2),
-    ref(Type.Vector3, result)
+    arg(Type.Vector3, result)
   )
 end
 
@@ -73127,9 +73127,9 @@ end
 --[[
 enum eScriptWaterTestResult
 {
-  SCRIPT_WATER_TEST_RESULT_NONE,
-  SCRIPT_WATER_TEST_RESULT_WATER,
-  SCRIPT_WATER_TEST_RESULT_BLOCKED,
+	SCRIPT_WATER_TEST_RESULT_NONE,
+	SCRIPT_WATER_TEST_RESULT_WATER,
+	SCRIPT_WATER_TEST_RESULT_BLOCKED,
 };
 --]]
 function WATER.TEST_PROBE_AGAINST_ALL_WATER(x1, y1, z1, x2, y2, z2, flags, waterHeight)
@@ -73142,7 +73142,7 @@ function WATER.TEST_PROBE_AGAINST_ALL_WATER(x1, y1, z1, x2, y2, z2, flags, water
     arg(Type.Float, y2),
     arg(Type.Float, z2),
     arg(Type.Int, flags),
-    ref(Type.Float, waterHeight)
+    arg(Type.Float, waterHeight)
   )
 end
 
@@ -73157,7 +73157,7 @@ function WATER.TEST_VERTICAL_PROBE_AGAINST_ALL_WATER(x, y, z, flags, waterHeight
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Int, flags),
-    ref(Type.Float, waterHeight)
+    arg(Type.Float, waterHeight)
   )
 end
 
@@ -73349,7 +73349,7 @@ function WEAPON.GET_CURRENT_PED_WEAPON(ped, weaponHash, p2)
   return native.invoke(
     Type.Bool, 6450, false,
     arg(Type.Ped, ped),
-    ref(Type.Hash, weaponHash),
+    arg(Type.Hash, weaponHash),
     arg(Type.Bool, p2)
   )
 end
@@ -73405,7 +73405,7 @@ function WEAPON.GET_CURRENT_PED_VEHICLE_WEAPON(ped, weaponHash)
   return native.invoke(
     Type.Bool, 6454, false,
     arg(Type.Ped, ped),
-    ref(Type.Hash, weaponHash)
+    arg(Type.Hash, weaponHash)
   )
 end
 
@@ -73771,7 +73771,7 @@ function WEAPON.GET_AMMO_IN_CLIP(ped, weaponHash, ammo)
     Type.Bool, 6481, false,
     arg(Type.Ped, ped),
     arg(Type.Hash, weaponHash),
-    ref(Type.Int, ammo)
+    arg(Type.Int, ammo)
   )
 end
 
@@ -73797,7 +73797,7 @@ function WEAPON.GET_MAX_AMMO(ped, weaponHash, ammo)
     Type.Bool, 6483, false,
     arg(Type.Ped, ped),
     arg(Type.Hash, weaponHash),
-    ref(Type.Int, ammo)
+    arg(Type.Int, ammo)
   )
 end
 
@@ -73810,7 +73810,7 @@ function WEAPON.GET_MAX_AMMO_BY_TYPE(ped, ammoTypeHash, ammo)
     Type.Bool, 6484, false,
     arg(Type.Ped, ped),
     arg(Type.Hash, ammoTypeHash),
-    ref(Type.Int, ammo)
+    arg(Type.Int, ammo)
   )
 end
 
@@ -73905,7 +73905,7 @@ function WEAPON.GET_PED_LAST_WEAPON_IMPACT_COORD(ped, coords)
   return native.invoke(
     Type.Bool, 6492, true,
     arg(Type.Ped, ped),
-    ref(Type.Vector3, coords)
+    arg(Type.Vector3, coords)
   )
 end
 
@@ -73961,7 +73961,7 @@ end
 
 -- void EXPLODE_PROJECTILES(Ped ped, Hash weaponHash, BOOL p2) // 0xFC4BD125DE7611E4
 --[[
-            WEAPON::EXPLODE_PROJECTILES(PLAYER::PLAYER_PED_ID(), func_221(0x00000003), 0x00000001);
+             WEAPON::EXPLODE_PROJECTILES(PLAYER::PLAYER_PED_ID(), func_221(0x00000003), 0x00000001);
 --]]
 function WEAPON.EXPLODE_PROJECTILES(ped, weaponHash, p2)
   native.invoke(
@@ -74454,7 +74454,7 @@ function WEAPON.GET_WEAPON_HUD_STATS(weaponHash, outData)
   return native.invoke(
     Type.Bool, 6529, false,
     arg(Type.Hash, weaponHash),
-    ref(Type.Any, outData)
+    arg(Type.Any, outData)
   )
 end
 
@@ -74463,7 +74463,7 @@ function WEAPON.GET_WEAPON_COMPONENT_HUD_STATS(componentHash, outData)
   return native.invoke(
     Type.Bool, 6530, false,
     arg(Type.Hash, componentHash),
-    ref(Type.Any, outData)
+    arg(Type.Any, outData)
   )
 end
 
@@ -74642,32 +74642,32 @@ Strings to use with GET_HASH_KEY :
     "Default",
   "Fat",
   "Female",
-  "FirstPerson",
+   "FirstPerson",
   "FirstPersonAiming",
     "FirstPersonFranklin",
   "FirstPersonFranklinAiming",
     "FirstPersonFranklinRNG",
-  "FirstPersonFranklinScope",
-"FirstPersonMPFemale",
+   "FirstPersonFranklinScope",
+ "FirstPersonMPFemale",
   "FirstPersonMichael",
-  "FirstPersonMichaelAiming",
-"FirstPersonMichaelRNG",
+   "FirstPersonMichaelAiming",
+ "FirstPersonMichaelRNG",
     "FirstPersonMichaelScope",
   "FirstPersonRNG",
-  "FirstPersonScope",
-"FirstPersonTrevor",
+   "FirstPersonScope",
+ "FirstPersonTrevor",
     "FirstPersonTrevorAiming",
   "FirstPersonTrevorRNG",
-"FirstPersonTrevorScope",
-  "Franklin",
-"Gang",
-"Gang1H",
-  "GangFemale",
-  "Hillbilly",
+ "FirstPersonTrevorScope",
+   "Franklin",
+ "Gang",
+ "Gang1H",
+   "GangFemale",
+   "Hillbilly",
     "MP_F_Freemode",
     "Michael",
   "SuperFat",
-"Trevor"
+ "Trevor"
 --]]
 function WEAPON.SET_WEAPON_ANIMATION_OVERRIDE(ped, animStyle)
   native.invoke(
@@ -74681,22 +74681,22 @@ end
 --[[
 enum class eDamageType
 {
-  UNKNOWN = 0,
-  NONE = 1,
-  MELEE = 2,
-  BULLET = 3,
-  BULLET_RUBBER = 4,
-  EXPLOSIVE = 5,
-  FIRE = 6,
-  COLLISION = 7,
-  FALL = 8,
-  DROWN = 9,
-  ELECTRIC = 10,
-  BARBED_WIRE = 11,
-  FIRE_EXTINGUISHER = 12,
-  SMOKE = 13,
-  WATER_CANNON = 14,
-  TRANQUILIZER = 15,
+	UNKNOWN = 0,
+	NONE = 1,
+	MELEE = 2,
+	BULLET = 3,
+	BULLET_RUBBER = 4,
+	EXPLOSIVE = 5,
+	FIRE = 6,
+	COLLISION = 7,
+	FALL = 8,
+	DROWN = 9,
+	ELECTRIC = 10,
+	BARBED_WIRE = 11,
+	FIRE_EXTINGUISHER = 12,
+	SMOKE = 13,
+	WATER_CANNON = 14,
+	TRANQUILIZER = 15,
 };
 
 Full list of weapons by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/blob/master/weapons.json
@@ -74800,7 +74800,7 @@ function WEAPON.IS_AIR_DEFENCE_SPHERE_IN_AREA(x, y, z, radius, outZoneId)
     arg(Type.Float, y),
     arg(Type.Float, z),
     arg(Type.Float, radius),
-    ref(Type.Int, outZoneId)
+    arg(Type.Int, outZoneId)
   )
 end
 
@@ -74961,7 +74961,7 @@ Full list of zones by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/b
 function ZONE.GET_ZONE_FROM_NAME_ID(zoneName)
   return native.invoke(
     Type.Int, 6560, false,
-    ref(Type.String, zoneName)
+    arg(Type.String, zoneName)
   )
 end
 
@@ -75069,7 +75069,7 @@ Full list of zones by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/b
 --]]
 function ZONE.GET_NAME_OF_ZONE(x, y, z)
   return native.invoke(
-    Type.String, 6562, false,
+    Type.Const char, 6562, false,
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z)
