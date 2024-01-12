@@ -19,7 +19,7 @@ end
 -- Create a function through which we can get the ped position
 -- Vector3 GET_ENTITY_COORDS(Entity entity, BOOL alive) // 0x3FEF770D40960D5A
 function GET_ENTITY_COORDS(entity, alive)
-    return native.invoke(Type.Vector3, 750, false, arg(Type.Entity, entity), arg(Type.Bool, alive))
+    return native.invoke(Type.Vector3, 750, true, arg(Type.Entity, entity), arg(Type.Bool, alive))
 end
 
 --[[

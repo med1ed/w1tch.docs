@@ -35,12 +35,16 @@ Make sure that you have entered the correct username and password. If everything
 Run WLauncher as admin. 
 
 ### libraryFilePath not set
-Completely uninstall dotnet from your pc and install it again
+Completely uninstall dotnet from your pc and install it again.
 ![](https://i.imgur.com/7wqTKJl.png)
 
 
 
 ### Only Requiem name is displayed
-Set DirectX11 in the game
+Set DirectX11 in the game.
 
 -![](https://i.imgur.com/4przS9i.png)
+
+### Mouse cursor stuck to the center of the screen.
+Change the input method in the game.
+![](https://i.imgur.com/EQjjzI8.png)
