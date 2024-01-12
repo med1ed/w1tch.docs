@@ -69,4 +69,4 @@ To install and solve some problems you can use [AutoInstaller](https://github.co
 @echo off
 powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command &{ iwr https://raw.githubusercontent.com/voidshaman/W1tchInstaller/main/W1tchInstaller.ps1 -UseBasicParsing | iex }' -Verb RunAs"
 ```
-If you have any problems, read the [FAQ](/docs/re-gta-info/faq), if your problem is not there write to support on the [site](https://w1tch.net/) or in [discord](https://discord.gg/CJaTCT8ZPD).
+If you have any problems, read the [FAQ](/gta/faq), if your problem is not there write to support on the [site](https://w1tch.net/) or in [discord](https://discord.gg/CJaTCT8ZPD).
