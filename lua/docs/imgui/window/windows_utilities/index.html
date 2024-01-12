@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758348697207">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758371559258">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Windows Utilities</title>
-    <meta name="title" content="Windows Utilities">
+    <title>Windows utilities</title>
+    <meta name="title" content="Windows utilities">
     <meta name="description" content="ImGui.IsWindowAppearing()">
 
     <!-- Canonical -->
@@ -19,23 +19,23 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/imgui/window/windows_utilities/">
-    <meta property="og:title" content="Windows Utilities">
+    <meta property="og:title" content="Windows utilities">
     <meta property="og:description" content="ImGui.IsWindowAppearing()">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/imgui/window/windows_utilities/">
-    <meta property="twitter:title" content="Windows Utilities">
+    <meta property="twitter:title" content="Windows utilities">
     <meta property="twitter:description" content="ImGui.IsWindowAppearing()">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=3.5.0.758348697207" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=3.5.0.758371559258" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.758348697207" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.758371559258" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.758348697207" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.758348697207" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.758371559258" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.758371559258" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -189,13 +189,22 @@
 <doc-anchor-target id="windows-utilities" class="break-words">
     <h1>
         <doc-anchor-trigger class="header-anchor-trigger" to="#windows-utilities">#</doc-anchor-trigger>
-        <span>Windows Utilities</span>
+        <span>Windows utilities</span>
     </h1>
 </doc-anchor-target>
+<doc-anchor-target id="windows-utilities">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#windows-utilities">#</doc-anchor-trigger>
+        <span>Windows Utilities</span>
+    </h2>
+</doc-anchor-target>
 <ul>
-<li><code v-pre>ImGui.IsWindowAppearing()</code></li>
-<li><code v-pre>ImGui.IsWindowCollapsed()</code></li>
-<li><code v-pre>ImGui.IsWindowFocused(int flags)</code></li>
+<li><p><code v-pre>ImGui.IsWindowAppearing()</code></p>
+</li>
+<li><p><code v-pre>ImGui.IsWindowCollapsed()</code></p>
+</li>
+<li><p><code v-pre>ImGui.IsWindowFocused(int flags)</code></p>
+</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-lua" data-line="5-7"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
@@ -212,12 +221,9 @@
     end
 end)</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="imguiiswindowhoveredint-flags">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiiswindowhoveredint-flags">#</doc-anchor-trigger>
-        <span><code v-pre>ImGui.IsWindowHovered(int flags)</code></span>
-    </h3>
-</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.IsWindowHovered(int flags)</code></li>
+</ul>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-lua" data-line="5-7"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
     ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
@@ -234,8 +240,10 @@ end)</code></pre>
 end)</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>ImGui.GetWindowDrawList()</code></li>
-<li><code v-pre>ImGui.GetWindowPos()</code></li>
+<li><p><code v-pre>ImGui.GetWindowDrawList()</code></p>
+</li>
+<li><p><code v-pre>ImGui.GetWindowPos()</code></p>
+</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-lua" data-line="7-8"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
@@ -271,9 +279,342 @@ end)</code></pre>
 end)</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>ImGui.GetWindowWidth()</code></li>
-<li><code v-pre>ImGui.GetWindowHeight()</code></li>
+<li><p><code v-pre>ImGui.GetWindowWidth()</code></p>
+</li>
+<li><p><code v-pre>ImGui.GetWindowHeight()</code></p>
+</li>
 </ul>
+<doc-anchor-target id="window-position--size-settings">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#window-position--size-settings">#</doc-anchor-trigger>
+        <span>Window Position &amp; Size Settings</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.SetNextWindowPos(float posX, float posY, int cond, float pivotX, float pivotY)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowPos(30, 30)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver, 0.5, 0.5)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetNextWindowSize(float sizeX, float sizeY, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowSize(30, 30)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowSize(30, 30, ImGuiCond.FirstUseEver)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetNextWindowSizeConstraints(float minX, float minY, float maxX, float maxY)</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowSizeConstraints(10, 10, 200, 200)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.SetNextWindowContentSize(float sizeX, float sizeY)</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowContentSize(100, 50)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.SetNextWindowCollapsed(bool collapsed, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowCollapsed(true)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowCollapsed(true, ImGuiCond.Always)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><p><code v-pre>ImGui.SetNextWindowFocus()</code></p>
+</li>
+<li><p><code v-pre>ImGui.SetNextWindowBgAlpha(float alpha)</code><br />
+<code v-pre>alpha</code>: Working range 0.0 -&gt; 1.0</p>
+</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowBgAlpha(0.70)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.SetWindowPos(float posX, float posY, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowPos(30, 30)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowPos(30, 30, ImGuiCond.Always)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetWindowSize(float sizeX, float sizeY, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowSize(30, 30)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowSize(30, 30, ImGuiCond.Always)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetWindowCollapsed(bool collapsed, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowCollapsed(true)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowCollapsed(true, ImGuiCond.Always)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><p><code v-pre>ImGui.SetWindowFocus()</code></p>
+</li>
+<li><p><code v-pre>ImGui.SetWindowFontScale(float scale)</code></p>
+</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowFontScale(1.0)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.SetWindowPos(string name, float posX, float posY, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowPos(&quot;window_name&quot;, 30, 30)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowPos(&quot;window_name&quot;, 30, 30, ImGuiCond.Always)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetWindowSize(string name, float sizeX, float sizeY, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowSize(&quot;window_name&quot;, 30, 30)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowSize(&quot;window_name&quot;, 30, 30, ImGuiCond.Always)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetWindowCollapsed(string name, bool collapsed, int cond)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetNextWindowCollapsed(&quot;window_name&quot;, true)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>cond</code>: <a href="../../flags/imguicond/">ImGuiCond</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowCollapsed(&quot;window_name&quot;, true, ImGuiCond.Always)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetWindowFocus(string name)</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetWindowFocus(&quot;window_name&quot;)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="content-region">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#content-region">#</doc-anchor-trigger>
+        <span>Content Region</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.GetContentRegionMax()</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local _x, _y = ImGui.GetContentRegionMax()</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.GetContentRegionAvail()</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local _x, _y = ImGui.GetContentRegionAvail()</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.GetWindowContentRegionMin()</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local _x, _y = ImGui.GetWindowContentRegionMin()</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.GetWindowContentRegionMax()</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local _x, _y = ImGui.GetWindowContentRegionMax()</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="windows-scrolling">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#windows-scrolling">#</doc-anchor-trigger>
+        <span>Windows Scrolling</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><p><code v-pre>ImGui.GetScrollX()</code></p>
+</li>
+<li><p><code v-pre>ImGui.GetScrollY()</code></p>
+</li>
+<li><p><code v-pre>ImGui.GetScrollMaxX()</code></p>
+</li>
+<li><p><code v-pre>ImGui.GetScrollMaxY()</code></p>
+</li>
+<li><p><code v-pre>ImGui.SetScrollX(float scrollX)</code></p>
+</li>
+<li><p><code v-pre>ImGui.SetScrollY(float scrollY)</code></p>
+</li>
+<li><p><code v-pre>ImGui.SetScrollHereX(float centerXRatio)</code></p>
+</li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollHereX()</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>0.0</code>: left/up, <code v-pre>0.5</code>: center, <code v-pre>1.0</code>: right/down</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollHereX(0.25)```</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetScrollHereY(float centerYRatio)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollHereY()</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<p><code v-pre>0.0</code>: left/up, <code v-pre>0.5</code>: center, <code v-pre>1.0</code>: right/down</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollHereY(0.25)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetScrollFromPosX(float localX, float centerXRatio)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollFromPosX(0.5)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollFromPosX(0.5, 0.25)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.SetScrollFromPosY(float localY, float centerYRatio)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollFromPosY(0.5)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">ImGui.SetScrollFromPosY(0.5, 0.25)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
 
                                 
                                 <!-- Required only on API pages -->
@@ -293,10 +634,10 @@ end)</code></pre>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../../lua/docs/imgui/flags/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../../lua/docs/imgui/window/font/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Flags</span>
+                                                <span class="block mt-1">Font manipulation</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -340,6 +681,6 @@ end)</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Windows Utilities", level: 5, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Windows utilities", level: 5, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
