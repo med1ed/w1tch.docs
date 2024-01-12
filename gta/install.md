@@ -52,11 +52,11 @@ Make sure you have Directx11 selected in the game settings and select Windowed m
 -![](https://i.imgur.com/2M2qrmw.png)-
 Press the `Inject` button and wait for the menu to load.
 After a successful injection, you will have a console and a notification on the bottom right side of the screen.\
--![](https://i.imgur.com/jMt5oR6.png)-
-
 !!!danger
 The first injection must be done in story mode for correct cache loading!
 !!!
+-![](https://i.imgur.com/jMt5oR6.png)-
+
 ### Opening menu
 Press the F4 key to open the menu and the menu will be shown.
 The mouse is used to navigate the menu.

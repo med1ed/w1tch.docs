@@ -7,7 +7,7 @@ order: 0
 ### How to start making a Lua script
 
 1. First, let's create a folder for our lua script.\
-![](https://i.imgur.com/llPmGY1.png)
+-![](https://i.imgur.com/llPmGY1.png)-
 
 2. Create a txt file and rename it to main.lua\
 ![](https://i.imgur.com/AgvwKFY.png)![](https://i.imgur.com/NYkIDaR.png)

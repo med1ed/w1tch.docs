@@ -44,7 +44,7 @@ local arrayHandle = {}
 
 
 ## native.invoke
-`native.invoke(Type type, Hash hash, Bool fix_vector, Args args)`
+`native.invoke(Type type, Int id, Bool fix_vector, Args args)`
 * `type`: the expected return type of the native function, defined by the InvokerType enum.
 * `id`: Native IDs, they are generated through REGenerator.
 * `fix_vector`: Used to fix vectors of information.
@@ -52,8 +52,7 @@ local arrayHandle = {}
 * `return`: the result of the native function call as a object.
 
 Invokes a native game function with specified arguments and a return type.\
-This function is a central hub for calling native game functions from Lua. It accepts an enumerated type for the expected return type, the native function's hash, a variadic list of arguments wrapped by arg or ref functions, and the current Lua state.
-
+This function is the central hub for calling your own game functions from Lua. It takes an enumerated type for the expected return type, an id that points to the hash of its own function, a variable list of arguments wrapped by the arg or ref functions, and the current state of Lua.
 
 Wrapper example for `NETWORK.NETWORK_HANDLE_FROM_PLAYER`, where `gamerHandleSize` is used both as the array size for `gamerHandle` and as the last argument of the native function, because this native function expects the array size as the last parameter.
 ```lua

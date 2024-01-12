@@ -94,7 +94,7 @@ log.info(tostring(_scale))
 
 ## gui.elements.text_separator
 ![](https://i.imgur.com/Z6ZiBr4.png)-
-`gui.elements.text_separator(sting text)`\
+`gui.elements.text_separator(sting text)` 
 * `text`: Text to be displayed.
 
 Adds a text separator to your UI.
