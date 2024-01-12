@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758317361629">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758348697207">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../../resources/css/retype.css?v=3.5.0.758317361629" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.758348697207" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758348697207" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758317361629" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758317361629" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758348697207" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.758348697207" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -250,7 +250,7 @@ Example:</p>
         <span>native.invoke</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>native.invoke(Type type, Hash hash, Bool fix_vector, Args args)</code></p>
+<p><code v-pre>native.invoke(Type type, Int id, Bool fix_vector, Args args)</code></p>
 <ul>
 <li><code v-pre>type</code>: the expected return type of the native function, defined by the InvokerType enum.</li>
 <li><code v-pre>id</code>: Native IDs, they are generated through REGenerator.</li>
@@ -259,7 +259,7 @@ Example:</p>
 <li><code v-pre>return</code>: the result of the native function call as a object.</li>
 </ul>
 <p>Invokes a native game function with specified arguments and a return type.<br />
-This function is a central hub for calling native game functions from Lua. It accepts an enumerated type for the expected return type, the native function&#x27;s hash, a variadic list of arguments wrapped by arg or ref functions, and the current Lua state.</p>
+This function is the central hub for calling your own game functions from Lua. It takes an enumerated type for the expected return type, an id that points to the hash of its own function, a variable list of arguments wrapped by the arg or ref functions, and the current state of Lua.</p>
 <p>Wrapper example for <code v-pre>NETWORK.NETWORK_HANDLE_FROM_PLAYER</code>, where <code v-pre>gamerHandleSize</code> is used both as the array size for <code v-pre>gamerHandle</code> and as the last argument of the native function, because this native function expects the array size as the last parameter.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">function PLAYER_ID()
