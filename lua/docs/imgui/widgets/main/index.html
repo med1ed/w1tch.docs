@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758401308419">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758465293311">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=3.5.0.758401308419" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=3.5.0.758465293311" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.758401308419" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.758465293311" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.758401308419" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.758401308419" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.758465293311" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.758465293311" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -284,24 +284,815 @@ ImGui.ProgressBar(0.1, 200, 30, &quot;installed...&quot;)</code></pre>
     </h2>
 </doc-anchor-target>
 <ul>
-<li><code v-pre>ImGui.BeginCombo(string label, string previewValue, int flags)</code>
+<li><code v-pre>ImGui.BeginCombo(string label, string previewValue, int flags)</code><br />
 <code v-pre>flags</code>: <a href="../../flags/imguicomboflags/">ImGuiComboFlags</a></li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-lua"><code v-pre class="language-lua">local _list = { &quot;AAAA&quot;, &quot;BBBB&quot;, &quot;CCCC&quot;, &quot;DDDD&quot;, &quot;EEEE&quot;, &quot;FFFF&quot;}
+<pre class="language-lua" data-line="1-2,9-19"><code v-pre class="language-lua">local _list = { &quot;AAAA&quot;, &quot;BBBB&quot;, &quot;CCCC&quot;, &quot;DDDD&quot;, &quot;EEEE&quot;, &quot;FFFF&quot;}
 local _currentSelectedID = 1
 
-if (ImGui.BeginCombo(&quot;Label&quot;, _list[_currentSelectedID], ImGuiComboFlags.PopupAlignLeft)) then
-    for k, v in pairs(_list) do
-        local _isSelected = (_currentSelectedID == k) 
-        if ImGui.Selectable(_list[k], _isSelected) then
-            log.info(tostring(_list[k]))
-            _currentSelectedID = k
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        if (ImGui.BeginCombo(&quot;Label&quot;, _list[_currentSelectedID], ImGuiComboFlags.PopupAlignLeft)) then
+            for k, v in pairs(_list) do
+                local _isSelected = (_currentSelectedID == k) 
+                if ImGui.Selectable(_list[k], _isSelected) then
+                    _currentSelectedID = k
+                    log.info(tostring(_list[k]))
+                end
+            end
+
+            ImGui.EndCombo()
         end
+        
+        ImGui.End() 
     end
-    ImGui.EndCombo()
-end</code></pre>
+end)</code></pre>
 </doc-codeblock></div>
+<ul>
+<li><code v-pre>ImGui.Combo(string label, int currentItem, table items, int itemsCount, int popupMaxHeightInItems)</code></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1-2,9-13"><code v-pre class="language-lua">local _list = { &quot;AAAA&quot;, &quot;BBBB&quot;, &quot;CCCC&quot;, &quot;DDDD&quot;, &quot;EEEE&quot;, &quot;FFFF&quot;}
+local _currentSelectedID = 1
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _selectedID, _clicked = ImGui.Combo(&quot;Combo&quot;, _currentSelectedID, _list, #_list)
+        if (_clicked) then
+            _currentSelectedID = _selectedID
+            log.info(tostring(_list[_currentSelectedID]))
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1-2,9-13"><code v-pre class="language-lua">local _list = { &quot;AAAA&quot;, &quot;BBBB&quot;, &quot;CCCC&quot;, &quot;DDDD&quot;, &quot;EEEE&quot;, &quot;FFFF&quot;}
+local _currentSelectedID = 1
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _selectedID, _clicked = ImGui.Combo(&quot;Combo&quot;, _currentSelectedID, _list, #_list, 3)
+        if (_clicked) then
+            _currentSelectedID = _selectedID
+            log.info(tostring(_list[_currentSelectedID]))
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="drag-float">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#drag-float">#</doc-anchor-trigger>
+        <span>Drag Float</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.DragFloat(string label, float v, float v_speed, float v_min, float v_max, string format, int flags)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10.5
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10.5
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10.5
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10.5
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.DragFloat2(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.DragFloat3(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.DragFloat4(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7, 14.6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7, 14.6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7, 14.6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7, 14.6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="drag-int">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#drag-int">#</doc-anchor-trigger>
+        <span>Drag Int</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ImGui.DragInt(string label, float v, float v_speed, float v_min, float v_max, string format, int flags)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _defaultValue, 12, 5, 15)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = 10
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _defaultValue, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.DragInt2(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int&quot;,  _defaultValue, 12, 5, 15)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int&quot;,  _defaultValue, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.DragInt3(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 1}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 1}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 1}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int&quot;,  _defaultValue, 12, 5, 15)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 1}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int&quot;,  _defaultValue, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<ul>
+<li><code v-pre>ImGui.DragInt4(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code><br />
+<code v-pre>flags</code>: <a href="../../flags/imguisliderflags/">ImGuiSliderFlags</a></li>
+</ul>
+<doc-tabs>
+<doc-tab v-cloak id="example-1">
+<template #title>Example 1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 12, 15}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-2">
+<template #title>Example 2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 12, 15}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-3">
+<template #title>Example 3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 12, 15}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int&quot;,  _defaultValue, 12, 5, 15)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="example-4">
+<template #title>Example 4</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11"><code v-pre class="language-lua">local _defaultValue = {10, 6, 12, 15}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int&quot;,  _defaultValue, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
 
                                 
                                 <!-- Required only on API pages -->
