@@ -11,5 +11,5 @@ If the lua is in an archive, you need to extract it from the archive.\
 You can open the archive with [7-Zip](https://7-zip.org/).
 !!!
 
--![](https://i.imgur.com/xw9gFNx.png)
-
+-![](https://i.imgur.com/xw9gFNx.png)-
+[!embed aspect="21:9"](https://youtu.be/vvkpKxR1Vys)
