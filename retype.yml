@@ -1,12 +1,13 @@
 input: .
 output: .retype
 url: http://docbox.w1tch.net/
-logo: image/favicon.png
+favicon: image/favicon.png
 
 branding:
   title: w1tch
   label: Docs
-  logo: image/favicon.png
+  logo: image/logo.png
+
 links:
 - text: Main Site
   link: https://w1tch.net/
@@ -17,5 +18,10 @@ links:
 - text: VK Group
   link: https://vk.com/projectw1tch
 
+edit:
+  repo: "https://github.com/med1ed/w1tch.docs"
+  label: Found a mistake?
+
 footer:
-  copyright: "&copy; Copyright {{ year }}. All rights reserved."
+  copyright: "&copy; Copyright {{ year }}. Project W1TCH. All rights reserved."
+

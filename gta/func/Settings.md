@@ -10,6 +10,11 @@ label: Settings
 * Apply
 * Animation Speed
 
+### Active Panel
+
+* Enable Panel Flipping
+* Screen Center/Edge
+
 ### Notifications Settings
 
 * Render Time
