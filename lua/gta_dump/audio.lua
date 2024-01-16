@@ -1178,7 +1178,7 @@ Returns active radio station name
 --]]
 function AUDIO.GET_PLAYER_RADIO_STATION_NAME()
   return native.invoke(
-    Type.Const char, 140, false
+    Type.String, 140, false
   )
 end
 
@@ -1188,7 +1188,7 @@ Converts radio station index to string. Use HUD::GET_FILENAME_FOR_AUDIO_CONVERSA
 --]]
 function AUDIO.GET_RADIO_STATION_NAME(radioStation)
   return native.invoke(
-    Type.Const char, 141, false,
+    Type.String, 141, false,
     arg(Type.Int, radioStation)
   )
 end

@@ -71,7 +71,7 @@ end
 -- const char* SC_INBOX_MESSAGE_GET_RAW_TYPE_AT_INDEX(int p0) // 0xF3E31D16CBDCB304
 function SOCIALCLUB.SC_INBOX_MESSAGE_GET_RAW_TYPE_AT_INDEX(p0)
   return native.invoke(
-    Type.Const char, 4840, false,
+    Type.String, 4840, false,
     arg(Type.Int, p0)
   )
 end
@@ -200,7 +200,7 @@ end
 -- const char* SC_GET_NEW_ROCKSTAR_MSG() // 0xDF649C4E9AFDD788
 function SOCIALCLUB.SC_GET_NEW_ROCKSTAR_MSG()
   return native.invoke(
-    Type.Const char, 4856, false
+    Type.String, 4856, false
   )
 end
 
@@ -374,7 +374,7 @@ end
 -- const char* SC_LICENSEPLATE_GET_PLATE(int token, int plateIndex) // 0x1D4446A62D35B0D0
 function SOCIALCLUB.SC_LICENSEPLATE_GET_PLATE(token, plateIndex)
   return native.invoke(
-    Type.Const char, 4876, false,
+    Type.String, 4876, false,
     arg(Type.Int, token),
     arg(Type.Int, plateIndex)
   )
@@ -383,7 +383,7 @@ end
 -- const char* SC_LICENSEPLATE_GET_PLATE_DATA(int token, int plateIndex) // 0x2E89990DDFF670C3
 function SOCIALCLUB.SC_LICENSEPLATE_GET_PLATE_DATA(token, plateIndex)
   return native.invoke(
-    Type.Const char, 4877, false,
+    Type.String, 4877, false,
     arg(Type.Int, token),
     arg(Type.Int, plateIndex)
   )
@@ -680,7 +680,7 @@ Returns the nickname of the logged-in Rockstar Social Club account.
 --]]
 function SOCIALCLUB.SC_ACCOUNT_INFO_GET_NICKNAME()
   return native.invoke(
-    Type.Const char, 4911, false
+    Type.String, 4911, false
   )
 end
 

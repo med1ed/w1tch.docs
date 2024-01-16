@@ -1155,7 +1155,7 @@ This isn't a hash collision.
 --]]
 function MONEY.PROCESS_CASH_GIFT(p0, p1, p2)
   return native.invoke(
-    Type.Const char, 2436, false,
+    Type.String, 2436, false,
     arg(Type.Int, p0),
     arg(Type.Int, p1),
     arg(Type.String, p2)
@@ -3612,7 +3612,7 @@ end
 -- const char* NETWORK_GET_STRING_WALLET_BALANCE(int characterSlot) // 0xF9B10B529DCFB33B
 function MONEY.NETWORK_GET_STRING_WALLET_BALANCE(characterSlot)
   return native.invoke(
-    Type.Const char, 2673, false,
+    Type.String, 2673, false,
     arg(Type.Int, characterSlot)
   )
 end
@@ -3620,14 +3620,14 @@ end
 -- const char* NETWORK_GET_STRING_BANK_BALANCE() // 0xA6FA3979BED01B81
 function MONEY.NETWORK_GET_STRING_BANK_BALANCE()
   return native.invoke(
-    Type.Const char, 2674, false
+    Type.String, 2674, false
   )
 end
 
 -- const char* NETWORK_GET_STRING_BANK_WALLET_BALANCE(int character) // 0x700AF71AE615E6DD
 function MONEY.NETWORK_GET_STRING_BANK_WALLET_BALANCE(character)
   return native.invoke(
-    Type.Const char, 2675, false,
+    Type.String, 2675, false,
     arg(Type.Int, character)
   )
 end

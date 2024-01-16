@@ -418,7 +418,7 @@ p1 is always -1 in the script files
 --]]
 function STATS.STAT_GET_STRING(statHash, p1)
   return native.invoke(
-    Type.Const char, 4947, false,
+    Type.String, 4947, false,
     arg(Type.Hash, statHash),
     arg(Type.Int, p1)
   )
@@ -460,7 +460,7 @@ Returns the rockstar ID (user id) value of a given stat. Returns "STAT_UNKNOWN" 
 --]]
 function STATS.STAT_GET_USER_ID(statHash)
   return native.invoke(
-    Type.Const char, 4950, false,
+    Type.String, 4950, false,
     arg(Type.Hash, statHash)
   )
 end
@@ -468,7 +468,7 @@ end
 -- const char* STAT_GET_LICENSE_PLATE(Hash statName) // 0x5473D4195058B2E4
 function STATS.STAT_GET_LICENSE_PLATE(statName)
   return native.invoke(
-    Type.Const char, 4951, false,
+    Type.String, 4951, false,
     arg(Type.Hash, statName)
   )
 end

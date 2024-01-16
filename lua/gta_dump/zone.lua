@@ -217,7 +217,7 @@ Full list of zones by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/b
 --]]
 function ZONE.GET_NAME_OF_ZONE(x, y, z)
   return native.invoke(
-    Type.Const char, 6562, false,
+    Type.String, 6562, false,
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z)

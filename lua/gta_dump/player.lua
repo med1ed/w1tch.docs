@@ -103,7 +103,7 @@ end
 -- const char* GET_PLAYER_NAME(Player player) // 0x6D0DE6A7B5DA71F8
 function PLAYER.GET_PLAYER_NAME(player)
   return native.invoke(
-    Type.Const char, 4510, false,
+    Type.String, 4510, false,
     arg(Type.Player, player)
   )
 end

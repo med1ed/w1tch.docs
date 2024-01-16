@@ -89,7 +89,7 @@ end
 -- const char* GET_NAME_OF_SCRIPT_WITH_THIS_ID(int threadId) // 0x05A42BA9FC8DA96B
 function SCRIPT.GET_NAME_OF_SCRIPT_WITH_THIS_ID(threadId)
   return native.invoke(
-    Type.Const char, 4791, false,
+    Type.String, 4791, false,
     arg(Type.Int, threadId)
   )
 end
@@ -148,7 +148,7 @@ end
 -- const char* GET_THIS_SCRIPT_NAME() // 0x442E0A7EDE4A738A
 function SCRIPT.GET_THIS_SCRIPT_NAME()
   return native.invoke(
-    Type.Const char, 4797, false
+    Type.String, 4797, false
   )
 end
 

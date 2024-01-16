@@ -7496,7 +7496,7 @@ gtaforums.com/topic/885580-ped-headshotmugshot-txd/
 --]]
 function PED.GET_PEDHEADSHOT_TXD_STRING(id)
   return native.invoke(
-    Type.Const char, 4409, false,
+    Type.String, 4409, false,
     arg(Type.Int, id)
   )
 end

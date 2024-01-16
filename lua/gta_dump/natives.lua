@@ -326,7 +326,7 @@ end
 -- const char* APP_GET_STRING(const char* property) // 0x749B023950D2311C
 function APP.APP_GET_STRING(property)
   return native.invoke(
-    Type.Const char, 29, false,
+    Type.String, 29, false,
     arg(Type.String, property)
   )
 end
@@ -1618,7 +1618,7 @@ Returns active radio station name
 --]]
 function AUDIO.GET_PLAYER_RADIO_STATION_NAME()
   return native.invoke(
-    Type.Const char, 140, false
+    Type.String, 140, false
   )
 end
 
@@ -1628,7 +1628,7 @@ Converts radio station index to string. Use HUD::GET_FILENAME_FOR_AUDIO_CONVERSA
 --]]
 function AUDIO.GET_RADIO_STATION_NAME(radioStation)
   return native.invoke(
-    Type.Const char, 141, false,
+    Type.String, 141, false,
     arg(Type.Int, radioStation)
   )
 end
@@ -7517,7 +7517,7 @@ end
 -- const char* DATADICT_GET_STRING(Any* objectData, const char* key) // 0x3D2FD9E763B24472
 function DATAFILE.DATADICT_GET_STRING(objectData, key)
   return native.invoke(
-    Type.Const char, 685, false,
+    Type.String, 685, false,
     arg(Type.Any, objectData),
     arg(Type.String, key)
   )
@@ -7654,7 +7654,7 @@ end
 -- const char* DATAARRAY_GET_STRING(Any* arrayData, int arrayIndex) // 0xD3F2FFEB8D836F52
 function DATAFILE.DATAARRAY_GET_STRING(arrayData, arrayIndex)
   return native.invoke(
-    Type.Const char, 699, false,
+    Type.String, 699, false,
     arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )
@@ -8486,7 +8486,7 @@ Returns the name of the script that owns/created the entity or nullptr. Second p
 --]]
 function ENTITY.GET_ENTITY_SCRIPT(entity, script)
   return native.invoke(
-    Type.Const char, 770, false,
+    Type.String, 770, false,
     arg(Type.Entity, entity),
     arg(Type.Scrhandle, script)
   )
@@ -15999,7 +15999,7 @@ Used to get a return value from a scaleform function. Returns a string in the sa
 --]]
 function GRAPHICS.GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_STRING(methodReturn)
   return native.invoke(
-    Type.Const char, 1349, false,
+    Type.String, 1349, false,
     arg(Type.Int, methodReturn)
   )
 end
@@ -17763,7 +17763,7 @@ subStr = HUD::GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME("MY_STRING", 3, 6);
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME(text, position, length)
   return native.invoke(
-    Type.Const char, 1487, false,
+    Type.String, 1487, false,
     arg(Type.String, text),
     arg(Type.Int, position),
     arg(Type.Int, length)
@@ -17796,7 +17796,7 @@ BOOL sub_8e5aa(char *text, int length) {
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_WITH_BYTE_LIMIT(text, position, length, maxLength)
   return native.invoke(
-    Type.Const char, 1488, false,
+    Type.String, 1488, false,
     arg(Type.String, text),
     arg(Type.Int, position),
     arg(Type.Int, length),
@@ -17816,7 +17816,7 @@ subStr = HUD::GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_BYTES("MY_STRING", 
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_BYTES(text, startPosition, endPosition)
   return native.invoke(
-    Type.Const char, 1489, false,
+    Type.String, 1489, false,
     arg(Type.String, text),
     arg(Type.Int, startPosition),
     arg(Type.Int, endPosition)
@@ -17829,7 +17829,7 @@ Gets a localized string literal from a label name. Can be used for output of e.g
 --]]
 function HUD.GET_FILENAME_FOR_AUDIO_CONVERSATION(labelName)
   return native.invoke(
-    Type.Const char, 1490, false,
+    Type.String, 1490, false,
     arg(Type.String, labelName)
   )
 end
@@ -17960,7 +17960,7 @@ end
 -- const char* GET_FIRST_N_CHARACTERS_OF_LITERAL_STRING(const char* string, int length) // 0x98C3CF913D895111
 function HUD.GET_FIRST_N_CHARACTERS_OF_LITERAL_STRING(string, length)
   return native.invoke(
-    Type.Const char, 1505, false,
+    Type.String, 1505, false,
     arg(Type.String, string),
     arg(Type.Int, length)
   )
@@ -18004,7 +18004,7 @@ For how to get the hashes, see PATHFIND::GET_STREET_NAME_AT_COORD.
 --]]
 function HUD.GET_STREET_NAME_FROM_HASH_KEY(hash)
   return native.invoke(
-    Type.Const char, 1509, false,
+    Type.String, 1509, false,
     arg(Type.Hash, hash)
   )
 end
@@ -23050,7 +23050,7 @@ Returns pointer to an empty string.
 --]]
 function MISC.GET_CONTENT_TO_LOAD()
   return native.invoke(
-    Type.Const char, 1981, false
+    Type.String, 1981, false
   )
 end
 
@@ -26356,7 +26356,7 @@ Returns NULL unless UPDATE_ONSCREEN_KEYBOARD() returns 1 in the same tick.
 --]]
 function MISC.GET_ONSCREEN_KEYBOARD_RESULT()
   return native.invoke(
-    Type.Const char, 2260, false
+    Type.String, 2260, false
   )
 end
 
@@ -28183,7 +28183,7 @@ This isn't a hash collision.
 --]]
 function MONEY.PROCESS_CASH_GIFT(p0, p1, p2)
   return native.invoke(
-    Type.Const char, 2436, false,
+    Type.String, 2436, false,
     arg(Type.Int, p0),
     arg(Type.Int, p1),
     arg(Type.String, p2)
@@ -30640,7 +30640,7 @@ end
 -- const char* NETWORK_GET_STRING_WALLET_BALANCE(int characterSlot) // 0xF9B10B529DCFB33B
 function MONEY.NETWORK_GET_STRING_WALLET_BALANCE(characterSlot)
   return native.invoke(
-    Type.Const char, 2673, false,
+    Type.String, 2673, false,
     arg(Type.Int, characterSlot)
   )
 end
@@ -30648,14 +30648,14 @@ end
 -- const char* NETWORK_GET_STRING_BANK_BALANCE() // 0xA6FA3979BED01B81
 function MONEY.NETWORK_GET_STRING_BANK_BALANCE()
   return native.invoke(
-    Type.Const char, 2674, false
+    Type.String, 2674, false
   )
 end
 
 -- const char* NETWORK_GET_STRING_BANK_WALLET_BALANCE(int character) // 0x700AF71AE615E6DD
 function MONEY.NETWORK_GET_STRING_BANK_WALLET_BALANCE(character)
   return native.invoke(
-    Type.Const char, 2675, false,
+    Type.String, 2675, false,
     arg(Type.Int, character)
   )
 end
@@ -31136,7 +31136,7 @@ _GET_ONLINE_VERSION() will return "1.33"
 --]]
 function NETWORK.GET_ONLINE_VERSION()
   return native.invoke(
-    Type.Const char, 2727, false
+    Type.String, 2727, false
   )
 end
 
@@ -33037,7 +33037,7 @@ end
 -- const char* NETWORK_GET_PRESENCE_INVITE_INVITER(int p0) // 0x4962CC4AA2F345B7
 function NETWORK.NETWORK_GET_PRESENCE_INVITE_INVITER(p0)
   return native.invoke(
-    Type.Const char, 2943, false,
+    Type.String, 2943, false,
     arg(Type.Int, p0)
   )
 end
@@ -33062,7 +33062,7 @@ end
 -- const char* NETWORK_GET_PRESENCE_INVITE_CONTENT_ID(int p0) // 0x24409FC4C55CB22D
 function NETWORK.NETWORK_GET_PRESENCE_INVITE_CONTENT_ID(p0)
   return native.invoke(
-    Type.Const char, 2946, false,
+    Type.String, 2946, false,
     arg(Type.Int, p0)
   )
 end
@@ -34285,7 +34285,7 @@ end
 -- const char* NETWORK_GET_GAMERTAG_FROM_HANDLE(Any* gamerHandle) // 0x426141162EBE5CDB
 function NETWORK.NETWORK_GET_GAMERTAG_FROM_HANDLE(gamerHandle)
   return native.invoke(
-    Type.Const char, 3083, false,
+    Type.String, 3083, false,
     arg(Type.Any, gamerHandle)
   )
 end
@@ -34344,7 +34344,7 @@ end
 -- const char* NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(Any* gamerHandle) // 0xC82630132081BB6F
 function NETWORK.NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(gamerHandle)
   return native.invoke(
-    Type.Const char, 3089, false,
+    Type.String, 3089, false,
     arg(Type.Any, gamerHandle)
   )
 end
@@ -34371,7 +34371,7 @@ Returns the name of a given player. Returns "**Invalid**" if rlGamerInfo of the 
 --]]
 function NETWORK.NETWORK_PLAYER_GET_NAME(player)
   return native.invoke(
-    Type.Const char, 3092, false,
+    Type.String, 3092, false,
     arg(Type.Player, player)
   )
 end
@@ -34383,7 +34383,7 @@ Takes a 24 char buffer. Returns the buffer or "**Invalid**" if rlGamerInfo of th
 --]]
 function NETWORK.NETWORK_PLAYER_GET_USERID(player, userID)
   return native.invoke(
-    Type.Const char, 3093, false,
+    Type.String, 3093, false,
     arg(Type.Player, player),
     arg(Type.Int, userID)
   )
@@ -34462,7 +34462,7 @@ end
 -- const char* NETWORK_GET_FRIEND_NAME(int friendIndex) // 0xE11EBBB2A783FE8B
 function NETWORK.NETWORK_GET_FRIEND_NAME(friendIndex)
   return native.invoke(
-    Type.Const char, 3101, false,
+    Type.String, 3101, false,
     arg(Type.Int, friendIndex)
   )
 end
@@ -34470,7 +34470,7 @@ end
 -- const char* NETWORK_GET_FRIEND_DISPLAY_NAME(int friendIndex) // 0x4164F227D052E293
 function NETWORK.NETWORK_GET_FRIEND_DISPLAY_NAME(friendIndex)
   return native.invoke(
-    Type.Const char, 3102, false,
+    Type.String, 3102, false,
     arg(Type.Int, friendIndex)
   )
 end
@@ -36151,7 +36151,7 @@ end
 -- const char* GET_TIME_AS_STRING(int time) // 0x9E23B1777A927DAD
 function NETWORK.GET_TIME_AS_STRING(time)
   return native.invoke(
-    Type.Const char, 3283, false,
+    Type.String, 3283, false,
     arg(Type.Int, time)
   )
 end
@@ -36162,7 +36162,7 @@ Same as GET_CLOUD_TIME_AS_INT but returns the value as a hex string (%I64X).
 --]]
 function NETWORK.GET_CLOUD_TIME_AS_STRING()
   return native.invoke(
-    Type.Const char, 3284, false
+    Type.String, 3284, false
   )
 end
 
@@ -37350,7 +37350,7 @@ end
 -- const char* GET_COMMERCE_ITEM_ID(int index) // 0x662635855957C411
 function NETWORK.GET_COMMERCE_ITEM_ID(index)
   return native.invoke(
-    Type.Const char, 3402, false,
+    Type.String, 3402, false,
     arg(Type.Int, index)
   )
 end
@@ -37358,7 +37358,7 @@ end
 -- const char* GET_COMMERCE_ITEM_NAME(int index) // 0xB4271092CA7EDF48
 function NETWORK.GET_COMMERCE_ITEM_NAME(index)
   return native.invoke(
-    Type.Const char, 3403, false,
+    Type.String, 3403, false,
     arg(Type.Int, index)
   )
 end
@@ -37366,7 +37366,7 @@ end
 -- const char* GET_COMMERCE_PRODUCT_PRICE(int index) // 0xCA94551B50B4932C
 function NETWORK.GET_COMMERCE_PRODUCT_PRICE(index)
   return native.invoke(
-    Type.Const char, 3404, false,
+    Type.String, 3404, false,
     arg(Type.Int, index)
   )
 end
@@ -37385,7 +37385,7 @@ index2 is unused
 --]]
 function NETWORK.GET_COMMERCE_ITEM_CAT(index, index2)
   return native.invoke(
-    Type.Const char, 3406, false,
+    Type.String, 3406, false,
     arg(Type.Int, index),
     arg(Type.Int, index2)
   )
@@ -37437,7 +37437,7 @@ end
 -- const char* GET_COMMERCE_ITEM_TEXTURENAME(int index) // 0x722F5D28B61C5EA8
 function NETWORK.GET_COMMERCE_ITEM_TEXTURENAME(index)
   return native.invoke(
-    Type.Const char, 3412, false,
+    Type.String, 3412, false,
     arg(Type.Int, index)
   )
 end
@@ -37628,7 +37628,7 @@ end
 -- const char* UGC_GET_CREATE_CONTENT_ID() // 0xC55A0B40FFB1ED23
 function NETWORK.UGC_GET_CREATE_CONTENT_ID()
   return native.invoke(
-    Type.Const char, 3435, false
+    Type.String, 3435, false
   )
 end
 
@@ -37879,7 +37879,7 @@ end
 -- const char* UGC_GET_CONTENT_USER_ID(int p0) // 0xCD67AD041A394C9C
 function NETWORK.UGC_GET_CONTENT_USER_ID(p0)
   return native.invoke(
-    Type.Const char, 3462, false,
+    Type.String, 3462, false,
     arg(Type.Int, p0)
   )
 end
@@ -37904,7 +37904,7 @@ end
 -- const char* UGC_GET_CONTENT_USER_NAME(Any p0) // 0x703F12425ECA8BF5
 function NETWORK.UGC_GET_CONTENT_USER_NAME(p0)
   return native.invoke(
-    Type.Const char, 3465, false,
+    Type.String, 3465, false,
     arg(Type.Any, p0)
   )
 end
@@ -37931,7 +37931,7 @@ Return the mission id of a job.
 --]]
 function NETWORK.UGC_GET_CONTENT_ID(p0)
   return native.invoke(
-    Type.Const char, 3468, false,
+    Type.String, 3468, false,
     arg(Type.Int, p0)
   )
 end
@@ -37942,7 +37942,7 @@ Return the root content id of a job.
 --]]
 function NETWORK.UGC_GET_ROOT_CONTENT_ID(p0)
   return native.invoke(
-    Type.Const char, 3469, false,
+    Type.String, 3469, false,
     arg(Type.Int, p0)
   )
 end
@@ -37950,7 +37950,7 @@ end
 -- const char* UGC_GET_CONTENT_NAME(Any p0) // 0xBF09786A7FCAB582
 function NETWORK.UGC_GET_CONTENT_NAME(p0)
   return native.invoke(
-    Type.Const char, 3470, false,
+    Type.String, 3470, false,
     arg(Type.Any, p0)
   )
 end
@@ -37966,7 +37966,7 @@ end
 -- const char* UGC_GET_CONTENT_PATH(int p0, int p1) // 0xBAF6BABF9E7CCC13
 function NETWORK.UGC_GET_CONTENT_PATH(p0, p1)
   return native.invoke(
-    Type.Const char, 3472, false,
+    Type.String, 3472, false,
     arg(Type.Int, p0),
     arg(Type.Int, p1)
   )
@@ -38138,7 +38138,7 @@ end
 -- const char* UGC_GET_CACHED_DESCRIPTION(Any p0, Any p1) // 0x40F7E66472DF3E5C
 function NETWORK.UGC_GET_CACHED_DESCRIPTION(p0, p1)
   return native.invoke(
-    Type.Const char, 3492, false,
+    Type.String, 3492, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
@@ -38399,7 +38399,7 @@ end
 -- const char* TEXTURE_DOWNLOAD_GET_NAME(int p0) // 0x3448505B6E35262D
 function NETWORK.TEXTURE_DOWNLOAD_GET_NAME(p0)
   return native.invoke(
-    Type.Const char, 3524, false,
+    Type.String, 3524, false,
     arg(Type.Int, p0)
   )
 end
@@ -41031,7 +41031,7 @@ control: unused parameter
 --]]
 function PAD.GET_CONTROL_INSTRUCTIONAL_BUTTONS_STRING(control, action, allowXOSwap)
   return native.invoke(
-    Type.Const char, 3755, false,
+    Type.String, 3755, false,
     arg(Type.Int, control),
     arg(Type.Int, action),
     arg(Type.Bool, allowXOSwap)
@@ -41044,7 +41044,7 @@ control: unused parameter
 --]]
 function PAD.GET_CONTROL_GROUP_INSTRUCTIONAL_BUTTONS_STRING(control, controlGroup, allowXOSwap)
   return native.invoke(
-    Type.Const char, 3756, false,
+    Type.String, 3756, false,
     arg(Type.Int, control),
     arg(Type.Int, controlGroup),
     arg(Type.Bool, allowXOSwap)
@@ -49713,7 +49713,7 @@ gtaforums.com/topic/885580-ped-headshotmugshot-txd/
 --]]
 function PED.GET_PEDHEADSHOT_TXD_STRING(id)
   return native.invoke(
-    Type.Const char, 4409, false,
+    Type.String, 4409, false,
     arg(Type.Int, id)
   )
 end
@@ -50759,7 +50759,7 @@ end
 -- const char* GET_PLAYER_NAME(Player player) // 0x6D0DE6A7B5DA71F8
 function PLAYER.GET_PLAYER_NAME(player)
   return native.invoke(
-    Type.Const char, 4510, false,
+    Type.String, 4510, false,
     arg(Type.Player, player)
   )
 end
@@ -53897,7 +53897,7 @@ end
 -- const char* GET_NAME_OF_SCRIPT_WITH_THIS_ID(int threadId) // 0x05A42BA9FC8DA96B
 function SCRIPT.GET_NAME_OF_SCRIPT_WITH_THIS_ID(threadId)
   return native.invoke(
-    Type.Const char, 4791, false,
+    Type.String, 4791, false,
     arg(Type.Int, threadId)
   )
 end
@@ -53956,7 +53956,7 @@ end
 -- const char* GET_THIS_SCRIPT_NAME() // 0x442E0A7EDE4A738A
 function SCRIPT.GET_THIS_SCRIPT_NAME()
   return native.invoke(
-    Type.Const char, 4797, false
+    Type.String, 4797, false
   )
 end
 
@@ -54471,7 +54471,7 @@ end
 -- const char* SC_INBOX_MESSAGE_GET_RAW_TYPE_AT_INDEX(int p0) // 0xF3E31D16CBDCB304
 function SOCIALCLUB.SC_INBOX_MESSAGE_GET_RAW_TYPE_AT_INDEX(p0)
   return native.invoke(
-    Type.Const char, 4840, false,
+    Type.String, 4840, false,
     arg(Type.Int, p0)
   )
 end
@@ -54600,7 +54600,7 @@ end
 -- const char* SC_GET_NEW_ROCKSTAR_MSG() // 0xDF649C4E9AFDD788
 function SOCIALCLUB.SC_GET_NEW_ROCKSTAR_MSG()
   return native.invoke(
-    Type.Const char, 4856, false
+    Type.String, 4856, false
   )
 end
 
@@ -54774,7 +54774,7 @@ end
 -- const char* SC_LICENSEPLATE_GET_PLATE(int token, int plateIndex) // 0x1D4446A62D35B0D0
 function SOCIALCLUB.SC_LICENSEPLATE_GET_PLATE(token, plateIndex)
   return native.invoke(
-    Type.Const char, 4876, false,
+    Type.String, 4876, false,
     arg(Type.Int, token),
     arg(Type.Int, plateIndex)
   )
@@ -54783,7 +54783,7 @@ end
 -- const char* SC_LICENSEPLATE_GET_PLATE_DATA(int token, int plateIndex) // 0x2E89990DDFF670C3
 function SOCIALCLUB.SC_LICENSEPLATE_GET_PLATE_DATA(token, plateIndex)
   return native.invoke(
-    Type.Const char, 4877, false,
+    Type.String, 4877, false,
     arg(Type.Int, token),
     arg(Type.Int, plateIndex)
   )
@@ -55080,7 +55080,7 @@ Returns the nickname of the logged-in Rockstar Social Club account.
 --]]
 function SOCIALCLUB.SC_ACCOUNT_INFO_GET_NICKNAME()
   return native.invoke(
-    Type.Const char, 4911, false
+    Type.String, 4911, false
   )
 end
 
@@ -55524,7 +55524,7 @@ p1 is always -1 in the script files
 --]]
 function STATS.STAT_GET_STRING(statHash, p1)
   return native.invoke(
-    Type.Const char, 4947, false,
+    Type.String, 4947, false,
     arg(Type.Hash, statHash),
     arg(Type.Int, p1)
   )
@@ -55566,7 +55566,7 @@ Returns the rockstar ID (user id) value of a given stat. Returns "STAT_UNKNOWN" 
 --]]
 function STATS.STAT_GET_USER_ID(statHash)
   return native.invoke(
-    Type.Const char, 4950, false,
+    Type.String, 4950, false,
     arg(Type.Hash, statHash)
   )
 end
@@ -55574,7 +55574,7 @@ end
 -- const char* STAT_GET_LICENSE_PLATE(Hash statName) // 0x5473D4195058B2E4
 function STATS.STAT_GET_LICENSE_PLATE(statName)
   return native.invoke(
-    Type.Const char, 4951, false,
+    Type.String, 4951, false,
     arg(Type.Hash, statName)
   )
 end
@@ -60907,7 +60907,7 @@ end
 -- const char* GET_CLIP_SET_FOR_SCRIPTED_GUN_TASK(int gunTaskType) // 0x3A8CADC7D37AACC5
 function TASK.GET_CLIP_SET_FOR_SCRIPTED_GUN_TASK(gunTaskType)
   return native.invoke(
-    Type.Const char, 5444, false,
+    Type.String, 5444, false,
     arg(Type.Int, gunTaskType)
   )
 end
@@ -63922,7 +63922,7 @@ end
 -- const char* GET_TASK_MOVE_NETWORK_STATE(Ped ped) // 0x717E4D1F2048376D
 function TASK.GET_TASK_MOVE_NETWORK_STATE(ped)
   return native.invoke(
-    Type.Const char, 5634, false,
+    Type.String, 5634, false,
     arg(Type.Ped, ped)
   )
 end
@@ -66137,7 +66137,7 @@ Returns the license plate text from a vehicle. 8 chars maximum.
 --]]
 function VEHICLE.GET_VEHICLE_NUMBER_PLATE_TEXT(vehicle)
   return native.invoke(
-    Type.Const char, 5825, false,
+    Type.String, 5825, false,
     arg(Type.Vehicle, vehicle)
   )
 end
@@ -68193,7 +68193,7 @@ Full list of vehicles by DurtyFree: https://github.com/DurtyFree/gta-v-data-dump
 --]]
 function VEHICLE.GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(modelHash)
   return native.invoke(
-    Type.Const char, 5996, false,
+    Type.String, 5996, false,
     arg(Type.Hash, modelHash)
   )
 end
@@ -68207,7 +68207,7 @@ Full list of vehicles by DurtyFree: https://github.com/DurtyFree/gta-v-data-dump
 --]]
 function VEHICLE.GET_MAKE_NAME_FROM_VEHICLE_MODEL(modelHash)
   return native.invoke(
-    Type.Const char, 5997, false,
+    Type.String, 5997, false,
     arg(Type.Hash, modelHash)
   )
 end
@@ -69498,7 +69498,7 @@ p1 is always 0
 --]]
 function VEHICLE.GET_VEHICLE_MOD_COLOR_1_NAME(vehicle, p1)
   return native.invoke(
-    Type.Const char, 6111, false,
+    Type.String, 6111, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Bool, p1)
   )
@@ -69510,7 +69510,7 @@ Returns a string which is the codename of the vehicle's currently selected secon
 --]]
 function VEHICLE.GET_VEHICLE_MOD_COLOR_2_NAME(vehicle)
   return native.invoke(
-    Type.Const char, 6112, false,
+    Type.String, 6112, false,
     arg(Type.Vehicle, vehicle)
   )
 end
@@ -69670,7 +69670,7 @@ Use GET_FILENAME_FOR_AUDIO_CONVERSATION to get the part name in the game's langu
 --]]
 function VEHICLE.GET_MOD_TEXT_LABEL(vehicle, modType, modValue)
   return native.invoke(
-    Type.Const char, 6122, false,
+    Type.String, 6122, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, modType),
     arg(Type.Int, modValue)
@@ -69684,7 +69684,7 @@ Returns the name for the type of vehicle mod(Armour, engine etc)
 --]]
 function VEHICLE.GET_MOD_SLOT_NAME(vehicle, modType)
   return native.invoke(
-    Type.Const char, 6123, false,
+    Type.String, 6123, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, modType)
   )
@@ -69719,7 +69719,7 @@ Full list of vehicle mod kits and mods by DurtyFree: https://github.com/DurtyFre
 --]]
 function VEHICLE.GET_LIVERY_NAME(vehicle, liveryIndex)
   return native.invoke(
-    Type.Const char, 6124, false,
+    Type.String, 6124, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, liveryIndex)
   )
@@ -75069,7 +75069,7 @@ Full list of zones by DurtyFree: https://github.com/DurtyFree/gta-v-data-dumps/b
 --]]
 function ZONE.GET_NAME_OF_ZONE(x, y, z)
   return native.invoke(
-    Type.Const char, 6562, false,
+    Type.String, 6562, false,
     arg(Type.Float, x),
     arg(Type.Float, y),
     arg(Type.Float, z)

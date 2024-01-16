@@ -538,7 +538,7 @@ Returns the name of the script that owns/created the entity or nullptr. Second p
 --]]
 function ENTITY.GET_ENTITY_SCRIPT(entity, script)
   return native.invoke(
-    Type.Const char, 770, false,
+    Type.String, 770, false,
     arg(Type.Entity, entity),
     arg(Type.Scrhandle, script)
   )
