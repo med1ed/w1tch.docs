@@ -3,4 +3,32 @@ order: -12
 label: Crafting Workshop
 ---
 
-## Soon...
+## Ped Spawn
+
+* **Ped Spawn Settings**
+    * Preview Ped
+    * Spawn Invincible
+    * Spawn Hostile
+    * Spawn Invisible
+    * Spawn As Bodyguard
+    * Ped Weapons
+    * Weapons Linst
+    * Assign To Self/Other Player
+* **Search Model**
+* **Peds List**
+
+## Spawn Hangler
+
+* **Spawned Peds**
+    * Teleport To Ped
+    * Teleport Ped To Me
+    * Delete Ped
+    * Delete All Peds
+    * Ped Info
+* **Spawned Vehicles**
+    * Teleport To Vehicle
+    * Teleport Vehicle To Me
+    * Teleport into Vehicle
+    * Delete Vehicle
+    * Delete All vehicles
+    * Vehicle Info
