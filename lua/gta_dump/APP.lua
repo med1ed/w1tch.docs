@@ -26,7 +26,7 @@ end
 -- const char* APP_GET_STRING(const char* property) // 0x749B023950D2311C
 function APP.APP_GET_STRING(property)
   return native.invoke(
-    Type.Const char, 29, false,
+    Type.String, 29, false,
     arg(Type.String, property)
   )
 end

@@ -368,7 +368,7 @@ end
 -- const char* DATADICT_GET_STRING(Any* objectData, const char* key) // 0x3D2FD9E763B24472
 function DATAFILE.DATADICT_GET_STRING(objectData, key)
   return native.invoke(
-    Type.Const char, 685, false,
+    Type.String, 685, false,
     arg(Type.Any, objectData),
     arg(Type.String, key)
   )
@@ -505,7 +505,7 @@ end
 -- const char* DATAARRAY_GET_STRING(Any* arrayData, int arrayIndex) // 0xD3F2FFEB8D836F52
 function DATAFILE.DATAARRAY_GET_STRING(arrayData, arrayIndex)
   return native.invoke(
-    Type.Const char, 699, false,
+    Type.String, 699, false,
     arg(Type.Any, arrayData),
     arg(Type.Int, arrayIndex)
   )

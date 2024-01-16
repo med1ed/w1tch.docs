@@ -13,7 +13,7 @@ _GET_ONLINE_VERSION() will return "1.33"
 --]]
 function NETWORK.GET_ONLINE_VERSION()
   return native.invoke(
-    Type.Const char, 2727, false
+    Type.String, 2727, false
   )
 end
 
@@ -1914,7 +1914,7 @@ end
 -- const char* NETWORK_GET_PRESENCE_INVITE_INVITER(int p0) // 0x4962CC4AA2F345B7
 function NETWORK.NETWORK_GET_PRESENCE_INVITE_INVITER(p0)
   return native.invoke(
-    Type.Const char, 2943, false,
+    Type.String, 2943, false,
     arg(Type.Int, p0)
   )
 end
@@ -1939,7 +1939,7 @@ end
 -- const char* NETWORK_GET_PRESENCE_INVITE_CONTENT_ID(int p0) // 0x24409FC4C55CB22D
 function NETWORK.NETWORK_GET_PRESENCE_INVITE_CONTENT_ID(p0)
   return native.invoke(
-    Type.Const char, 2946, false,
+    Type.String, 2946, false,
     arg(Type.Int, p0)
   )
 end
@@ -3162,7 +3162,7 @@ end
 -- const char* NETWORK_GET_GAMERTAG_FROM_HANDLE(Any* gamerHandle) // 0x426141162EBE5CDB
 function NETWORK.NETWORK_GET_GAMERTAG_FROM_HANDLE(gamerHandle)
   return native.invoke(
-    Type.Const char, 3083, false,
+    Type.String, 3083, false,
     arg(Type.Any, gamerHandle)
   )
 end
@@ -3221,7 +3221,7 @@ end
 -- const char* NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(Any* gamerHandle) // 0xC82630132081BB6F
 function NETWORK.NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(gamerHandle)
   return native.invoke(
-    Type.Const char, 3089, false,
+    Type.String, 3089, false,
     arg(Type.Any, gamerHandle)
   )
 end
@@ -3248,7 +3248,7 @@ Returns the name of a given player. Returns "**Invalid**" if rlGamerInfo of the 
 --]]
 function NETWORK.NETWORK_PLAYER_GET_NAME(player)
   return native.invoke(
-    Type.Const char, 3092, false,
+    Type.String, 3092, false,
     arg(Type.Player, player)
   )
 end
@@ -3260,7 +3260,7 @@ Takes a 24 char buffer. Returns the buffer or "**Invalid**" if rlGamerInfo of th
 --]]
 function NETWORK.NETWORK_PLAYER_GET_USERID(player, userID)
   return native.invoke(
-    Type.Const char, 3093, false,
+    Type.String, 3093, false,
     arg(Type.Player, player),
     arg(Type.Int, userID)
   )
@@ -3339,7 +3339,7 @@ end
 -- const char* NETWORK_GET_FRIEND_NAME(int friendIndex) // 0xE11EBBB2A783FE8B
 function NETWORK.NETWORK_GET_FRIEND_NAME(friendIndex)
   return native.invoke(
-    Type.Const char, 3101, false,
+    Type.String, 3101, false,
     arg(Type.Int, friendIndex)
   )
 end
@@ -3347,7 +3347,7 @@ end
 -- const char* NETWORK_GET_FRIEND_DISPLAY_NAME(int friendIndex) // 0x4164F227D052E293
 function NETWORK.NETWORK_GET_FRIEND_DISPLAY_NAME(friendIndex)
   return native.invoke(
-    Type.Const char, 3102, false,
+    Type.String, 3102, false,
     arg(Type.Int, friendIndex)
   )
 end
@@ -5028,7 +5028,7 @@ end
 -- const char* GET_TIME_AS_STRING(int time) // 0x9E23B1777A927DAD
 function NETWORK.GET_TIME_AS_STRING(time)
   return native.invoke(
-    Type.Const char, 3283, false,
+    Type.String, 3283, false,
     arg(Type.Int, time)
   )
 end
@@ -5039,7 +5039,7 @@ Same as GET_CLOUD_TIME_AS_INT but returns the value as a hex string (%I64X).
 --]]
 function NETWORK.GET_CLOUD_TIME_AS_STRING()
   return native.invoke(
-    Type.Const char, 3284, false
+    Type.String, 3284, false
   )
 end
 
@@ -6227,7 +6227,7 @@ end
 -- const char* GET_COMMERCE_ITEM_ID(int index) // 0x662635855957C411
 function NETWORK.GET_COMMERCE_ITEM_ID(index)
   return native.invoke(
-    Type.Const char, 3402, false,
+    Type.String, 3402, false,
     arg(Type.Int, index)
   )
 end
@@ -6235,7 +6235,7 @@ end
 -- const char* GET_COMMERCE_ITEM_NAME(int index) // 0xB4271092CA7EDF48
 function NETWORK.GET_COMMERCE_ITEM_NAME(index)
   return native.invoke(
-    Type.Const char, 3403, false,
+    Type.String, 3403, false,
     arg(Type.Int, index)
   )
 end
@@ -6243,7 +6243,7 @@ end
 -- const char* GET_COMMERCE_PRODUCT_PRICE(int index) // 0xCA94551B50B4932C
 function NETWORK.GET_COMMERCE_PRODUCT_PRICE(index)
   return native.invoke(
-    Type.Const char, 3404, false,
+    Type.String, 3404, false,
     arg(Type.Int, index)
   )
 end
@@ -6262,7 +6262,7 @@ index2 is unused
 --]]
 function NETWORK.GET_COMMERCE_ITEM_CAT(index, index2)
   return native.invoke(
-    Type.Const char, 3406, false,
+    Type.String, 3406, false,
     arg(Type.Int, index),
     arg(Type.Int, index2)
   )
@@ -6314,7 +6314,7 @@ end
 -- const char* GET_COMMERCE_ITEM_TEXTURENAME(int index) // 0x722F5D28B61C5EA8
 function NETWORK.GET_COMMERCE_ITEM_TEXTURENAME(index)
   return native.invoke(
-    Type.Const char, 3412, false,
+    Type.String, 3412, false,
     arg(Type.Int, index)
   )
 end
@@ -6505,7 +6505,7 @@ end
 -- const char* UGC_GET_CREATE_CONTENT_ID() // 0xC55A0B40FFB1ED23
 function NETWORK.UGC_GET_CREATE_CONTENT_ID()
   return native.invoke(
-    Type.Const char, 3435, false
+    Type.String, 3435, false
   )
 end
 
@@ -6756,7 +6756,7 @@ end
 -- const char* UGC_GET_CONTENT_USER_ID(int p0) // 0xCD67AD041A394C9C
 function NETWORK.UGC_GET_CONTENT_USER_ID(p0)
   return native.invoke(
-    Type.Const char, 3462, false,
+    Type.String, 3462, false,
     arg(Type.Int, p0)
   )
 end
@@ -6781,7 +6781,7 @@ end
 -- const char* UGC_GET_CONTENT_USER_NAME(Any p0) // 0x703F12425ECA8BF5
 function NETWORK.UGC_GET_CONTENT_USER_NAME(p0)
   return native.invoke(
-    Type.Const char, 3465, false,
+    Type.String, 3465, false,
     arg(Type.Any, p0)
   )
 end
@@ -6808,7 +6808,7 @@ Return the mission id of a job.
 --]]
 function NETWORK.UGC_GET_CONTENT_ID(p0)
   return native.invoke(
-    Type.Const char, 3468, false,
+    Type.String, 3468, false,
     arg(Type.Int, p0)
   )
 end
@@ -6819,7 +6819,7 @@ Return the root content id of a job.
 --]]
 function NETWORK.UGC_GET_ROOT_CONTENT_ID(p0)
   return native.invoke(
-    Type.Const char, 3469, false,
+    Type.String, 3469, false,
     arg(Type.Int, p0)
   )
 end
@@ -6827,7 +6827,7 @@ end
 -- const char* UGC_GET_CONTENT_NAME(Any p0) // 0xBF09786A7FCAB582
 function NETWORK.UGC_GET_CONTENT_NAME(p0)
   return native.invoke(
-    Type.Const char, 3470, false,
+    Type.String, 3470, false,
     arg(Type.Any, p0)
   )
 end
@@ -6843,7 +6843,7 @@ end
 -- const char* UGC_GET_CONTENT_PATH(int p0, int p1) // 0xBAF6BABF9E7CCC13
 function NETWORK.UGC_GET_CONTENT_PATH(p0, p1)
   return native.invoke(
-    Type.Const char, 3472, false,
+    Type.String, 3472, false,
     arg(Type.Int, p0),
     arg(Type.Int, p1)
   )
@@ -7015,7 +7015,7 @@ end
 -- const char* UGC_GET_CACHED_DESCRIPTION(Any p0, Any p1) // 0x40F7E66472DF3E5C
 function NETWORK.UGC_GET_CACHED_DESCRIPTION(p0, p1)
   return native.invoke(
-    Type.Const char, 3492, false,
+    Type.String, 3492, false,
     arg(Type.Any, p0),
     arg(Type.Any, p1)
   )
@@ -7276,7 +7276,7 @@ end
 -- const char* TEXTURE_DOWNLOAD_GET_NAME(int p0) // 0x3448505B6E35262D
 function NETWORK.TEXTURE_DOWNLOAD_GET_NAME(p0)
   return native.invoke(
-    Type.Const char, 3524, false,
+    Type.String, 3524, false,
     arg(Type.Int, p0)
   )
 end

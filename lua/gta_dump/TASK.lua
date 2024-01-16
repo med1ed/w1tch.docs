@@ -1336,7 +1336,7 @@ end
 -- const char* GET_CLIP_SET_FOR_SCRIPTED_GUN_TASK(int gunTaskType) // 0x3A8CADC7D37AACC5
 function TASK.GET_CLIP_SET_FOR_SCRIPTED_GUN_TASK(gunTaskType)
   return native.invoke(
-    Type.Const char, 5444, false,
+    Type.String, 5444, false,
     arg(Type.Int, gunTaskType)
   )
 end
@@ -4351,7 +4351,7 @@ end
 -- const char* GET_TASK_MOVE_NETWORK_STATE(Ped ped) // 0x717E4D1F2048376D
 function TASK.GET_TASK_MOVE_NETWORK_STATE(ped)
   return native.invoke(
-    Type.Const char, 5634, false,
+    Type.String, 5634, false,
     arg(Type.Ped, ped)
   )
 end

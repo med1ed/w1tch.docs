@@ -4514,7 +4514,7 @@ Used to get a return value from a scaleform function. Returns a string in the sa
 --]]
 function GRAPHICS.GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_STRING(methodReturn)
   return native.invoke(
-    Type.Const char, 1349, false,
+    Type.String, 1349, false,
     arg(Type.Int, methodReturn)
   )
 end

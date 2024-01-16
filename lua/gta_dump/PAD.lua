@@ -286,7 +286,7 @@ control: unused parameter
 --]]
 function PAD.GET_CONTROL_INSTRUCTIONAL_BUTTONS_STRING(control, action, allowXOSwap)
   return native.invoke(
-    Type.Const char, 3755, false,
+    Type.String, 3755, false,
     arg(Type.Int, control),
     arg(Type.Int, action),
     arg(Type.Bool, allowXOSwap)
@@ -299,7 +299,7 @@ control: unused parameter
 --]]
 function PAD.GET_CONTROL_GROUP_INSTRUCTIONAL_BUTTONS_STRING(control, controlGroup, allowXOSwap)
   return native.invoke(
-    Type.Const char, 3756, false,
+    Type.String, 3756, false,
     arg(Type.Int, control),
     arg(Type.Int, controlGroup),
     arg(Type.Bool, allowXOSwap)

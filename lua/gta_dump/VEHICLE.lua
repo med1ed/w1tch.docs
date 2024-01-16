@@ -1878,7 +1878,7 @@ Returns the license plate text from a vehicle. 8 chars maximum.
 --]]
 function VEHICLE.GET_VEHICLE_NUMBER_PLATE_TEXT(vehicle)
   return native.invoke(
-    Type.Const char, 5825, false,
+    Type.String, 5825, false,
     arg(Type.Vehicle, vehicle)
   )
 end
@@ -3934,7 +3934,7 @@ Full list of vehicles by DurtyFree: https://github.com/DurtyFree/gta-v-data-dump
 --]]
 function VEHICLE.GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(modelHash)
   return native.invoke(
-    Type.Const char, 5996, false,
+    Type.String, 5996, false,
     arg(Type.Hash, modelHash)
   )
 end
@@ -3948,7 +3948,7 @@ Full list of vehicles by DurtyFree: https://github.com/DurtyFree/gta-v-data-dump
 --]]
 function VEHICLE.GET_MAKE_NAME_FROM_VEHICLE_MODEL(modelHash)
   return native.invoke(
-    Type.Const char, 5997, false,
+    Type.String, 5997, false,
     arg(Type.Hash, modelHash)
   )
 end
@@ -5239,7 +5239,7 @@ p1 is always 0
 --]]
 function VEHICLE.GET_VEHICLE_MOD_COLOR_1_NAME(vehicle, p1)
   return native.invoke(
-    Type.Const char, 6111, false,
+    Type.String, 6111, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Bool, p1)
   )
@@ -5251,7 +5251,7 @@ Returns a string which is the codename of the vehicle's currently selected secon
 --]]
 function VEHICLE.GET_VEHICLE_MOD_COLOR_2_NAME(vehicle)
   return native.invoke(
-    Type.Const char, 6112, false,
+    Type.String, 6112, false,
     arg(Type.Vehicle, vehicle)
   )
 end
@@ -5411,7 +5411,7 @@ Use GET_FILENAME_FOR_AUDIO_CONVERSATION to get the part name in the game's langu
 --]]
 function VEHICLE.GET_MOD_TEXT_LABEL(vehicle, modType, modValue)
   return native.invoke(
-    Type.Const char, 6122, false,
+    Type.String, 6122, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, modType),
     arg(Type.Int, modValue)
@@ -5425,7 +5425,7 @@ Returns the name for the type of vehicle mod(Armour, engine etc)
 --]]
 function VEHICLE.GET_MOD_SLOT_NAME(vehicle, modType)
   return native.invoke(
-    Type.Const char, 6123, false,
+    Type.String, 6123, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, modType)
   )
@@ -5460,7 +5460,7 @@ Full list of vehicle mod kits and mods by DurtyFree: https://github.com/DurtyFre
 --]]
 function VEHICLE.GET_LIVERY_NAME(vehicle, liveryIndex)
   return native.invoke(
-    Type.Const char, 6124, false,
+    Type.String, 6124, false,
     arg(Type.Vehicle, vehicle),
     arg(Type.Int, liveryIndex)
   )

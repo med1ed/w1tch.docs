@@ -1209,7 +1209,7 @@ subStr = HUD::GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME("MY_STRING", 3, 6);
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME(text, position, length)
   return native.invoke(
-    Type.Const char, 1487, false,
+    Type.String, 1487, false,
     arg(Type.String, text),
     arg(Type.Int, position),
     arg(Type.Int, length)
@@ -1242,7 +1242,7 @@ BOOL sub_8e5aa(char *text, int length) {
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_WITH_BYTE_LIMIT(text, position, length, maxLength)
   return native.invoke(
-    Type.Const char, 1488, false,
+    Type.String, 1488, false,
     arg(Type.String, text),
     arg(Type.Int, position),
     arg(Type.Int, length),
@@ -1262,7 +1262,7 @@ subStr = HUD::GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_BYTES("MY_STRING", 
 --]]
 function HUD.GET_CHARACTER_FROM_AUDIO_CONVERSATION_FILENAME_BYTES(text, startPosition, endPosition)
   return native.invoke(
-    Type.Const char, 1489, false,
+    Type.String, 1489, false,
     arg(Type.String, text),
     arg(Type.Int, startPosition),
     arg(Type.Int, endPosition)
@@ -1275,7 +1275,7 @@ Gets a localized string literal from a label name. Can be used for output of e.g
 --]]
 function HUD.GET_FILENAME_FOR_AUDIO_CONVERSATION(labelName)
   return native.invoke(
-    Type.Const char, 1490, false,
+    Type.String, 1490, false,
     arg(Type.String, labelName)
   )
 end
@@ -1406,7 +1406,7 @@ end
 -- const char* GET_FIRST_N_CHARACTERS_OF_LITERAL_STRING(const char* string, int length) // 0x98C3CF913D895111
 function HUD.GET_FIRST_N_CHARACTERS_OF_LITERAL_STRING(string, length)
   return native.invoke(
-    Type.Const char, 1505, false,
+    Type.String, 1505, false,
     arg(Type.String, string),
     arg(Type.Int, length)
   )
@@ -1450,7 +1450,7 @@ For how to get the hashes, see PATHFIND::GET_STREET_NAME_AT_COORD.
 --]]
 function HUD.GET_STREET_NAME_FROM_HASH_KEY(hash)
   return native.invoke(
-    Type.Const char, 1509, false,
+    Type.String, 1509, false,
     arg(Type.Hash, hash)
   )
 end

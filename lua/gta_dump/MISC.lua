@@ -87,7 +87,7 @@ Returns pointer to an empty string.
 --]]
 function MISC.GET_CONTENT_TO_LOAD()
   return native.invoke(
-    Type.Const char, 1981, false
+    Type.String, 1981, false
   )
 end
 
@@ -3393,7 +3393,7 @@ Returns NULL unless UPDATE_ONSCREEN_KEYBOARD() returns 1 in the same tick.
 --]]
 function MISC.GET_ONSCREEN_KEYBOARD_RESULT()
   return native.invoke(
-    Type.Const char, 2260, false
+    Type.String, 2260, false
   )
 end
 
