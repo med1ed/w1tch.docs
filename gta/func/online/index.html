@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758731600314">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758781759684">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Online</title>
     <meta name="title" content="Online">
-    <meta name="description" content="Session Switcher">
+    <meta name="description" content="Description Enter an existing public multiplayer session. Use Case Engage with a diverse player community in a shared online environment.">
 
     <!-- Canonical -->
     <link rel="canonical" href="http://docbox.w1tch.net/gta/func/online/">
@@ -20,22 +20,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://docbox.w1tch.net/gta/func/online/">
     <meta property="og:title" content="Online">
-    <meta property="og:description" content="Session Switcher">
+    <meta property="og:description" content="Description Enter an existing public multiplayer session. Use Case Engage with a diverse player community in a shared online environment.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="http://docbox.w1tch.net/gta/func/online/">
     <meta property="twitter:title" content="Online">
-    <meta property="twitter:description" content="Session Switcher">
+    <meta property="twitter:description" content="Description Enter an existing public multiplayer session. Use Case Engage with a diverse player community in a shared online environment.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../image/favicon.png" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.758731600314" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.758781759684" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.758731600314" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.758781759684" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.758731600314" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.758781759684" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -55,8 +55,8 @@
                                 <img class="max-h-10 dark:hidden md:inline-block" src="../../../image/logo.png">
                                 <img class="max-h-10 hidden dark:inline-block" src="../../../image/logo.png">
                             </span>
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">w1tch</span>
-                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">w1tch.docs</span>
+                        </a>
                     </div>
         
                     <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -198,116 +198,606 @@
         <span>Online</span>
     </h2>
 </doc-anchor-target>
-<ul>
-<li><strong>Session Switcher</strong>
-<ul>
-<li>Join Public Session</li>
-<li>New Public Session</li>
-<li>Closed Crew Session</li>
-<li>Crew Session</li>
-<li>Closed Friend Session</li>
-<li>Find Friend Session</li>
-<li>Solo Session</li>
-<li>Invite Only Session</li>
-<li>Join Crew Session</li>
-<li>SCTV</li>
-<li>Leave GTA Online</li>
-</ul>
-</li>
-<li><strong>Region Switcher</strong>
-<ul>
-<li>CIS</li>
-<li>Africa</li>
-<li>East</li>
-<li>Europe</li>
-<li>China</li>
-<li>Australia</li>
-<li>West</li>
-<li>Japan</li>
-<li>Unknown</li>
-</ul>
-</li>
-<li><strong>Session Finder</strong>
-<ul>
-<li>Session List</li>
-<li>Region Filter</li>
-<li>Language Filter</li>
-<li>Sorting</li>
-<li>Min/Max Players Filter</li>
-<li>Join</li>
-<li>Copy Selected Session Info</li>
-<li>Start Search</li>
-</ul>
-</li>
-<li><strong>RID Join Options</strong>
-<ul>
-<li>Rockstar ID -&gt; Join</li>
-<li>Username -&gt; Join</li>
-<li>Session Info -&gt; Join</li>
-<li>Copy Current Session Info</li>
-<li>Join to SCTV</li>
-</ul>
-</li>
-</ul>
+<doc-anchor-target id="session-switcher">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#session-switcher">#</doc-anchor-trigger>
+        <span>Session Switcher</span>
+    </h3>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Join Public Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Enter an existing public multiplayer session.<br />
+<code v-pre>Use Case</code> Engage with a diverse player community in a shared online environment.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>New Public Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Create a new public multiplayer session.<br />
+<code v-pre>Use Case</code> Establish a fresh game environment for online activities.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Closed Crew Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Join a private session exclusive to crew members.<br />
+<code v-pre>Use Case</code> Foster crew-based collaboration in a controlled environment.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Crew Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Join a crew session with crew members and associates.<br />
+<code v-pre>Use Case</code> Facilitate coordinated gameplay within a crew.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Closed Friend Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Access a private session limited to invited friends.<br />
+<code v-pre>Use Case</code> Enjoy a controlled and secure online session with friends.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Find Friend Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Search for a friend&#x27;s session and join.<br />
+<code v-pre>Use Case</code> Easily connect with friends in the online gaming world.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Solo Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Create and enter a private session for solo gameplay.<br />
+<code v-pre>Use Case</code> Optimal for solo missions or exploration without external interference.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Invite Only Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Establish a session only accessible via invitation.<br />
+<code v-pre>Use Case</code> Control access to the game environment by inviting specific players.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Join Crew Session</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Enter an ongoing session with crew members.<br />
+<code v-pre>Use Case</code> Seamlessly join crew activities and missions.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>SCTV</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Access the in-game television network for entertainment.<br />
+<code v-pre>Use Case</code> Enjoy various in-game shows and programs.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Leave GTA Online</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Exit the current GTA Online session.<br />
+<code v-pre>Use Case</code> Safely disconnect from the online environment.</p>
+    </div>
+</div>
+<doc-anchor-target id="region-switcher">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#region-switcher">#</doc-anchor-trigger>
+        <span>Region Switcher</span>
+    </h3>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>CIS</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in the Commonwealth of Independent States.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Africa</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in Africa.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>East</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in the eastern region.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Europe</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in Europe.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>China</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in China.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Australia</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in Australia.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>West</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in the western region.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Japan</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session located in Japan.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Unknown</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Switch to a game session with an unknown or undisclosed location.</p>
+    </div>
+</div>
+<doc-anchor-target id="session-finder">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#session-finder">#</doc-anchor-trigger>
+        <span>Session Finder</span>
+    </h3>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Session List</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display a list of available online sessions.<br />
+<code v-pre>Use Case</code> Browse and choose from a variety of active sessions.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Region Filter</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Filter sessions based on geographic regions.<br />
+<code v-pre>Use Case</code> Narrow down session options for a specific gaming experience.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Language Filter</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Filter sessions based on preferred languages.<br />
+<code v-pre>Use Case</code> Connect with players who share a common language.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Sorting</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Arrange the session list based on specific criteria.<br />
+<code v-pre>Use Case</code> Organize sessions for easier navigation and selection.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Min/Max Players Filter</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Filter sessions based on the minimum and maximum number of players.<br />
+<code v-pre>Use Case</code> Find sessions tailored to preferred player counts.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Join</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Join the selected session from the list.<br />
+<code v-pre>Use Case</code> Swiftly enter a chosen session for immediate gameplay.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Copy Selected Session Info</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Copy details of the selected session for reference.<br />
+<code v-pre>Use Case</code> Share session information with friends or crew members.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Start Search</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Initiate the search for online sessions based on specified criteria.<br />
+<code v-pre>Use Case</code> Begin the process of finding the ideal gaming environment.</p>
+    </div>
+</div>
+<doc-anchor-target id="rid-join-options">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rid-join-options">#</doc-anchor-trigger>
+        <span>RID Join Options</span>
+    </h3>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Rockstar ID -&gt; Join</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Join a session using a player&#x27;s Rockstar ID.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Username -&gt; Join</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Join a session using a player&#x27;s username.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Session Info -&gt; Join</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Join a session using specific session information.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Copy Current Session Info</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Copy details of the current session for sharing.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Join to SCTV</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Connect to a session through the in-game television network.</p>
+    </div>
+</div>
 <doc-anchor-target id="players">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#players">#</doc-anchor-trigger>
         <span>Players</span>
     </h2>
 </doc-anchor-target>
+<doc-anchor-target id="player-list">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#player-list">#</doc-anchor-trigger>
+        <span>Player List</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="player-info--main">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#player-info--main">#</doc-anchor-trigger>
+        <span>Player Info &gt; Main</span>
+    </h4>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Player ID</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Unique identifier assigned to the player.<br />
+<code v-pre>Use Case</code> Reference for specific player interactions and identification.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Session Host</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Indicate whether the player is the host of the current gaming session.<br />
+<code v-pre>Use Case</code> Identify the session leader for coordination and communication.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Rockstar ID</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Unique identifier associated with the player&#x27;s Rockstar account.<br />
+<code v-pre>Use Case</code> Reference for cross-platform recognition and communication.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>IP Address</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the player&#x27;s IP address.<br />
+<code v-pre>Use Case</code> Technical information for troubleshooting or network-related discussions.</p>
+    </div>
+</div>
+<doc-anchor-target id="player-info--coordinates">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#player-info--coordinates">#</doc-anchor-trigger>
+        <span>Player Info &gt; Coordinates</span>
+    </h4>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Coords</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the player&#x27;s current coordinates in the game world.<br />
+<code v-pre>Use Case</code> Precise location information for navigation or strategic planning.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Distance</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Calculate the distance between players in the game world.<br />
+<code v-pre>Use Case</code> Assess proximity for cooperative or competitive gameplay.</p>
+    </div>
+</div>
+<doc-anchor-target id="player-info--proofs">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#player-info--proofs">#</doc-anchor-trigger>
+        <span>Player Info &gt; Proofs</span>
+    </h4>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Player Proofs</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display invincibility and other proofs for the player.<br />
+<code v-pre>Use Case</code> Identify the player&#x27;s status regarding invincibility and other protective measures.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Health</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Show the player&#x27;s current health status.<br />
+<code v-pre>Use Case</code> Assess the player&#x27;s vulnerability and combat readiness.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Wanted Level</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Indicate the player&#x27;s current wanted level.<br />
+<code v-pre>Use Case</code> Awareness of law enforcement attention and potential threats.</p>
+    </div>
+</div>
+<doc-anchor-target id="player-info--vehicle">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#player-info--vehicle">#</doc-anchor-trigger>
+        <span>Player Info &gt; Vehicle</span>
+    </h4>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Vehicle Name</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the name of the vehicle the player is currently using.<br />
+<code v-pre>Use Case</code> Identify the player&#x27;s mode of transportation.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Vehicle Proofs</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display invincibility and other proofs for the player&#x27;s current vehicle.<br />
+<code v-pre>Use Case</code> Assess the vehicle&#x27;s resilience and defensive capabilities.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Vehicle Health</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Show the health status of the player&#x27;s current vehicle.<br />
+<code v-pre>Use Case</code> Evaluate the vehicle&#x27;s durability and potential need for repairs.</p>
+    </div>
+</div>
+<doc-anchor-target id="player-info--other">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#player-info--other">#</doc-anchor-trigger>
+        <span>Player Info &gt; Other</span>
+    </h4>
+</doc-anchor-target>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>CEO Name</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the name of the player&#x27;s CEO (Chief Executive Officer) organization.<br />
+<code v-pre>Use Case</code> Identify the player&#x27;s leadership role in an organization.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>MC Name</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the name of the player&#x27;s Motorcycle Club.<br />
+<code v-pre>Use Case</code> Identify the player&#x27;s affiliation with a Motorcycle Club.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Money In Wallet</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Show the amount of money currently in the player&#x27;s wallet.<br />
+<code v-pre>Use Case</code> Quick reference to the player&#x27;s liquid funds.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Money In Bank</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the amount of money currently in the player&#x27;s bank account.<br />
+<code v-pre>Use Case</code> Assess the player&#x27;s overall financial stability.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Total Money</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the player&#x27;s total wealth, combining wallet and bank funds.<br />
+<code v-pre>Use Case</code> Comprehensive view of the player&#x27;s financial status.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Level</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Indicate the player&#x27;s current level in the game.<br />
+<code v-pre>Use Case</code> Assess the player&#x27;s experience and potential capabilities.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>RP</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the player&#x27;s current reputation points.<br />
+<code v-pre>Use Case</code> Measure the player&#x27;s in-game reputation and experience.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>K/D Ration (Kill/Death Ratio)</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Show the player&#x27;s kill-to-death ratio.<br />
+<code v-pre>Use Case</code> Evaluate the player&#x27;s combat effectiveness and survival skills.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Kills On Players</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the total number of kills inflicted on other players.<br />
+<code v-pre>Use Case</code> Track the player&#x27;s combat achievements.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Death By Players</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the total number of times the player has been killed by other players.<br />
+<code v-pre>Use Case</code> Gauge the player&#x27;s vulnerability and risk-taking behavior.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Prostitutes Frequented</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Show the number of times the player has engaged with prostitutes in the game.<br />
+<code v-pre>Use Case</code> Quirky statistic related to the player&#x27;s in-game activities.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Lap Dances Bought</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the number of lap dances purchased by the player.<br />
+<code v-pre>Use Case</code> Unusual statistic related to the player&#x27;s interactions in the game world.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Missions Created</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Show the number of missions created by the player.<br />
+<code v-pre>Use Case</code> Assess the player&#x27;s involvement in content creation within the game.</p>
+    </div>
+</div>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Language</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p><code v-pre>Description</code> Display the player&#x27;s preferred language.<br />
+<code v-pre>Use Case</code> Facilitate effective communication and collaboration based on language preferences.</p>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>The rest has not yet been done!</p>
+        </div>
+    </div>
+</div>
 <ul>
-<li><strong>Player List</strong>
-<ul>
-<li><strong>Player Info</strong>
-<ul>
-<li>Main
-<ul>
-<li>Player ID</li>
-<li>Session Host</li>
-<li>Rockstar ID</li>
-<li>IP Address</li>
-</ul>
-</li>
-<li>Coordinates
-<ul>
-<li>Coords</li>
-<li>Distance</li>
-</ul>
-</li>
-<li>Proofs
-<ul>
-<li>Player Proofs</li>
-<li>Health</li>
-<li>Wanted Level</li>
-</ul>
-</li>
-<li>Vehicle
-<ul>
-<li>Vehicle Name</li>
-<li>Vehicle Proofs</li>
-<li>Vehicle Health</li>
-</ul>
-</li>
-<li>Other
-<ul>
-<li>CEO Name</li>
-<li>MC Name</li>
-<li>Money In Wallet</li>
-<li>Money In Bank</li>
-<li>Total Money</li>
-<li>Level</li>
-<li>RP</li>
-<li>K/D Ration</li>
-<li>Kills On Players</li>
-<li>Death By Players</li>
-<li>Prostitutes Frequented</li>
-<li>Lap Dances Bought</li>
-<li>Missions Created</li>
-<li>Language</li>
-</ul>
-</li>
-</ul>
-</li>
 <li><strong>Common Options</strong>
 <ul>
 <li>Spectate Player</li>
@@ -411,8 +901,6 @@
 <ul>
 <li>Script List</li>
 <li>Start Script</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
