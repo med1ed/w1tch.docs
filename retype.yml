@@ -4,8 +4,8 @@ url: http://docbox.w1tch.net/
 favicon: image/favicon.png
 
 branding:
-  title: w1tch
-  label: Docs
+  title: w1tch.docs
+  # label: Docs
   logo: image/logo.png
 
 links:

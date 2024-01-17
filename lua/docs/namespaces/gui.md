@@ -9,18 +9,65 @@ order: -6
 `gui.add_dx_layer(string hash, function fn)`\
 -![](https://i.imgur.com/1vCn2pZ.png)
 Initialize ImGui DirectX layer.
-Within the DX layer you can call any functions (ImGui or Lua) that do not interact directly with the GTAV game engine (natives, globals, locals and pointers).\
-Example:
-```lua
+Within the DX layer you can call any functions (ImGui or Lua) that do not interact directly with the GTAV game engine (natives, globals, locals and pointers).
++++ Example 1 ✅
+```lua #6,15-19
+local IsPressed = false;
 gui.add_dx_layer("hash_ui_function", function()
     -- your UI code
     if (ImGui.Begin("ImGui Window")) then
-        -- your UI code
+        if (ImGui.Button("Button")) then
+            IsPressed = true;
+        end        
+        
+        ImGui.End() 
+    end
+end)
+
+script.register_script("register_script", function() 
+    -- your Script code
+    if (IsPressed) then
+        local example = globals.get_int(some_globals)
+        log.info(example)
+        IsPressed = false;
+    end
+end)
+```
++++ Example 2 ✅
+```lua #5-9
+gui.add_dx_layer("hash_ui_function", function()
+    -- your UI code
+    if (ImGui.Begin("ImGui Window")) then
+        if (ImGui.Button("Button")) then
+            script.execute_as_script(function()
+                -- your Script code
+                local example = globals.get_int(some_globals)
+                log.info(example)
+            end)
+        end        
+
         ImGui.End() 
     end
 end)
 ```
++++ Example 3 ❌
+!!!danger
+This is incorrect usage, do not use such code in your Lua!
+!!!
+```lua #5-6
+gui.add_dx_layer("hash_ui_function", function()
+    -- your UI code
+    if (ImGui.Begin("ImGui Window")) then
+        if (ImGui.Button("Button")) then
+            local example = globals.get_int(some_globals)
+            log.info(example)
+        end        
 
+        ImGui.End() 
+    end
+end)
+```
++++
 
 ## gui.remove_dx_layer
 
