@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758781759684">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.759475083978">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Widgets</title>
     <meta name="title" content="Widgets">
-    <meta name="description" content="Widgets are anything with buttons, text boxes and the like.">
+    <meta name="description" content="flags: ImGuiDir">
 
     <!-- Canonical -->
     <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/imgui/widgets/">
@@ -20,22 +20,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/imgui/widgets/">
     <meta property="og:title" content="Widgets">
-    <meta property="og:description" content="Widgets are anything with buttons, text boxes and the like.">
+    <meta property="og:description" content="flags: ImGuiDir">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/imgui/widgets/">
     <meta property="twitter:title" content="Widgets">
-    <meta property="twitter:description" content="Widgets are anything with buttons, text boxes and the like.">
+    <meta property="twitter:description" content="flags: ImGuiDir">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../image/favicon.png" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.758781759684" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.759475083978" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.758781759684" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.759475083978" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.758781759684" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.759475083978" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.759475083978" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -192,7 +193,1218 @@
         <span>Widgets</span>
     </h1>
 </doc-anchor-target>
-<p><strong>Widgets are anything with buttons, text boxes and the like.</strong></p>
+<doc-anchor-target id="text">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#text">#</doc-anchor-trigger>
+        <span>Text</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguitextstring-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguitextstring-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.Text(string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.Text(&quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguitextunformattedstring-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguitextunformattedstring-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.TextUnformatted(string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.TextUnformatted(&quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguitextcoloredfloat-colr-float-colg-float-colb-float-cola-string-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguitextcoloredfloat-colr-float-colg-float-colb-float-cola-string-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.TextColored(float colR, float colG, float colB, float colA, string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.TextColored(1.0, 0.3, 0.3, 1.0, &quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguitextdisabledstring-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguitextdisabledstring-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.TextDisabled(string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.TextDisabled(&quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguitextwrappedstring-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguitextwrappedstring-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.TextWrapped(string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(50, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.TextWrapped(&quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguilabeltextstring-label-string-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguilabeltextstring-label-string-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.LabelText(string label, string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.LabelText(&quot;Some Label&quot;, &quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiseparatortextstring-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiseparatortextstring-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SeparatorText(string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.SeparatorText(&quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="button">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#button">#</doc-anchor-trigger>
+        <span>Button</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguibuttonstring-label-float-sizex-float-sizey">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguibuttonstring-label-float-sizex-float-sizey">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.Button(string label, float sizeX, float sizeY)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6,8"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.Button(&quot;Button 1&quot;) 
+              
+        ImGui.Button(&quot;Button 2&quot;, 130, 30)
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguismallbuttonstring-label">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguismallbuttonstring-label">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SmallButton(string label)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.SmallButton(&quot;Button 1&quot;) 
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiinvisiblebuttonstring-stringid-float-sizex-float-sizey">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiinvisiblebuttonstring-stringid-float-sizex-float-sizey">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.InvisibleButton(string stringID, float sizeX, float sizeY)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.SmallButton(&quot;Button 1&quot;) 
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiarrowbuttonstring-stringid-imguidir-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiarrowbuttonstring-stringid-imguidir-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.ArrowButton(string stringID, ImGuiDir flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>flags</code>: <a href="../flags/imguidir/">ImGuiDir</a></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.ArrowButton(&quot;Button 1&quot;, ImGuiDir.Up) 
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiradiobuttonstring-label-bool-is_active">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiradiobuttonstring-label-bool-is_active">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.RadioButton(string label, bool is_active)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,7,9,11-13"><code v-pre class="language-lua">local state = true
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.RadioButton(&quot;Button 1&quot;, state) 
+        
+        ImGui.RadioButton(&quot;Button 2&quot;, not state) 
+        
+        if ImGui.RadioButton(&quot;Button 3&quot;, state) then 
+            state = not state
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiradiobuttonstring-label-int-v-int-vbutton">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiradiobuttonstring-label-int-v-int-vbutton">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.RadioButton(string label, int v, int vButton)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,7-10,12-15"><code v-pre class="language-lua">local id = 0
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _idButton, _isClicked = ImGui.RadioButton(&quot;Button 1&quot;, id, 1)
+        if (_isClicked) then
+            id = _idButton
+        end
+
+        local _idButton, _isClicked = ImGui.RadioButton(&quot;Button 2&quot;, id, 2)
+        if (_isClicked) then
+            id = _idButton
+        end
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="checkbox">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#checkbox">#</doc-anchor-trigger>
+        <span>Checkbox</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguicheckboxstring-label-bool-state">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguicheckboxstring-label-bool-state">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.Checkbox(string label, bool state)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,7-10"><code v-pre class="language-lua">local state = false
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _returnState, _isClicked = ImGui.Checkbox(&quot;Checkbox&quot;, state)
+        if (_isClicked) then
+            state = _returnState
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="progressbar">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#progressbar">#</doc-anchor-trigger>
+        <span>ProgressBar</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguiprogressbarfloat-fraction-float-sizex-float-sizey-string-overlay">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiprogressbarfloat-fraction-float-sizex-float-sizey-string-overlay">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.ProgressBar(float fraction, float sizeX, float sizeY, string overlay)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1-2,8-9,11-15,21-24"><code v-pre class="language-lua">local valueProgressBar = 0
+local valueProgressBarInstalled = 0
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(230, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.ProgressBar(valueProgressBar)
+        ImGui.ProgressBar(valueProgressBar, 200, 30)
+
+        ImGui.ProgressBar(valueProgressBarInstalled, 200, 30, &quot;installed...&quot;)
+        valueProgressBarInstalled = valueProgressBarInstalled + 0.01
+        if (valueProgressBarInstalled &gt;= 1.0) then
+            valueProgressBarInstalled = 0
+        end 
+        ImGui.End() 
+    end
+end)
+
+script.register_script(&quot;register_script&quot;, function(_s) 
+    valueProgressBar = valueProgressBar + 0.01
+    if (valueProgressBar &gt;= 1.0) then
+        valueProgressBar = 0
+    end 
+    _s:sleep(100)
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="bullet">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bullet">#</doc-anchor-trigger>
+        <span>Bullet</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguibullet">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguibullet">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.Bullet()</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(230, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.Bullet(); ImGui.SmallButton(&quot;Button&quot;)
+         just
+        ImGui.Bullet()
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguibullettextstring-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguibullettextstring-text">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.BulletText(string text)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="6"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        ImGui.BulletText(&quot;Some Text&quot;)        
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="combo-box">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#combo-box">#</doc-anchor-trigger>
+        <span>Combo Box</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguibegincombostring-label-string-previewvalue-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguibegincombostring-label-string-previewvalue-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.BeginCombo(string label, string previewValue, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguicomboflags/">ImGuiComboFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1-2,9-19"><code v-pre class="language-lua">local _list = { &quot;AAAA&quot;, &quot;BBBB&quot;, &quot;CCCC&quot;, &quot;DDDD&quot;, &quot;EEEE&quot;, &quot;FFFF&quot;}
+local _currentSelectedID = 1
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        if (ImGui.BeginCombo(&quot;Label&quot;, _list[_currentSelectedID], ImGuiComboFlags.PopupAlignLeft)) then
+            for k, v in pairs(_list) do
+                local _isSelected = (_currentSelectedID == k) 
+                if ImGui.Selectable(_list[k], _isSelected) then
+                    _currentSelectedID = k
+                    log.info(tostring(_list[k]))
+                end
+            end
+
+            ImGui.EndCombo()
+        end
+        
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguicombostring-label-int-currentitem-table-items-int-itemscount-int-popupmaxheightinitems">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguicombostring-label-int-currentitem-table-items-int-itemscount-int-popupmaxheightinitems">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.Combo(string label, int currentItem, table items, int itemsCount, int popupMaxHeightInItems)</code></span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1-2,9-13,15-19"><code v-pre class="language-lua">local _list = { &quot;AAAA&quot;, &quot;BBBB&quot;, &quot;CCCC&quot;, &quot;DDDD&quot;, &quot;EEEE&quot;, &quot;FFFF&quot;}
+local _currentSelectedID = 1
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(300, 110, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _selectedID, _clicked = ImGui.Combo(&quot;Combo&quot;, _currentSelectedID, _list, #_list)
+        if (_clicked) then
+            _currentSelectedID = _selectedID
+            log.info(tostring(_list[_currentSelectedID]))
+        end
+
+        local _selectedID, _clicked = ImGui.Combo(&quot;Combo 2&quot;, _currentSelectedID, _list, #_list, 3)
+        if (_clicked) then
+            _currentSelectedID = _selectedID
+            log.info(tostring(_list[_currentSelectedID]))
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="drag-float">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#drag-float">#</doc-anchor-trigger>
+        <span>Drag Float</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguidragfloatstring-label-float-v-float-v_speed-float-v_min-float-v_max-string-format-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragfloatstring-label-float-v-float-v_speed-float-v_min-float-v_max-string-format-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragFloat(string label, float v, float v_speed, float v_min, float v_max, string format, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _defaultValue = 10.5
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        local _value, _used = ImGui.DragFloat(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(_defaultValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguidragfloat2string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragfloat2string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragFloat2(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        local _value, _used = ImGui.DragFloat2(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguidragfloat3string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragfloat3string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragFloat3(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        local _value, _used = ImGui.DragFloat3(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguidragfloat4string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragfloat4string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragFloat4(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _defaultValue = {10.5, 3.8, 5.7, 14.6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue, 100)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        local _value, _used = ImGui.DragFloat4(&quot;Drag Float&quot;,  _defaultValue, 0.1, 5.1, 15.9, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _defaultValue = _value
+            log.info(&quot;\nValue 1: &quot;.. _defaultValue[1] .. &quot;,\nValue 2: &quot; .. _defaultValue[2] .. &quot;,\nValue 3: &quot; .. _defaultValue[3] .. &quot;,\nValue 4: &quot; .. _defaultValue[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="drag-int">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#drag-int">#</doc-anchor-trigger>
+        <span>Drag Int</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguidragintstring-label-float-v-float-v_speed-float-v_min-float-v_max-string-format-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragintstring-label-float-v-float-v_speed-float-v_min-float-v_max-string-format-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragInt(string label, float v, float v_speed, float v_min, float v_max, string format, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _dragIntValue = 10
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _dragIntValue)
+        if (_used) then
+            _dragIntValue = _value
+            log.info(_dragIntValue)
+        end
+
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _dragIntValue, 100)
+        if (_used) then
+            _dragIntValue = _value
+            log.info(_dragIntValue)
+        end
+
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _dragIntValue, 12, 5, 15)
+        if (_used) then
+            _dragIntValue = _value
+            log.info(_dragIntValue)
+        end
+
+        local _value, _used = ImGui.DragInt(&quot;Drag Int&quot;,  _dragIntValue, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _dragIntValue = _value
+            log.info(_dragIntValue)
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguidragint2string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragint2string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragInt2(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _dragInt2Value = {10, 6}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int&quot;,  _dragInt2Value)
+        if (_used) then
+            _dragInt2Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt2Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt2Value[2])
+        end
+
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int 2&quot;,  _dragInt2Value, 100)
+        if (_used) then
+            _dragInt2Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt2Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt2Value[2])
+        end
+
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int 3&quot;,  _dragInt2Value, 12, 5, 15)
+        if (_used) then
+            _dragInt2Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt2Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt2Value[2])
+        end
+
+        local _value, _used = ImGui.DragInt2(&quot;Drag Int 4&quot;,  _dragInt2Value, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _dragInt2Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt2Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt2Value[2])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguidragint3string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragint3string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragInt3(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _dragInt3Value = {10, 6, 1}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int&quot;,  _dragInt3Value)
+        if (_used) then
+            _dragInt3Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt3Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt3Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt3Value[3])
+        end
+
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int 2&quot;,  _dragInt3Value, 1)
+        if (_used) then
+            _dragInt3Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt3Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt3Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt3Value[3])
+        end
+
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int 3&quot;,  _dragInt3Value, 1, 5, 15)
+        if (_used) then
+            _dragInt3Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt3Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt3Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt3Value[3])
+        end
+
+        local _value, _used = ImGui.DragInt3(&quot;Drag Int 4&quot;,  _dragInt3Value, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _dragInt3Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt3Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt3Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt3Value[3])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguidragint4string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguidragint4string-label-table-v-float-v_speed-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.DragInt4(string label, table v, float v_speed, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-12,14-18,20-24,26-30"><code v-pre class="language-lua">local _dragInt4Value = {10, 6, 12, 15}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int&quot;,  _dragInt4Value)
+        if (_used) then
+            _dragInt4Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt4Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt4Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt4Value[3] .. &quot;,\nValue 4: &quot; .. _dragInt4Value[4])
+        end
+
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int 2&quot;,  _dragInt4Value, 1)
+        if (_used) then
+            _dragInt4Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt4Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt4Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt4Value[3] .. &quot;,\nValue 4: &quot; .. _dragInt4Value[4])
+        end
+
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int 3&quot;,  _dragInt4Value, 1, 5, 15)
+        if (_used) then
+            _dragInt4Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt4Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt4Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt4Value[3] .. &quot;,\nValue 4: &quot; .. _dragInt4Value[4])
+        end
+
+        local _value, _used = ImGui.DragInt4(&quot;Drag Int 4&quot;,  _dragInt4Value, 1, 5, 15, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_used) then
+            _dragInt4Value = _value
+            log.info(&quot;\nValue 1: &quot;.. _dragInt4Value[1] .. &quot;,\nValue 2: &quot; .. _dragInt4Value[2] .. &quot;,\nValue 3: &quot; .. _dragInt4Value[3] .. &quot;,\nValue 4: &quot; .. _dragInt4Value[4])
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sliders">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sliders">#</doc-anchor-trigger>
+        <span>Sliders</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="imguisliderfloatstring-label-float-v-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderfloatstring-label-float-v-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderFloat(string label, float v, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = 50
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(230, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderFloat(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderFloat(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguisliderfloat2string-label-table-v-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderfloat2string-label-table-v-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderFloat2(string label, table v, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = {50, 10}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(350, 110, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderFloat2(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderFloat2(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguisliderfloat3string-label-table-v-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderfloat3string-label-table-v-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderFloat3(string label, table v, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = {50, 10, 80}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(500, 110, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderFloat3(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderFloat3(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguisliderfloat4string-label-table-v-float-v_min-float-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderfloat4string-label-table-v-float-v_min-float-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderFloat4(string label, table v, float v_min, float v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = {50, 10, 80, 100}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(500, 110, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderFloat4(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderFloat4(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %.3f&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguislideranglefloat-v_rad-float-v_degrees_min-float-v_degrees_max-string-format-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguislideranglefloat-v_rad-float-v_degrees_min-float-v_degrees_max-string-format-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderAngle(float v_rad, float v_degrees_min, float v_degrees_max, string format, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16,18-21"><code v-pre class="language-lua">local value = 0
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(500, 150)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderAngle(&quot;Slider Angle 1&quot;, value)
+        if (_isClicked) then
+            value = _value
+        end
+
+        local _value, _isClicked = ImGui.SliderAngle(&quot;Slider Angle 2&quot;, value, -10, 10)
+        if (_isClicked) then
+            value = _value
+        end
+
+        local _value, _isClicked = ImGui.SliderAngle(&quot;Slider Angle 3&quot;, value, -50, 50, &quot;Value: %.0f&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguisliderintstring-label-int-v-int-v_min-int-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderintstring-label-int-v-int-v_min-int-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderInt(string label, int v, int v_min, int v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = 50
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(230, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderInt(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderInt(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguisliderint2string-label-table-v-int-v_min-int-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderint2string-label-table-v-int-v_min-int-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderInt2(string label, table v, int v_min, int v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = {50, 10}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(350, 110, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderInt2(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderInt2(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguisliderint3string-label-table-v-int-v_min-int-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderint3string-label-table-v-int-v_min-int-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderInt3(string label, table v, int v_min, int v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = {50, 10, 80}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(500, 110, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderInt3(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderInt3(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguisliderint4string-label-table-v-int-v_min-int-v_max-string-format-int-flag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguisliderint4string-label-table-v-int-v_min-int-v_max-string-format-int-flag">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.SliderInt4(string label, table v, int v_min, int v_max, string format, int flag)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,13-16"><code v-pre class="language-lua">local value = {50, 10, 80, 100}
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(500, 110, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.SliderInt4(&quot;Slider 1&quot;, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        local _value, _isClicked = ImGui.SliderInt4(&quot;Slider 2&quot;, value, 0, 100, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguivsliderfloatstring-label-float-sizex-float-sizey-float-v-float-v_min-float-v_max-string-format-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguivsliderfloatstring-label-float-sizex-float-sizey-float-v-float-v_min-float-v_max-string-format-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.VSliderFloat(string label, float sizeX, float sizeY, float v, float v_min, float v_max, string format, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,15-18"><code v-pre class="language-lua">local value = 20
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(320, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.VSliderFloat(&quot;Slider 1&quot;, 60, 100, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        ImGui.SameLine()        
+
+        local _value, _isClicked = ImGui.VSliderFloat(&quot;Slider 2&quot;, 100, 100, value, 0, 100, &quot;Value: %.f3&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguivsliderintstring-label-float-sizex-float-sizey-int-v-int-v_min-float-v_max-string-format-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguivsliderintstring-label-float-sizex-float-sizey-int-v-int-v_min-float-v_max-string-format-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.VSliderInt(string label, float sizeX, float sizeY, int v, int v_min, float v_max, string format, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>: <a href="../flags/imguisliderflags/">ImGuiSliderFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-11,15-18"><code v-pre class="language-lua">local value = 20
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(320, 150, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value, _isClicked = ImGui.VSliderInt(&quot;Slider 1&quot;, 60, 100, value, 0, 100)
+        if (_isClicked) then
+            value = _value
+        end
+        
+        ImGui.SameLine()        
+
+        local _value, _isClicked = ImGui.VSliderInt(&quot;Slider 2&quot;, 100, 100, value, 0, 100, &quot;Value: %d&quot;, ImGuiSliderFlags.NoInput)
+        if (_isClicked) then
+            value = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiinputtextstring-label-string-text-int-buf_size-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiinputtextstring-label-string-text-int-buf_size-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.InputText(string label, string text, int buf_size, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>&quot; <a href="../flags/imguiinputtextflags/">ImGuiInputTextFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-9,11-14"><code v-pre class="language-lua">local SomeText = &quot;Some Text&quot;
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(320, 105, ImGuiCond.FirstUseEver)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value = ImGui.InputText(&quot;Input 1&quot;, SomeText, 22)
+        SomeText = _value
+        
+        local _value, _isClicked = ImGui.InputText(&quot;Input 2&quot;, SomeText, 22, ImGuiInputTextFlags.EnterReturnsTrue)
+        if (_isClicked) then
+            SomeText = _value
+        end
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiinputtextmultilinestring-label-string-text-int-buf_size-int-flags-float-sizex-float-sizey-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiinputtextmultilinestring-label-string-text-int-buf_size-int-flags-float-sizex-float-sizey-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.InputTextMultiline(string label, string text, int buf_size, int flags, float sizeX, float sizeY, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>&quot; <a href="../flags/imguiinputtextflags/">ImGuiInputTextFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="1,8-9,11-12"><code v-pre class="language-lua">local SomeText = &quot;Some Text&quot;
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(400, 325)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value = ImGui.InputTextMultiline(&quot;Input 1&quot;, SomeText, 22)
+        SomeText = _value
+        
+        local _value = ImGui.InputTextMultiline(&quot;Input 2&quot;, SomeText, 22, 200, 100, ImGuiInputTextFlags.AlwaysOverwrite)
+        SomeText = _value
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="imguiinputtextmultilinestring-label-string-hint-string-text-int-buf_size-int-flags">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imguiinputtextmultilinestring-label-string-hint-string-text-int-buf_size-int-flags">#</doc-anchor-trigger>
+        <span><code v-pre>ImGui.InputTextMultiline(string label, string hint, string text, int buf_size, int flags)</code></span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>flags</code>&quot; <a href="../flags/imguiinputtextflags/">ImGuiInputTextFlags</a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local SomeText = &quot;Some Text&quot;
+
+gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    ImGui.SetNextWindowSize(400, 325)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin(&quot;ImGui Window&quot;)) then   
+        local _value = ImGui.InputTextWithHint(&quot;Input 1&quot;, &quot;Write your password!&quot;, SomeText, 22, ImGuiInputTextFlags.Password)
+        SomeText = _value
+
+        ImGui.End() 
+    end
+end)</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -265,6 +1477,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Widgets", level: 4, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Widgets", level: 4, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
