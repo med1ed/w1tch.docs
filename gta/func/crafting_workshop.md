@@ -7,6 +7,7 @@ label: Crafting Workshop
 
 * **Ped Spawn Settings**
     * Preview Ped
+    * Preview Offset Settings [X, Y, Z]
     * Spawn Invincible
     * Spawn Hostile
     * Spawn Invisible

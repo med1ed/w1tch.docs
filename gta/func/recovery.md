@@ -2,8 +2,8 @@
 order: -4
 label: Recovery
 ---
-!!!warning
-Available only for [Unlimited](https://docbox.w1tch.net/gta/faq/#unlimited-subscribe) users!
+!!!
+For VIP users there is a limit of 25 uses within 24 hours, if you want to use more you can purchase an [Unlimited](https://docbox.w1tch.net/gta/faq/#unlimited-subscribe) subscription or you can use Lua scripts at your own risk!
 !!!
 
 * **Currency Options**
@@ -29,7 +29,7 @@ Available only for [Unlimited](https://docbox.w1tch.net/gta/faq/#unlimited-subsc
     * Character Level
     * Crew Level
 * **Other Options**
-    * Unclok Bunker Researches
+    * Unlock Bunker Researches
     * Max Stats
     * Unlock Achievements
     * Reset Mental State

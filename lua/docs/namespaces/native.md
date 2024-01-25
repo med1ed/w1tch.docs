@@ -3,7 +3,9 @@ order: -1
 ---
 
 # Native
-
+!!!
+You can find a ready-made list of all GTA natives in [natives page](/lua/gta_dump/natives.md)
+!!!
 ## native.arg
 `native.arg(InvokerType type, object val)`
 * `type` the InvokerType enum value representing the type of the argument.

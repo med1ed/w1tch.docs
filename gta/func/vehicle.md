@@ -126,6 +126,9 @@ label: Vehicle
 `Description` Remove the last spawned vehicle from the game world.\
 `Use Case` Clear the environment of unwanted or redundant vehicles.
 ||| 
+||| Preview Offset Settings
+`Description` Changed the position along the X, Y, Z axes for the car preview.
+|||
 
 ### Vehicle List
 ||| Search Model
