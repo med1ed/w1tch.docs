@@ -48,7 +48,7 @@ local arrayHandle = {}
 ## native.invoke
 `native.invoke(Type type, Int id, Bool fix_vector, Args args)`
 * `type`: the expected return type of the native function, defined by the InvokerType enum.
-* `id`: Native IDs, they are generated through REGenerator.
+* `id`: Native IDs, they are generated through [REGenerator](/re-tools.md).
 * `fix_vector`: Used to fix vectors of information.
 * `args`: A variadic list of arguments to pass to the native function. Each argument should be wrapped using the arg or ref helper functions.
 * `return`: the result of the native function call as a object.

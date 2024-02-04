@@ -4,7 +4,7 @@ order: 0
 
 # Natives
 
-The GTA native file was generated using [REGenerator](/lua/re-tools.md)
+The GTA native file was generated using [REGenerator](/re-tools.md)
 
 
 ## All natives in one file

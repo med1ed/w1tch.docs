@@ -978,7 +978,7 @@ end)
 
 #### `ImGui.InputText(string label, string text, int buf_size, int flags)`
 
-`flags`" [ImGuiInputTextFlags](/lua/docs/ImGui/flags/ImGuiInputTextFlags.md)
+`flags`: [ImGuiInputTextFlags](/lua/docs/ImGui/flags/ImGuiInputTextFlags.md)
 ```lua #1,8-9,11-14
 local SomeText = "Some Text"
 
@@ -1002,12 +1002,12 @@ end)
 
 #### `ImGui.InputTextMultiline(string label, string text, int buf_size, int flags, float sizeX, float sizeY, int flags)`
 
-`flags`" [ImGuiInputTextFlags](/lua/docs/ImGui/flags/ImGuiInputTextFlags.md)
+`flags`: [ImGuiInputTextFlags](/lua/docs/ImGui/flags/ImGuiInputTextFlags.md)
 ```lua #1,8-9,11-12
 local SomeText = "Some Text"
 
 gui.add_dx_layer("ImGui_DX_Layer", function()
-    ImGui.SetNextWindowSize(400, 325)
+    ImGui.SetNextWindowSize(400, 325, ImGuiCond.FirstUseEver)
     ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
 
     if (ImGui.Begin("ImGui Window")) then   
@@ -1022,19 +1022,45 @@ gui.add_dx_layer("ImGui_DX_Layer", function()
 end)
 ```
 
-#### `ImGui.InputTextMultiline(string label, string hint, string text, int buf_size, int flags)`
+#### `ImGui.InputTextWithHint(string label, string hint, string text, int buf_size, int flags)`
 
-`flags`" [ImGuiInputTextFlags](/lua/docs/ImGui/flags/ImGuiInputTextFlags.md)
+`flags`: [ImGuiInputTextFlags](/lua/docs/ImGui/flags/ImGuiInputTextFlags.md)
 ```lua
 local SomeText = "Some Text"
 
 gui.add_dx_layer("ImGui_DX_Layer", function()
-    ImGui.SetNextWindowSize(400, 325)
+    ImGui.SetNextWindowSize(200, 100, ImGuiCond.FirstUseEver)
     ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
 
     if (ImGui.Begin("ImGui Window")) then   
         local _value = ImGui.InputTextWithHint("Input 1", "Write your password!", SomeText, 22, ImGuiInputTextFlags.Password)
         SomeText = _value
+
+        ImGui.End() 
+    end
+end)
+```
+
+#### `ImGui.InputFloat(string label, float v, float step, float step_fast, string format, int flags)`
+
+`flags`: [ImGuiInputTextFlags](/lua/docs/ImGui/flags/ImGuiInputTextFlags.md)
+```lua #1,8-11,13-17
+local value = {5.5, 2}
+
+gui.add_dx_layer("ImGui_DX_Layer", function()
+    ImGui.SetNextWindowSize(400, 150)
+    ImGui.SetNextWindowPos(30, 30, ImGuiCond.FirstUseEver)
+
+    if (ImGui.Begin("ImGui Window")) then   
+        local _value, _IsCliced = ImGui.InputFloat2("Input 1", value)
+        if (_IsCliced) then
+            value = _value
+        end
+
+        local _value, _IsCliced = ImGui.InputFloat2("Input 2", value, "Value: %.3f", ImGuiInputTextFlags.ReadOnly)
+        if (_IsCliced) then
+            value = _value
+        end
 
         ImGui.End() 
     end

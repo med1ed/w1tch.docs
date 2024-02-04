@@ -42,7 +42,7 @@ end)
 Event triggered when a chat message is received.
 
 ```lua
-events.register(ChatMessageReceived, -- type
+events.register(EventType.ChatMessageReceived, -- type
     "main_ChatMessageReceived_handler", -- hash
     function (player_id, player_name, message) -- func
 
@@ -59,7 +59,7 @@ end)
 Event triggered when a scripted event is received.
 
 ```lua
-events.register(ScriptedEventReceived, -- type
+events.register(EventType.ScriptedEventReceived, -- type
     "main_se_handler", -- hash
     function(player_id, player_name, event_id, event_args) -- func
 
