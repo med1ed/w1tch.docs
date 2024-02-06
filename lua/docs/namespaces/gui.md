@@ -84,17 +84,64 @@ Creates a section in the menu.
 
 `gui.add_section(string hash, string name, function fn)`
 
-```lua
-gui.add_section("section_hash", "section_name")
+```lua #3,5
+gui.add_dx_layer("ImGui_DX_Layer", function()
+    if (not gui.is_section_present("example_section_hash")) then
+        gui.add_section("example_section_hash", "Example Section", function()   
+            ImGui.Text(":)")
+        end)
+    end
+end)
 ```
+
+## gui.is_section_present
+Checks the existence of a section
+
+`gui.is_section_present(string hash)`
+
+```lua #2
+gui.add_dx_layer("ImGui_DX_Layer", function()
+    if (not gui.is_section_present("example_section_hash")) then
+        gui.add_section("example_section_hash", "Example Section", function()   
+            ImGui.Text(":)")
+        end)
+    end
+end)
+```
+
 
 ## gui.remove_section
 Deletes an already created section.
 
 `gui.remove_section(string hash)`
 
-```lua
-gui.remove_section("section_hash")
+```lua #12,22
+gui.add_dx_layer("ImGui_DX_Layer", function()
+    if (not gui.is_section_present("example_section_hash")) then
+        gui.add_section("example_section_hash", "Example Section", function()   
+
+            if (ImGui.Button("Add Another Section##main_section_button")) then
+
+                if (not gui.is_section_present("another_section_hash")) then
+                    gui.add_section("another_section_hash", "Another Section", function()   
+                        ImGui.Text("Hello from another section!")
+            
+                        if (ImGui.Button("Remove Section##another_section_button")) then
+                            gui.remove_section("another_section_hash")
+                        end
+                    end)
+                end
+
+            end
+
+            ImGui.SameLine()
+            
+            if (ImGui.Button("Remove Section##main_section_button")) then
+                gui.remove_section("another_section_hash")
+            end
+        end)
+    end
+end)
 ```
 
 ## gui.set_cursor_active

@@ -12,6 +12,14 @@ label: Crafting Workshop
     * Spawn Hostile
     * Spawn Invisible
     * Spawn As Bodyguard
+    * Health
+    * Armour
+    * Health Max
+    * Accuracy
+    * Seeing Range
+    * Hearing Range
+    * Shot Rate
+    * Ped Flags
     * Ped Weapons
     * Weapons Linst
     * Assign To Self/Other Player

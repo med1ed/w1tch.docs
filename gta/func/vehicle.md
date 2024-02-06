@@ -140,3 +140,74 @@ label: Vehicle
 `Use Case` Easily navigate and choose vehicles from organized class categories.
 ||| 
 
+## Los Santos Custom
+||| Upgrade Full
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Upgrade Perfomance
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| License Plate Text > Apply
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+
+### Mods Options
+||| Sort Mods By Name / Type
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Mods List
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+
+### Color Options
+||| Color List
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+
+## Vehicle Presets
+||| Preview Preset
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Spawn In
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Upgrade If Compatible
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Filter Compatible Vehicles
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Vehicle List 
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Save Vehicle
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+
+### XML Creations
+||| Open XML Creations Folder
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| Spawn In
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+||| XML Vehicle List
+`Description` was not documented.\
+`Use Case` was not documented.
+||| 
+
+

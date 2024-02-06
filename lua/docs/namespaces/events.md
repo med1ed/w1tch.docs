@@ -8,11 +8,7 @@ order: -2
 Event triggered when a player joins the lobby.
 
 ```lua
-events.register(
-    EventType.PlayerJoin, -- type
-    "main_playerJoin_handler", -- hash
-    function (player_id, player_name) -- func
-
+events.register(EventType.PlayerJoin, "main_playerJoin_handler", function (player_id, player_name) 
     -- Logging details
     log.info("---=== Player Connected ===---")
     log.info("PlayerID: " .. player_id)
@@ -26,10 +22,7 @@ end)
 Event triggered when a player leaves the lobby.
 
 ```lua
-events.register(EventType.PlayerLeave,  -- type
-    "main_playerLeave_handler",  -- hash
-    function (player_id, player_name) -- func
-    
+events.register(EventType.PlayerLeave, "main_playerLeave_handler", function (player_id, player_name) 
     -- Logging details
     log.info("---=== Player Left ===---")
     log.info("PlayerID: " .. player_id)
@@ -42,10 +35,7 @@ end)
 Event triggered when a chat message is received.
 
 ```lua
-events.register(EventType.ChatMessageReceived, -- type
-    "main_ChatMessageReceived_handler", -- hash
-    function (player_id, player_name, message) -- func
-
+events.register(EventType.ChatMessageReceived, "main_ChatMessageReceived_handler", function (player_id, player_name, message) 
     -- Logging details
     log.info("---=== Chat Message Received ===---")
     log.info("PlayerID: " .. player_id)
@@ -59,10 +49,7 @@ end)
 Event triggered when a scripted event is received.
 
 ```lua
-events.register(EventType.ScriptedEventReceived, -- type
-    "main_se_handler", -- hash
-    function(player_id, player_name, event_id, event_args) -- func
-
+events.register(EventType.ScriptedEventReceived, "main_se_handler", function(player_id, player_name, event_id, event_args)
     -- Logging event details
     log.warning("---=== Incoming event ===---")
     log.warning("Sender Name: " .. player_name)

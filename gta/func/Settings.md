@@ -12,13 +12,6 @@ label: Settings
 * **Active Panel**
     * Enable Panel Flipping
     * Screen Center/Edge
-* **Notifications Settings**
-    * Render Time
-    * Fading Time
-    * Frame Padding
-    * Text Padding
-    * Indicator Width
-    * Minimum Width
 * **Requiem Engine Info**
     * Show Overlay
     * Show FPS
@@ -26,6 +19,22 @@ label: Settings
     * Show Players
     * Show Game Version
     * Spoof Name (Streamer Mode)
+
+## Notifications
+* **Notifications Settings**
+    * Render Time
+    * Fading Time
+    * Frame Padding
+    * Text Padding
+    * Indicator Width
+    * Minimum Width
+* **Notifications Settings**
+    * R* Staff Warning [ Notify / Log ]
+    * Player Changed Name [ Notify / Log ]
+    * Player Join [ Notify / Log / Above Map ]
+    * Player Left [ Notify / Log / Above Map ]
+    * Transaction Rate Limit [ Notify / Log ]
+    * Transaction Failed [ Notify / Log ]
 
 ## Themes
 * Themes List
