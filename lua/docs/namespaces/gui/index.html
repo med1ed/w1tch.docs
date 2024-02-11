@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.760401743688">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.760952485219">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -33,12 +33,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../image/favicon.png" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.760401743688" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.760952485219" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.760401743688" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.760952485219" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.760401743688" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.760401743688" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.760952485219" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.760952485219" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -306,8 +306,31 @@ Removes ImGui DirectX layer already initialized.</p>
 </doc-anchor-target>
 <p>Creates a section in the menu.</p>
 <p><code v-pre>gui.add_section(string hash, string name, function fn)</code></p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-lua"><code v-pre class="language-lua">gui.add_section(&quot;section_hash&quot;, &quot;section_name&quot;)</code></pre>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="3,5"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    if (not gui.is_section_present(&quot;example_section_hash&quot;)) then
+        gui.add_section(&quot;example_section_hash&quot;, &quot;Example Section&quot;, function()   
+            ImGui.Text(&quot;:)&quot;)
+        end)
+    end
+end)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="guiis_section_present">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#guiis_section_present">#</doc-anchor-trigger>
+        <span>gui.is_section_present</span>
+    </h2>
+</doc-anchor-target>
+<p>Checks the existence of a section</p>
+<p><code v-pre>gui.is_section_present(string hash)</code></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="2"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    if (not gui.is_section_present(&quot;example_section_hash&quot;)) then
+        gui.add_section(&quot;example_section_hash&quot;, &quot;Example Section&quot;, function()   
+            ImGui.Text(&quot;:)&quot;)
+        end)
+    end
+end)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="guiremove_section">
     <h2>
@@ -317,8 +340,33 @@ Removes ImGui DirectX layer already initialized.</p>
 </doc-anchor-target>
 <p>Deletes an already created section.</p>
 <p><code v-pre>gui.remove_section(string hash)</code></p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-lua"><code v-pre class="language-lua">gui.remove_section(&quot;section_hash&quot;)</code></pre>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-lua" data-line="12,22"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
+    if (not gui.is_section_present(&quot;example_section_hash&quot;)) then
+        gui.add_section(&quot;example_section_hash&quot;, &quot;Example Section&quot;, function()   
+
+            if (ImGui.Button(&quot;Add Another Section##main_section_button&quot;)) then
+
+                if (not gui.is_section_present(&quot;another_section_hash&quot;)) then
+                    gui.add_section(&quot;another_section_hash&quot;, &quot;Another Section&quot;, function()   
+                        ImGui.Text(&quot;Hello from another section!&quot;)
+            
+                        if (ImGui.Button(&quot;Remove Section##another_section_button&quot;)) then
+                            gui.remove_section(&quot;another_section_hash&quot;)
+                        end
+                    end)
+                end
+
+            end
+
+            ImGui.SameLine()
+            
+            if (ImGui.Button(&quot;Remove Section##main_section_button&quot;)) then
+                gui.remove_section(&quot;another_section_hash&quot;)
+            end
+        end)
+    end
+end)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="guiset_cursor_active">
     <h2>
