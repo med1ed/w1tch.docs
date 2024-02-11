@@ -19,6 +19,11 @@ label: Settings
     * Show Players
     * Show Game Version
     * Spoof Name (Streamer Mode)
+* Controls Blacklist (While Menu Opened)
+*   Search Controls
+*   Show Only Active
+*   GUI List
+*   AIM List
 
 ## Notifications
 * **Notifications Settings**
