@@ -190,7 +190,6 @@ end)
 ```
 
 ## gui.clear_sections
-Enables or disables the mouse cursor.
 
 `gui.clear_sections()`\
 This function removes all sections from the script section.
