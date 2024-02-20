@@ -5,9 +5,11 @@ label: Self
 
 ### No Clip Settings
 ||| No Clip
+`Type` [!button size="xs" variant="light" icon="checkbox" iconAlign="right" text="Checkbox"]\
 `Description` Gain the ability to move through solid objects, walls, and terrain effortlessly.
 |||
 ||| No Clip Speed
+`Type` [!button size="xs" variant="light" icon="sliders" iconAlign="right" text="Slider"]\
 `Description` Allows users to customize movement speed while utilizing "No Clip" for rapid exploration.
 |||
 
@@ -119,6 +121,7 @@ label: Self
 `Use Case` Ensure a well-stocked arsenal.
 |||
 ||| Suicide
+`Type` [!button size="xs" variant="light" text="Button"]\
 `Description` Trigger the player character's immediate demise.\
 `Use Case` Quick exit from challenging situations or respawning at a preferred location.
 |||

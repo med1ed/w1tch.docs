@@ -246,226 +246,843 @@ label: Online
 `Use Case` Facilitate effective communication and collaboration based on language preferences.
 ||| 
 
-!!!warning
-The rest has not yet been done!
-!!!
-* **Common Options**
-    * Spectate Player
-    * Ignore Network Events
-    * Ignore Explosions Events
-    * Ignore Clone Crates
-    * Ignore Clone Sync
-* **Remote Options**
-    * Kick/Crash Options
-        * AIO Crash
-        * AIO Kick
-    * Toxic Options
-        * Kill Player
-        * Kill Loop
-        * Explode Player
-        * Explosion Loop
-        * Ragdoll Player
-        * Ragdoll Loop
-        * CEO Kick
-        * Rotate Cam Loop
-        * Send To Mission
-        * Freeze Loop
-        * Trigger MC Raid
-        * Kick From Interior
-        * Trigger Bunker Raid
-        * Transaction Error
-    * Misc Options
-        * Give Health
-        * Give Armor
-        * Semi Godmode
-        * Off The Radar
-        * Clone Appearance
-        * Clone Outfit
-        * Join CEO/MC
-        * Enter Inerior
-    * Vehicle Options
-        * Vehicle Kick
-        * Break Engine
-        * Boost It
-        * Stop It
-        * Unlock Doors
-        * Lock Doors
-        * Upgrade
-        * Downgrade
-        * Close Doors
-        * Open Doors
-        * Break Doors
-        * Break Windows
-        * Tint 'Em Up
-        * Burst Wheels
-        * Rotate
-        * Vehicle Flight Simulator
-        * Auto Repair Vehicle
-    * Teleport Options
-        * Teleport
-        * Teleport Into Vehicle
-        * TP To Me (In Vehicle)
-        * TP To Apartment
-        * TP To Warehouse
-        * TP To Interior
-        * TP To Activity
-    * Wanted Level Options
-        * Never Wanted 
-        * Clear Wanted Level
-        * Set Wanted Level
-    * Bounty Options 
-        * Set Bounty Anonymously 
-        * Set Bounty
-    * Weapons Options
-        * Give All Weapons
-        * Remove All Weapons
-        * Give Ammo
-    * Script Options
-        * Script List
-        * Start Script
+#### Common Options
+||| Spectate Player
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ignore Network Events
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ignore Explosions Events
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ignore Clone Crates
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ignore Clone Sync
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Kick/Crash Options
+||| AIO Crash
+`Description` undescribed\
+`Use Case` undescribed
+|||
+||| AIO Kick
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Toxic Options
+|||Kill Player
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Kill Loop
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Explode Player
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Explosion Loop
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ragdoll Player
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ragdoll Loop
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||CEO Kick
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Rotate Cam Loop
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Send To Mission
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Freeze Loop
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Trigger MC Raid
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Kick From Interior
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Trigger Bunker Raid
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Transaction Error
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Misc Options
+|||Give Health
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Give Armor
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Semi Godmode
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Off The Radar
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Clone Appearance
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Clone Outfit
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Join CEO/MC
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Enter Inerior
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Vehicle Options
+|||Vehicle Kick
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Break Engine
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Boost It
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Stop It
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Unlock Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Lock Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Upgrade
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Downgrade
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Close Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Open Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Break Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Break Windows
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Tint 'Em Up
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Burst Wheels
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Rotate
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Vehicle Flight Simulator
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Auto Repair Vehicle
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Teleport Options
+|||Teleport
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Teleport Into Vehicle
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Me (In Vehicle)
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Apartment
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Warehouse
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Interior
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Activity
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Wanted Level Options
+|||Never Wanted 
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Clear Wanted Level
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Set Wanted Level
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Bounty Options 
+|||Set Bounty Anonymously 
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Set Bounty
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Weapons Options
+|||Give All Weapons
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Remove All Weapons
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Give Ammo
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Remote Options > Script Options
+|||Script List
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Start Script
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
 ## All Players
-* **Toxic Options**
-    * Explode Player
-    * Ragdoll Player
-    * Send To Mission
-    * Trigger MC Raid
-    * Kick From Interior
-    * Trigger Bunker Raid
-* **Misc Options**
-    * Give Health
-    * Give Armor
-    * Semi Godmode
-    * Reveal OTR Players
-* **Vehicle Options**
-    * Vehicle Kick
-    * Break Engine
-    * Boost It
-    * Stop It
-    * Unlock Doors
-    * Lock Doors
-    * Upgrade
-    * Downgrade
-    * Close Doors
-    * Open Doors
-    * Break Doors
-    * Break Windows
-    * Tint 'Em Up
-    * Burst Wheels
-    * Rotate
-    * Vehicle Flight Simulator
-    * Auto Repair Vehicle
-* **Teleport Options**
-    * TP To Me (In Vehicle)
-    * TP To Apartment
-    * TP To Warehouse
-    * TP To Interior
-    * TP To Activity
-* **Wanted Level Options**
-    * Never Wanted 
-    * Clear Wanted Level
-    * Set To All
-* **Bounty Options** 
-    * Set Bounty Anonymously 
-    * Set To All
-* **Weapons Options**
-    * Give All Weapons
-    * Remove All Weapons
-    * Give Ammo
+#### Toxic Options
+|||Explode Player
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ragdoll Player
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Send To Mission
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Trigger MC Raid
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Kick From Interior
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Trigger Bunker Raid
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Misc Options
+|||Give Health
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Give Armor
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Semi Godmode
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Reveal OTR Players
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Vehicle Options
+|||Vehicle Kick
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Break Engine
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Boost It
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Stop It
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Unlock Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Lock Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Upgrade
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Downgrade
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Close Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Open Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Break Doors
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Break Windows
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Tint 'Em Up
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Burst Wheels
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Rotate
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Vehicle Flight Simulator
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Auto Repair Vehicle
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Teleport Options
+|||TP To Me (In Vehicle)
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Apartment
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Warehouse
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Interior
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||TP To Activity
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Wanted Level Options
+|||Never Wanted 
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Clear Wanted Level
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Set To All
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Bounty Options
+|||Set Bounty Anonymously 
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Set To All
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Weapons Options
+|||Give All Weapons
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Remove All Weapons
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Give Ammo 
+`Description` undescribed\
+`Use Case` undescribed
+|||
 
 ## REProtex Options
+#### Rockstar Events
 
-* **Rockstar Events**
-    * Toggle Rockstar Events On/Off
-    * Clear Task
-    * Play Sound
-    * Script World State
-    * Explosion
-    * Request Ragdoll
-    * Entity State Change
-    * Give Control
-    * Remove All Weapons
-    * Weapon Damage
-    * Increment Stat
-    * Remove Weapon
-    * Kick Votes
-    * Request Control
-* **Script Events**
-    * Toggle Scripted Events On/Off
-    * Bounty
-    * Send To Cutscene
-    * Teleport To Warehouse
-    * CEO Money
-    * Send To Location
-    * Start Activity
-    * Fake Deposit
-    * Sound Spam
-    * Send SMS
-    * Force Mission
-    * Personal Vehicle Destroy
-    * Spectate
-    * Force Teleport
-    * Remove Off Radar
-    * Vehicle Kick
-    * GTA Banner
-    * Rotate Cam
-    * Wanted Level
-    * MC Teleport
-* **Other REProtex Options**
-    * Block RID Joining
-    * Ignore Pickups
-    * R* Staff Check
-* **Debug Options**
-    * Enable Script Event Logging
+|||Toggle Rockstar Events On/Off
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Clear Task
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Play Sound
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Script World State
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Explosion
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Request Ragdoll
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Entity State Change
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Give Control
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Remove All Weapons
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Weapon Damage
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Increment Stat
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Remove Weapon
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Kick Votes
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Request Control
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Script Events
+|||Toggle Scripted Events On/Off
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Bounty
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Send To Cutscene
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Teleport To Warehouse
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||CEO Money
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Send To Location
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Start Activity
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Fake Deposit
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Sound Spam
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Send SMS
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Force Mission
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Personal Vehicle Destroy
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Spectate
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Force Teleport
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Remove Off Radar
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Vehicle Kick
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||GTA Banner
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Rotate Cam
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Wanted Level
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||MC Teleport
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Other REProtex Options
+|||Block RID Joining
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Ignore Pickups
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||R* Staff Check
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Debug Options
+|||Enable Script Event Logging
+`Description` undescribed\
+`Use Case` undescribed
+|||
 
 ## ESP Options
-* **Targets**
-    * Show Players 
-    * Show Peds
-* **Parameters**
-    * Show Skeleton
-    * Show Godmode
-    * Show Name
-    * Show Health
-    * Show Distance
-    * Show Armor
-* **Miscellaneous**
-    * Global Render Distance Min/Max
-    * Skeleton Render Distance Min/Max
-    * ESP Colors
+#### Targets
+|||Show Players 
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Show Peds
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Parameters
+|||Show Skeleton
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Show Godmode
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Show Name
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Show Health
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Show Distance
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Show Armor
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Miscellaneous
+|||Global Render Distance Min/Max
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Skeleton Render Distance Min/Max
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||ESP Colors
+`Description` undescribed\
+`Use Case` undescribed
+|||
 
 ## Spoofer Options
-* **Soon....**
+!!!warning
+These options cannot be saved in the config! and some of them are enabled by default.
+!!!
+#### Spoofer Options
+|||Spoof Rank
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Spoof K/D Ratio
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Spoof Job Points
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Spoof Player Model
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Spoof BadSport
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Spoof Blip Type
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Other Settings
+|||Spoof God Mode
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Spoof Spectator 
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Hide From Player List
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Session Host [ Spoof Token ]
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Crew Parameters
+|||Spoof Crew > Crew Tag
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Is Rockstar Crew
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Square Crew Tag
+`Description` undescribed\
+`Use Case` undescribed
+|||
+
+#### Session Parameters (Only for Host!)
+|||Region
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Language
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Player Count
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Badsport Status
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Badsport
+`Description` undescribed\
+`Use Case` undescribed
+|||
 
 ## Personal Vehicle 
-* **Personal Vehicle**
-    * TP To Personal Vehicle 
-    * Get Personal Vehicle
-    * Fix All Personal Vehicles
-* **Personal Vehicle List**
+#### Personal Vehicle
+|||TP To Personal Vehicle 
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Get Personal Vehicle
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Fix All Personal Vehicles
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Personal Vehicle List
+`Description` undescribed\
+`Use Case` undescribed
+|||
 
 ## Player Manager
-* **Soon....**
+#### * Soon....
 
 ## Stats Options
-* **Regular**
-    * Stat Type -> Int, Bool, Float, Date and String
-    * Stat
-    * Value
-    * Apply
-    * Read
-    * Read Loop
+#### Regular
+|||Stat Type -> Int, Bool, Float, Date and String
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Stat
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Value
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Apply
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Read
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Read Loop
+`Description` undescribed\
+`Use Case` undescribed
+|||
 
-* **Packed**
-    * Stat Type -> Int, Bool and Import
-    * Stat
-    * Value
-    * Apply
-    * Read
-    * Read Loop
+#### Packed
+|||Stat Type -> Int, Bool and Import
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Stat
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Value
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Apply
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Read
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Read Loop
+`Description` undescribed\
+`Use Case` undescribed
+|||
 
 ## Other Options
-* Disable Phone
-* No Idle Kick
-* Off Radar
-* Skip Cutscene
-* Passive Mode
+|||Disable Phone
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||No Idle Kick
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Off Radar
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Skip Cutscene
+`Description` undescribed\
+`Use Case` undescribed
+|||
+|||Passive Mode
+`Description` undescribed\
+`Use Case` undescribed
+|||

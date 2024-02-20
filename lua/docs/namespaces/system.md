@@ -21,8 +21,12 @@ Example:
 log.info("Your user group: " .. system.get_user_group())
 ```
 
+
 ## system.script_reload
 `system.script_reload()`
+!!!warning
+Tempory disabled
+!!!
 
 Reload current Lua script.
 
@@ -32,6 +36,9 @@ system.script_reload()
 
 ## system.script_unload
 `system.script_unload()`
+!!!warning
+Tempory disabled
+!!!
 
 Unload current Lua script.
 

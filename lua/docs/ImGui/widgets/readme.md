@@ -1057,7 +1057,7 @@ gui.add_dx_layer("ImGui_DX_Layer", function()
             value = _value
         end
 
-        local _value, _IsCliced = ImGui.InputFloat2("Input 2", value, "Value: %.3f", ImGuiInputTextFlags.ReadOnly)
+        local _value, _IsCliced = ImGui.InputFloat("Input 2", value, "Value: %.3f", ImGuiInputTextFlags.ReadOnly)
         if (_IsCliced) then
             value = _value
         end
