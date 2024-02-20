@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761780855901">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761781318827">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -33,12 +33,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../image/favicon.png" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.761780855901" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.761781318827" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.761780855901" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.761781318827" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.761780855901" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.761780855901" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.761781318827" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.761781318827" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -299,8 +299,8 @@ end)</code></pre>
         <span>gui.remove_dx_layer</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.remove_dx_layer(string hash)</code><br />
-This function removes a rendering layer previously added by <code v-pre>add_dx_layer</code>.</p>
+<p>This function removes a rendering layer previously added by <code v-pre>add_dx_layer</code>.</p>
+<p><code v-pre>gui.remove_dx_layer(string hash)</code></p>
 <p><code v-pre>hash</code> The unique identifier of the rendering layer to be removed.
 Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -312,8 +312,8 @@ Example:</p>
         <span>gui.add_root</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.add_root(function fn)</code><br />
-This function adds a root section for the script with a user-defined function in the Lua Manager section.</p>
+<p>This function adds a root section for the script with a user-defined function in the Lua Manager section.</p>
+<p><code v-pre>gui.add_root(function fn)</code></p>
 <p><code v-pre>fn</code> The function to be associated with the root section.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -325,8 +325,8 @@ This function adds a root section for the script with a user-defined function in
         <span>gui.add_section</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.add_section(string parent, string hash, string name, function fn)</code><br />
-Adds a subsection to the root section of the script.</p>
+<p>Adds a subsection to the root section of the script.</p>
+<p><code v-pre>gui.add_section(string parent, string hash, string name, function fn)</code></p>
 <p><code v-pre>parent</code> The unique identifier of the parent section.<br />
 <code v-pre>hash</code> The unique identifier for the subsection.<br />
 <code v-pre>name</code> The name of the subsection.<br />
@@ -370,9 +370,9 @@ end)</code></pre>
         <span>gui.is_section_present</span>
     </h2>
 </doc-anchor-target>
+<p>This function checks if a section added from the script exists.</p>
 <p><code v-pre>gui.is_section_present(string hash)</code><br />
-This function checks if a section added from the script exists.</p>
-<p><code v-pre>hash</code> The unique identifier of the section.</p>
+<code v-pre>hash</code> The unique identifier of the section.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-lua" data-line="2"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
     if (not gui.is_section_present(&quot;example_section_hash&quot;)) then
@@ -388,9 +388,9 @@ end)</code></pre>
         <span>gui.remove_section</span>
     </h2>
 </doc-anchor-target>
+<p>This function removes a section from the script section if it exists.</p>
 <p><code v-pre>gui.remove_section(string hash)</code><br />
-This function removes a section from the script section if it exists.</p>
-<p><code v-pre>hash</code> The unique identifier of the section to be removed.</p>
+<code v-pre>hash</code> The unique identifier of the section to be removed.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-lua" data-line="12,22"><code v-pre class="language-lua">gui.add_dx_layer(&quot;ImGui_DX_Layer&quot;, function()
     if (not gui.is_section_present(&quot;example_section_hash&quot;)) then
@@ -425,9 +425,8 @@ end)</code></pre>
         <span>gui.clear_sections</span>
     </h2>
 </doc-anchor-target>
-<p>Enables or disables the mouse cursor.</p>
-<p><code v-pre>gui.clear_sections()</code><br />
-This function removes all sections from the script section.</p>
+<p>This function removes all sections from the script section.</p>
+<p><code v-pre>gui.clear_sections()</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.clear_sections()</code></pre>
 </doc-codeblock></div>
@@ -437,9 +436,9 @@ This function removes all sections from the script section.</p>
         <span>gui.set_cursor_active</span>
     </h2>
 </doc-anchor-target>
+<p>This function sets the visibility of the cursor (show/hide).</p>
 <p><code v-pre>gui.set_cursor_active(bool state)</code><br />
-This function sets the visibility of the cursor (show/hide).</p>
-<p><code v-pre>state</code> The visibility state of the cursor.</p>
+<code v-pre>state</code> The visibility state of the cursor.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.set_cursor_active(true)
 -- or
@@ -451,8 +450,8 @@ gui.set_cursor_active(false)</code></pre>
         <span>gui.is_cursor_active</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.is_cursor_active()</code><br />
-Checks whether the mouse cursor is active or not. Returns <code v-pre>true</code> or <code v-pre>false</code>.</p>
+<p>Checks whether the mouse cursor is active or not. Returns <code v-pre>true</code> or <code v-pre>false</code>.</p>
+<p><code v-pre>gui.is_cursor_active()</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">local _IsActive = gui.is_cursor_active()
 log.info(tostring(_IsActive))</code></pre>
@@ -463,8 +462,8 @@ log.info(tostring(_IsActive))</code></pre>
         <span>gui.is_menu_open</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.is_menu_open()</code><br />
-Checks if the menu is active or not. Returns <code v-pre>true</code> or <code v-pre>false</code>.</p>
+<p>Checks if the menu is active or not. Returns <code v-pre>true</code> or <code v-pre>false</code>.</p>
+<p><code v-pre>gui.is_menu_open()</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">local _IsActive = gui.is_menu_open()
 log.info(tostring(_IsActive))</code></pre>
@@ -475,12 +474,8 @@ log.info(tostring(_IsActive))</code></pre>
         <span>gui.get_scale</span>
     </h2>
 </doc-anchor-target>
-<p><figure class="content-left">
-    <img src="https://i.imgur.com/IQa5IYn.png" alt="">
-    <figcaption class="caption caption-float"></figcaption>
-</figure>
-<code v-pre>gui.get_scale()</code><br />
-Finds out what scale is set in the menu. Returns a <code v-pre>float</code> value.</p>
+<p>Finds out what scale is set in the menu. Returns a <code v-pre>float</code> value.</p>
+<p><code v-pre>gui.get_scale()</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">local _scale = gui.get_scale()
 log.info(tostring(_scale))</code></pre>
@@ -491,13 +486,9 @@ log.info(tostring(_scale))</code></pre>
         <span>gui.elements.text_separator</span>
     </h2>
 </doc-anchor-target>
-<p><figure class="content-right">
-    <img src="https://i.imgur.com/Z6ZiBr4.png" alt="">
-    <figcaption class="caption caption-float"></figcaption>
-</figure>
-<code v-pre>gui.elements.text_separator(sting text)</code><br />
-Adds a text separator to your UI.</p>
-<p><code v-pre>text</code> Text to be displayed.</p>
+<p>Adds a text separator to your UI.</p>
+<p><code v-pre>gui.elements.text_separator(sting text)</code><br />
+<code v-pre>text</code> Text to be displayed.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.text_separator(&quot;Text Separator&quot;)</code></pre>
 </doc-codeblock></div>
@@ -507,16 +498,12 @@ Adds a text separator to your UI.</p>
         <span>gui.elements.button</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.elements.button(string text, ImVec2 size_arg, float speed = 5.f)</code><br />
-<figure class="content-left">
-    <img src="https://i.imgur.com/vSZV348.png" alt="">
-    <figcaption class="caption caption-float"></figcaption>
-</figure>
-<code v-pre>text</code> The text label of the button.<br />
-<code v-pre>size_x</code> The width of the button (optional).
-<code v-pre>size_y</code> The height of the button (optional).
-<code v-pre>speed</code> The speed at which the button will light up when you put the mouse cursor over it.</p>
 <p>Adds a button to your UI.</p>
+<p><code v-pre>gui.elements.button(string text, ImVec2 size_arg, float speed = 5.f)</code><br />
+<code v-pre>text</code> The text label of the button.<br />
+<code v-pre>size_x</code> The width of the button (optional).<br />
+<code v-pre>size_y</code> The height of the button (optional).<br />
+<code v-pre>speed</code> The speed at which the button will light up when you put the mouse cursor over it.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.button(&quot;Button Name&quot;, 130, 40, 5)</code></pre>
 </doc-codeblock></div>
@@ -526,9 +513,9 @@ Adds a text separator to your UI.</p>
         <span>gui.elements.checkbox</span>
     </h2>
 </doc-anchor-target>
+<p>This function creates a button style checkbox that the user can toggle.</p>
 <p><code v-pre>gui.elements.checkbox(string label, bool v, float size_x = 0.f, float size_y = 0.f)</code><br />
-This function creates a button style checkbox that the user can toggle.</p>
-<p><code v-pre>label</code> The label associated with the checkbox.<br />
+<code v-pre>label</code> The label associated with the checkbox.<br />
 <code v-pre>v</code> The initial checked state of the checkbox.<br />
 <code v-pre>size_x</code> The width of the checkbox (optional).<br />
 <code v-pre>size_y</code> The height of the checkbox (optional).</p>
@@ -542,14 +529,9 @@ _state = gui.elements.checkbox(&quot;Checkbox Name&quot;, _state, 160, 30)</code
         <span>gui.elements.collapsing_header</span>
     </h2>
 </doc-anchor-target>
-<p><figure class="content-right">
-    <img src="https://i.imgur.com/51mK1AK.png" alt="">
-    <figcaption class="caption caption-float"></figcaption>
-</figure>
-</p>
 <p>Adds a collapsible header to your UI.</p>
-<p><code v-pre>gui.elements.collapsing_header(string text, ImGuiTreeNodeFlags flags)</code></p>
-<p><code v-pre>text</code> Text to be displayed.<br />
+<p><code v-pre>gui.elements.collapsing_header(string text, ImGuiTreeNodeFlags flags)</code><br />
+<code v-pre>text</code> Text to be displayed.<br />
 <code v-pre>flags</code> Flags to customize the behavior and style of the header (optional). <a href="../../imgui/flags/imguitreenodeflags/">ImGuiTreeNodeFlags</a></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.collapsing_header(&quot;Header Name&quot;, ImGuiTreeNodeFlags.None)</code></pre>
@@ -560,14 +542,10 @@ _state = gui.elements.checkbox(&quot;Checkbox Name&quot;, _state, 160, 30)</code
         <span>gui.elements.begin_combo</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.elements.begin_combo(string text, string preview_value, ImGuiComboFlags flags = 0)</code>
-<figure class="content-right">
-    <img src="https://i.imgur.com/85HAcGv.png" alt="">
-    <figcaption class="caption caption-float"></figcaption>
-</figure>
-</p>
-<p><code v-pre>text</code> Text to be displayed.
-<code v-pre>preview_value</code> Displays the preview value
+<p>This function creates a combo box with given text and preview value.</p>
+<p><code v-pre>gui.elements.begin_combo(string text, string preview_value, ImGuiComboFlags flags = 0)</code><br />
+<code v-pre>text</code> Text to be displayed.<br />
+<code v-pre>preview_value</code> Displays the preview value.<br />
 <code v-pre>flags</code> Are responsible for configuring begin_combo. <a href="../../imgui/flags/imguicomboflags/">ImGuiComboFlags</a></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.begin_combo(&quot;Begin Combo&quot;, &quot;Preview Value&quot;, 0)</code></pre>
@@ -578,9 +556,9 @@ _state = gui.elements.checkbox(&quot;Checkbox Name&quot;, _state, 160, 30)</code
         <span>gui.elements.input_text</span>
     </h2>
 </doc-anchor-target>
+<p>This function creates a text input field with an optional hint.</p>
 <p><code v-pre>gui.elements.input_text(string_view label, string input_str, ImGuiInputTextFlags flag = ImGuiInputTextFlags_None)</code><br />
-This function creates a text input field with an optional hint.</p>
-<p><code v-pre>label</code> The label of the input field.<br />
+<code v-pre>label</code> The label of the input field.<br />
 <code v-pre>input_str</code> The initial input string.<br />
 <code v-pre>flag</code> Flags to customize the behavior and style of the input field (optional). <a href="../../imgui/flags/imguiinputtextflags/">ImGuiInputTextFlags</a></p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -593,9 +571,9 @@ _str = gui.elements.input_text(&quot;Input Text&quot;, _str, ImGuiInputTextFlags
         <span>gui.elements.input_text_with_hint</span>
     </h2>
 </doc-anchor-target>
+<p>This function creates a text input field with an optional hint and label.</p>
 <p><code v-pre>gui.elements.input_text_with_hint(string_view label, string_view hint, string input_str, int max_size = 256, ImGuiInputTextFlags flag = ImGuiInputTextFlags_None)</code><br />
-This function creates a text input field with an optional hint and label.</p>
-<p><code v-pre>label</code> The label of the input field.<br />
+<code v-pre>label</code> The label of the input field.<br />
 <code v-pre>hint</code> The hint displayed within the input field when it is empty.<br />
 <code v-pre>input_str</code> The initial input string.<br />
 <code v-pre>max_size</code> The maximum number of characters allowed (optional).<br />
@@ -610,9 +588,9 @@ _str = gui.elements.input_text_with_hint(&quot;Input Text&quot;, &quot;Input Hin
         <span>gui.elements.selectable</span>
     </h2>
 </doc-anchor-target>
+<p>This function creates an item that can be selected.</p>
 <p><code v-pre>gui.elements.selectable(string label, bool selected)</code><br />
-This function creates an item that can be selected.</p>
-<p><code v-pre>label</code> The label of the selectable item.<br />
+<code v-pre>label</code> The label of the selectable item.<br />
 <code v-pre>selected</code> The initial selected state of the item.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">local isSelected = true
@@ -624,9 +602,9 @@ gui.elements.selectable(&quot;Selectable&quot;, isSelected)</code></pre>
         <span>gui.elements.slider_float</span>
     </h2>
 </doc-anchor-target>
+<p>This function creates a slider to select an integer value within a specified range.</p>
 <p><code v-pre>gui.elements.slider_float(string label, float v, float v_min, float v_max)</code><br />
-This function creates a slider to select an integer value within a specified range.</p>
-<p><code v-pre>label</code> The label of the slider.<br />
+<code v-pre>label</code> The label of the slider.<br />
 <code v-pre>v</code> The initial value of the slider.<br />
 <code v-pre>v_min</code> The minimum value of the slider.<br />
 <code v-pre>v_max</code> The maximum value of the slider.</p>
@@ -640,9 +618,9 @@ _value = gui.elements.slider_float(&quot;Slider Float&quot;, _value, 0, 5)</code
         <span>gui.elements.slider_int</span>
     </h2>
 </doc-anchor-target>
+<p>This function creates a slider to select an integer value within a specified range.</p>
 <p><code v-pre>gui.elements.slider_int(string label, int v, int v_min, int v_max)</code><br />
-This function creates a slider to select an integer value within a specified range.</p>
-<p><code v-pre>label</code> The label of the slider.<br />
+<code v-pre>label</code> The label of the slider.<br />
 <code v-pre>v</code> The initial value of the slider.<br />
 <code v-pre>v_min</code> The minimum value of the slider.<br />
 <code v-pre>v_max</code> The maximum value of the slider.</p>
@@ -656,9 +634,9 @@ _value = gui.elements.slider_int(&quot;Slider Int&quot;, _value, 0, 10)</code></
         <span>gui.elements.sub_title</span>
     </h2>
 </doc-anchor-target>
+<p>This function draws a text used as a sub-title in the GUI.</p>
 <p><code v-pre>gui.elements.sub_title(string text)</code><br />
-This function draws a text used as a sub-title in the GUI.</p>
-<p><code v-pre>text</code> The text to be displayed as a sub-title.</p>
+<code v-pre>text</code> The text to be displayed as a sub-title.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">gui.elements.sub_title(&quot;Sub Title&quot;)</code></pre>
 </doc-codeblock></div>
@@ -668,8 +646,8 @@ This function draws a text used as a sub-title in the GUI.</p>
         <span>gui.themes.apply</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>gui.themes.apply(ImGuiStyle style)</code>
-To apply your theme</p>
+<p>To apply your theme</p>
+<p><code v-pre>gui.themes.apply(ImGuiStyle style)</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-lua"><code v-pre class="language-lua">local _style = gui.themes.get_current_style()
 
