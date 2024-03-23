@@ -24,7 +24,6 @@ Example: `C:\Requiem\WLauncher.exe` ![](https://i.imgur.com/l3RNG7j.png)
 
 ### Authorization denied: wrong username/password?
 Make sure that you have entered the correct username and password. If everything is correct, run WLauncher as admin. 
-
 -![](https://i.imgur.com/crVo2Rx.png)-
 
 
@@ -45,6 +44,10 @@ Set DirectX11 in the game.
 ### Mouse cursor stuck to the center of the screen.
 Change the input method in the game.
 ![](https://i.imgur.com/EQjjzI8.png)
+
+### Empty Vehicle/Ped/Object list
+Remove all files from `C:\ProgramData\Requiem\Data\Cache` and inject in **story** mode
+![](https://i.imgur.com/SwN0RMw.png)
 
 ## Hotkeys / Open Menu
 The menu is opened with the `F4` key, navigation only with the mouse. There are also a few more hotkeys in the basic settings: `F5` => Teleport To Waypoint, `F6` => Teleport To Object and `NUM/` => NoClip, and you can also change them in [Settings > Hotkeys](/gta/func/Settings.md). 

@@ -4,142 +4,119 @@ label: Self
 ---
 
 ### No Clip Settings
-||| No Clip
-`Type` [!button size="xs" variant="light" icon="checkbox" iconAlign="right" text="Checkbox"]\
-`Description` Gain the ability to move through solid objects, walls, and terrain effortlessly.
+||| [!badge  variant="contrast" icon="checkbox" text="No Clip"]
+`Description` Gain the ability to move through solid objects, walls, and terrain effortlessly.\
+`Hotkeys` **W** > Forward, **S** > Backward, **A** > Left, **D** > Right, **Space** > Up, **LCtrl** > Down
 |||
-||| No Clip Speed
-`Type` [!button size="xs" variant="light" icon="sliders" iconAlign="right" text="Slider"]\
+||| [!badge  variant="contrast" icon="sliders" text="No Clip Speed"]
 `Description` Allows users to customize movement speed while utilizing "No Clip" for rapid exploration.
 |||
 
 ### Invicibility Settings (Proofs)
-||| Enable All
-`Description` Activate invincibility across all specified categories simultaneously.\
-`Use Case` Provide comprehensive immunity to various threats for a god-like gaming experience.
+||| [!badge  variant="contrast" icon="checkbox" text="Enable All"]
+`Description` Activate invincibility across all specified categories simultaneously.
 |||
-||| Disable All
-`Description` Deactivate invincibility across all specified categories.\
-`Use Case` Restore normal vulnerability for increased challenge.
+||| [!badge  variant="contrast" icon="checkbox" text="Disable All"]
+`Description` Deactivate invincibility across all specified categories.
 |||
-||| Bullet
-`Description` Render the player impervious to bullet damage.\
-`Use Case` Withstand gunfire without health depletion.
+||| [!badge  variant="contrast" icon="checkbox" text="Bullet"]
+`Description` Render the player impervious to bullet damage.
 |||
-||| Collision
-`Description` Grant immunity to collisions with environmental objects.\
-`Use Case` Navigate through obstacles without incurring damage.
+||| [!badge  variant="contrast" icon="checkbox" text="Collision"]
+`Description` Grant immunity to collisions with environmental objects.
 |||
-||| Explosion
-`Description` Protect the player from explosive damage.\
-`Use Case` Survive explosions unscathed.
+||| [!badge  variant="contrast" icon="checkbox" text="Explosion"]
+`Description` Protect the player from explosive damage.
 |||
-||| Drown
-`Description` Make the player impervious to drowning.\
-`Use Case` Explore underwater environments without the risk of drowning.
+||| [!badge  variant="contrast" icon="checkbox" text="Drown"]
+`Description` Make the player impervious to drowning.
 |||
-||| Fire
-`Description` Provide resistance to fire damage.\
-`Use Case` Walk through flames without suffering harm.
+||| [!badge  variant="contrast" icon="checkbox" text="Fire"]
+`Description` Provide resistance to fire damage.
 |||
-||| Melee
-`Description` Immunize the player against melee attacks.\
-`Use Case` Engage in close combat without fear of injury.
+||| [!badge  variant="contrast" icon="checkbox" text="Melee"]
+`Description` Immunize the player against melee attacks.
 |||
-||| Steam
-`Description` Grant immunity to steam-related damage.\
-`Use Case` Traverse steam-filled areas without taking damage.
+||| [!badge  variant="contrast" icon="checkbox" text="Steam"]
+`Description` Grant immunity to steam-related damage.
 |||
-||| Water
-`Description` Make the player impervious to water-related damage.\
-`Use Case` Safely navigate bodies of water without harm.
+||| [!badge  variant="contrast" icon="checkbox" text="Water"]
+`Description` Make the player impervious to water-related damage.
 |||
 
 ### Main Player Options
-||| God Mode
-`Description` Enable invincibility for the main player character.\
-`Use Case` Immunity to all forms of damage for an unstoppable gameplay experience.
+||| [!badge  variant="contrast" icon="checkbox" text="God Mode"]
+`Description` Enable invincibility for the main player character.
 |||
-||| Super Run
-`Description` Activate a faster-than-normal running speed.\
-`Use Case` Swift and dynamic traversal across the game world.
+||| [!badge  variant="contrast" icon="checkbox" text="Super Run"]
+`Description` Activate a faster-than-normal running speed.
 |||
-||| Auto Clean
-`Description` Automatically clean the player character from dirt and blood.\
-`Use Case` Maintain a pristine appearance without manual intervention.
+||| [!badge  variant="contrast" icon="checkbox" text="Auto Clean"]
+`Description` Automatically clean the player character from dirt and blood.
 |||
-||| Invisibility
-`Description` Render the main player character invisible.\
-`Use Case` Stealthy maneuvers and covert gameplay.
+||| [!badge  variant="contrast" icon="checkbox" text="Invisibility"]
+`Description` Render the main player character invisible.
 |||
-||| Super Jump
-`Description` Enable an exceptionally high and powerful jump.\
-`Use Case` Reach elevated locations with ease.
+||| [!badge  variant="contrast" icon="checkbox" text="Super Jump"]
+`Description` Enable an exceptionally high and powerful jump.
 |||
-||| Mobile Radio
-`Description` Carry and use the radio while on the move.\
-`Use Case` Seamless access to in-game music or communication.
+||| [!badge  variant="contrast" icon="checkbox" text="Mobile Radio"]
+`Description` Carry and use the radio while on the move.
 |||
-||| No Ragdoll
-`Description` Prevent the main player character from going into a limp, ragdoll state.\
-`Use Case` Maintain control during intense situations.
+||| [!badge  variant="contrast" icon="checkbox" text="No Ragdoll"]
+`Description` Prevent the main player character from going into a limp, ragdoll state.
 |||
-||| Superman
+||| [!badge  variant="contrast" icon="checkbox" text="Superman"]
 `Description` Combine God Mode, Super Run, and Super Jump for a superhuman experience.\
-`Use Case` Unleash a combination of powerful abilities for an epic gameplay style.
+`Hotkeys` **W** > Decrease Altitude, **S** > Gain Altitude, **A** > Turn Left, **D** > Turn Right, **Space** > Up, **LShift** > Fly Forward (Speed Up), **LCtrl** > Slow Down
 |||
-||| Instant Respawn
-`Description` Skip the normal respawn time and instantly return to the action.\
-`Use Case` Minimize downtime after defeat.
+||| [!badge  variant="contrast" icon="checkbox" text="Instant Respawn"]
+`Description` Skip the normal respawn time and instantly return to the action.
 |||
-||| Infinite Stamina
-`Description` Remove stamina limitations for continuous physical activities.\
-`Use Case` Endless sprinting and other strenuous actions without fatigue.
+||| [!badge  variant="contrast" icon="checkbox" text="Infinite Stamina"]
+`Description` Remove stamina limitations for continuous physical activities.
 |||
-||| Ignore Water
-`Description` Move through water without hindrance or slowdown.\
-`Use Case` Seamless traversal across bodies of water.
+||| [!badge  variant="contrast" icon="checkbox" text="Ignore Water"]
+`Description` Move through water without hindrance or slowdown.
 |||
-||| Night Vision
-`Description` Enhance visibility in low-light conditions.\
-`Use Case` Navigate dark environments with clarity.
+||| [!badge  variant="contrast" icon="checkbox" text="Night Vision"]
+`Description` Enhance visibility in low-light conditions.
 |||
-||| Restore Health
-`Description` Instantly replenish the main player character's health.\
-`Use Case` Recover from damage quickly.
+||| [!badge  variant="contrast" icon="checkbox" text="Infinite Oxygen"]
+`Description` undescribed.
 |||
-||| Restock Inventory
-`Description` Refill the main player character's inventory with essential items.\
-`Use Case` Ensure an ample supply of resources.
+||| [!badge  variant="contrast" icon="checkbox" text="No Collision"]
+`Description` undescribed.
 |||
-||| Clean Player
-`Description` Remove dirt and blood from the player character's appearance.\
-`Use Case` Maintain a clean and polished look.
+||| [!badge  variant="contrast" icon="checkbox" text="Thermal Vision"]
+`Description` undescribed.
 |||
-||| Restock Ammo
-`Description` Replenish ammunition for all equipped weapons.\
-`Use Case` Ensure a well-stocked arsenal.
+||| [!badge  variant="contrast" icon="button" text="Restore Health"]
+`Description` Instantly replenish the main player character's health.
 |||
-||| Suicide
-`Type` [!button size="xs" variant="light" text="Button"]\
-`Description` Trigger the player character's immediate demise.\
-`Use Case` Quick exit from challenging situations or respawning at a preferred location.
+||| [!badge  variant="contrast" icon="button" text="Restock Inventory"]
+`Description` Refill the main player character's inventory with essential items.
+|||
+||| [!badge  variant="contrast" icon="button" text="Clean Player"]
+`Description` Remove dirt and blood from the player character's appearance.
+|||
+||| [!badge  variant="contrast" icon="button" text="Restock Ammo"]
+`Description` Replenish ammunition for all equipped weapons.
+|||
+||| [!badge  variant="contrast" icon="button" text="Suicide"]
+`Description` Trigger the player character's immediate demise.
 |||
 
 ### Wanted Options
-||| Never Wanted 
-`Description` Maintain a perpetual state of zero wanted level.\
-`Use Case` Evade law enforcement without the risk of gaining a wanted level.
+||| [!badge  variant="contrast" icon="checkbox" text="Never Wanted"] 
+`Description` Maintain a perpetual state of zero wanted level.
 |||
-||| Clear Wanted Level
-`Description` Instantly eliminate the current wanted level.\
-`Use Case` Swiftly escape from pursuit and legal complications.
+||| [!badge  variant="contrast" icon="button" text="Clear Wanted Level"]
+`Description` Instantly eliminate the current wanted level.
 |||
-||| Force Wanted Level
-`Description` Manually set a desired wanted level.\
-`Use Case` Introduce law enforcement challenges at the player's discretion.
+||| [!badge  variant="contrast" icon="checkbox" text="Force Wanted Level"]
+`Description` Manually set a desired wanted level.
 |||
-||| Set Wanted Level
-`Description` Establish a specific wanted level for increased difficulty or chaos.\
-`Use Case` Customize the level of law enforcement aggression in the game world.
+||| [!badge  variant="contrast" icon="sliders" text="Wanted Level"]
+`Description` Establish a specific wanted level for increased difficulty or chaos.
 |||

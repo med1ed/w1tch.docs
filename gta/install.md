@@ -51,7 +51,7 @@ Start the game and wait for it to load into **story mode**.
 Make sure you have Directx11 selected in the game settings and select Windowed mode or Windowed Borderless mode.\
 -![](https://i.imgur.com/2M2qrmw.png)-
 Press the `Inject` button and wait for the menu to load.
-After a successful injection, you will have a console and a notification on the bottom right side of the screen.\
+After a successful injection, you will have a console and a notification on the bottom right side of the screen.
 !!!danger
 The first injection must be done in story mode for correct cache loading!
 !!!

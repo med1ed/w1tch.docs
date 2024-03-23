@@ -5,209 +5,169 @@ label: Vehicle
 
 ## Vehicle 
 ### Invicibility Settings (Proofs)
-||| Enable All
-`Description` Activate invincibility across all specified categories simultaneously for the main vehicle.\
-`Use Case` Comprehensive immunity to various threats for an indestructible vehicular experience.
+||| [!badge  variant="contrast" icon="checkbox" text="Enable All"]
+`Description` Activate invincibility across all specified categories simultaneously for the main vehicle.
 ||| 
-||| Disable All
-`Description` Deactivate invincibility across all specified categories for the main vehicle.\
-`Use Case` Restore normal vulnerability for increased vehicular challenge.
+||| [!badge  variant="contrast" icon="checkbox" text="Disable All"]
+`Description` Deactivate invincibility across all specified categories for the main vehicle.
 ||| 
-||| Bullet
-`Description` Render the main vehicle impervious to bullet damage.\
-`Use Case` Withstand gunfire without compromising the vehicle's integrity.
+||| [!badge  variant="contrast" icon="checkbox" text="Bullet"]
+`Description` Render the main vehicle impervious to bullet damage.
 ||| 
-||| Collision
-`Description` Grant the main vehicle immunity to collisions with environmental objects.\
-`Use Case` Navigate through obstacles without incurring damage to the vehicle.
+||| [!badge  variant="contrast" icon="checkbox" text="Collision"]
+`Description` Grant the main vehicle immunity to collisions with environmental objects.
 ||| 
-||| Explosion
-`Description` Protect the main vehicle from explosive damage.\
-`Use Case` Survive explosions and volatile situations unscathed.
+||| [!badge  variant="contrast" icon="checkbox" text="Explosion"]
+`Description` Protect the main vehicle from explosive damage.
 ||| 
-||| Fire
-`Description` Provide resistance to fire damage for the main vehicle.\
-`Use Case` Drive through flames without the risk of the vehicle catching fire.
+||| [!badge  variant="contrast" icon="checkbox" text="Fire"]
+`Description` Provide resistance to fire damage for the main vehicle.
 ||| 
-||| Melee
-`Description` Immunize the main vehicle against melee attacks.\
-`Use Case` Maintain the vehicle's structural integrity during close encounters.
+||| [!badge  variant="contrast" icon="checkbox" text="Melee"]
+`Description` Immunize the main vehicle against melee attacks.
 ||| 
-||| Steam
-`Description` Grant the main vehicle immunity to steam-related damage.\
-`Use Case` Traverse steam-filled areas without causing harm to the vehicle.
+||| [!badge  variant="contrast" icon="checkbox" text="Steam"]
+`Description` Grant the main vehicle immunity to steam-related damage.
 ||| 
-||| Water
-`Description` Make the main vehicle impervious to water-related damage.\
-`Use Case` Safely drive through bodies of water without affecting the vehicle.
+||| [!badge  variant="contrast" icon="checkbox" text="Water"]
+`Description` Make the main vehicle impervious to water-related damage.
 ||| 
 
 ### Main Vehicle Options
-||| God Mode
-`Description` Enable invincibility for the main vehicle.\
-`Use Case` Ensure the vehicle remains impervious to damage.
+||| [!badge  variant="contrast" icon="checkbox" text="God Mode"]
+`Description` Enable invincibility for the main vehicle.
 ||| 
-||| License Plate Madness
-`Description` Randomize the license plate on the main vehicle.\
-`Use Case` Add a touch of chaos and variety to the vehicle's appearance.
+||| [!badge  variant="contrast" icon="checkbox" text="License Plate Madness"]
+`Description` Randomize the license plate on the main vehicle.
 ||| 
-||| Super Brakes
-`Description` Apply instant and powerful brakes to the main vehicle.\
-`Use Case` Swiftly halt the vehicle's movement for precise control.
+||| [!badge  variant="contrast" icon="checkbox" text="Super Brakes"]
+`Description` Apply instant and powerful brakes to the main vehicle.
 ||| 
-||| Invisibility
-`Description` Render the main vehicle invisible.\
-`Use Case` Stealthy transportation without attracting attention.
+||| [!badge  variant="contrast" icon="checkbox" text="Invisibility"]
+`Description` Render the main vehicle invisible.
 ||| 
-||| License Plate Scrolling
-`Description` Activate a scrolling effect for the license plate on the main vehicle.\
-`Use Case` Dynamic and eye-catching display on the vehicle's rear.
+||| [!badge  variant="contrast" icon="checkbox" text="License Plate Scrolling"]
+`Description` Activate a scrolling effect for the license plate on the main vehicle.
 ||| 
-||| Horn Boost
-`Description` Boost the vehicle's speed by activating the horn.\
-`Use Case` Unconventional speed enhancement for thrilling rides.
+||| [!badge  variant="contrast" icon="checkbox" text="Horn Boost"]
+`Description` Boost the vehicle's speed by activating the horn.
+`Hotkeys` **E** > Boost
 ||| 
-||| Seatbelt
-`Description` Simulate the use of seatbelts in the main vehicle.\
-`Use Case` Enhance realism and safety during gameplay.
+||| [!badge  variant="contrast" icon="checkbox" text="Seatbelt"]
+`Description` Simulate the use of seatbelts in the main vehicle.
 ||| 
-||| License Plate Speedo
-`Description` Display the vehicle's speed on the license plate.\
-`Use Case` Real-time speed information for added immersion.
+||| [!badge  variant="contrast" icon="checkbox" text="License Plate Speedo"]
+`Description` Display the vehicle's speed on the license plate.
 ||| 
-||| Force Jump
-`Description` Propel the main vehicle into the air with a powerful jump.\
-`Use Case` Overcome obstacles or reach elevated areas effortlessly.
+||| [!badge  variant="contrast" icon="checkbox" text="Force Jump"]
+`Description` Propel the main vehicle into the air with a powerful jump.
+`Hotkeys` **Space** > Jump
 ||| 
-||| Drive On Air
-`Description` Allow the main vehicle to drive on air.\
-`Use Case` Traverse gaps or cliffs with aerial navigation.
+||| [!badge  variant="contrast" icon="checkbox" text="Drive On Air"]
+`Description` Allow the main vehicle to drive on air.
+`Hotkeys` **LShift** > Up, **LCtrl** > Down 
 ||| 
-||| Waterproof
-`Description` Make the main vehicle impervious to water-related damage.\
-`Use Case` Drive on water surfaces without consequences.
+||| [!badge  variant="contrast" icon="checkbox" text="Waterproof"]
+`Description` Make the main vehicle impervious to water-related damage.
 ||| 
-||| Auto Repair
-`Description` Automatically repair any damage to the main vehicle.\
-`Use Case` Maintain the vehicle in pristine condition.
+||| [!badge  variant="contrast" icon="checkbox" text="Auto Repair"]
+`Description` Automatically repair any damage to the main vehicle.
 ||| 
-||| Drive On Water
-`Description` Enable the main vehicle to drive on water surfaces.\
-`Use Case` Navigate bodies of water without sinking.
+||| [!badge  variant="contrast" icon="checkbox" text="Drive On Water"]
+`Description` Enable the main vehicle to drive on water surfaces.
 ||| 
-||| Stick To The Ground
-`Description` Ensure the main vehicle stays firmly attached to the ground.\
-`Use Case` Prevent unintended jumps or lifts.
+||| [!badge  variant="contrast" icon="checkbox" text="Stick To The Ground"]
+`Description` Ensure the main vehicle stays firmly attached to the ground.
 ||| 
-||| Auto Clean
-`Description` Automatically clean the main vehicle from dirt and damage.\
-`Use Case` Maintain a clean and polished appearance.
+||| [!badge  variant="contrast" icon="checkbox" text="Auto Clean"]
+`Description` Automatically clean the main vehicle from dirt and damage.
 ||| 
 
 ## Vehicle Spawn
 ### Vehicle Spawn Settings
-||| Preview Vehicle Settigns
-`Description` Preview and customize settings for the selected vehicle before spawning.\
-`Use Case` Fine-tune the appearance and specifications of the upcoming vehicle.
+||| [!badge  variant="contrast" icon="checkbox" text="Preview Vehicle"]
+`Description` Preview and customize settings for the selected vehicle before spawning.
 ||| 
-||| Spawn In Vehicle
-`Description` Spawn the player character inside the selected vehicle.\
-`Use Case` Quickly transition from on-foot exploration to vehicular travel.
+||| [!badge  variant="contrast" icon="checkbox" text="Spawn In Vehicle"]
+`Description` Spawn the player character inside the selected vehicle.
 ||| 
-||| Custom License Plate Text
-`Description` Set a custom text for the license plate of the spawned vehicle.\
-`Use Case` Personalize the appearance of the vehicle with a custom license plate.
+||| [!badge  variant="contrast" icon="note" text="Custom License Plate Text"]
+`Description` Set a custom text for the license plate of the spawned vehicle.
 ||| 
-||| Spawn Upgraded
-`Description` Spawn the vehicle with enhanced performance and features.\
-`Use Case` Start with a high-performance vehicle for a competitive advantage.
+||| [!badge  variant="contrast" icon="checkbox" text="Spawn Upgraded"]
+`Description` Spawn the vehicle with enhanced performance and features.
 ||| 
-||| Delete Last Spawned Vehicle
-`Description` Remove the last spawned vehicle from the game world.\
-`Use Case` Clear the environment of unwanted or redundant vehicles.
+||| [!badge  variant="contrast" icon="checkbox" text="Delete Last Spawned Vehicle"]
+`Description` Remove the last spawned vehicle from the game world.
 ||| 
-||| Preview Offset Settings
+||| [!badge  variant="contrast" icon="sliders" text="Preview Offset Settings"]
 `Description` Changed the position along the X, Y, Z axes for the car preview.
 |||
 
 ### Vehicle List
-||| Search Model
-`Description` Search for a specific vehicle model within the available list.\
-`Use Case` Quickly locate and spawn the desired vehicle model.
+||| [!badge  variant="contrast" icon="note" text="Search Model"]
+`Description` Search for a specific vehicle model within the available list.
 ||| 
-||| List of vehicles sorted by class
-`Description` Display a categorized list of vehicles based on their class.\
-`Use Case` Easily navigate and choose vehicles from organized class categories.
+||| [!badge  variant="contrast" icon="list-unordered" text="List of vehicles sorted by class"]
+`Description` Display a categorized list of vehicles based on their class.
 ||| 
 
 ## Los Santos Custom
-||| Upgrade Full
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="button" text="Upgrade Full"]
+`Description` undescribed.
 ||| 
-||| Upgrade Perfomance
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="button" text="Upgrade Perfomance"]
+`Description` undescribed.
 ||| 
-||| License Plate Text > Apply
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="note" text="License Plate Text"] > [!badge  variant="contrast" icon="button" text="Apply"]
+`Description` undescribed.
 ||| 
 
 ### Mods Options
-||| Sort Mods By Name / Type
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="single-select" text="Sort Mods By Name / Type"]
+`Description` undescribed.
 ||| 
-||| Mods List
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="list-unordered" text="Mods List"]
+`Description` undescribed.
 ||| 
 
 ### Color Options
-||| Color List
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="list-unordered" text="Color List"]
+`Description` undescribed.
 ||| 
 
 ## Vehicle Presets
-||| Preview Preset
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="checkbox" text="Preview Preset"]
+`Description` undescribed.
 ||| 
-||| Spawn In
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="checkbox" text="Spawn In"]
+`Description` undescribed.
 ||| 
-||| Upgrade If Compatible
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="checkbox" text="Upgrade If Compatible"]
+`Description` undescribed.
 ||| 
-||| Filter Compatible Vehicles
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="checkbox" text="Filter Compatible Vehicles"]
+`Description` undescribed.
 ||| 
-||| Vehicle List 
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="list-unordered" text="Vehicle List"]
+`Description` undescribed.
 ||| 
-||| Save Vehicle
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="note" text="Preset Name"]
+`Description` undescribed.
+|||
+||| [!badge  variant="contrast" icon="button" text="Save Vehicle"]
+`Description` undescribed.
 ||| 
 
 ### XML Creations
-||| Open XML Creations Folder
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="button" text="Open XML Creations Folder"]
+`Description` undescribed.
 ||| 
-||| Spawn In
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="checkbox" text="Spawn In"]
+`Description` undescribed.
 ||| 
-||| XML Vehicle List
-`Description` was not documented.\
-`Use Case` was not documented.
+||| [!badge  variant="contrast" icon="list-unordered" text="XML Vehicle List"]
+`Description` undescribed.
 ||| 
 
 

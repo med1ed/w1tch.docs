@@ -18,9 +18,9 @@ links:
 - text: VK Group
   link: https://vk.com/projectw1tch
 
-edit:
-  repo: "https://github.com/med1ed/w1tch.docs"
-  label: Found a mistake?
+# edit:
+#   repo: "https://github.com/med1ed/w1tch.docs"
+#   label: Found a mistake?
 
 footer:
   copyright: "&copy; Copyright {{ year }}. Project W1TCH. All rights reserved."
